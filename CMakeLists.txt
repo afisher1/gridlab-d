@@ -354,6 +354,7 @@ set(GLD_LIBS
         climate
         commercial
         connection
+	gldapi
         generators
         market
         mysql
