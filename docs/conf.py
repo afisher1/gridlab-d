@@ -19,7 +19,6 @@ from multiproject.utils import get_project
 sys.path.append(os.path.abspath("_ext"))
 
 extensions = [
-    "multiproject",
     "myst_parser",
     # For testing, conditionally disable the custom 404 pages on dev docs
     # "notfound.extension",
