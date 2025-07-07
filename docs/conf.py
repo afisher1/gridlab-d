@@ -88,7 +88,6 @@ extensions = [
     "sphinx.ext.napoleon",
     "sphinxcontrib.rsvgconverter",
     "IPython.sphinxext.ipython_console_highlighting",
-    "sphinxcontrib.redoc",
     "sphinxcontrib.mermaid",
 ]
 
