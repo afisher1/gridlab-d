@@ -12,7 +12,21 @@ This is a style guide for GridLAB-D™ Documentarians.
 
 # Build Instructions
 
-Instructions to build the documentation on the platform: readthedocs.
+Instructions to build the documentation on the platform: readthedocs. 
+
+Before you build, re-generate the navigation list/table of contents to tell `mkdocs.yml` what pages to include. Re-run `tree_to_toc.py` from the root folder. Copy and paste the output from `tree.txt` into the nav: section of mkdocs. Here is a sample:
+
+      nav:
+      - Home: index.md
+      - 0.0 GridLAB-D™:
+          - Contacts: docs\0.0 GridLAB-D™\Contacts_list.md
+          - Announcements: docs\0.0 GridLAB-D™\Version History.md
+          - projects: docs\0.0 GridLAB-D™\projects.md
+          - publications: docs\0.0 GridLAB-D™\publications.md
+          - Source: docs\0.0 GridLAB-D™\resources.md
+          - Style Guide: docs\0.0 GridLAB-D™\style-guide.md
+      - 1.0 Prospective Users:
+        - Key Attributes of GridLAB-D™: docs\1.0 Prospective Users\GridLAB-D_Key_Attributes.md
 
 ## Local Build
 
@@ -34,7 +48,8 @@ Build locally to see how your changes look on readthedocs before you commit.
 
 ## Build on readthedocs 
 
-To builds latest commit to be hosted publicly.
+To builds latest commit to be hosted publicly. Push your latest commit before building.
+
   * Navigate to: `https://app.readthedocs.org/projects/gridlab-d/`
 
 ![readthedocs](../../images/readthedocs.png)
