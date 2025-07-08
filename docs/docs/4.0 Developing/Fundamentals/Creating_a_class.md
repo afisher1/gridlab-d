@@ -1,4 +1,4 @@
-# Creating a class - GridLAB-D Wiki
+# Creating a class
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Creating_a_class
 ## Contents

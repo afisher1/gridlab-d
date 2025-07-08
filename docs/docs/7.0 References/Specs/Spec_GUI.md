@@ -1,4 +1,4 @@
-# Spec:GUI - GridLAB-D Wiki
+# Spec:GUI
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Spec:GUI
 # Spec:GUI

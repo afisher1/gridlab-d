@@ -1,4 +1,4 @@
-# Spec:Residential - GridLAB-D Wiki
+# Spec:Residential
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Spec:Residential
 **TODO**:  This document needs to be pruned down the specifications only. --[Dchassin] 20:34, 24 November 2011 (UTC) 

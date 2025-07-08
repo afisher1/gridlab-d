@@ -1,4 +1,4 @@
-# NEVLoads - GridLAB-D Wiki
+# NEVLoads
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/NEVLoads
 All loads will be described in terms of ZIP fractions and represented by voltage and current injections into the powerflow solution. The loads will be connected in a nodal manner so that any combination of wye and delta connected loads can be attached to a single bus. 

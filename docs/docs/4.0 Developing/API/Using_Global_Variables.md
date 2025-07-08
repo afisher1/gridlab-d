@@ -1,4 +1,4 @@
-# Using Global Variables - GridLAB-D Wiki
+# Using Global Variables
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Using_Global_Variables
 # Using Global Variables

@@ -1,4 +1,4 @@
-# Dev:filter - GridLAB-D Wiki
+# Dev:filter
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Dev:filter
 Dev:filter \- Filter implementation  PROPOSED FOR 4.0 

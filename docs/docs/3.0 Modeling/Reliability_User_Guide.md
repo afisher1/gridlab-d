@@ -1,4 +1,4 @@
-# Reliability User Guide - GridLAB-D Wiki
+# Reliability User Guide
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Reliability_User_Guide
 # Reliability User Guide

@@ -1,4 +1,4 @@
-# Industrial and agricultural loads - GridLAB-D Wiki
+# Industrial and agricultural loads
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Industrial_and_agricultural_loads
 ## Contents

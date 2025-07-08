@@ -1,4 +1,4 @@
-# Validate - GridLAB-D Wiki
+# Validate
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Clean
 # Validate

@@ -1,4 +1,4 @@
-# Pauseat - GridLAB-D Wiki
+# Pauseat
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Pauseat
 # Pauseat

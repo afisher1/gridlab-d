@@ -1,4 +1,4 @@
-# Modules - GridLAB-D Wiki
+# Modules
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Module_Guide
 

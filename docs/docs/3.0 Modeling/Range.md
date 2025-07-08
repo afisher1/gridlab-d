@@ -1,4 +1,4 @@
-# Range - GridLAB-D Wiki
+# Range
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Range
 **TODO**:  This page needs to be completed. 

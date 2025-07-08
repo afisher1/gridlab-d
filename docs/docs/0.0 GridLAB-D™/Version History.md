@@ -7,7 +7,7 @@ hidden: false
 metadata:
   robots: index
 ---
-# Announcements - GridLAB-D Wiki
+# Announcements
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Announcements
 

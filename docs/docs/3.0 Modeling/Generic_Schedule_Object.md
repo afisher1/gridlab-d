@@ -1,4 +1,4 @@
-# Generic Schedule Object - GridLAB-D Wiki
+# Generic Schedule Object
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Generic_Schedule_Object
 ## Contents

@@ -1,4 +1,4 @@
-# Event trace filter - GridLAB-D Wiki
+# Event trace filter
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Event_trace_filter
 ## Contents

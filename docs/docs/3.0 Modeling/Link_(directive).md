@@ -1,4 +1,4 @@
-# Link (directive) - GridLAB-D Wiki
+# Link (directive)
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Link_(directive)
 ## Contents

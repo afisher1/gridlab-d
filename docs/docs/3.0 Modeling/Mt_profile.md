@@ -1,4 +1,4 @@
-# Mt profile - GridLAB-D Wiki
+# Mt profile
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Mt_profile
 # Mt profile

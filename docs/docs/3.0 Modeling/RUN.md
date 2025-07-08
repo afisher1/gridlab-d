@@ -1,4 +1,4 @@
-# RUN - GridLAB-D Wiki
+# RUN
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/RUN
 RUN \- Global variable to get a unique run identifier 

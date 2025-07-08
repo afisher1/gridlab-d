@@ -1,4 +1,4 @@
-# Building and Releasing GridLAB-D - GridLAB-D Wiki
+# Building and Releasing GridLAB-D
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Building_and_Releasing_GridLAB-D
 The following is an enumeration of the build and release process for the Gridlab-D project. This outline will be flushed out at a later date, and is the basis for the automated script currently being developed. 

@@ -1,4 +1,4 @@
-# Property calculations - GridLAB-D Wiki
+# Property calculations
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Property_calculations
 # Property calculations

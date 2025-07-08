@@ -1,4 +1,4 @@
-# Power Flow User Guide - GridLAB-D Wiki
+# Power Flow User Guide
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Powerflow_User_Guide
 

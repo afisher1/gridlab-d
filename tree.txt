@@ -1,33 +1,15 @@
-site_name: GridLAB-D Documentation
-theme:
-  name: readthedocs
-  highlightjs: true
-plugins:
-  - search
-  - mkdocstrings:
-      handlers:
-        python:
-          options:
-            docstring_style: sphinx
-markdown_extensions:
-  - pymdownx.arithmatex:
-      generic: true
-
-extra_javascript:
-  - javascripts/mathjax.js
-  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
-  - markdown_include.include:
-      base_path: docs/
-  - admonition
-nav:
-  - Home: index.md
+- README: README.md
+- 0.0 GridLAB-D: TODO.md
+- custom_blocks:
+  - Contact: custom_blocks\Contact.md
+- docs:
   - 0.0 GridLAB-D™:
-      - Contacts: docs\0.0 GridLAB-D™\Contacts_list.md
-      - Announcements: docs\0.0 GridLAB-D™\Version History.md
-      - projects: docs\0.0 GridLAB-D™\projects.md
-      - publications: docs\0.0 GridLAB-D™\publications.md
-      - Source: docs\0.0 GridLAB-D™\resources.md
-      - Style Guide: docs\0.0 GridLAB-D™\style-guide.md
+    - Contacts: docs\0.0 GridLAB-D™\Contacts_list.md
+    - Announcements: docs\0.0 GridLAB-D™\Version History.md
+    - projects: docs\0.0 GridLAB-D™\projects.md
+    - publications: docs\0.0 GridLAB-D™\publications.md
+    - Source: docs\0.0 GridLAB-D™\resources.md
+    - GridLAB-D™: docs\0.0 GridLAB-D™\style-guide.md
   - 1.0 Prospective Users:
     - Key Attributes of GridLAB-D™: docs\1.0 Prospective Users\GridLAB-D_Key_Attributes.md
     - Capabilities: docs\1.0 Prospective Users\Technical_Overview.md
@@ -292,11 +274,19 @@ nav:
       - Spec:sync check: docs\7.0 References\Specs\Spec_sync_check.md
       - Spec:sync ctrl: docs\7.0 References\Specs\Spec_sync_ctrl.md
   - GridLAB-D Documentation Outline: docs\outline.md
-  - reference:
-    - ReadMeConfig:
-      - authentication: reference\ReadMeConfig\authentication.md
-      - getting-started: reference\ReadMeConfig\getting-started.md
-      - my-requests: reference\ReadMeConfig\my-requests.md
-
-
-      
+- images:
+- GridLAB-D: A Unique Tool to Design the Smart Grid: index.md
+- reference:
+  - ReadMeConfig:
+    - authentication: reference\ReadMeConfig\authentication.md
+    - getting-started: reference\ReadMeConfig\getting-started.md
+    - my-requests: reference\ReadMeConfig\my-requests.md
+- src:
+  - md_merger:
+    - sandbox:
+      - CMake Build: src\md_merger\sandbox\foo.md
+      - Eclipse: src\md_merger\sandbox\Eclipse.md
+      - Getting_Started_Using_GridLAB-D: src\md_merger\sandbox\Getting_Started_Using_GridLAB-D.md
+      - Introduction to Programming GridLAB-D: src\md_merger\sandbox\Introduction_to_Programming_GridLAB-D.md
+      - Mac OSX/Setup: src\md_merger\sandbox\Mac_OSX_Setup.md
+  - screen_scraper:

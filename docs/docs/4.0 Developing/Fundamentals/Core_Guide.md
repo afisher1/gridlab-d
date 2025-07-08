@@ -1,4 +1,4 @@
-# Core Guide - GridLAB-D Wiki
+# Core Guide
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Core_Guide
 The core implements all the major inter-module communication and coordination, as well as all the support functions required to operate GridLAB-D modules. 

@@ -1,4 +1,4 @@
-# Matlab link - GridLAB-D Wiki
+# Matlab link
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Matlab_link
 matlab link \- Matlab link target control file [Template:NEW30]

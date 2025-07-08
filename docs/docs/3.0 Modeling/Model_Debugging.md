@@ -1,4 +1,4 @@
-# Model Debugging - GridLAB-D Wiki
+# Model Debugging
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Model_Debugging
 ## Contents

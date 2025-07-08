@@ -1,4 +1,4 @@
-# Environment - GridLAB-D Wiki
+# Environment
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Environment
 # Environment

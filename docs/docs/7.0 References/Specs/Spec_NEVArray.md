@@ -1,4 +1,4 @@
-# Spec:NEVArray - GridLAB-D Wiki
+# Spec:NEVArray
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Spec:NEVArray
 SPECIFICATION Approval item: 

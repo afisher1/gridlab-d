@@ -1,4 +1,4 @@
-# Dev:Locking - GridLAB-D Wiki
+# Dev:Locking
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Dev:Locking
 TECHNICAL MANUAL Locking \- Memory locking 

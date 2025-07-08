@@ -1,4 +1,4 @@
-# Spec:sec control - GridLAB-D Wiki
+# Spec:sec control
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Spec:sec_control
 SPECIFICATION *** WORKING DRAFT ***   

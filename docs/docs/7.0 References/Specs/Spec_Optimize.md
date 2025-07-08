@@ -1,4 +1,4 @@
-# Spec:Optimize - GridLAB-D Wiki
+# Spec:Optimize
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Spec:Optimize
 ## Contents

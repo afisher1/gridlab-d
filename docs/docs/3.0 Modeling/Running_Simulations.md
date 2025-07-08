@@ -1,4 +1,4 @@
-# Running Simulations - GridLAB-D Wiki
+# Running Simulations
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Running_Simulations
 # Running Simulations

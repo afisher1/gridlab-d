@@ -1,4 +1,4 @@
-# Connection:native - GridLAB-D Wiki
+# Connection:native
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Connection:native
 PROPOSED FOR 3.1 

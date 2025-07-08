@@ -1,4 +1,4 @@
-# Dev:connection - GridLAB-D Wiki
+# Dev:connection
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Dev:connection
 PROPOSED FOR 3.1 

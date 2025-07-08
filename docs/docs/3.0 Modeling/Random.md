@@ -1,4 +1,4 @@
-# Randomvar - GridLAB-D Wiki
+# Randomvar
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Random
 

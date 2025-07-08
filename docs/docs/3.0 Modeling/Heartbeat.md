@@ -1,4 +1,4 @@
-# Heartbeat - GridLAB-D Wiki
+# Heartbeat
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Heartbeat
 Heartbeat \- Object heartbeat control [Template:NEW30]

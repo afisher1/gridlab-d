@@ -1,4 +1,4 @@
-# Tech:Commercial - GridLAB-D Wiki
+# Tech:Commercial
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Tech:Commercial
 

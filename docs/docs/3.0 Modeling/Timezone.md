@@ -1,4 +1,4 @@
-# Timezone - GridLAB-D Wiki
+# Timezone
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Timezone
 In GridLAB-D timezones follow the [Posix TZ standard](http://www.gnu.org/s/hello/manual/libc/TZ-Variable.html). Each timezone is described with a string using the form 

@@ -1,4 +1,4 @@
-# Dev:HowTo:Create a module - GridLAB-D Wiki
+# Dev:HowTo:Create a module
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Dev:HowTo:Create_a_module
 *** WORKING DRAFT ***   

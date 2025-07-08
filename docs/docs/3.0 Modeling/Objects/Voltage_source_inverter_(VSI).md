@@ -1,4 +1,4 @@
-# Voltage source inverter (VSI) - GridLAB-D Wiki
+# Voltage source inverter (VSI)
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Voltage_source_inverter_(VSI)
 

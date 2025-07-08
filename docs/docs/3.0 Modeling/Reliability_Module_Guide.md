@@ -1,4 +1,4 @@
-# Reliability Module Guide - GridLAB-D Wiki
+# Reliability Module Guide
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Reliability_Module_Guide
 # Reliability Module Guide

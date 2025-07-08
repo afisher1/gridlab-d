@@ -1,4 +1,4 @@
-# GLM Loading FAQ - GridLAB-D Wiki
+# GLM Loading FAQ
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/GLM_Loading_FAQ
 # Silent load failures

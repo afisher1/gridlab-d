@@ -1,4 +1,4 @@
-# Redirect - GridLAB-D Wiki
+# Redirect
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Redirect
 redirect \- Stream redirection command line options 

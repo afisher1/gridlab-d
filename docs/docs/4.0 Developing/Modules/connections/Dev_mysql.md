@@ -1,4 +1,4 @@
-# Dev:mysql - GridLAB-D Wiki
+# Dev:mysql
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Dev:mysql
 Dev:mysql \- MySQL Programmer's Manual 

@@ -1,4 +1,4 @@
-# Lights - GridLAB-D Wiki
+# Lights
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Lights
 # Lights

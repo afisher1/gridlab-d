@@ -1,4 +1,4 @@
-# Spec:Dishwasher - GridLAB-D Wiki
+# Spec:Dishwasher
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Spec:Dishwasher
 SPECIFICATION Approval item: 

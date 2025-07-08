@@ -1,4 +1,4 @@
-# Spec:ibr grayboxmodels - GridLAB-D Wiki
+# Spec:ibr grayboxmodels
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Spec:ibr_grayboxmodels
 ## Contents

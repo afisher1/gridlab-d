@@ -1,4 +1,4 @@
-# Recorder - GridLAB-D Wiki
+# Recorder
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Recorder
 recorder \- Record data to a stream 

@@ -1,4 +1,4 @@
-# Spec:Range - GridLAB-D Wiki
+# Spec:Range
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Spec:Range
 # Spec:Range

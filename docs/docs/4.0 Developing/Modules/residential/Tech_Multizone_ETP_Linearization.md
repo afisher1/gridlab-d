@@ -1,4 +1,4 @@
-# Tech:Multizone ETP Linearization - GridLAB-D Wiki
+# Tech:Multizone ETP Linearization
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Tech:Multizone_ETP_Linearization
 *** WORKING DRAFT ***   

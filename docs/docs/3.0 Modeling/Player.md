@@ -1,4 +1,4 @@
-# Player - GridLAB-D Wiki
+# Player
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Player
 # Player

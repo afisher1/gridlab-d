@@ -1,4 +1,4 @@
-# Python - GridLAB-D Wiki
+# Python
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Python
 python \- Execute a Python script on a [GridLAB-D] [server]

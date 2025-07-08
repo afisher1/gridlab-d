@@ -1,4 +1,4 @@
-# Spec:ibr blackboxmodels - GridLAB-D Wiki
+# Spec:ibr blackboxmodels
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Spec:ibr_blackboxmodels
 # Spec:ibr blackboxmodels

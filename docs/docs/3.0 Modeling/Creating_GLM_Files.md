@@ -1,4 +1,4 @@
-# Creating GLM Files - GridLAB-D Wiki
+# Creating GLM Files
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Creating_GLM_Files
 **TODO**:  Add [Hassayampa (Version 3.0)] directives 

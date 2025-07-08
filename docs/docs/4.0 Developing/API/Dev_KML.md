@@ -1,4 +1,4 @@
-# Dev:KML - GridLAB-D Wiki
+# Dev:KML
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Dev:KML
 ## Contents

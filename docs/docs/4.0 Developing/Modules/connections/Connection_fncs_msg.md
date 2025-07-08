@@ -1,4 +1,4 @@
-# Connection:fncs msg - GridLAB-D Wiki
+# Connection:fncs msg
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Connection:fncs_msg
 

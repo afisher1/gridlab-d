@@ -1,4 +1,4 @@
-# Spec:switch object - GridLAB-D Wiki
+# Spec:switch object
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Spec:switch_object
 # Spec:switch object

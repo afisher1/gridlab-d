@@ -1,4 +1,4 @@
-# Metrics collector - GridLAB-D Wiki
+# Metrics collector
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Metrics_collector
 # Metrics collector

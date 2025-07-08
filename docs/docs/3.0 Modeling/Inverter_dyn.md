@@ -1,4 +1,4 @@
-# Inverter dyn - GridLAB-D Wiki
+# Inverter dyn
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Inverter_dyn
 # Inverter dyn

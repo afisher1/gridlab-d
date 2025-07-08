@@ -1,4 +1,4 @@
-# Powerflow - GridLAB-D Wiki
+# Powerflow
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Powerflow
 ## Contents

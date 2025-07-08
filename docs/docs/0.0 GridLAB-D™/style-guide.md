@@ -6,7 +6,47 @@ hidden: false
 metadata:
   robots: index
 ---
-# GridLAB-D™
+# Style Guide
+
+This is a style guide for GridLAB-D™ Documentarians.
+
+# Build Instructions
+
+Instructions to build the documentation on the platform: readthedocs.
+
+## Local Build
+
+Build locally to see how your changes look on readthedocs before you commit.
+  * From the terminal: 
+
+        mkdocs serve
+
+    Sample output:
+
+        WARNING -  mkdocs_autorefs: docs\7.0 References\Specs\Spec_Subsecond.md: Could not find cross-reference target 'CONSTANTP'
+        WARNING -  mkdocs_autorefs: docs\7.0 References\Specs\Spec_sec_control.md: Could not find cross-reference target '3'
+        WARNING -  mkdocs_autorefs: docs\7.0 References\Specs\Spec_sec_control.md: Could not find cross-reference target '3'
+        INFO    -  Documentation built in 5.12 seconds
+        INFO    -  [16:04:01] Watching paths for changes: 'docs', 'mkdocs.yml'
+        INFO    -  [16:04:01] Serving on http://127.0.0.1:8000/
+
+  Click or copy/paste into browswer the local host link. Note that this will continually update every time you make a change. You may want to `CTL + C` to abort the auto-rebuild.
+
+## Build on readthedocs 
+
+To builds latest commit to be hosted publicly.
+  * Navigate to: `https://app.readthedocs.org/projects/gridlab-d/`
+
+![readthedocs](../../images/readthedocs.png)
+
+  * Click `docs`, then `Builds` and then click `Rebuild`:
+
+![build](../../images/build_docs.png)
+
+  * Once complete, click `View docs`.
+
+
+## GridLAB-D™
 
 Is trademarked. Refer to it always as GridLAB-D™. Do not abbreviate to GLD.
 
@@ -45,6 +85,14 @@ Looks overwhelming. Not the least of which because it's bad Latin. Instead, let'
 *"Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."*
 
 ![Here's an image](https://images.shoutwiki.com/gridlab-d/e/e6/Gdlogo.jpg)
+
+Another image (local) and resized
+
+<img   src=../../images/Gdlogo.jpg width="750">
+
+Not edited
+
+![logo](../../images/Gdlogo.jpg)
 
 *"Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."*
 
@@ -217,18 +265,6 @@ flowchart LR
 ![Dist syst switching capacitors.png](/images/Dist_syst_switching_capacitors.png)
 
 # Equations
-
-* MDX Style:
-
-<Latex>
-  {`$x^n + y^n = z^n + P_{ref}$`}
-</Latex>
-
-<Latex>
-  {`$x^n + y^n = z^n$`}
-</Latex>
-
-* Markdown Style:
 
 In-line equation: $x^n + y^n = z^n$
 

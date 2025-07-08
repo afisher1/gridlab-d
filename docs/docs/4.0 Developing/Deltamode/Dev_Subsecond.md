@@ -1,4 +1,4 @@
-# Dev:Subsecond - GridLAB-D Wiki
+# Dev:Subsecond
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Dev:Subsecond
 Approval item:  TECHNICAL MANUAL [Grizzly (Version 2.3)]

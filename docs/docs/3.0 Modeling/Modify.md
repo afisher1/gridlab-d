@@ -1,4 +1,4 @@
-# Modify - GridLAB-D Wiki
+# Modify
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Modify
 # Modify

@@ -1,4 +1,4 @@
-# Droop inverter - GridLAB-D Wiki
+# Droop inverter
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Droop_inverter
 

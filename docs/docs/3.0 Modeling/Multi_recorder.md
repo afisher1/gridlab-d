@@ -1,4 +1,4 @@
-# Multi recorder - GridLAB-D Wiki
+# Multi recorder
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Multi_recorder
 multi_recorder – Record properties from multiple objects 

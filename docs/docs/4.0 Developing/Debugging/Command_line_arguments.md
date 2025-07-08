@@ -1,4 +1,4 @@
-# Command options - GridLAB-D Wiki
+# Command options
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Command_line_arguments
 

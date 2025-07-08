@@ -1,4 +1,4 @@
-# CMake Build - GridLAB-D Wiki
+# CMake Build
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/CMake_Build
 

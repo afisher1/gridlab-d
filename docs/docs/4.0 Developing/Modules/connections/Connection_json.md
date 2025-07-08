@@ -1,4 +1,4 @@
-# Connection:json - GridLAB-D Wiki
+# Connection:json
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Connection:json
 Approval item: 

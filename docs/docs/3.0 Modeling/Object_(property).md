@@ -1,4 +1,4 @@
-# Object (property) - GridLAB-D Wiki
+# Object (property)
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Object_(property)
 object \- Object reference property type 

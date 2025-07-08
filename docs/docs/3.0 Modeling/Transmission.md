@@ -1,4 +1,4 @@
-# Transmission - GridLAB-D Wiki
+# Transmission
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Transmission
 ## Contents

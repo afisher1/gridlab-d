@@ -1,4 +1,4 @@
-# Dev:Microgrids - GridLAB-D Wiki
+# Dev:Microgrids
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Dev:Microgrids
 # Dev:Microgrids

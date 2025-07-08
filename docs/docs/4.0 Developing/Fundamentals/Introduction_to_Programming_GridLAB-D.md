@@ -1,4 +1,4 @@
-# Introduction to Programming GridLAB-D - GridLAB-D Wiki
+# Introduction to Programming GridLAB-D
 
 **TODO**: Rewrite to no longer use metronome example
 

@@ -1,4 +1,4 @@
-# Realtime metric - GridLAB-D Wiki
+# Realtime metric
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Realtime_metric
 ## Contents

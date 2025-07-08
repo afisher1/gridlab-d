@@ -1,4 +1,4 @@
-# Dev:notify - GridLAB-D Wiki
+# Dev:notify
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Dev:notify
 # Dev:notify

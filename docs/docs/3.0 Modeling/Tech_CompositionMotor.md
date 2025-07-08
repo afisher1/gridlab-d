@@ -1,4 +1,4 @@
-# Tech:CompositionMotor - GridLAB-D Wiki
+# Tech:CompositionMotor
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Tech:CompositionMotor
 ## Contents

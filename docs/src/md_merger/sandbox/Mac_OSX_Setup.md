@@ -1,4 +1,4 @@
-# Mac OSX/Setup - GridLAB-D Wiki
+# Mac OSX/Setup
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Mac_OSX/Setup
 

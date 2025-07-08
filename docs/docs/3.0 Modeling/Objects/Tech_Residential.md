@@ -1,4 +1,4 @@
-# Tech:Residential - GridLAB-D Wiki
+# Tech:Residential
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Tech:Residential
 # Tech:Residential

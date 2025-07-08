@@ -1,4 +1,4 @@
-# PQ CONSTANT mode diesel dg - GridLAB-D Wiki
+# PQ CONSTANT mode diesel dg
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/PQ_CONSTANT_mode_diesel_dg
 # PQ CONSTANT mode diesel dg

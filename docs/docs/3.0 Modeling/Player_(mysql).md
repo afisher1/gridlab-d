@@ -1,4 +1,4 @@
-# Player (mysql) - GridLAB-D Wiki
+# Player (mysql)
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Player_(mysql)
 player (mysql) \- MySQL player class [Template:NEW30]

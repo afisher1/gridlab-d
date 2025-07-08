@@ -1,4 +1,4 @@
-# Realtime server - GridLAB-D Wiki
+# Realtime server
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Realtime_server
 # Realtime server

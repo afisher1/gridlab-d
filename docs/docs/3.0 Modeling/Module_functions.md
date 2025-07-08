@@ -1,4 +1,4 @@
-# Module functions - GridLAB-D Wiki
+# Module functions
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Module_functions
 ## Contents

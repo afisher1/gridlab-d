@@ -1,4 +1,4 @@
-# Units - GridLAB-D Wiki
+# Units
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Units
 ## Contents

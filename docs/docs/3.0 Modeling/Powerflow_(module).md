@@ -1,4 +1,4 @@
-# Powerflow (module) - GridLAB-D Wiki
+# Powerflow (module)
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Powerflow_(module)
 # Powerflow (module)

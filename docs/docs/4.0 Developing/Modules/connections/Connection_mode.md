@@ -1,4 +1,4 @@
-# Connection:mode - GridLAB-D Wiki
+# Connection:mode
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Connection:mode
 PROPOSED FOR 3.1 

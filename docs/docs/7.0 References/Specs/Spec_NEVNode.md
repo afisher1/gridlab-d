@@ -1,4 +1,4 @@
-# Spec:NEVNode - GridLAB-D Wiki
+# Spec:NEVNode
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Spec:NEVNode
 SPECIFICATION Approval item: 

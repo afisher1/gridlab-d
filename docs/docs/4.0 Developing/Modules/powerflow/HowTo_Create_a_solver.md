@@ -1,4 +1,4 @@
-# HowTo:Create a solver - GridLAB-D Wiki
+# HowTo:Create a solver
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/HowTo:Create_a_solver
 [Template:NEW30]

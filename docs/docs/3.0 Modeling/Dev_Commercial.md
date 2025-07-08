@@ -1,4 +1,4 @@
-# Dev:Commercial - GridLAB-D Wiki
+# Dev:Commercial
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Dev:Commercial
 # Dev:Commercial

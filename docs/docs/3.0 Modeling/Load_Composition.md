@@ -1,4 +1,4 @@
-# Load Composition - GridLAB-D Wiki
+# Load Composition
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Load_Composition
 ## Contents

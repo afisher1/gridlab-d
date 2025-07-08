@@ -1,4 +1,4 @@
-# Spec:Initialization - GridLAB-D Wiki
+# Spec:Initialization
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Spec:Initialization
 # Spec:Initialization

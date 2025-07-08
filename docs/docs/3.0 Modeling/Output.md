@@ -1,4 +1,4 @@
-# Output - GridLAB-D Wiki
+# Output
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Output
 output \- Request download of the contents of an output file from a [GridLAB-D] [server]

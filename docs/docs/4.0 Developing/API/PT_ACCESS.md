@@ -1,4 +1,4 @@
-# PT ACCESS - GridLAB-D Wiki
+# PT ACCESS
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/PT_ACCESS
 PT_ACCESS \- Variable and property access control flags 

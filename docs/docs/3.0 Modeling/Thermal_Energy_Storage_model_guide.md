@@ -1,4 +1,4 @@
-# Thermal Energy Storage model guide - GridLAB-D Wiki
+# Thermal Energy Storage model guide
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Thermal_Energy_Storage_model_guide
 ## Contents

@@ -1,4 +1,4 @@
-# Spec:Multirun mode - GridLAB-D Wiki
+# Spec:Multirun mode
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Spec:Multirun_mode
 Approval item:  \--[Dchassin] 16:29, 9 October 2011 (UTC) 

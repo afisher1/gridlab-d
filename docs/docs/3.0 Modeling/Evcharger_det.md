@@ -1,4 +1,4 @@
-# Evcharger det - GridLAB-D Wiki
+# Evcharger det
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Evcharger_det
 # Evcharger det

@@ -1,4 +1,4 @@
-# Connection - GridLAB-D Wiki
+# Connection
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Connection
 PROPOSED FOR 3.1 

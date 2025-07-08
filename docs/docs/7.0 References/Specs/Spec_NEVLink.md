@@ -1,4 +1,4 @@
-# Spec:NEVLink - GridLAB-D Wiki
+# Spec:NEVLink
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Spec:NEVLink
 SPECIFICATION Approval item: 

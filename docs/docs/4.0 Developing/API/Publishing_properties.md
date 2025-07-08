@@ -1,4 +1,4 @@
-# Publishing properties - GridLAB-D Wiki
+# Publishing properties
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Publishing_properties
 ## Contents

@@ -1,4 +1,4 @@
-# Network Flow Guide - GridLAB-D Wiki
+# Network Flow Guide
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Network_Flow_Guide
 DEPRECATED 

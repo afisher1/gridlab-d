@@ -1,4 +1,4 @@
-# Module globals - GridLAB-D Wiki
+# Module globals
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Module_globals
 # Module globals

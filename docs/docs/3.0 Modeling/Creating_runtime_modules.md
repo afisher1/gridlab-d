@@ -1,4 +1,4 @@
-# Creating a module - GridLAB-D Wiki
+# Creating a module
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Creating_runtime_modules
 # Creating a module

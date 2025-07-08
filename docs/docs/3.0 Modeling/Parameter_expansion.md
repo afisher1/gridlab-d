@@ -1,4 +1,4 @@
-# Parameter expansion - GridLAB-D Wiki
+# Parameter expansion
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Parameter_expansion
 Parameter expansion \- Global and environment parameter expansion [Template:NEW30]

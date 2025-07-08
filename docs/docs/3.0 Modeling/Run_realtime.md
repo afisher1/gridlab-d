@@ -1,4 +1,4 @@
-# Run realtime - GridLAB-D Wiki
+# Run realtime
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Run_realtime
 ## Contents

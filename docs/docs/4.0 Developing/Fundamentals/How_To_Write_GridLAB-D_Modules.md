@@ -1,4 +1,4 @@
-# How To Write GridLAB-D Modules - GridLAB-D Wiki
+# How To Write GridLAB-D Modules
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/How_To_Write_GridLAB-D_Modules
 NOTE

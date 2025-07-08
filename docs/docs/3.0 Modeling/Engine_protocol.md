@@ -1,4 +1,4 @@
-# Engine protocol - GridLAB-D Wiki
+# Engine protocol
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Engine_protocol
 **_Proposed for review_**

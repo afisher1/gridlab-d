@@ -1,4 +1,4 @@
-# Connection:security - GridLAB-D Wiki
+# Connection:security
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Connection:security
 PROPOSED FOR 3.1 

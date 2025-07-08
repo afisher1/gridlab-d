@@ -1,4 +1,4 @@
-# Tech:DeltaSPIM - GridLAB-D Wiki
+# Tech:DeltaSPIM
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Tech:DeltaSPIM
 ## Contents
