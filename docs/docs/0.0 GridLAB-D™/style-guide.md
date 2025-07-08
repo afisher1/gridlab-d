@@ -35,7 +35,7 @@ Build locally to see how your changes look on readthedocs before you commit.
 
         mkdocs serve
 
-    Sample output:
+  Sample output:
 
         WARNING -  mkdocs_autorefs: docs\7.0 References\Specs\Spec_Subsecond.md: Could not find cross-reference target 'CONSTANTP'
         WARNING -  mkdocs_autorefs: docs\7.0 References\Specs\Spec_sec_control.md: Could not find cross-reference target '3'
@@ -48,7 +48,7 @@ Build locally to see how your changes look on readthedocs before you commit.
 
 ## Build on readthedocs 
 
-To builds latest commit to be hosted publicly. Push your latest commit before building.
+To build latest commit to be hosted publicly. Push your latest commit before building.
 
   * Navigate to: `https://app.readthedocs.org/projects/gridlab-d/`
 
@@ -60,6 +60,10 @@ To builds latest commit to be hosted publicly. Push your latest commit before bu
 
   * Once complete, click `View docs`.
 
+
+# Style Guide
+
+This begins the style guide for GridLAB-D™ Documentarians.
 
 ## GridLAB-D™
 
@@ -210,62 +214,6 @@ import numpy as np
 np.random()
 ```
 
-# Using MDX
-
-Click the "edit" view above to see how each feature is implemented.
-
-## Example with hidden answer (Accordian)
-
-Who can you reach out to with a question about GridLAB-D™?
-
-<Accordion title="Answer" icon="fa-info-circle">
-  If you have questions or need support please email the GridLAB-D™ team at [gridlabd@pnnl.gov](mailto:gridlabd@pnnl.gov).
-</Accordion>
-
-## Reusable content.
-
-Use " / " and then select *Reuse Content* and select *Contact* to insert the below text.
-
-<Contact />
-
-## Cards
-
-<Cards columns={4}>
-  <Card title="Home" href="https://gridlab-d.readme.io/#/" icon="fa-home" target="_blank">
-    GridLAB-D™: A Unique Tool to Design the Smart Grid
-  </Card>
-
-  <Card title="Getting Started" href="https://gridlab-d.readme.io/docs/getting-started#/" icon="fa-user">
-    Whether you're new to GridLAB-D™ or a seasoned developer, you're in the right place.
-  </Card>
-
-  <Card title="Walkthrough" href="https://gridlab-d.readme.io/docs/walkthrough#/" icon="fa-books">
-    Follow along with these useful examples.
-  </Card>
-
-  <Card title="Source Documentation" href="https://gridlab-d.readme.io/docs/house-e#/" icon="fa-brackets-curly">
-    GridLAB-D™ source documentation compiled from GitHub.
-  </Card>
-</Cards>
-
-For a list of available icons, visit [font-awesome](https://fontawesome.com/search?p=2\&o=r\&s=regular\&ip=classic).
-
-## In-Line Tabs
-
-<Tabs>
-  <Tab title="First Tab">
-    Welcome to the content that you can only see inside the first Tab.
-  </Tab>
-
-  <Tab title="Second Tab">
-    Here's content that's only inside the second Tab.
-  </Tab>
-
-  <Tab title="Third Tab">
-    Here's content that's only inside the third Tab.
-  </Tab>
-</Tabs>
-
 ## Mermaid Diagram
 
 ```mermaid
@@ -277,7 +225,7 @@ flowchart LR
 
 # Local Image Reference
 
-![Dist syst switching capacitors.png](/images/Dist_syst_switching_capacitors.png)
+![Dist syst switching capacitors.png](../../images/Dist_syst_switching_capacitors.png)
 
 # Equations
 
