@@ -1,4 +1,4 @@
-# Dev:Import/export - GridLAB-D Wiki
+# Dev:Import/export
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Dev:Import/export
 ## Contents

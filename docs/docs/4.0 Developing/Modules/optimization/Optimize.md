@@ -1,4 +1,4 @@
-# Optimize - GridLAB-D Wiki
+# Optimize
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Optimize
 # Optimize

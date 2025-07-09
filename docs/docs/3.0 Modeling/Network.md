@@ -1,4 +1,4 @@
-# Network - GridLAB-D Wiki
+# Network
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Network
 # Network

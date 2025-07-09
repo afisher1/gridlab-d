@@ -1,4 +1,4 @@
-# Residential (module) - GridLAB-D Wiki
+# Residential (module)
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Residential_(module)
 Simulates single-family homes with various appliances, electronics, and occupants. 

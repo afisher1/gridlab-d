@@ -1,4 +1,4 @@
-# Residential module user's guide - GridLAB-D Wiki
+# Residential module user's guide
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Residential_User_Guide
 

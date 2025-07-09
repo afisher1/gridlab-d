@@ -1,4 +1,4 @@
-# Connection:transport - GridLAB-D Wiki
+# Connection:transport
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Connection:transport
 PROPOSED FOR 3.1 

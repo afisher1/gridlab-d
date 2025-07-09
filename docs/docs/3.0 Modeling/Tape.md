@@ -1,4 +1,4 @@
-# Tape (module) - GridLAB-D Wiki
+# Tape (module)
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Tape
 # Tape (module)

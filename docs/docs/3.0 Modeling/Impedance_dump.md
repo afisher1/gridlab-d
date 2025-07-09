@@ -1,4 +1,4 @@
-# Impedance dump - GridLAB-D Wiki
+# Impedance dump
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Impedance_dump
 ## Contents

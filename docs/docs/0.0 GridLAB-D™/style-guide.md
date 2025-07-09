@@ -6,7 +6,66 @@ hidden: false
 metadata:
   robots: index
 ---
-# GridLAB-D™
+# Style Guide
+
+This is a style guide for GridLAB-D™ Documentarians.
+
+# Build Instructions
+
+Instructions to build the documentation on the platform: readthedocs. 
+
+Before you build, re-generate the navigation list/table of contents to tell `mkdocs.yml` what pages to include. Re-run `tree_to_toc.py` from the root folder. Copy and paste the output from `tree.txt` into the nav: section of mkdocs. Here is a sample:
+
+      nav:
+      - Home: index.md
+      - 0.0 GridLAB-D™:
+          - Contacts: docs\0.0 GridLAB-D™\Contacts_list.md
+          - Announcements: docs\0.0 GridLAB-D™\Version History.md
+          - projects: docs\0.0 GridLAB-D™\projects.md
+          - publications: docs\0.0 GridLAB-D™\publications.md
+          - Source: docs\0.0 GridLAB-D™\resources.md
+          - Style Guide: docs\0.0 GridLAB-D™\style-guide.md
+      - 1.0 Prospective Users:
+        - Key Attributes of GridLAB-D™: docs\1.0 Prospective Users\GridLAB-D_Key_Attributes.md
+
+## Local Build
+
+Build locally to see how your changes look on readthedocs before you commit.
+  * From the terminal: 
+
+        mkdocs serve
+
+  Sample output:
+
+        WARNING -  mkdocs_autorefs: docs\7.0 References\Specs\Spec_Subsecond.md: Could not find cross-reference target 'CONSTANTP'
+        WARNING -  mkdocs_autorefs: docs\7.0 References\Specs\Spec_sec_control.md: Could not find cross-reference target '3'
+        WARNING -  mkdocs_autorefs: docs\7.0 References\Specs\Spec_sec_control.md: Could not find cross-reference target '3'
+        INFO    -  Documentation built in 5.12 seconds
+        INFO    -  [16:04:01] Watching paths for changes: 'docs', 'mkdocs.yml'
+        INFO    -  [16:04:01] Serving on http://127.0.0.1:8000/
+
+  Click or copy/paste into browswer the local host link. Note that this will continually update every time you make a change. You may want to `CTL + C` to abort the auto-rebuild.
+
+## Build on readthedocs 
+
+To build latest commit to be hosted publicly. Push your latest commit before building.
+
+  * Navigate to: `https://app.readthedocs.org/projects/gridlab-d/`
+
+![readthedocs](../../images/readthedocs.png)
+
+  * Click `docs`, then `Builds` and then click `Rebuild`:
+
+![build](../../images/build_docs.png)
+
+  * Once complete, click `View docs`.
+
+
+# Style Guide
+
+This begins the style guide for GridLAB-D™ Documentarians.
+
+## GridLAB-D™
 
 Is trademarked. Refer to it always as GridLAB-D™. Do not abbreviate to GLD.
 
@@ -45,6 +104,14 @@ Looks overwhelming. Not the least of which because it's bad Latin. Instead, let'
 *"Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."*
 
 ![Here's an image](https://images.shoutwiki.com/gridlab-d/e/e6/Gdlogo.jpg)
+
+Another image (local) and resized
+
+<img   src=../../images/Gdlogo.jpg width="750">
+
+Not edited
+
+![logo](../../images/Gdlogo.jpg)
 
 *"Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."*
 
@@ -147,62 +214,6 @@ import numpy as np
 np.random()
 ```
 
-# Using MDX
-
-Click the "edit" view above to see how each feature is implemented.
-
-## Example with hidden answer (Accordian)
-
-Who can you reach out to with a question about GridLAB-D™?
-
-<Accordion title="Answer" icon="fa-info-circle">
-  If you have questions or need support please email the GridLAB-D™ team at [gridlabd@pnnl.gov](mailto:gridlabd@pnnl.gov).
-</Accordion>
-
-## Reusable content.
-
-Use " / " and then select *Reuse Content* and select *Contact* to insert the below text.
-
-<Contact />
-
-## Cards
-
-<Cards columns={4}>
-  <Card title="Home" href="https://gridlab-d.readme.io/#/" icon="fa-home" target="_blank">
-    GridLAB-D™: A Unique Tool to Design the Smart Grid
-  </Card>
-
-  <Card title="Getting Started" href="https://gridlab-d.readme.io/docs/getting-started#/" icon="fa-user">
-    Whether you're new to GridLAB-D™ or a seasoned developer, you're in the right place.
-  </Card>
-
-  <Card title="Walkthrough" href="https://gridlab-d.readme.io/docs/walkthrough#/" icon="fa-books">
-    Follow along with these useful examples.
-  </Card>
-
-  <Card title="Source Documentation" href="https://gridlab-d.readme.io/docs/house-e#/" icon="fa-brackets-curly">
-    GridLAB-D™ source documentation compiled from GitHub.
-  </Card>
-</Cards>
-
-For a list of available icons, visit [font-awesome](https://fontawesome.com/search?p=2\&o=r\&s=regular\&ip=classic).
-
-## In-Line Tabs
-
-<Tabs>
-  <Tab title="First Tab">
-    Welcome to the content that you can only see inside the first Tab.
-  </Tab>
-
-  <Tab title="Second Tab">
-    Here's content that's only inside the second Tab.
-  </Tab>
-
-  <Tab title="Third Tab">
-    Here's content that's only inside the third Tab.
-  </Tab>
-</Tabs>
-
 ## Mermaid Diagram
 
 ```mermaid
@@ -214,21 +225,9 @@ flowchart LR
 
 # Local Image Reference
 
-![Dist syst switching capacitors.png](/images/Dist_syst_switching_capacitors.png)
+![Dist syst switching capacitors.png](../../images/Dist_syst_switching_capacitors.png)
 
 # Equations
-
-* MDX Style:
-
-<Latex>
-  {`$x^n + y^n = z^n + P_{ref}$`}
-</Latex>
-
-<Latex>
-  {`$x^n + y^n = z^n$`}
-</Latex>
-
-* Markdown Style:
 
 In-line equation: $x^n + y^n = z^n$
 

@@ -1,4 +1,4 @@
-# HowTo:mysql - GridLAB-D Wiki
+# HowTo:mysql
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/HowTo:mysql
 *** WORKING DRAFT ***   

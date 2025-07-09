@@ -1,4 +1,4 @@
-# Connection:lockout - GridLAB-D Wiki
+# Connection:lockout
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Connection:lockout
 PROPOSED FOR 3.1 

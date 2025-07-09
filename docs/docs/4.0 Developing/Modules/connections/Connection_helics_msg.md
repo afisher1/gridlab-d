@@ -1,4 +1,4 @@
-# Connection:helics msg - GridLAB-D Wiki
+# Connection:helics msg
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Connection:helics_msg
 

@@ -1,4 +1,4 @@
-# Tech:Optimize - GridLAB-D Wiki
+# Tech:Optimize
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Tech:Optimize
 # Tech:Optimize

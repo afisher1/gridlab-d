@@ -1,4 +1,4 @@
-# Code templates - GridLAB-D Wiki
+# Code templates
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Code_templates
 # Code templates

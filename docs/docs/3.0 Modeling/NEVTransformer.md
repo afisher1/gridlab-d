@@ -1,4 +1,4 @@
-# NEVTransformer - GridLAB-D Wiki
+# NEVTransformer
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/NEVTransformer
 The approach described by Roger Dugan and used in Open DSS has been adopted to model transformers and regulators. 

@@ -1,4 +1,4 @@
-# Connection:xml - GridLAB-D Wiki
+# Connection:xml
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Connection:xml
 # Connection:xml

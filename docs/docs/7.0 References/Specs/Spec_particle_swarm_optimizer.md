@@ -1,4 +1,4 @@
-# Spec:particle swarm optimizer - GridLAB-D Wiki
+# Spec:particle swarm optimizer
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Spec:particle_swarm_optimizer
 **TODO**:  Complete missing sections 

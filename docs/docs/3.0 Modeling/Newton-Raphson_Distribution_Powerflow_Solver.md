@@ -1,4 +1,4 @@
-# Newton-Raphson Distribution Powerflow Solver - GridLAB-D Wiki
+# Newton-Raphson Distribution Powerflow Solver
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Newton-Raphson_Distribution_Powerflow_Solver
 To integrate a external Newton-Raphson power flow solver, several important pieces of information must be exchanged. The basis for this exchange is currently stubbed out in `solver_nr.cpp` under the Powerflow Module source code. Using the algorithm developed in [1], two basic information structures will be required. These are a structure for bus quantities of interest and a structure for link properties of interest. Some generic properties of the system will also be made available. All complex quantities will be defined in the rectangular coordinate plane. To interpret these structures, a count of both the number of total busses and total branches in the system is provided. 

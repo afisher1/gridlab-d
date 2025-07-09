@@ -1,4 +1,4 @@
-# Diesel dg - GridLAB-D Wiki
+# Diesel dg
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Diesel_dg
 ## Contents

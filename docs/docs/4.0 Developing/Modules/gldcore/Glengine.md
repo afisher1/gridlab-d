@@ -1,4 +1,4 @@
-# Glengine - GridLAB-D Wiki
+# Glengine
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Glengine
 # Glengine

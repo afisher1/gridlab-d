@@ -1,4 +1,4 @@
-# Gld object - GridLAB-D Wiki
+# Gld object
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/OBJECT
 # Gld object

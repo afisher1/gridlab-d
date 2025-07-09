@@ -1,4 +1,4 @@
-# Spec:NEVSolver - GridLAB-D Wiki
+# Spec:NEVSolver
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Spec:NEVSolver
 SPECIFICATION Approval item: 

@@ -1,4 +1,4 @@
-# Checkpoints - GridLAB-D Wiki
+# Checkpoints
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Checkpoints
 

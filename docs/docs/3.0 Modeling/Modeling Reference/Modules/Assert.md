@@ -1,4 +1,4 @@
-# Assert (module) - GridLAB-D Wiki
+# Assert (module)
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Assert_(module)
 Assert (module) \- Assert objects can be used to monitor the properties of other objects 

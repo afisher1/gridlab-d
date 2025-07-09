@@ -1,4 +1,4 @@
-# Engine link - GridLAB-D Wiki
+# Engine link
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Engine_link
 # Engine link

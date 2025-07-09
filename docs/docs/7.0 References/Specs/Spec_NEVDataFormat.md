@@ -1,4 +1,4 @@
-# Spec:NEVDataFormat - GridLAB-D Wiki
+# Spec:NEVDataFormat
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Spec:NEVDataFormat
 SPECIFICATION Approval item: 

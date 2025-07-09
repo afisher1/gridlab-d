@@ -1,4 +1,4 @@
-# Gld object - GridLAB-D Wiki
+# Gld object
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Gld_object
 gld_object \- C++ API for OBJECT container [Template:NEW30]

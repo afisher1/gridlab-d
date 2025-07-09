@@ -1,4 +1,4 @@
-# Multithreaded Random Number Generation - GridLAB-D Wiki
+# Multithreaded Random Number Generation
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Multithreaded_Random_Number_Generation
 # Multithreaded Random Number Generation

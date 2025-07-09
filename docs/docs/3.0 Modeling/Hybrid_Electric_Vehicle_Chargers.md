@@ -1,4 +1,4 @@
-# Hybrid Electric Vehicle Chargers - GridLAB-D Wiki
+# Hybrid Electric Vehicle Chargers
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Hybrid_Electric_Vehicle_Chargers
 ## Contents

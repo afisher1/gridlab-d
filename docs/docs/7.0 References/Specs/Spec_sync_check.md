@@ -1,4 +1,4 @@
-# Spec:sync check - GridLAB-D Wiki
+# Spec:sync check
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Spec:sync_check
 # Spec:sync check

@@ -1,4 +1,4 @@
-# House - GridLAB-D Wiki
+# House
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/House
 **house** \- implements a single family home 

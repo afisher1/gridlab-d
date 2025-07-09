@@ -1,4 +1,4 @@
-# Generators Module Guide - GridLAB-D Wiki
+# Generators Module Guide
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Generators_Module_Guide
 ## Contents

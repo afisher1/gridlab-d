@@ -1,4 +1,4 @@
-# Communications - GridLAB-D Wiki
+# Communications
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Communications
 ## Contents

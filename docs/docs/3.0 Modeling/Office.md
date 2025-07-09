@@ -1,4 +1,4 @@
-# Office - GridLAB-D Wiki
+# Office
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Office
 Office \- Single-zone [commercial] office building with rooftop package unit 

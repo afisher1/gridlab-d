@@ -1,4 +1,4 @@
-# Mysql - GridLAB-D Wiki
+# Mysql
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Mysql#password
 # Mysql

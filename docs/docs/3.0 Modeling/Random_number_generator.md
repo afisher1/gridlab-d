@@ -1,4 +1,4 @@
-# Random number generator - GridLAB-D Wiki
+# Random number generator
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Random_number_generator
 

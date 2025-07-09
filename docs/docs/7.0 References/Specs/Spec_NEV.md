@@ -1,4 +1,4 @@
-# Spec:NEV - GridLAB-D Wiki
+# Spec:NEV
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Spec:NEV
 SPECIFICATION Approval item: 

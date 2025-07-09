@@ -1,4 +1,4 @@
-# Database - GridLAB-D Wiki
+# Database
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Database
 database \- MySQL database connection [Template:NEW30]

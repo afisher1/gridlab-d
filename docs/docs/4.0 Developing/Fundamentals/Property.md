@@ -1,4 +1,4 @@
-# Gld property - GridLAB-D Wiki
+# Gld property
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/PROPERTY
 

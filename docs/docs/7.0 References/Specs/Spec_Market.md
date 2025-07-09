@@ -1,4 +1,4 @@
-# Spec:Market - GridLAB-D Wiki
+# Spec:Market
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Spec:Market
 # Spec:Market

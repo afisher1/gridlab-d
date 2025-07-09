@@ -1,4 +1,4 @@
-# Implicit enduses - GridLAB-D Wiki
+# Implicit enduses
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Implicit_enduses
 # Implicit enduses

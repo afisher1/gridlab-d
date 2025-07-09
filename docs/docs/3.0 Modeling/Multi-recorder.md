@@ -1,4 +1,4 @@
-# Multi recorder - GridLAB-D Wiki
+# Multi recorder
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Multi-recorder
 # Multi recorder

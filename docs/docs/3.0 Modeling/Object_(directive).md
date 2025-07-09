@@ -1,4 +1,4 @@
-# Object (directive) - GridLAB-D Wiki
+# Object (directive)
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Object_(directive)
 # Object (directive)

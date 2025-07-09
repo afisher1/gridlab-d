@@ -1,4 +1,4 @@
-# HowTo:Create a movie - GridLAB-D Wiki
+# HowTo:Create a movie
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/HowTo:Create_a_movie
 [Template:NEW30] This **[How To]** describe how to create a movie using [Matlab®](http://www.mathworks.com)'s [avifile command](http://www.mathworks.com/help/techdoc/ref/avifile.html) command. 

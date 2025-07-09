@@ -1,4 +1,4 @@
-# Spec:inverter dyn - GridLAB-D Wiki
+# Spec:inverter dyn
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Spec:inverter_dyn
 ## Contents

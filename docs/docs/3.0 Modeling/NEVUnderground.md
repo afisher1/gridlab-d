@@ -1,4 +1,4 @@
-# NEVUnderground - GridLAB-D Wiki
+# NEVUnderground
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/NEVUnderground
 ## Contents

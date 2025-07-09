@@ -1,4 +1,4 @@
-# Spec:Transmission - GridLAB-D Wiki
+# Spec:Transmission
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Spec:Transmission
 ## Contents

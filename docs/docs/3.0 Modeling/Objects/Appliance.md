@@ -1,4 +1,4 @@
-# Appliance - GridLAB-D Wiki
+# Appliance
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Appliance
 **_Proposed for review_** REVIEW NEEDED 

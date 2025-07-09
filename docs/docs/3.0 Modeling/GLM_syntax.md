@@ -1,4 +1,4 @@
-# GLM syntax - GridLAB-D Wiki
+# GLM syntax
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/GLM_syntax
 # GLM syntax

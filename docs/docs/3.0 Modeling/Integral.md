@@ -1,4 +1,4 @@
-# Integral - GridLAB-D Wiki
+# Integral
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Integral
 **_Proposed for review_**

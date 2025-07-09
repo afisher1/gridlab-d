@@ -1,4 +1,4 @@
-# Initialization - GridLAB-D Wiki
+# Initialization
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Initialization
 Initialization \- Model initialization 

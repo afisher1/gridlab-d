@@ -1,4 +1,4 @@
-# CSV reader (climate class) - GridLAB-D Wiki
+# CSV reader (climate class)
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/CSV_reader_(climate_class)
 # CSV reader (climate class)

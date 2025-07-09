@@ -1,4 +1,4 @@
-# Orientation - GridLAB-D Wiki
+# Orientation
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Orientation
   

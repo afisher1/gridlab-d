@@ -1,4 +1,4 @@
-# Dev:Solvers - GridLAB-D Wiki
+# Dev:Solvers
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Dev:Solvers
 Solvers \- C++ API for general solvers [Template:NEW30]

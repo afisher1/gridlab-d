@@ -1,4 +1,4 @@
-# Spec:NEVModules - GridLAB-D Wiki
+# Spec:NEVModules
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Spec:NEVModules
 SPECIFICATION Approval item: 

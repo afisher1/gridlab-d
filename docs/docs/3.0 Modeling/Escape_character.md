@@ -1,4 +1,4 @@
-# Escape character - GridLAB-D Wiki
+# Escape character
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Escape_character
 Escape character \- Prevents GLM parser from interpreting the next character in the usual way 

@@ -1,4 +1,4 @@
-# Extern - GridLAB-D Wiki
+# Extern
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Extern
 extern \- Define or load external function references [Template:NEW30]

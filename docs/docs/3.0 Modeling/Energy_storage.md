@@ -1,4 +1,4 @@
-# Energy storage - GridLAB-D Wiki
+# Energy storage
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Energy_Storage
 

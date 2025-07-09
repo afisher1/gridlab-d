@@ -1,4 +1,4 @@
-# Mainloop state - GridLAB-D Wiki
+# Mainloop state
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Mainloop_state
 # Mainloop state

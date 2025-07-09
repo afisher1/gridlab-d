@@ -1,4 +1,4 @@
-# Loadshape - GridLAB-D Wiki
+# Loadshape
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Loadshape
 ## Contents

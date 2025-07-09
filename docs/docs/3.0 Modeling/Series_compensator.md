@@ -1,4 +1,4 @@
-# Series compensator - GridLAB-D Wiki
+# Series compensator
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Series_compensator
 ## Contents

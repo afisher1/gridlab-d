@@ -1,4 +1,4 @@
-# Microwave - GridLAB-D Wiki
+# Microwave
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Microwave
 **TODO**:  This page needs to be completed. 

@@ -1,4 +1,4 @@
-# Inverter - GridLAB-D Wiki
+# Inverter
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Inverter
 # Inverter

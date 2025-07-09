@@ -1,4 +1,4 @@
-# Dev:Link - GridLAB-D Wiki
+# Dev:Link
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Dev:Link
 link \- Developer's guide to creating an application link DLL [Template:NEW30]

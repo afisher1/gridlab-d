@@ -1,4 +1,4 @@
-# Spec:Mesh Fault Current - GridLAB-D Wiki
+# Spec:Mesh Fault Current
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Spec:Mesh_Fault_Current
 # Spec:Mesh Fault Current

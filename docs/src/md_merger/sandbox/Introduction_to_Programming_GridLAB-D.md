@@ -1,4 +1,4 @@
-# Introduction to Programming GridLAB-D - GridLAB-D Wiki
+# Introduction to Programming GridLAB-D
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Introduction_to_Programming_GridLAB-D
 

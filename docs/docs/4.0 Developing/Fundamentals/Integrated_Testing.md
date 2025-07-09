@@ -1,4 +1,4 @@
-# Integrated Testing - GridLAB-D Wiki
+# Integrated Testing
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Integrated_Testing
 # Integrated Testing

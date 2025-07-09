@@ -1,4 +1,4 @@
-# Programming conventions - GridLAB-D Wiki
+# Programming conventions
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Programming_conventions
 # Programming conventions

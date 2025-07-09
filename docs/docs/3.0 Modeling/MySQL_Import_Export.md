@@ -1,4 +1,4 @@
-# MySQL Import/Export - GridLAB-D Wiki
+# MySQL Import/Export
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/MySQL_Import/Export
 # MySQL Import/Export

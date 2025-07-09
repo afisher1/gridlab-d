@@ -1,4 +1,4 @@
-# Publishing methods - GridLAB-D Wiki
+# Publishing methods
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Publishing_methods
 # Publishing methods

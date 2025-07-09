@@ -1,4 +1,4 @@
-# Spec:Commercial - GridLAB-D Wiki
+# Spec:Commercial
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Spec:Commercial
 ## Contents

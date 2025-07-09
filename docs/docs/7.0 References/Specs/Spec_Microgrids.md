@@ -1,4 +1,4 @@
-# Spec:Microgrids - GridLAB-D Wiki
+# Spec:Microgrids
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Spec:Microgrids
 Approval item:  When approved remove this tag. 

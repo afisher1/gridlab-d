@@ -1,4 +1,4 @@
-# Dev:class - GridLAB-D Wiki
+# Dev:class
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Dev:class
 class - Class implementation standards 
@@ -16,7 +16,7 @@ Class names shall
   * [Module implementation standards]
   * [Property implementation standards]
 
-# Dev:module - GridLAB-D Wiki
+# Dev:module
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Dev:module
 module - Module implementation standards 
@@ -34,7 +34,7 @@ Modules names shall
   * [Class implementation standards]
   * [Property implementation standards]
   
-  # Dev:Troubleshooting - GridLAB-D Wiki
+  # Dev:Troubleshooting
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Dev:Troubleshooting
 # Dev:Troubleshooting

@@ -1,4 +1,4 @@
-# Skipsafe - GridLAB-D Wiki
+# Skipsafe
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Skipsafe
 # Skipsafe

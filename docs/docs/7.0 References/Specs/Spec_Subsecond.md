@@ -1,4 +1,4 @@
-# Spec:Subsecond - GridLAB-D Wiki
+# Spec:Subsecond
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Spec:Subsecond
 Approval item:  SPECIFICATION [Grizzly (Version 2.3)]

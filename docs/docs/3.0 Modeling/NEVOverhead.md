@@ -1,4 +1,4 @@
-# NEVOverhead - GridLAB-D Wiki
+# NEVOverhead
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/NEVOverhead
 **Work in progress/unfinished**

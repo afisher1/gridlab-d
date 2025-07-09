@@ -1,4 +1,4 @@
-# Eclipse - GridLAB-D Wiki
+# Eclipse
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Eclipse
 

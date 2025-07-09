@@ -1,4 +1,4 @@
-# Powerflow External LU Solver Interface - GridLAB-D Wiki
+# Powerflow External LU Solver Interface
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Powerflow_External_LU_Solver_Interface
 # Powerflow External LU Solver Interface

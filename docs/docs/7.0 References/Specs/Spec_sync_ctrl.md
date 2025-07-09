@@ -1,4 +1,4 @@
-# Spec:sync ctrl - GridLAB-D Wiki
+# Spec:sync ctrl
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Spec:sync_ctrl
 # Spec:sync ctrl

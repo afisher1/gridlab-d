@@ -1,4 +1,4 @@
-# Class - GridLAB-D Wiki
+# Class
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Class
 class \- Class definition directives 
@@ -161,7 +161,7 @@ To create a new [runtime class] with a double called `elevation` measured in [[f
 
 
 
-# Class functions - GridLAB-D Wiki
+# Class functions
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Class_functions
 ## Contents

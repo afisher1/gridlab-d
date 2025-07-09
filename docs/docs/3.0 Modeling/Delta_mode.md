@@ -1,4 +1,4 @@
-# Subsecond - GridLAB-D Wiki
+# Subsecond
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Delta_mode
 

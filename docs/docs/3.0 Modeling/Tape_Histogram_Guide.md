@@ -1,4 +1,4 @@
-# Tape Histogram Guide - GridLAB-D Wiki
+# Tape Histogram Guide
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Tape_Histogram_Guide
 ## Contents

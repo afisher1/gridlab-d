@@ -1,4 +1,4 @@
-# ZIPload - GridLAB-D Wiki
+# ZIPload
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/ZIPload
 **TODO**:  This page needs to be completed. 

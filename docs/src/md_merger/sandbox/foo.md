@@ -1,4 +1,4 @@
-# CMake Build - GridLAB-D Wiki
+# CMake Build
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/CMake_Build
 
@@ -223,7 +223,7 @@ Once all of these have been set, press `c` to configure and `g` to generate the 
 ### Build and install (as in above instructions)
 
 Retrieved from "[https://gridlab-d.shoutwiki.com/w/index.php?title=CMake_Build&oldid=9897](https://gridlab-d.shoutwiki.com/w/index.php?title=CMake_Build&oldid=9897)"
-# Eclipse - GridLAB-D Wiki
+# Eclipse
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Eclipse
 
@@ -410,7 +410,7 @@ The details of how GridLAB-D™ works are left to a later discussion.  But GridL
 
 At this point, this is all you need to know to get right into creating a simple model and running a simulation. Jump on over to [Modeling 101](docs:intro-to-modeling) to start modeling in GridLAB-D™.
 
-# Introduction to Programming GridLAB-D - GridLAB-D Wiki
+# Introduction to Programming GridLAB-D
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Introduction_to_Programming_GridLAB-D
 
@@ -930,7 +930,7 @@ Prints verbose messages, which results in a great deal of output from the core p
 
 Retrieved from "[https://gridlab-d.shoutwiki.com/w/index.php?title=Introduction_to_Programming_GridLAB-D&oldid=486](https://gridlab-d.shoutwiki.com/w/index.php?title=Introduction_to_Programming_GridLAB-D&oldid=486)"
   *[m]: This is a minor edit
-# Mac OSX/Setup - GridLAB-D Wiki
+# Mac OSX/Setup
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Mac_OSX/Setup
 

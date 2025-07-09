@@ -1,4 +1,4 @@
-# Multirun mode - GridLAB-D Wiki
+# Multirun mode
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Multirun_mode
 Approval item:  \--[Dchassin] 16:48, 9 October 2011 (UTC) 

@@ -1,4 +1,4 @@
-# Connection:link - GridLAB-D Wiki
+# Connection:link
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Connection:link
 # Connection:link

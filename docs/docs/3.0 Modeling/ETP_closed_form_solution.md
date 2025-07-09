@@ -1,4 +1,4 @@
-# ETP closed form solution - GridLAB-D Wiki
+# ETP closed form solution
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/ETP_closed_form_solution
 # ETP closed form solution

@@ -1,4 +1,4 @@
-# Pcontrol - GridLAB-D Wiki
+# Pcontrol
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Pcontrol
 # Pcontrol

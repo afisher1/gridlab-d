@@ -1,4 +1,4 @@
-# Dev:load method - GridLAB-D Wiki
+# Dev:load method
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Dev:load_method
 ## Contents
