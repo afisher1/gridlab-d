@@ -46,6 +46,10 @@ Build locally to see how your changes look on readthedocs before you commit.
 
   Click or copy/paste into browswer the local host link. Note that this will continually update every time you make a change. You may want to `CTL + C` to abort the auto-rebuild.
 
+### Doxygen Instructions
+
+To enable the doxygen build, `pip install mkdoxy` and go to the doxygen [website](https://www.doxygen.nl/download.html) and install that locally on your desktop. Check that `C:\Program Files\doxygen\bin` or similar is added to PATH. 
+
 ## Build on readthedocs 
 
 To build latest commit to be hosted publicly. Push your latest commit before building.
@@ -241,7 +245,7 @@ $$x^n + y^n = z^n \tag{1}$$
 
 An example with both multi-letter subscripts and variable names with hyphens:
 
-$P_{vent} = floor\_area (0.1 - 0.01\imath) $ VA/sf, and $Q_{vent}=0.2402 \times 0.0735 (T_{out}-T_{air}) V_{air} \times ventilation\_rate$
+$P_{vent} = floor\_area (0.1 - 0.01\imath)$ VA/sf, and $Q_{vent}=0.2402 \times 0.0735 (T_{out}-T_{air}) V_{air} \times ventilation\_rate$
 
 # References
 
