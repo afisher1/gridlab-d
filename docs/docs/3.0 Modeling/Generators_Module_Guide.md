@@ -159,9 +159,7 @@ This model has only been tested when using the internal battery model. All other
 
 ## [Diesel DG] Model
 
-[![](//images.shoutwiki.com/gridlab-d/thumb/f/fe/Generator_Module_Guide_Figure_1.png/300px-Generator_Module_Guide_Figure_1.png)](/wiki/File:Generator_Module_Guide_Figure_1.png)
-
-[]
+[![Generator internal electrical model](../../images/300px-Generator_Module_Guide_Figure_1.png)](/wiki/File:Generator_Module_Guide_Figure_1.png)
 
 Figure 1 - Generator internal electrical model
 
@@ -523,9 +521,7 @@ The power curve-based implementation is included in the GridLAB-D v4.3 Release. 
 
 ## Model testing
 
-[![](//images.shoutwiki.com/gridlab-d/thumb/e/e5/Generator_Module_Guide_Figure_2.png/300px-Generator_Module_Guide_Figure_2.png)](/wiki/File:Generator_Module_Guide_Figure_2.png)
-
-[]
+[![](../../images/300px-Generator_Module_Guide_Figure_2.png)](/wiki/File:Generator_Module_Guide_Figure_2.png)
 
 Figure 2 - Generator testing model
 

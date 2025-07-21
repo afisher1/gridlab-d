@@ -116,75 +116,54 @@ The secondary functionality of bidder status will be useful on systems where not
 
 ## Market Clearing
 
-[![](//images.shoutwiki.com/gridlab-d/thumb/6/6e/SimpleMarket-Marginal_Sell.png/300px-SimpleMarket-Marginal_Sell.png)](/wiki/File:SimpleMarket-Marginal_Sell.png)
+[![](../../../images/300px-SimpleMarket-Marginal_Sell.png)](/wiki/File:SimpleMarket-Marginal_Sell.png)
 
 []
 
 Figure 1. Marginal seller clearing scenario
 
-[![](//images.shoutwiki.com/gridlab-d/thumb/e/e5/SimpleMarket-Marginal_Buy.png/300px-SimpleMarket-Marginal_Buy.png)](/wiki/File:SimpleMarket-Marginal_Buy.png)
-
-[]
+[![Marginal buyer clearing scenario](../../../images/300px-SimpleMarket-Marginal_Buy.png)](/wiki/File:SimpleMarket-Marginal_Buy.png)
 
 Figure 2. Marginal buyer clearing scenario
 
-[![](//images.shoutwiki.com/gridlab-d/thumb/7/77/SimpleMarket-Both_Marg.png/300px-SimpleMarket-Both_Marg.png)](/wiki/File:SimpleMarket-Both_Marg.png)
-
-[]
+[![Buyer and seller clearing quantities equal](../../../images/300px-SimpleMarket-Both_Marg.png)](/wiki/File:SimpleMarket-Both_Marg.png)
 
 Figure 3. Buyer and seller clearing quantities equal
 
-[![](//images.shoutwiki.com/gridlab-d/thumb/4/4d/SimpleMarket-Both_Marg_NextSell.png/300px-SimpleMarket-Both_Marg_NextSell.png)](/wiki/File:SimpleMarket-Both_Marg_NextSell.png)
-
-[]
+[![Buyer and seller clearing quantities equal, close next seller bid](../../../images/300px-SimpleMarket-Both_Marg_NextSell.png)](/wiki/File:SimpleMarket-Both_Marg_NextSell.png)
 
 Figure 4. Buyer and seller clearing quantities equal, close next seller bid
 
-[![](//images.shoutwiki.com/gridlab-d/thumb/a/a8/SimpleMarket-Both_Marg_NextBuy.png/300px-SimpleMarket-Both_Marg_NextBuy.png)](/wiki/File:SimpleMarket-Both_Marg_NextBuy.png)
-
-[]
+[![Buyer and seller clearing quantities equal, close next buyer bid
+](../../../images/300px-SimpleMarket-Both_Marg_NextBuy.png)](/wiki/File:SimpleMarket-Both_Marg_NextBuy.png)
 
 Figure 5. Buyer and seller clearing quantities equal, close next buyer bid
 
-[![](//images.shoutwiki.com/gridlab-d/thumb/8/89/SimpleMarket-Both.png/300px-SimpleMarket-Both.png)](/wiki/File:SimpleMarket-Both.png)
-
-[]
+[![Buyer and seller clearing quantities and clearing prices equal](../../../images/300px-SimpleMarket-Both.png)](/wiki/File:SimpleMarket-Both.png)
 
 Figure 6. Buyer and seller clearing quantities and clearing prices equal
 
-[![](//images.shoutwiki.com/gridlab-d/thumb/f/f4/SimpleMarket-Failure.png/300px-SimpleMarket-Failure.png)](/wiki/File:SimpleMarket-Failure.png)
-
-[]
+[![Failure for market to clear](../../../images/300px-SimpleMarket-Failure.png)](/wiki/File:SimpleMarket-Failure.png)
 
 Figure 7. Failure for market to clear
 
-[![](//images.shoutwiki.com/gridlab-d/thumb/5/57/SimpleMarket-Null.png/300px-SimpleMarket-Null.png)](/wiki/File:SimpleMarket-Null.png)
-
-[]
+[![Null market clearing scenario](../../../images/300px-SimpleMarket-Null.png)](/wiki/File:SimpleMarket-Null.png)
 
 Figure 8. Null market clearing scenario
 
-[![](//images.shoutwiki.com/gridlab-d/thumb/a/a9/SimpleMarket-PriceMargSeller.png/300px-SimpleMarket-PriceMargSeller.png)](/wiki/File:SimpleMarket-PriceMargSeller.png)
-
-[]
+[![Equal clearing price, but marginal seller clearing scenario](../../../images/300px-SimpleMarket-PriceMargSeller.png)](/wiki/File:SimpleMarket-PriceMargSeller.png)
 
 Figure 9. Equal clearing price, but marginal seller clearing scenario
 
-[![](//images.shoutwiki.com/gridlab-d/thumb/8/80/SimpleMarket-PriceMargBuyer.png/300px-SimpleMarket-PriceMargBuyer.png)](/wiki/File:SimpleMarket-PriceMargBuyer.png)
-
-[]
+[![Equal clearing price, but marginal buyer clearing scenario](../../../images/300px-SimpleMarket-PriceMargBuyer.png)](/wiki/File:SimpleMarket-PriceMargBuyer.png)
 
 Figure 10. Equal clearing price, but marginal buyer clearing scenario
 
-[![](//images.shoutwiki.com/gridlab-d/thumb/8/85/SimpleMarket-Marginal_Base.png/300px-SimpleMarket-Marginal_Base.png)](/wiki/File:SimpleMarket-Marginal_Base.png)
-
-[]
+[![Unresponsive buyers in marginal seller clearing scenario](../../../images/300px-SimpleMarket-Marginal_Base.png)](/wiki/File:SimpleMarket-Marginal_Base.png)
 
 Figure 11. Unresponsive buyers in marginal seller clearing scenario
 
-[![](//images.shoutwiki.com/gridlab-d/thumb/9/99/SimpleMarket-MarginalUnresponse.png/300px-SimpleMarket-MarginalUnresponse.png)](/wiki/File:SimpleMarket-MarginalUnresponse.png)
-
-[]
+[![ Unresponsive buyers in equal quantity clearing scenario](../../../images/300px-SimpleMarket-MarginalUnresponse.png)](/wiki/File:SimpleMarket-MarginalUnresponse.png)
 
 Figure 12. Unresponsive buyers in equal quantity clearing scenario
 
@@ -210,7 +189,7 @@ A variation on the second marginal buyer in power systems method still utilizes 
 
 Figure 3 represents the third market clearing scenario. Here, the intersection of buyer and seller curves is at the same quantity, but at different prices. The intersection point occurs on an edge of both the buyer and seller quantity curves. In this case, the quantity is obviously set to the intersection point of the two curves. This quantity is either the sum of all sellers' quantities with a bid less than the "marginal" seller bid, or the sum of all buyers' quantities with a bid higher than the "marginal" buyer bid. However, the price is ideally taken as the average price of the two intersecting bids. The ideal clearing price is determined as 
 
-$$Price_{Clear} = \frac{\left(Bid_{Seller} + Bid_{Buyer}\right)}{2}$. 
+$$Price_{Clear} = \frac{\left(Bid_{Seller} + Bid_{Buyer}\right)}{2}$$ 
 
 In the market scenario of Figure 3, three buyers submitted bids at or above the clearing price of the market, and three sellers submitted bids at or below the clearing price. In this case, all three buyers' and all three sellers' bidding quantities are met (since the cumulative sum of the cleared bids is the same for both buyers and sellers). Due to the unique nature of this clearing condition, a compromise is made between the lowest cleared buyer bid and highest cleared seller bid. The final clearing price is not set to either of their values, as was the case with the marginal buyer or marginal seller scenarios above. Rather, the clearing price is set as the average of the cleared buyer and seller bids. This allows both lower bid sellers and higher bid buyers to respond. However, it prevents the subsequent buyer and seller quantities from meeting the clearing price. 
 

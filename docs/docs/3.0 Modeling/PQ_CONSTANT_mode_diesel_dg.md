@@ -18,13 +18,13 @@ This document describes GridLAB-D implementation of diesel generator in PQ const
   
 A constant_P mode is implemented in the governor type [P_CONSTANT]: 
 
-[![caption](//images.shoutwiki.com/gridlab-d/thumb/f/fc/Diesel_dg_P_constant_with_actuator_and_time_delay.png/700px-Diesel_dg_P_constant_with_actuator_and_time_delay.png) ]
+[![caption](../../images/700px-Diesel_dg_P_constant_with_actuator_and_time_delay.png) ]
 
 In the constant_P mode, a time delay is applied to the electric power output from the diesel generator. The delayed electric power output is compared with the constant real power reference, then applied to a PI controller, to get the actuator input. The actuator part and time delay part of the GGOV01 governor is used in constant_P mode. Output of the constant_P mode is the mechanical power of the diesel generator.   
   
 The constant_Q mode is implemented based on the existing exciter [SEX_PTI]: 
 
-[![caption](//images.shoutwiki.com/gridlab-d/thumb/d/d2/Diesel_dg_Q_constant.png/500px-Diesel_dg_Q_constant.png) ]
+[![caption](../../images//500px-Diesel_dg_Q_constant.png) ]
 
 ## GridLAB-D Implementation
 
