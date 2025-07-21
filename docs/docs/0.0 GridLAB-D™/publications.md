@@ -1,13 +1,8 @@
----
-title: Publications
-excerpt: >-
-  This page represents an unofficial list of papers related to or using
+
+# Publications
+This page represents an unofficial list of papers related to or using
   GridLAB-D™
-deprecated: false
-hidden: false
-metadata:
-  robots: index
----
+
 The U.S. Department of Energy Office (DOE) of Scientific and Technical Information (OSTI) hosts a database of DOE research and publications. All publications related to GridLAB-D™ can be found **[here](https://www.osti.gov/search/semantic:GridLAB-D)**. **NOTE**: external page navigation.
 
 ## Best References by Subject

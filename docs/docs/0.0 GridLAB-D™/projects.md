@@ -1,13 +1,7 @@
----
-title: Projects
-excerpt: >-
-  This page represents an unofficial list of projects related to or using
+# Projects
+This page represents an unofficial list of projects related to or using
   GridLAB-D™. 
-deprecated: false
-hidden: false
-metadata:
-  robots: index
----
+
 
 This page represents an unofficial list of papers and projects related to or using GridLAB-D™. This is NOT intended to be a comprehensive list, but if you would like have your project added, please [email](<mailto:gridlabd@pnnl.gov?subject=GridLAB-D™ Projects>) GridLAB-D™.
 

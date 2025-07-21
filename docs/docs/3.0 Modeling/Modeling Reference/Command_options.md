@@ -1,12 +1,4 @@
----
-title: Command Options
-excerpt: >-
-
-deprecated: false
-hidden: false
-metadata:
-  robots: index
----
+# Command Options
 The command-line argument processing module processes arguments as they are encountered.
 
 **Note:** some modules can process command arguments as well. Those options are not listed here.

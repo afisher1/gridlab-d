@@ -19,22 +19,20 @@ The simulation enters delta mode when at least one module requests a switch from
 
 While operating in delta mode, the simulation performs the following sequence of operations until all the modules state that the simulation may return to event mode 
 
-    **Module Preupdate** \- notify modules that event mode is being suspended and a series of delta mode updates is about to begin
-    **For each timestep** \- loop for timestep from current clock time until maximum time elapse or all modules request return to event mode 
+  **Module Preupdate** \- notify modules that event mode is being suspended and a series of delta mode updates is about to begin
+  **For each timestep** \- loop for timestep from current clock time until maximum time elapse or all modules request return to event mode 
 
-    **For each object** \- loop through list of objects that flag DELTAMODE support from lowest rank to highest rank 
+  **For each object** \- loop through list of objects that flag DELTAMODE support from lowest rank to highest rank 
 
-    **Class update** \- send update message to objects that flag DELTAMODE support and export the update function
-    **Module Interupdate** \- notify modules that all object updates are done
-    **Module Postupdate** \- notify modules that delta mode is ending and event mode is resuming
+  **Class update** \- send update message to objects that flag DELTAMODE support and export the update function
+  **Module Interupdate** \- notify modules that all object updates are done
+  **Module Postupdate** \- notify modules that delta mode is ending and event mode is resuming
 
 ## Caveats
 
   * The delta mode of operation is potentially a lot slower than event mode. For this reason, realtime operation and delta mode operation are currently mutually exclusive. If realtime operation is enable, the simulation will not enable delta mode, even when a module requests it.
 
-
   * When operating in delta mode, objects are updated only in bottom-up rank order.
-
 
   * Module updates are processed in the order in which modules are loaded by the GLM file. This means that modules which depend on other modules in delta mode should be loaded last. For example, for the timestamps of recordings from the tape module to coincide with the states of sampled values the tape module should be loaded after the modules which the recorder samples. This way the high-speed recorders can sample the states of the other models after the delta time update has been applied to all objects and modules.
 ## Version

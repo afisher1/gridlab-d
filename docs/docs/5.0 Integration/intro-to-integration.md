@@ -1,11 +1,6 @@
----
-title: Intro to Integration
+# Intro to Integration
 excerpt: if libgld comes into existence
-deprecated: false
-hidden: false
-metadata:
-  robots: index
----
+
 * Who is an “integrator” and what this guide intends to provide
 * libgld
   * What libgld is intended to provide

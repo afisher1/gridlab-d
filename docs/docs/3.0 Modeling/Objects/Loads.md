@@ -1,12 +1,7 @@
----
-title: Loads
-excerpt: >-
+# Loads
 
-deprecated: false
-hidden: false
-metadata:
-  robots: index
----
+
+
 ## ZIP Loads
 
 Thus far the loads on the systems we’ve been modeling have been fairly abstract and quite simple with only a constant power load on a single phase being specified. A more general form of this type of load is often referred to as a ZIP load which is represented as a load with three distinct part: a constant impedance portion <Latex>{`$Z$`}</Latex>, a constant current portion <Latex>{`$I$`}</Latex> and a constant power portion <Latex>{`$P$`}</Latex>. Each of these portions respond differently to changes in load voltage based on their first-principles models: <Latex>{`$P=I^2Z$`}</Latex>, <Latex>{`$P = IV$`}</Latex>, and <Latex>{`$P = P$`}</Latex>. For a reduction in system voltage, we would expect the following:

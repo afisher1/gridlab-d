@@ -1,12 +1,4 @@
----
-title: Interfacing with External Software
-excerpt: >-
-
-deprecated: false
-hidden: false
-metadata:
-  robots: index
----
+# Interfacing with External Software
 
 Though the utility of GridLAB-D™ is relatively broad (when thinking of it as simply an electrical distribution simulator), the scope of the research in which it is employed is much broader. Rather than forcing users to implement additional functionality by extensively modifying and extending the GridLAB-D™source code, GridLAB-D™has implemented a number of ways in which it can programmatically interact with external software packages. This chapter will demonstrate how these interfaces work.
 

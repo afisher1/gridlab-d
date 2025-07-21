@@ -1,9 +1,7 @@
----
-title: Resources & Support
-excerpt: >-
-  The page provides a series of resources that can help you learn more about
+# Resources & Support
+The page provides a series of resources that can help you learn more about
   GridLAB-D™.
----
+
 # Source
 
 The source content for GridLAB-D™ is maintained on the GridLAB-D™ [GitHub](https://github.com/gridlab-d/).

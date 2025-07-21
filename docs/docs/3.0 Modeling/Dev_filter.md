@@ -5,7 +5,7 @@ Dev:filter \- Filter implementation  PROPOSED FOR 4.0
 
 The [filter] directive is implemented using an augmented [transform] object. The filter is converted to a discrete-time state-space model using the canonical observable form for a strictly causal system: 
 
-$$H(z) = \frac {\sum_{n=1}^{N-1} b_n z^{n-N}} {z^N + \sum_{n=1}^{N-1} a_n z^{n-N}} \to \left\\{ \begin{aligned} \dot x &= A x + B u \\\ y &= C x \end{aligned} \right. $$
+$$H(z) = \frac {\sum_{n=1}^{N-1} b_n z^{n-N}} {z^N + \sum_{n=1}^{N-1} a_n z^{n-N}} \to \left\\{ \begin{aligned} \dot x &= A x + B u \\\ y &= C x \end{aligned} \right$$
 
 where 
 

@@ -1,21 +1,5 @@
 # Creating a module
-
-**Source URL:** https://gridlab-d.shoutwiki.com/wiki/Creating_a_module
-## Contents
-
-  * 1 Basic Synchronization
-  * 2 Control Code
-  * 3 Building a GridLAB module
-    * 3.1 VS2005
-    * 3.2 Linux makefiles
-    * 3.3 Module implementation Prior to Hassayampa (Version 3.0)
-    * 3.4 Module implementation as of Hassayampa (Version 3.0)
-  * 4 Upgrading modules to Hassayampa (Version 3.0)
-    * 4.1 Minimum upgrade
-    * 4.2 Full upgrade
-  * 5 Debugging lock timeouts
-    * 5.1 See also
-Creating a module \- Procedure to create a new module in GridLAB-D 
+Procedure to create a new module in GridLAB-D 
 
 Runtime modules are implemented as dynamic libraries that are loaded as needed. The model loaded determines whether a runtime module is needed by specifying a module block. 
 

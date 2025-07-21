@@ -1,11 +1,3 @@
----
-title: Key Attributes
-excerpt: ''
-deprecated: false
-hidden: false
-metadata:
-  robots: index
----
 # Key Attributes of GridLAB-D™
 Depending on your background with software development, familiarity with other distribution system simulators, and the specific studies being done GridLAB-D™ may come across as cryptic, flexible, complicated, overwhelming, and/or limited. To help provide context and explain what makes GridLAB-D™ unique and the kinds of problems it can be helpful in addressing, the remainder of this chapter addresses some of the key attributes of GridLAB-D™.
 

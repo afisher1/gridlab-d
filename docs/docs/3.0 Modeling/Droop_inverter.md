@@ -6,16 +6,15 @@
 
 This document describes GridLAB-D implementation of the CONSTANT_PQ mode inverter with droops. The implementation is based on the existing inverter CONSTANT_PQ mode source codes. In the original CONSTANT_PQ mode inverter, during event mode simulation, the inverter current outputs are computed based on the reference power values and the terminal voltage values; During delta mode simulation, the inverter real and reactive power outputs are compared with the reference values in each delta time step, and a PI controller is connected after the comparison, for the calculation of the updated current injection _Iout_ from inverter. 
 
-[![caption](//images.shoutwiki.com/gridlab-d/thumb/b/bc/Inverter_PI_control_original.png/300px-Inverter_PI_control_original.png)]
+![caption](../../images/Inverter_PI_control_original.png)
 
-  
 With the droop mode inverter implemented inside the CONSTANT_PQ mode inverter, the reference power values will be updated by checking the measured feeder frequency and the inverter terminal voltage with the droop curve setpoints. 
 
-[![caption](//images.shoutwiki.com/gridlab-d/thumb/a/a9/Inverter_p_f_droop.png/700px-Inverter_p_f_droop.png)]
 
-[![caption](//images.shoutwiki.com/gridlab-d/thumb/8/8b/Inverter_q_v_droop.png/700px-Inverter_q_v_droop.png)]
+![caption](../../images/Inverter_p_f_droop.png)
+![caption](../../images/Inverter_q_v_droop.png)
 
-  
+
 The capability to run in delta mode is implemented in battery object. The battery can be attached to the droop inverter. 
 
 ## GridLAB-D implementation
@@ -72,11 +71,11 @@ Should choose VOLTAGE_SOURCE for VSI object.
 use_multipoint_efficiency | bool | none | A boolean flag to toggle using Sandia National Laboratory's multipoint efficiency model   
 generator_status | enumeration | none | Defines if generator is in operation or not (ONLINE, OFFLINE)   
 inverter_efficiency | double | none | four_quadrant_control_mode:The efficiency of the inverter  
-rated_power | double | [VA] | four_quadrant_control_mode:The per phase rated power of the inverter  
-P_Out | double | [VA] | Value to output in four quadrant control mode CONSTANT_PQ and VOLTAGE_SOURCE  
-Q_Out | double | [VAr] | Value to output in four quadrant control mode CONSTANT_PQ and VOLTAGE_SOURCE  
-V_In | complex | [V] | DC voltage passed in by the DC object (e.g. solar panel or battery)   
-I_In | complex | [A] | DC current passed in by the DC object (e.g. solar panel or battery)   
+rated_power | double | #1 | four_quadrant_control_mode:The per phase rated power of the inverter  
+P_Out | double | VA | Value to output in four quadrant control mode CONSTANT_PQ and VOLTAGE_SOURCE  
+Q_Out | double | VAr | Value to output in four quadrant control mode CONSTANT_PQ and VOLTAGE_SOURCE  
+V_In | complex | V | DC voltage passed in by the DC object (e.g. solar panel or battery)   
+I_In | complex | A | DC current passed in by the DC object (e.g. solar panel or battery)   
 flags | unit32 | none | Object flag to be used for indication of delta mode inclusion   
 dynamic_model_mode | enumeration | none | DELTAMODE: Underlying model to use for deltamode control   
 inverter_convergence_criterion | double | none | The maximum change in error threshold for exiting deltamode   
@@ -90,22 +89,19 @@ Parameters related to droop curve settings
 Property name | Type | Unit | Description   
 ---|---|---|---  
 inverter_droop_fp | bool | none | DELTAMODE: Boolean used to indicate whether inverter f/p droop is included or not. False by default   
-Tfreq_delay | double | [s] | DELTAMODE: The time constant for delayed frequency seen by the inverter. If not defined in glm file, it will be the same as the delta time step value   
+Tfreq_delay | double | s | DELTAMODE: The time constant for delayed frequency seen by the inverter. If not defined in glm file, it will be the same as the delta time step value   
 inverter_droop_vq | bool | none | DELTAMODE: Boolean used to indicate whether inverter q/v droop is included or not. False by default   
-Tvol_delay | double | [s] | DELTAMODE: The time constant for delayed voltage seen by the inverter. If not defined in glm file, it will be the same as the delta time step value   
+Tvol_delay | double | s | DELTAMODE: The time constant for delayed voltage seen by the inverter. If not defined in glm file, it will be the same as the delta time step value   
 R_fp | double | none | DELTAMODE: The droop parameter of the f/p droop.   
 R_vq | double | none | DELTAMODE: The droop parameter of the v/q droop.   
   
-  
-
-
 ## Test cases
 
-In IEEE 123-bus feeder, one diesel generator of isochronous mode is placed at the swing bus, and one inverter of p/f droop and constant_Q mode is placed at node 54.   
+In IEEE 123-bus feeder, one diesel generator of isochronous mode is placed at the swing bus, and one inverter of p/f droop and constant_Q mode is placed at node 54.
+
 At 2001-08-01 12:00:10.001 PST, three-phase load 49 increases based on the given players. The diesel generator increases its power to maintain the feeder frequency. Although there is f/p droop enabled in the inverter, since no speed change is detected, inverter real power outputs are kept the same as the reference value after transient.   
 
-
-[![caption](//images.shoutwiki.com/gridlab-d/thumb/8/8c/InverterDroop.png/700px-InverterDroop.png)]
+![caption](../../images/InverterDroop.png)
 
 To run this case, please find in the autotest in GridLAB-D generator module. 
 

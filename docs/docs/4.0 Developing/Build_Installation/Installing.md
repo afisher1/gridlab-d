@@ -1,11 +1,3 @@
----
-title: Installing GridLAB-D™
-excerpt: ''
-deprecated: false
-hidden: false
-metadata:
-  robots: index
----
 # Installing GridLAB-D™
 So, we start at the beginning and for GridLAB-D™ the beginning is getting the software up and running on your computer. As with many open source projects, there are two basic options for doing so: using a traditional installer or compiling the software yourself. We’ll look at both methods.
 

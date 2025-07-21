@@ -1,12 +1,3 @@
----
-title: Theory Of Operation
-excerpt: >-
-
-deprecated: false
-hidden: false
-metadata:
-  robots: index
----
 # Theory of Operation
 
 

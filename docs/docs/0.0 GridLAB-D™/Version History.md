@@ -1,12 +1,6 @@
----
-title: Version History
-excerpt: >-
-  This page provides an archive of GridLAB-D version announcements.
-deprecated: false
-hidden: false
-metadata:
-  robots: index
----
+# Version History
+This page provides an archive of GridLAB-D version announcements.
+
 # Announcements
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Announcements

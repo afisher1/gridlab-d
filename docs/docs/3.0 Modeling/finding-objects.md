@@ -1,12 +1,7 @@
----
-title: Finding Objects
-excerpt: >-
+# Finding Objects
 
-deprecated: false
-hidden: false
-metadata:
-  robots: index
----
+
+
 # Finding Objects
 
 Searching for objects and defining object groups both use the same syntax.

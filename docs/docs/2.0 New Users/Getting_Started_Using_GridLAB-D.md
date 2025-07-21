@@ -1,9 +1,7 @@
----
-title: Getting Started
-excerpt: >-
+# Getting Started
   This section introduces the basic workings of GridLAB-D™, from file types to
   how to create and run your first model.
----
+
 ## Introduction
 
 GridLAB-D™ is a power system simulation tool that provides valuable information to users who design and operate electric power transmission and distribution systems, and to utilities that wish to take advantage of the latest smart grid technology. It incorporates advanced modeling techniques with high-performance algorithms to deliver the latest in end-use load modeling technology integrated with three-phase unbalanced power flow, and retail market systems. Historically, the inability to effectively model and evaluate smart grid technologies has been a barrier to adoption; GridLAB-D™ is designed to address this problem.

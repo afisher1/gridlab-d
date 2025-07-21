@@ -1,11 +1,3 @@
----
-title: Style Guide
-excerpt: This page will serve as the style guide for GridLAB-D™ Documentarians.
-deprecated: false
-hidden: false
-metadata:
-  robots: index
----
 # Style Guide
 
 This is a style guide for GridLAB-D™ Documentarians.

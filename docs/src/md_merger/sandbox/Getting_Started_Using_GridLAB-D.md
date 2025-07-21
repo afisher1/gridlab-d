@@ -1,6 +1,5 @@
----
-title: Getting Started
-excerpt: >-
+# Getting Started
+
   This section introduces the basic workings of GridLAB-D™, from file types to
   how to create and run your first model.
 ---

@@ -1,4 +1,6 @@
 # Evcharger
+TODO: FT: Document in a manner consistent with other residential devices.  Old/deprecated model that has low trust
+
 
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Evcharger
 # Evcharger

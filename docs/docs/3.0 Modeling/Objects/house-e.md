@@ -1,14 +1,9 @@
----
-title: House E
-excerpt: >-
+# House E
+
   In this section, we describe the residential and small commercial building
   thermal load calculation, the modeling approach, major assumption and model
   testing and validation.
-deprecated: false
-hidden: false
-metadata:
-  robots: index
----
+
 The major heat gains and losses that contribute to the building cooling or heating load consist of the following:
 
 1. Conduction through exterior walls, roof, and glass

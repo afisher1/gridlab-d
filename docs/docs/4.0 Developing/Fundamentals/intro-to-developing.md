@@ -1,11 +1,6 @@
----
-title: Developing 101
+# Developing 101
 excerpt: 'serve as a reference and maybe on-boarding for a new GLD developer '
-deprecated: false
-hidden: false
-metadata:
-  robots: index
----
+
 Who is a “developer” and what this guide intends to provide
 
 Doxygen

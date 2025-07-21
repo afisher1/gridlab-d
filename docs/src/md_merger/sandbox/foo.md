@@ -318,9 +318,8 @@ Warnings and errors are displayed first in the output. Then the standard output 
 By default the run configuration uses the project name as the GLM file name. You can change this behavior using the **External Tools Configuration** dialog in Step 2. You can also change the command line arguments, adding options such as `--verbose` or `--profile` to the arguments. 
 
 Retrieved from "[https://gridlab-d.shoutwiki.com/w/index.php?title=Eclipse&oldid=8485](https://gridlab-d.shoutwiki.com/w/index.php?title=Eclipse&oldid=8485)"
----
-title: Getting Started
-excerpt: >-
+# Getting Started
+
   This section introduces the basic workings of GridLAB-D™, from file types to
   how to create and run your first model.
 ---

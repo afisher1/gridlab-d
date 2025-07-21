@@ -1,12 +1,3 @@
----
-title: Theory Of Operation
-excerpt: >-
-
-deprecated: false
-hidden: false
-metadata:
-  robots: index
----
 # Theory of Operation
 
 During command line processing, GridLAB-D™ loads one or more GLM files listed and uses the directives in those files to set global variables, run scripts, load modules, define classes, create objects, and link to external applications. Once all the objects are created and initialized, the main exec loop is started and the global clock begins to advance.

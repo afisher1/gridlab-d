@@ -1,12 +1,3 @@
----
-title: Plotting Output
-excerpt: >-
-
-deprecated: false
-hidden: false
-metadata:
-  robots: index
----
 # Plotting Output
 
 Plotting with GridLAB-D

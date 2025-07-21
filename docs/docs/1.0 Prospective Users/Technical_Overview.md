@@ -1,11 +1,4 @@
----
-title: Technical Overview
-excerpt: ''
-deprecated: false
-hidden: false
-metadata:
-  robots: index
----
+# Technical Overview
 
     A few pages, describing what GLD can do in more detail. This section is for those that are pretty sure GLD can do something they want and they want to make sure. Still lots of graphics but meant to be browsed and read in 15 minutes or less.
 
@@ -35,6 +28,7 @@ metadata:
     Other features Trevor doesn’t use as much and thus forgets about
 
     libgld (if it comes into existence)
+
 # Capabilities
 
 The GridLAB-D system currently implements modules to perform the following functions: 
