@@ -5,7 +5,7 @@
 
 For those you coming to GridLAB-D with that are new to the field, here's how the power system has worked for the past several decades. 
 
-[![Power system overview.jpg](//images.shoutwiki.com/gridlab-d/thumb/a/a3/Power_system_overview.jpg/1024px-Power_system_overview.jpg)](/wiki/File:Power_system_overview.jpg)
+![Power system overview.jpg](../../../images/1024px-Power_system_overview.jpg)
 
 Generators, often but not always located a fair distance from any population centers, take some form of fuel, burn it, heat water, produce steam, and turn an electrical generator, producing electrical energy. Because these generators are so far from the places where the energy will be consumed, the energy first travels through the high-voltage (sometimes called "bulk") transmission system. To minimize losses in the transmission lines, the voltage on these lines is very high, usually many hundreds of kilovolts and these lines can run hundreds of miles. 
 
@@ -17,7 +17,7 @@ GridLAB-D was originally designed as a distribution system simulator and deals m
 
 So let's start by looking at how a simple distribution system is represented in GridLAB-D. The example we’ll be using is [course/Tutorial/Chapter 3 - Basic Electrical Distribution Systems/Distribution system basics/distribution_system_basics.glm](https://github.com/gridlab-d/course/blob/master/Tutorial/Chapter%203%20-%20Basic%20Electrical%20Distribution%20Systems/Distribution%20system%20basics/distribution_system_basics.glm) go ahead and open it up with any text editor. (You can download the entire example repository [here](https://github.com/gridlab-d/course/)) A quick read through the document should be, largely self-explanatory. There are objects that define a substation node, a substation transformer, a substation meter, an overhead line, a meter for a load, and the load itself; the figure below provides a graphical representation of the model. 
 
-[![Distribution system basics system diagram.png](//images.shoutwiki.com/gridlab-d/thumb/c/c0/Distribution_system_basics_system_diagram.png/960px-Distribution_system_basics_system_diagram.png) ](/wiki/File:Distribution_system_basics_system_diagram.png)
+![Distribution system basics system diagram.png](../../../images/960px-Distribution_system_basics_system_diagram.png)
 
 ### Nodes and Meters
 

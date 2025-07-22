@@ -60,9 +60,7 @@ glengine \- GridLAB-D engine library
 
 ## Description
 
-[![](//images.shoutwiki.com/gridlab-d/thumb/3/34/Glengine_1.png/300px-Glengine_1.png) ](/wiki/File:Glengine_1.png)
-
-[]
+![Structure of an engine-based application](../../../../images/300px-Glengine_1.png)
 
 Figure 1: Structure of an engine-based application
 
@@ -70,9 +68,7 @@ The GridLAB-D Engine is a C++ class library that allows developers to link synch
 
 ### glengine
 
-[![](//images.shoutwiki.com/gridlab-d/thumb/6/67/Glengine_2.png/300px-Glengine_2.png) ](/wiki/File:Glengine_2.png)
-
-[]
+![UML sequence of operation of the GridLAB-D Engine](../../../../images/300px-Glengine_2.png)
 
 Figure 2: UML sequence of operation of the GridLAB-D Engine
 
@@ -87,7 +83,6 @@ Figure 2: UML sequence of operation of the GridLAB-D Engine
 The call will return once the link is established. Error result reasons include 
 
     
-
 Timeout
     The link was not successfully established before the timeout.
 Bad command

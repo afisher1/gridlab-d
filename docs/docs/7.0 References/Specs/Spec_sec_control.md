@@ -34,16 +34,11 @@ SPECIFICATION *** WORKING DRAFT ***
 
 The secondary controller object has a structure illustrated in Figure 1, and is very similar to textbook examples like Figure 2. 
 
-[![](//images.shoutwiki.com/gridlab-d/thumb/6/62/SecondaryControlChart.png/300px-SecondaryControlChart.png)](/wiki/File:SecondaryControlChart.png)
-
-[]
+![Secondary controller structure](../../../images/300px-SecondaryControlChart.png)
 
 Figure 1: Secondary controller structure
 
-[![](//images.shoutwiki.com/gridlab-d/thumb/c/c3/AGC_WW.png/300px-AGC_WW.png)](/wiki/File:AGC_WW.png)
-
-[]
-
+![AGC Control Structure](../../../images/300px-AGC_WW.png)
 Figure 2 - AGC Control Structure. Source: [1]
 
 The basic idea is that the frequency error $\Delta f$ is 
@@ -52,6 +47,7 @@ The basic idea is that the frequency error $\Delta f$ is
   2. Adjusted with respect to the current deviation from schedule of participating units (and potentially intertie flows) via $ \epsilon_{\text{unit}}$
   3. Integrate the error via a PID controller, where by default only the integrator branch is non-zero.
   4. Distribute the output $\Delta P$ to participating units via participation factor $\alpha_i$.
+
 Additionally, sampling blocks are added to allow for different information input and output rates. A low pass filter is also possible on each unit channel to smooth out the signal to individual units. 
 
 ## Inter-Tie Modelling
@@ -60,20 +56,20 @@ Inter-tie modeling is incorporated into the unit error input, as illustrated in 
 
   * When $P^{\star}_i - P_i$ is _positive_ , either not enough power is exported ($P^{\star}_i > 0$) or too much power is imported ($P^{\star}_i<0$). Either way, _more_ generation from the units in Microgrid A is needed, which is achieved by _increasing_ its error signal, $P_{\text{err}}^A$. Therefore, $P^{\star}_i - P_i$, should be multiplied by $c_i = -1$, to negate the minus sign in the summation point.
   * When $P^{\star}_i - P_i$ is \emph{negative}, either too much power is exported ($P^{\star}_i > 0)$, or too little power is imported ($P^{\star}_i<0$). Either way, _less_ generation from the units in Microgrid A is needed, which is achieved by _decreasing_ its error signal, $P_{\text{err}}^A$. This is similarly achieved by setting multiplier $c_i = -1$.
+
 The logic for Microgrid B is equal and opposite to that of Microgrid A, and therefore $c_i=1$. These rules are summarized in the following table: 
 
-|  | $P^{\star}_i-P_i > 0$ | $P^{\star}_i-P_i < 0 $  
+
+| |  | $P^{\star}_i-P_i > 0$ | $P^{\star}_i-P_i < 0 $  
 ---|---|---|---  
 Link _from_ end  
 (Microgrid A) | Desired | $P_{\text{err}}\uparrow$ | $P_{\text{err}}\downarrow$  
-$$c_i$ | -1 | -1   
+$c_i$ | -1 | -1   
 Link _to_ end  
 (Microgrid B) | Desired | $P_{\text{err}}\downarrow$ | $P_{\text{err}}\uparrow$  
-$$c_i$ | 1 | 1   
+$c_i$ | 1 | 1   
   
-[![](//images.shoutwiki.com/gridlab-d/thumb/0/09/SecondaryControlIntertie.png/300px-SecondaryControlIntertie.png)](/wiki/File:SecondaryControlIntertie.png)
-
-[]
+![Illustration of inter-tie incorporation into the secondary controller via the unit error, $\epsilon_{text{unit}}$ input](../../../images/300px-SecondaryControlIntertie.png)
 
 Figure 3: Illustration of inter-tie incorporation into the secondary controller via the unit error, $\epsilon_{text{unit}}$ input
 
@@ -270,12 +266,12 @@ The following properties are implemented in the [ link] object to allow interact
 
 Parameter | glm | units | Description   
 ---|---|---|---  
-$$P_{\text{set}}$ | ` pdispatch ` | W | Scheduled flow. Positive flow matches the links from-to definition.   
-$$\Delta P^{\star}$ | `pdispatch_offset` | W | Offset to the scheduled flow.  
+$P_{\text{set}}$ | ` pdispatch ` | W | Scheduled flow. Positive flow matches the links from-to definition.   
+$\Delta P^{\star}$ | `pdispatch_offset` | W | Offset to the scheduled flow.  
 **Note** : currently unused.   
 set dispatch trigger | `set_dispatch` | true/false | Trigger to set schedule to current power flow value. When True will set:  
-$$P_{\text{set}} = (P_{\text{in}} + P_{\text{out}})/2 $   
-$$\Delta P^{\star} = 0$  
+$P_{\text{set}} = (P_{\text{in}} + P_{\text{out}})/2 $   
+$\Delta P^{\star} = 0$  
   
   
 
@@ -382,9 +378,7 @@ Main `.glm`:
     Inv3, 0.3
     
 
-[![](//images.shoutwiki.com/gridlab-d/thumb/a/a5/Sec_cntrl_IEEE_123.png/300px-Sec_cntrl_IEEE_123.png)](/wiki/File:Sec_cntrl_IEEE_123.png)
-
-[]
+![Secondary controller setup on the IEEE 123 Bus case for illustration purposes](../../../images/300px-Sec_cntrl_IEEE_123.png)
 
 Figure 4: Secondary controller setup on the IEEE 123 Bus case for illustration purposes.
 
@@ -393,6 +387,7 @@ Figure 4: Secondary controller setup on the IEEE 123 Bus case for illustration p
   1. ↑ "Wood, Allen J., Bruce F. Wollenberg, and Gerald B. Sheblé. Power generation, operation, and control. John Wiley & Sons, 2013."
   2. ↑ See, for example Aström, Karl (2002). Control System Design ([PDF](https://www.cds.caltech.edu/~murray/courses/cds101/fa02/caltech/astrom-ch6.pdf)). pp. 228–231.
   3. ↑ 3.0 3.1 Negative values possible for inverters if a battery is assumed that can also charge
+
 ## See Also
 
 [Req:sec_control]

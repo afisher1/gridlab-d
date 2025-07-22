@@ -46,65 +46,65 @@ Equations are taken from Reference 1 and 2 below. Equation notation will follow:
 
 Table 1 - Equation Notation  Variable | Definition   
 ---|---  
-$$\displaystyle{}\Delta{}P$ | Imbalance between generation and load of the system   
-$$\displaystyle{}\omega{}$ | Synchronous frequency of the system   
-$$\displaystyle{}H$ | Inertial constant of the system   
-$$\displaystyle{}K_D$ | Damping factor of system   
-$$\displaystyle{}e_x$ | Instantaneous stator phase to neutral voltage for phase or axis $\displaystyle{}x$  
-$$\displaystyle{}i_x$ | Instantaneous stator current for phase or axis $\displaystyle{}x$  
-$$\displaystyle{}e_{fd}$ | Field voltage   
-$$\displaystyle{}i_{fd}$ | Field current   
-$$\displaystyle{}i_{kd}, i_{kq}$ | Amortisseur currents   
-$$\displaystyle{}\theta$ | Angle between direct axis of rotor and phase $a$ of the stator (mechanical angle of the rotor)   
-$$\displaystyle{}\delta$ | Rotor angle - angle between voltage and current   
-$$\displaystyle{}S_d$ | $\displaystyle{}d$-axis component (direct axis) of $dq0$ transformation, or its inverse   
-$$\displaystyle{}S_q$ | $\displaystyle{}q$-axis component (quadrature axis) of $dq0$ transformation, or its inverse   
-$$\displaystyle{}S_0$ | $\displaystyle{}0$-axis (imbalance) component of $dq0$ transformation, or its inverse   
-$$\displaystyle{}S_a$ | $\displaystyle{}a$-axis component of $dq0$ transformation, or its inverse   
-$$\displaystyle{}S_b$ | $\displaystyle{}b$-axis component of $dq0$ transformation, or its inverse   
-$$\displaystyle{}S_c$ | $\displaystyle{}c$-axis component of $dq0$ transformation, or its inverse   
-$$\displaystyle{}R_x$ | Armature resistance for an individual phase   
-$$\displaystyle{}R_{fd}$ | Field circuit resistance   
-$$\displaystyle{}R_{kd}, R_{kq}$ | Amortisseur resistances   
-$$\displaystyle{}L_{xy0}$ | Mean value of varying inductance between phase or axis $x$ and $y$ \- see page 65 of [1]  
-$$\displaystyle{}L_{xy2}$ | Amplitude of sinusoidal variation in inductance between phase or axis $x$ and $y$ \- see page 65 of [1]  
-$$\displaystyle{}L_{xfd}$ | Mutual inductance between stator of phase $x$ and field winding   
-$$\displaystyle{}L_{fkd}$ | Mutual inductance between amortisseur and field winding   
-$$\displaystyle{}L_{ffd}$ | Self inductance of field winding   
-$$\displaystyle{}L_{xkd},L_{xkq}$ | Mutual inductance between stator of phase $x$ and amortisseur circuit   
-$$\displaystyle{}L_{kkd},L_{kkq}$ | Self inductance of amortisseur circuit on $dq0$-axis   
-$$\displaystyle{}\omega_{elec}$ | Current electrical speed (radians per second) of synchronous mechanical devices on system (current grid frequency)   
-$$\displaystyle{}\omega_{ref}$ | Reference rotation speed (radians per second) of synchronous machines on system (nominal frequency, e.g., $\displaystyle{}2\pi60$)   
-$$\displaystyle{}\omega_{mech}$ | Mechanical rotor speed (radians per second) of machine   
-$$\displaystyle{}\omega_{mech0}$ | Rated mechanical speed (radians per second) of the machine   
-$$\displaystyle{}J$ | Moment of inertia of the machine   
-$$\displaystyle{}P_t$ | Power at the terminals (stator) of the generator   
-$$\displaystyle{}T_m$ | Mechanical torque of the generator   
-$$\displaystyle{}T_e$ | Electrical torque of the generator   
-$$\displaystyle{}VA_{m}$ | Machine rated power output   
-$$\displaystyle{}p$ | Differential with time ($\displaystyle{}\frac{d}{dt}$)   
-$$\displaystyle{}P_{mech}$ | Current mechanical power output of generator   
-$$\displaystyle{}P_{mech\_prev}$ | Previous mechanical power output of generator   
-$$\displaystyle{}K$ | Governor scalar relating frequency change and power output change   
-$$\displaystyle{}R$ | Governor speed regulation (droop) parameter   
-$$\displaystyle{}V_{FB}$ | Voltage associated with stabilizing loop on exciter control   
-$$\displaystyle{}V_R$ | Voltage associated with regulator output on exciter control   
-$$\displaystyle{}V_A$ | Voltage associated with amplifier and lead-lag compensator output on exciter control   
-$$\displaystyle{}V_{Comp}$ | Voltage associated with load compensator model output (if it exists)   
-$$\displaystyle{}R_{Comp}$ | Exciter load compensator resistance value   
-$$\displaystyle{}X_{Comp}$ | Exciter load compensator inductance value   
-$$\displaystyle{}V_{PSS}$ | Voltage output from PSS device   
-$$\displaystyle{}K_E$ | Exciter gain   
-$$\displaystyle{}T_E$ | Exciter time constant   
-$$\displaystyle{}K_F$ | Exciter stabilizer gain   
-$$\displaystyle{}T_F$ | Exciter stabilizer time constant   
-$$\displaystyle{}T_B$ | Exciter lead lag numerator time constant   
-$$\displaystyle{}T_C$ | Exciter lead lag denominator time constant   
-$$\displaystyle{}T_A$ | Exciter regulator time constant   
-$$\displaystyle{}K_A$ | Exciter regulator gain   
-$$\displaystyle{}K_C$ | Exciter rectifier regulation limitations on output   
-$$\displaystyle{}A_{EX}$ | Exciter saturation function gain   
-$$\displaystyle{}B_{EX}$ | Exciter saturation function exponential term   
+$\displaystyle{}\Delta{}P$ | Imbalance between generation and load of the system   
+$\displaystyle{}\omega{}$ | Synchronous frequency of the system   
+$\displaystyle{}H$ | Inertial constant of the system   
+$\displaystyle{}K_D$ | Damping factor of system   
+$\displaystyle{}e_x$ | Instantaneous stator phase to neutral voltage for phase or axis $\displaystyle{}x$  
+$\displaystyle{}i_x$ | Instantaneous stator current for phase or axis $\displaystyle{}x$  
+$\displaystyle{}e_{fd}$ | Field voltage   
+$\displaystyle{}i_{fd}$ | Field current   
+$\displaystyle{}i_{kd}, i_{kq}$ | Amortisseur currents   
+$\displaystyle{}\theta$ | Angle between direct axis of rotor and phase $a$ of the stator (mechanical angle of the rotor)   
+$\displaystyle{}\delta$ | Rotor angle - angle between voltage and current   
+$\displaystyle{}S_d$ | $\displaystyle{}d$-axis component (direct axis) of $dq0$ transformation, or its inverse   
+$\displaystyle{}S_q$ | $\displaystyle{}q$-axis component (quadrature axis) of $dq0$ transformation, or its inverse   
+$\displaystyle{}S_0$ | $\displaystyle{}0$-axis (imbalance) component of $dq0$ transformation, or its inverse   
+$\displaystyle{}S_a$ | $\displaystyle{}a$-axis component of $dq0$ transformation, or its inverse   
+$\displaystyle{}S_b$ | $\displaystyle{}b$-axis component of $dq0$ transformation, or its inverse   
+$\displaystyle{}S_c$ | $\displaystyle{}c$-axis component of $dq0$ transformation, or its inverse   
+$\displaystyle{}R_x$ | Armature resistance for an individual phase   
+$\displaystyle{}R_{fd}$ | Field circuit resistance   
+$\displaystyle{}R_{kd}, R_{kq}$ | Amortisseur resistances   
+$\displaystyle{}L_{xy0}$ | Mean value of varying inductance between phase or axis $x$ and $y$ \- see page 65 of [1]  
+$\displaystyle{}L_{xy2}$ | Amplitude of sinusoidal variation in inductance between phase or axis $x$ and $y$ \- see page 65 of [1]  
+$\displaystyle{}L_{xfd}$ | Mutual inductance between stator of phase $x$ and field winding   
+$\displaystyle{}L_{fkd}$ | Mutual inductance between amortisseur and field winding   
+$\displaystyle{}L_{ffd}$ | Self inductance of field winding   
+$\displaystyle{}L_{xkd},L_{xkq}$ | Mutual inductance between stator of phase $x$ and amortisseur circuit   
+$\displaystyle{}L_{kkd},L_{kkq}$ | Self inductance of amortisseur circuit on $dq0$-axis   
+$\displaystyle{}\omega_{elec}$ | Current electrical speed (radians per second) of synchronous mechanical devices on system (current grid frequency)   
+$\displaystyle{}\omega_{ref}$ | Reference rotation speed (radians per second) of synchronous machines on system (nominal frequency, e.g., $\displaystyle{}2\pi60$)   
+$\displaystyle{}\omega_{mech}$ | Mechanical rotor speed (radians per second) of machine   
+$\displaystyle{}\omega_{mech0}$ | Rated mechanical speed (radians per second) of the machine   
+$\displaystyle{}J$ | Moment of inertia of the machine   
+$\displaystyle{}P_t$ | Power at the terminals (stator) of the generator   
+$\displaystyle{}T_m$ | Mechanical torque of the generator   
+$\displaystyle{}T_e$ | Electrical torque of the generator   
+$\displaystyle{}VA_{m}$ | Machine rated power output   
+$\displaystyle{}p$ | Differential with time ($\displaystyle{}\frac{d}{dt}$)   
+$\displaystyle{}P_{mech}$ | Current mechanical power output of generator   
+$\displaystyle{}P_{mech\_prev}$ | Previous mechanical power output of generator   
+$\displaystyle{}K$ | Governor scalar relating frequency change and power output change   
+$\displaystyle{}R$ | Governor speed regulation (droop) parameter   
+$\displaystyle{}V_{FB}$ | Voltage associated with stabilizing loop on exciter control   
+$\displaystyle{}V_R$ | Voltage associated with regulator output on exciter control   
+$\displaystyle{}V_A$ | Voltage associated with amplifier and lead-lag compensator output on exciter control   
+$\displaystyle{}V_{Comp}$ | Voltage associated with load compensator model output (if it exists)   
+$\displaystyle{}R_{Comp}$ | Exciter load compensator resistance value   
+$\displaystyle{}X_{Comp}$ | Exciter load compensator inductance value   
+$\displaystyle{}V_{PSS}$ | Voltage output from PSS device   
+$\displaystyle{}K_E$ | Exciter gain   
+$\displaystyle{}T_E$ | Exciter time constant   
+$\displaystyle{}K_F$ | Exciter stabilizer gain   
+$\displaystyle{}T_F$ | Exciter stabilizer time constant   
+$\displaystyle{}T_B$ | Exciter lead lag numerator time constant   
+$\displaystyle{}T_C$ | Exciter lead lag denominator time constant   
+$\displaystyle{}T_A$ | Exciter regulator time constant   
+$\displaystyle{}K_A$ | Exciter regulator gain   
+$\displaystyle{}K_C$ | Exciter rectifier regulation limitations on output   
+$\displaystyle{}A_{EX}$ | Exciter saturation function gain   
+$\displaystyle{}B_{EX}$ | Exciter saturation function exponential term   
   
 ## Frequency
 
@@ -414,9 +414,7 @@ The completion of this test will gauge the numerical stability of the [microgrid
 
 ## Two machine, single line system
 
-[![](//images.shoutwiki.com/gridlab-d/thumb/b/b0/Two-machine_single-line_System.png/300px-Two-machine_single-line_System.png)](/wiki/File:Two-machine_single-line_System.png)
-
-[]
+![Simple Two-machine Test System](../../../images/300px-Two-machine_single-line_System.png)
 
 Figure 1. Simple Two-machine Test System
 
@@ -426,20 +424,20 @@ The two machine, single line system will be used in a variety of ways to test an
 
 Table 6 - Two machine, single line system parameters  Variable | Value   
 ---|---  
-$$H$ | 10.0   
-$$\omega_{ref}$ | $120\pi{}$ radians/second   
-$$K$ | 100   
-$$R$ | 400 MW/Hz   
-$$K_E$ | Computed so $V_R$ is 0   
-$$T_E$ | 1.15   
-$$K_F$ | 0.058   
-$$T_F$ | 0.62   
-$$T_B$ | 0.06   
-$$T_C$ | 0.173   
-$$T_A$ | 0.89   
-$$K_A$ | 187   
-$$A_{EX}$ | 0.014   
-$$B_{EX}$ | 1.55   
+$H$ | 10.0   
+$\omega_{ref}$ | $120\pi{}$ radians/second   
+$K$ | 100   
+$R$ | 400 MW/Hz   
+$K_E$ | Computed so $V_R$ is 0   
+$T_E$ | 1.15   
+$K_F$ | 0.058   
+$T_F$ | 0.62   
+$T_B$ | 0.06   
+$T_C$ | 0.173   
+$T_A$ | 0.89   
+$K_A$ | 187   
+$A_{EX}$ | 0.014   
+$B_{EX}$ | 1.55   
   
 The actual tests are defined as: 
 
@@ -457,9 +455,7 @@ Successful completion of these tests, as well as the successful validation again
 
 ## Two machine, three line system
 
-[![](//images.shoutwiki.com/gridlab-d/thumb/8/86/Two-machine_three-line_System.png/300px-Two-machine_three-line_System.png)](/wiki/File:Two-machine_three-line_System.png)
-
-[]
+![Basic Two-machine Test System](../../../images/300px-Two-machine_three-line_System.png)
 
 Figure 2. Basic Two-machine Test System
 
@@ -471,9 +467,7 @@ The actual tests for the two machine, three line system will be identical to tho
 
 ## Adapted IEEE 34-bus test feeder
 
-[![](//images.shoutwiki.com/gridlab-d/thumb/a/a4/IEEE34Modified.png/300px-IEEE34Modified.png)](/wiki/File:IEEE34Modified.png)
-
-[]
+![Adapted IEEE 34-bus Test System](../../../images/300px-IEEE34Modified.png)
 
 Figure 3. Adapted IEEE 34-bus Test System [6]
 

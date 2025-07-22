@@ -50,9 +50,8 @@ The equivalent circuits of three-phased and single-phased grid-forming inverters
 
   * When the inverter is three-phased, the internal voltages should be three-phase balanced.
   * The dynamics of the dc bus voltage of inverters are not considered. The dc bus voltage is assumed to be constant during any load changes. In future work the dynamics of the dc side such as the PV panels, energy storage, and dc capacitors will be studied. The internal voltage E will be decided by both the Q-V droop control and the dc bus voltage.
-[![](//images.shoutwiki.com/gridlab-d/thumb/4/49/Inv_dyn_fig1.png/300px-Inv_dyn_fig1.png)](/wiki/File:Inv_dyn_fig1.png)
 
-[]
+![Grid-Forming Inverter model and the interface to the distribution system. (a) Three-phase (b) Single-phase](../../../images/300px-Inv_dyn_fig1.png)
 
 Figure 1 - Grid-Forming Inverter model and the interface to the distribution system. (a) Three-phase (b) Single-phase
 
@@ -60,34 +59,35 @@ Figure 1 - Grid-Forming Inverter model and the interface to the distribution sys
 
 Figure 2 shows the Q-V droop control, Figure 3 shows the P-f droop control and overload mitigation control. When $m_q$ and $m_p$ are set zero, the CERTS droop control becomes isochronous control. 
 
-[![](//images.shoutwiki.com/gridlab-d/thumb/8/8e/Inv_dyn_fig2.png/300px-Inv_dyn_fig2.png)](/wiki/File:Inv_dyn_fig2.png)
-
-[]
+![Q-V Droop Control](../../../images/300px-Inv_dyn_fig2.png)
 
 Figure 2 - Q-V Droop Control
 
-[![](//images.shoutwiki.com/gridlab-d/thumb/d/dd/Inv_dyn_fig3.png/300px-Inv_dyn_fig3.png)](/wiki/File:Inv_dyn_fig3.png)
-
-[]
+![P-f Droop Control and Overload Mitigation Control](../../../images/300px-Inv_dyn_fig3.png)
 
 Figure 3 - P-f Droop Control and Overload Mitigation Control
 
 If the inverter is three-phased, the active power, reactive power, and voltage magnitude can be calculated according to (1) to (3). The phase angles of the internal three-phase voltages can be obtained from (4) to (6), where $\delta_{0i}$ ($i=a,b,c$) is the initial phase angle obtained from power flow calculation. It should be noted that the internal voltages are always three-phase balanced. 
 
-$$\displaystyle{}P_{INV}=\frac{1}{1+T_{s}}\frac{\left(P_a+P_b+P_c\right)}{S_B}$ | (1)   
+$$\displaystyle{}P_{INV}=\frac{1}{1+T_{s}}\frac{\left(P_a+P_b+P_c\right)}{S_B}\tag{1}$$    
 ---|---  
-$$\displaystyle{}Q_{INV}=\frac{1}{1+T_s}\frac{\left(Q_a+Q_b+Q_c\right)}{S_B}$ | (2)   
-$$\displaystyle{}V_{INV}=\frac{1}{3\left(1+T_s\right)}\frac{\left(V_{ga}+V_{gb}+V_{gc}\right)}{V_B}$ | (3)   
-$$\displaystyle{}\delta_a=\delta{}+\delta_{0a}$ | (4)   
-$$\displaystyle{}\delta_b=\delta{}+\delta_{0b}$ | (5)   
-$$\displaystyle{}\delta_c=\delta{}+\delta_{0c}$ | (6)   
+$$\displaystyle{}Q_{INV}=\frac{1}{1+T_s}\frac{\left(Q_a+Q_b+Q_c\right)}{S_B}\tag{2}$$ 
+
+$$\displaystyle{}V_{INV}=\frac{1}{3\left(1+T_s\right)}\frac{\left(V_{ga}+V_{gb}+V_{gc}\right)}{V_B}\tag{3}$$ 
+
+$$\displaystyle{}\delta_a=\delta{}+\delta_{0a}\tag{4}$$ 
+
+$$\displaystyle{}\delta_b=\delta{}+\delta_{0b}\tag{5}$$ 
+
+$$\displaystyle{}\delta_c=\delta{}+\delta_{0c}\tag{6}$$    
   
 If the inverter is single-phased, the active power, reactive power, and voltage magnitude can be calculated according to (7) to (9). 
 
-$$\displaystyle{}P_{INV}=\frac{\frac{P_i}{1+T_s}}{S_B}$ | (7)   
+$$\displaystyle{}P_{INV}=\frac{\frac{P_i}{1+T_s}}{S_B}\tag{7}$$ 
 ---|---  
-$$\displaystyle{}Q_{INV}=\frac{\frac{Q_i}{1+T_s}}{S_B}$ | (8)   
-$$\displaystyle{}V_{INV}=\frac{\frac{V_{gi}}{1+T_s}}{S_B}$ | (9)   
+$$\displaystyle{}Q_{INV}=\frac{\frac{Q_i}{1+T_s}}{S_B}\tag{8}$$ 
+
+$$\displaystyle{}V_{INV}=\frac{\frac{V_{gi}}{1+T_s}}{S_B}\tag{9}$$ 
   
 ### Transition between Quasi-Steady State Time Series Simulation and Delta Mode Simulation
 
@@ -113,34 +113,34 @@ $$\displaystyle{}V_{INV}=\frac{\frac{V_{gi}}{1+T_s}}{S_B}$ | (9)
   * If starting in QSTS mode, the “deltamode to QSTS start” transition steps probably need to occur.
 ### Definition of Parameters
 
-$$\displaystyle{}S_B$ | The rated capacity of inverter. If the inverter is three-phased, $S_B$ refers to the summation of rated power of three phases. If the inverter is single-phased, $S_B$ refers to the rated power of one phase.   
+$\displaystyle{}S_B$ | The rated capacity of inverter. If the inverter is three-phased, $S_B$ refers to the summation of rated power of three phases. If the inverter is single-phased, $S_B$ refers to the rated power of one phase.   
 ---|---  
-$$\displaystyle{}V_B$ | The rated line to ground RMS voltage of an inverter.   
-$$\displaystyle{}X_L$ | The coupling reactance. The per unit value of $X_L$ usually belongs to 0.05 pu to 0.2 pu.   
-$$\displaystyle{}\delta_i$ ($i=a,b,c$) | The phase angle of internal voltage for each phase. The phase angle is obtained from the P-f droop control.   
-$$\displaystyle{}\delta_{0i}$ ($i=a,b,c$) | The initial values of phase angle of internal voltage for each phase.   
-$$\displaystyle{}I_{0i}$ ($i=a,b,c$) | The magnitude of current that the inverter injects to the grid.   
-$$\displaystyle{}\psi_{0i}$ ($i=a,b,c$) | The phase angle of current that hte inverter injects to the grid.   
-$$\displaystyle{}P_{INV}$ | The real power injected by the inverter to the grid. $P_{INV}$ is per-unit value, which base quantity is the NAMEPLATE rated capacity of inverter, $S_B$.   
-$$\displaystyle{}Q_{INV}$ | The reactive power injected by the inverter to the grid. $Q_{INV}$ is per-unit value, which base quantity is the NAMEPLATE rated capacity of inverter, $S_B$.   
-$$\displaystyle{}V_{INV}$ | The output voltage of the inverter. $V_{INV}$ is per-unit value, which base quantity is the NAMEPLATE rated voltage of inverter, $V_B$.   
-$$\displaystyle{}E$ | The internal voltage of inverter. $E$ is per-unit value, which base quantity is the NAMEPLATE rated voltage of inverter, $V_B$.   
-$$\displaystyle{}E_{0i}$ ($i=a,b,c$) | The initial value of the magnitude of the internal voltage, which base quantity is the NAMEPLATE rated voltage of inverter, $V_B$.   
-$$\displaystyle{}E_{max}$ | The upper limit of the internal voltage.   
-$$\displaystyle{}E_{min}$ | The lower limit of the internal voltage.   
-$$\displaystyle{}\omega{}$ | The output angular frequency of inverter, which unit is rad/s.   
-$$\displaystyle{}T_s$ | The time constant of low-pass filter.   
-$$\displaystyle{}m_q$ | The Q-V droop coefficient. The slope is usually set as 0.05pu.   
-$$\displaystyle{}V_{set}$ | The voltage set point. $V_{set}$ is usually set as 1 pu.   
-$$\displaystyle{}k_{pv}$ | The proportional gain of voltage control loop. $k_{pv}$ is usually set as 0 pu.   
-$$\displaystyle{}k_{iv}$ | The integral gain of voltage control loop. $k_{iv}$ is usually set as 5.86 pu/s.   
-$$\displaystyle{}m_p$ | The P-f droop coefficient. The slope is usually set as 3.77 rad/s, which means the frequency drops 1% as the real power spans from 0 pu to 1 pu.   
-$$\displaystyle{}k_{ppmax}$ | The proportional gain for $P_{max}$ and $P_{min}$ controller. $k_{ppmax}$ is usually set as 3 rad/s.   
-$$\displaystyle{}k_{ipmax}$ | The integral gain of $P_{max}$ and $P_{min}$ controller. $k_{ipmax}$ is usually set as 30 rad/s2. It should be noted that the **anti-wind-up integrator** should be used for $P_{max}$ and $P_{min}$ controller. For $P_{max}$ controller, there is a 0 upper limiter. For $P_{min}$ controller, there is a 0 lower limiter.   
-$$\displaystyle{}P_{set}$ | The power set point of the inverter. If we assume the inverter is a normal inverter without energy storage, the $P_{set}$ should be between 0 pu to 1 pu. If we assume the inverter is an energy storage, the $P_{set}$ should be between -1 pu to 1 pu.   
-$$\displaystyle{}P_{max}$ | The maximum power limit that the inverter is allowed to output.   
-$$\displaystyle{}P_{min}$ | The minimum power limit that the inverter is allowed to output.   
-$$\displaystyle{}\omega_{0}$ | The rated grid angular frequency, usually 376.99 rad/s.   
+$\displaystyle{}V_B$ | The rated line to ground RMS voltage of an inverter.   
+$\displaystyle{}X_L$ | The coupling reactance. The per unit value of $X_L$ usually belongs to 0.05 pu to 0.2 pu.   
+$\displaystyle{}\delta_i$ ($i=a,b,c$) | The phase angle of internal voltage for each phase. The phase angle is obtained from the P-f droop control.   
+$\displaystyle{}\delta_{0i}$ ($i=a,b,c$) | The initial values of phase angle of internal voltage for each phase.   
+$\displaystyle{}I_{0i}$ ($i=a,b,c$) | The magnitude of current that the inverter injects to the grid.   
+$\displaystyle{}\psi_{0i}$ ($i=a,b,c$) | The phase angle of current that hte inverter injects to the grid.   
+$\displaystyle{}P_{INV}$ | The real power injected by the inverter to the grid. $P_{INV}$ is per-unit value, which base quantity is the NAMEPLATE rated capacity of inverter, $S_B$.   
+$\displaystyle{}Q_{INV}$ | The reactive power injected by the inverter to the grid. $Q_{INV}$ is per-unit value, which base quantity is the NAMEPLATE rated capacity of inverter, $S_B$.   
+$\displaystyle{}V_{INV}$ | The output voltage of the inverter. $V_{INV}$ is per-unit value, which base quantity is the NAMEPLATE rated voltage of inverter, $V_B$.   
+$\displaystyle{}E$ | The internal voltage of inverter. $E$ is per-unit value, which base quantity is the NAMEPLATE rated voltage of inverter, $V_B$.   
+$\displaystyle{}E_{0i}$ ($i=a,b,c$) | The initial value of the magnitude of the internal voltage, which base quantity is the NAMEPLATE rated voltage of inverter, $V_B$.   
+$\displaystyle{}E_{max}$ | The upper limit of the internal voltage.   
+$\displaystyle{}E_{min}$ | The lower limit of the internal voltage.   
+$\displaystyle{}\omega{}$ | The output angular frequency of inverter, which unit is rad/s.   
+$\displaystyle{}T_s$ | The time constant of low-pass filter.   
+$\displaystyle{}m_q$ | The Q-V droop coefficient. The slope is usually set as 0.05pu.   
+$\displaystyle{}V_{set}$ | The voltage set point. $V_{set}$ is usually set as 1 pu.   
+$\displaystyle{}k_{pv}$ | The proportional gain of voltage control loop. $k_{pv}$ is usually set as 0 pu.   
+$\displaystyle{}k_{iv}$ | The integral gain of voltage control loop. $k_{iv}$ is usually set as 5.86 pu/s.   
+$\displaystyle{}m_p$ | The P-f droop coefficient. The slope is usually set as 3.77 rad/s, which means the frequency drops 1% as the real power spans from 0 pu to 1 pu.   
+$\displaystyle{}k_{ppmax}$ | The proportional gain for $P_{max}$ and $P_{min}$ controller. $k_{ppmax}$ is usually set as 3 rad/s.   
+$\displaystyle{}k_{ipmax}$ | The integral gain of $P_{max}$ and $P_{min}$ controller. $k_{ipmax}$ is usually set as 30 rad/s2. It should be noted that the **anti-wind-up integrator** should be used for $P_{max}$ and $P_{min}$ controller. For $P_{max}$ controller, there is a 0 upper limiter. For $P_{min}$ controller, there is a 0 lower limiter.   
+$\displaystyle{}P_{set}$ | The power set point of the inverter. If we assume the inverter is a normal inverter without energy storage, the $P_{set}$ should be between 0 pu to 1 pu. If we assume the inverter is an energy storage, the $P_{set}$ should be between -1 pu to 1 pu.   
+$\displaystyle{}P_{max}$ | The maximum power limit that the inverter is allowed to output.   
+$\displaystyle{}P_{min}$ | The minimum power limit that the inverter is allowed to output.   
+$\displaystyle{}\omega_{0}$ | The rated grid angular frequency, usually 376.99 rad/s.   
 Table 1 - V-Q Droop Controller Parameters  $V_{set}$ [pu] | $m_q$ [pu] | $k_{pv}$ [pu] | $k_{iv}$ [pu/s]   
 ---|---|---|---  
 1.0 | 0.05 | 0 | 5.86   
@@ -191,9 +191,8 @@ Figure 4 (a) and (b) show the equivalent circuits of three-phased and single-pha
   * For simplicity, the grid-following controller is modeled per phase. This means each phase has its own PLL and current control loop.
   * We assume each phase injects the same amount of P and Q into the grid.
   * For a split phase connection, we assume the inverter is connected between two phases, Phase 1 and Phase 2.
-[![](//images.shoutwiki.com/gridlab-d/thumb/d/d5/Inv_dyn_fig4.png/300px-Inv_dyn_fig4.png)](/wiki/File:Inv_dyn_fig4.png)
 
-[]
+![Detailed model of a grid-following inverter and its interface to the distribution system. (a) Three-phase (b) Single-phase](../../../images/300px-Inv_dyn_fig4.png)
 
 Figure 4 - Detailed model of a grid-following inverter and its interface to the distribution system. (a) Three-phase (b) Single-phase
 
@@ -205,56 +204,51 @@ For simplicity, the grid-following controller is modeled per phase. This means e
 
 Figure 5 shows the control block of a PLL. For each phase, the grid side voltage $U_{gi}\angle{\delta_{gi}}$ ($i=a,b,c$) is transformed from $xy$ frame into $dq$ frame. The controllers tries to control $u_{gqi}=0$. The output $\angle{\delta_{PLLi}}$ should equal to the phase angle of the grid side voltage $\angle{\delta_{gi}}\left(\angle{\delta_{PLLi}}=\angle{\delta_{gi}}\right)$, and $f_{PLLi}$ should equal to the system frequency. 
 
-[![](//images.shoutwiki.com/gridlab-d/thumb/5/55/Inv_dyn_fig5.png/300px-Inv_dyn_fig5.png)](/wiki/File:Inv_dyn_fig5.png)
-
-[]
+![Control block of a PLL](../../../images/300px-Inv_dyn_fig5.png)
 
 Figure 5 - Control block of a PLL
 
 Figure 6 and equations (10) to (13) show how the grid side voltage $U_{gi}\angle{\delta_{gi}}$ and current $I_{gi}\angle{\delta_{gi}}$ ($i=a,b,c$) are transformed from $xy$ frame into $dq$ frame individually. In steady state $u_{gqi}=0$. It should be noted that in equation (13) there is a negative sign in current calculation. This is because the phase angle of voltage is assumed to be lead the phase angle of current, so positive direction of $iq$ should be negative. 
 
-[![](//images.shoutwiki.com/gridlab-d/thumb/e/eb/Inv_dyn_fig6.png/300px-Inv_dyn_fig6.png)](/wiki/File:Inv_dyn_fig6.png)
-
-[]
+![Coordinate Transformation: $ xy$ to $dq$](../../../images/300px-Inv_dyn_fig6.png)
 
 Figure 6 - Coordinate Transformation: $ xy$ to $dq$
 
-$$\displaystyle{}u_{gdi}=\frac{\left[\textrm{Re}\left(U_{gi}\angle{\delta_{gi}}\right)\cos{\delta_{PLLi}}+\textrm{Im}\left(U_{gi}\angle{\delta_{gi}}\right)\sin{\delta_{PLLi}}\right]}{U_B}$ | (10)   
+$$\displaystyle{}u_{gdi}=\frac{\left[\textrm{Re}\left(U_{gi}\angle{\delta_{gi}}\right)\cos{\delta_{PLLi}}+\textrm{Im}\left(U_{gi}\angle{\delta_{gi}}\right)\sin{\delta_{PLLi}}\right]}{U_B}\tag{10}$$  
 ---|---  
-$$\displaystyle{}u_{gqi}=\frac{-\left[\textrm{Re}\left(U_{gi}\angle{\delta_{gi}}\right)\sin{\delta_{PLLi}}+\textrm{Im}\left(U_{gi}\angle{\delta_{gi}}\right)\cos{\delta_{PLLi}}\right]}{U_B}$ | (11)   
-$$\displaystyle{}i_{gdi}=\frac{\left[\textrm{Re}\left(I_{gi}\angle{\psi_{gi}}\right)\cos{\delta_{PLLi}}+\textrm{Im}\left(I_{gi}\angle{\psi_{gi}}\right)\sin{\delta_{PLLi}}\right]}{I_B}$ | (12)   
-$$\displaystyle{}i_{gqi}=\frac{-\left[\textrm{Re}\left(I_{gi}\angle{\psi_{gi}}\right)\sin{\delta_{PLLi}}+\textrm{Im}\left(I_{gi}\angle{\psi_{gi}}\right)\cos{\delta_{PLLi}}\right]}{I_B}$ | (13)   
+$$\displaystyle{}u_{gqi}=\frac{-\left[\textrm{Re}\left(U_{gi}\angle{\delta_{gi}}\right)\sin{\delta_{PLLi}}+\textrm{Im}\left(U_{gi}\angle{\delta_{gi}}\right)\cos{\delta_{PLLi}}\right]}{U_B}\tag{11}$$
+
+$$\displaystyle{}i_{gdi}=\frac{\left[\textrm{Re}\left(I_{gi}\angle{\psi_{gi}}\right)\cos{\delta_{PLLi}}+\textrm{Im}\left(I_{gi}\angle{\psi_{gi}}\right)\sin{\delta_{PLLi}}\right]}{I_B}\tag{12}$$ 
+
+$$\displaystyle{}i_{gqi}=\frac{-\left[\textrm{Re}\left(I_{gi}\angle{\psi_{gi}}\right)\sin{\delta_{PLLi}}+\textrm{Im}\left(I_{gi}\angle{\psi_{gi}}\right)\cos{\delta_{PLLi}}\right]}{I_B}\tag{13}$$ 
+
   
 It should be noted that according to (11) we can also have (14). (14) helps to explain how the PLL controller works. In steady state, $\angle{\delta_{PLLi}}=\angle{\delta_{qi}}$. 
 
-$$\displaystyle{}u_{gqi}=\sin{\delta_{gi}-\delta{PLLi}}\frac{U_{gi}}{U_B}$ | (14)   
+$$\displaystyle{}u_{gqi}=\sin{\delta_{gi}-\delta{PLLi}}\frac{U_{gi}}{U_B}\tag{14}$$   
 ---|---  
   
 Figure 7 shows the current control loop. The outputs of the current control loop are the internal voltages $e_{di}$ and $e_{qi}$ for each phase. 
 
-[![](//images.shoutwiki.com/gridlab-d/thumb/c/c6/Inv_dyn_fig7.png/300px-Inv_dyn_fig7.png)](/wiki/File:Inv_dyn_fig7.png)
-
-[]
+![Current Control Loop](../../../images/300px-Inv_dyn_fig7.png)
 
 Figure 7 - Current Control Loop
 
 Equation (15) and (16) show that how the current references $i_{gdi\_ref}$ and $i_{gqi\_ref}$ ($i=a,b,c$) are obtained according to the references $P_{refi}$ and $Q_{refi}$. $P_{refi}$ and $Q_{refi}$ are per unit values for each phase. 
 
-$$\displaystyle{}i_{gdi\_ref}=\frac{P_{refi}}{u_{gdi}}$ | (15)   
+$$\displaystyle{}i_{gdi\_ref}=\frac{P_{refi}}{u_{gdi}}\tag{115}$$   
 ---|---  
-$$\displaystyle{}i_{gqi\_ref}=\frac{-Q_{refi}}{u_{gdi}}$ | (16)   
+$$\displaystyle{}i_{gqi\_ref}=\frac{-Q_{refi}}{u_{gdi}}\tag{16}$$   
   
 Figure 8, Equation (17) and (18) show how the internal voltages $e_{di}$ and $e_{qi}$ are transformed from $dq$ frame back into $xy$ frame. With $E_i\angle{\delta_i}$ obtained, power flow analysis can be conducted. $E_i\angle{\delta_i}$ should be converted to their Norton equivalence when conducting power flow analysis. 
 
-[![](//images.shoutwiki.com/gridlab-d/thumb/c/c1/Inv_dyn_fig8.png/300px-Inv_dyn_fig8.png)](/wiki/File:Inv_dyn_fig8.png)
-
-[]
+![Coordinate Transformation: $ dq$ to $xy$](../../../images/300px-Inv_dyn_fig8.png)
 
 Figure 8 - Coordinate Transformation: $ dq$ to $xy$
 
-$$\displaystyle{}\textrm{Re}\left(E_i\angle{\delta_i}\right)=\left(e_{di}\cos{\delta_{PLLi}}-e_{qi}\sin{\delta_{PLLi}}\right)U_B$ | (17)   
+$$\displaystyle{}\textrm{Re}\left(E_i\angle{\delta_i}\right)=\left(e_{di}\cos{\delta_{PLLi}}-e_{qi}\sin{\delta_{PLLi}}\right)U_B\tag{17}$$  
 ---|---  
-$$\displaystyle{}\textrm{Im}\left(E_i\angle{\delta_i}\right)=\left(e_{di}\sin{\delta_{PLLi}}+e_{qi}\cos{\delta_{PLLi}}\right)U_B$ | (18)   
+$$\displaystyle{}\textrm{Im}\left(E_i\angle{\delta_i}\right)=\left(e_{di}\sin{\delta_{PLLi}}+e_{qi}\cos{\delta_{PLLi}}\right)U_B\tag{18}$$   
   
 ### Transition between QSTS and Delta Mode Simulation
 
@@ -291,51 +285,47 @@ The external controls include frequency-watt control and volt-var control. These
 
 Figure 9 shows the control block of the frequency-watt control. It measures the variation of frequency and changes the reference of output power $P$. The frequency is measured by a PLL. 
 
-[![](//images.shoutwiki.com/gridlab-d/thumb/7/7f/Inv_dyn_fig9.png/300px-Inv_dyn_fig9.png)](/wiki/File:Inv_dyn_fig9.png)
-
-[]
+![Frequency-watt control](../../../images/300px-Inv_dyn_fig9.png)
 
 Figure 9 - Frequency-watt control
 
 Figure 10 shows the control block of the Volt-Var control. It measures the variation of voltage and changes the reference of reactive power $Q$. 
 
-[![](//images.shoutwiki.com/gridlab-d/thumb/b/b5/Inv_dyn_fig10.png/300px-Inv_dyn_fig10.png)](/wiki/File:Inv_dyn_fig10.png)
-
-[]
+![Volt-Var control](../../../images/300px-Inv_dyn_fig10.png)
 
 Figure 10 - Volt-Var control
 
 ### Definition of Parameters
 
-$$\displaystyle{}k_{pPLL}$ | The proportional gain of the PLL control block.   
+$\displaystyle{}k_{pPLL}$ | The proportional gain of the PLL control block.   
 ---|---  
-$$\displaystyle{}k_{iPLL}$ | The integral gain of the PLL control block   
-$$\displaystyle{}k_{pc}$ | The proportional gain of the current control loop   
-$$\displaystyle{}k_{ic}$ | The integral gain of the current control loop   
-$$\displaystyle{}i_{gi}\left(i=a,b,c\right)$ | the magnitude of the grid side current that the inverter injects into the grid   
-$$\displaystyle{}\psi_{gi}\left(i=a,b,c\right)$ | the phase angle of the grid side current that the inverter injects into the grid   
-$$\displaystyle{}U_{gi}\left(i=a,b,c\right)$ | The magnitude of the grid side voltage   
-$$\displaystyle{}\delta_{gi}\left(i=a,b,c\right)$ | The phase angle of the grid side voltage   
-$$\displaystyle{}E_i\left(i=a,b,c\right)$ | The magnitude of the internal voltage   
-$$\displaystyle{}\delta_i\left(i=a,b,c\right)$ | The phase angle of the internal voltage   
-$$\displaystyle{}\delta_{PLLi}\left(i=a,b,c\right)$ | The phase angle measured by the PLL. It should equals to $\delta_{gi}$ in steady state if the PLL works well.   
-$$\displaystyle{}f_{PLLi}\left(i=a,b,c\right)$ | The frequency of each phase measured by the PLL   
-$$\displaystyle{}u_{gdi},u_{gqi}\left(i=a,b,c\right)$ | The grid side voltage in $dq$ frame for each phase   
-$$\displaystyle{}i_{gdi},i_{gqi}\left(i=a,b,c\right)$ | The grid side current in $dq$ frame for each phase   
-$$\displaystyle{}i_{gdi\_ref},u_{gqi\_ref}\left(i=a,b,c\right)$ | The grid side current references for each phase   
-$$\displaystyle{}e_{di},e_{qi}\left(i=a,b,c\right)$ | The internal voltages of an inverter in $dq$ frame   
-$$\displaystyle{}P_{refi},Q_{refi}\left(i=a,b,c\right)$ | The references of P and Q specified by the user. $P_{refi}$ and $Q_{refi}$ should be per unit values. $Q_{refi}$ usually is zero, if the volt-var control is enabled, $Q_{refi}$ is decided by the volt-var control. If frequency-watt control is enabled, $P_{refi}$ is decided by the frequency-watt control. $P_{refi}$ usually belongs to 0 pu to 1 pu. $Q_{refi}$ usually belongs to -1 pu to 1 pu.   
-$$\displaystyle{}P_{max},P_{min}$ | The maximum and minimum active power of an inverter.   
-$$\displaystyle{}Q_{max},Q_{min}$ | The maximum and minimum reactive power of an inverter.   
-$$\displaystyle{}P_{ref0}\left(i=a,b,c\right)$ | The active power set point in frequency-watt control. It usually belongs to 0 pu to 1 pu.   
-$$\displaystyle{}U_{0i}\left(i=a,b,c\right)$ | The voltage set point for each phase in volt-var control. The value is usually 1 pu.   
-$$\displaystyle{}T_1$ | Time constant of the low pass filter, usually 0.01 s.   
-$$\displaystyle{}S_B$ | The rated capacity of inverter. If the inverter is three-phased, $S_B$ refers to the summation of rated power of three phases. If the inverter is single-phased, $S_B$ refers to the rated power of one phase.   
-$$\displaystyle{}U_B$ | The rated line to ground RMS voltage of an inverter.   
-$$\displaystyle{}X_L$ | The coupling reactance. The per unit value of $X_L$ usually belongs to 0.05 pu to 0.2 pu.   
-$$\displaystyle{}\omega_0$ | The rated grid angular frequency, usually 376.99 rad/s.   
-$$\displaystyle{}m_p$ | The P-f droop coefficient. The slope is usually set as 3.77 rad/s, which means the frequency drops 1% as the real power spans from 0 pu to 1 pu.   
-$$\displaystyle{}m_q$ | The Q-V droop coefficient. The slope is usually set as 0.05pu.   
+$\displaystyle{}k_{iPLL}$ | The integral gain of the PLL control block   
+$\displaystyle{}k_{pc}$ | The proportional gain of the current control loop   
+$\displaystyle{}k_{ic}$ | The integral gain of the current control loop   
+$\displaystyle{}i_{gi}\left(i=a,b,c\right)$ | the magnitude of the grid side current that the inverter injects into the grid   
+$\displaystyle{}\psi_{gi}\left(i=a,b,c\right)$ | the phase angle of the grid side current that the inverter injects into the grid   
+$\displaystyle{}U_{gi}\left(i=a,b,c\right)$ | The magnitude of the grid side voltage   
+$\displaystyle{}\delta_{gi}\left(i=a,b,c\right)$ | The phase angle of the grid side voltage   
+$\displaystyle{}E_i\left(i=a,b,c\right)$ | The magnitude of the internal voltage   
+$\displaystyle{}\delta_i\left(i=a,b,c\right)$ | The phase angle of the internal voltage   
+$\displaystyle{}\delta_{PLLi}\left(i=a,b,c\right)$ | The phase angle measured by the PLL. It should equals to $\delta_{gi}$ in steady state if the PLL works well.   
+$\displaystyle{}f_{PLLi}\left(i=a,b,c\right)$ | The frequency of each phase measured by the PLL   
+$\displaystyle{}u_{gdi},u_{gqi}\left(i=a,b,c\right)$ | The grid side voltage in $dq$ frame for each phase   
+$\displaystyle{}i_{gdi},i_{gqi}\left(i=a,b,c\right)$ | The grid side current in $dq$ frame for each phase   
+$\displaystyle{}i_{gdi\_ref},u_{gqi\_ref}\left(i=a,b,c\right)$ | The grid side current references for each phase   
+$\displaystyle{}e_{di},e_{qi}\left(i=a,b,c\right)$ | The internal voltages of an inverter in $dq$ frame   
+$\displaystyle{}P_{refi},Q_{refi}\left(i=a,b,c\right)$ | The references of P and Q specified by the user. $P_{refi}$ and $Q_{refi}$ should be per unit values. $Q_{refi}$ usually is zero, if the volt-var control is enabled, $Q_{refi}$ is decided by the volt-var control. If frequency-watt control is enabled, $P_{refi}$ is decided by the frequency-watt control. $P_{refi}$ usually belongs to 0 pu to 1 pu. $Q_{refi}$ usually belongs to -1 pu to 1 pu.   
+$\displaystyle{}P_{max},P_{min}$ | The maximum and minimum active power of an inverter.   
+$\displaystyle{}Q_{max},Q_{min}$ | The maximum and minimum reactive power of an inverter.   
+$\displaystyle{}P_{ref0}\left(i=a,b,c\right)$ | The active power set point in frequency-watt control. It usually belongs to 0 pu to 1 pu.   
+$\displaystyle{}U_{0i}\left(i=a,b,c\right)$ | The voltage set point for each phase in volt-var control. The value is usually 1 pu.   
+$\displaystyle{}T_1$ | Time constant of the low pass filter, usually 0.01 s.   
+$\displaystyle{}S_B$ | The rated capacity of inverter. If the inverter is three-phased, $S_B$ refers to the summation of rated power of three phases. If the inverter is single-phased, $S_B$ refers to the rated power of one phase.   
+$\displaystyle{}U_B$ | The rated line to ground RMS voltage of an inverter.   
+$\displaystyle{}X_L$ | The coupling reactance. The per unit value of $X_L$ usually belongs to 0.05 pu to 0.2 pu.   
+$\displaystyle{}\omega_0$ | The rated grid angular frequency, usually 376.99 rad/s.   
+$\displaystyle{}m_p$ | The P-f droop coefficient. The slope is usually set as 3.77 rad/s, which means the frequency drops 1% as the real power spans from 0 pu to 1 pu.   
+$\displaystyle{}m_q$ | The Q-V droop coefficient. The slope is usually set as 0.05pu.   
   
 ### GridLAB-D Model Example
     
@@ -379,15 +369,11 @@ In Grid-Following Inverter section above, the grid-following inverter is represe
 
 The voltage source representation (Figure 11) is changed to current source representation (Figure 12). It can be seen that the shunt admittance is ignored in the current source representation model. 
 
-[![](//images.shoutwiki.com/gridlab-d/thumb/9/9c/Inv_dyn_fig11.png/300px-Inv_dyn_fig11.png)](/wiki/File:Inv_dyn_fig11.png)
-
-[]
+![Voltage source representation of a grid-following inverter. (a) Thevenin equivalent circuit and (b) Norton equivalent circuit](../../../images/300px-Inv_dyn_fig11.png)
 
 Figure 11 - Voltage source representation of a grid-following inverter. (a) Thevenin equivalent circuit and (b) Norton equivalent circuit.
 
-[![](//images.shoutwiki.com/gridlab-d/thumb/9/9c/Inv_dyn_fig12.png/300px-Inv_dyn_fig12.png)](/wiki/File:Inv_dyn_fig12.png)
-
-[]
+![Current source representation of a grid-following inverter](../../../images/300px-Inv_dyn_fig12.png)
 
 Figure 12 - Current source representation of a grid-following inverter.
 
@@ -395,21 +381,15 @@ Figure 12 - Current source representation of a grid-following inverter.
 
 The detailed inner current loops are ignored. Instead, a first-order low-pass filter is used to represent the dynamic response of current loop. Figure 13 shows the standard modeling approach (detailed in the earlier grid-following description). Figure 14 shows the first-order low-pass filter approximation noted here. The PLL is still kept in the simplified model and is represented in Figure 15, which is identical to the earlier grid-following implementation mentioned. 
 
-[![](//images.shoutwiki.com/gridlab-d/thumb/c/c4/Inv_dyn_fig14.png/300px-Inv_dyn_fig14.png)](/wiki/File:Inv_dyn_fig14.png)
-
-[]
+![Detailed control block of the current control loop: (a) current loop, (b) and (c) coordinate transformation.](../../../images/300px-Inv_dyn_fig14.png)
 
 Figure 13 - Detailed control block of the current control loop: (a) current loop, (b) and (c) coordinate transformation.
 
-[![](//images.shoutwiki.com/gridlab-d/thumb/9/91/Inv_dyn_fig15.png/300px-Inv_dyn_fig15.png)](/wiki/File:Inv_dyn_fig15.png)
-
-[]
+![Simplified control block of the current control loop: (a) current loop, (b) and (c) coordinate transformation](../../../images/300px-Inv_dyn_fig15.png)
 
 Figure 14 - Simplified control block of the current control loop: (a) current loop, (b) and (c) coordinate transformation.
 
-[![](//images.shoutwiki.com/gridlab-d/thumb/1/1b/Inv_dyn_fig13.png/300px-Inv_dyn_fig13.png)](/wiki/File:Inv_dyn_fig13.png)
-
-[]
+![Phase Lock Loop: (a) control block and (b) xy and dq frame coordinate systems.](../../../images/300px-Inv_dyn_fig13.png)
 
 Figure 15 - Phase Lock Loop: (a) control block and (b) xy and dq frame coordinate systems.
 
@@ -457,48 +437,45 @@ Typically, the grid-forming inverter described earlier is assumed to have a stif
 
 The equivalences of the inverter at AC side and overall model are shown in Figure 16 and Figure 17, respectively. 
 
-[![](//images.shoutwiki.com/gridlab-d/thumb/f/f9/Inv_dyn_fig17.png/300px-Inv_dyn_fig17.png)](/wiki/File:Inv_dyn_fig17.png)
-
-[]
+![AC Side Equivalence of the Inverter](../../../images/300px-Inv_dyn_fig17.png)
 
 Figure 16 - AC Side Equivalence of the Inverter
 
-[![](//images.shoutwiki.com/gridlab-d/thumb/7/75/Inv_dyn_fig18.png/300px-Inv_dyn_fig18.png)](/wiki/File:Inv_dyn_fig18.png)
-
-[]
+![Overall Model of the Inverter](../../../images/300px-Inv_dyn_fig18.png)
 
 Figure 17 - Overall Model of the Inverter
 
 At the AC side, the inverter behaves like a 3-Phase controlled voltage source. The instant voltages of the 3-phase controlled voltage source can be written as. It can be seen that the inverter ac voltage is actually partially decided by the dc bus voltage, as shown by equations (19)-(21). 
 
-$$\displaystyle{}E_a=m\cdot{}u_{dc}\angle{\left(\theta{}(t)\right)}$ | (19)   
+$$\displaystyle{}E_a=m\cdot{}u_{dc}\angle{\left(\theta{}(t)\right)}\tag{19}$$ 
+
 ---|---  
-$$\displaystyle{}E_b=m\cdot{}u_{dc}\angle{\left(\theta{}(t)-\frac{2\pi{}}{3}\right)}$ | (20)   
-$$\displaystyle{}E_c=m\cdot{}u_{dc}\angle{\left(\theta{}(t)+\frac{2\pi{}}{3}\right)}$ | (21)   
+
+$$\displaystyle{}E_b=m\cdot{}u_{dc}\angle{\left(\theta{}(t)-\frac{2\pi{}}{3}\right)}\tag{20}$$
+
+$$\displaystyle{}E_c=m\cdot{}u_{dc}\angle{\left(\theta{}(t)+\frac{2\pi{}}{3}\right)}\tag{21}$$
   
 At the DC side, the inverter can be seen as a controlled current source, if the power loss in the inverter is neglected, the instant power flow at the DC side and AC side should be equal, so equations (22) and (23) could be obtained: 
 
-$$\displaystyle{}P_{insDC}=P_{insAC}$ | (22)   
+$$\displaystyle{}P_{insDC}=P_{insAC}\tag{22}$$  
 ---|---  
-$$\displaystyle{}V_{dc}i_{dc} = v_{a}i_{a}+v_{b}i_{b}+v_{c}i_{c}$ | (23)   
+$$\displaystyle{}V_{dc}i_{dc} = v_{a}i_{a}+v_{b}i_{b}+v_{c}i_{c}\tag{23}$$  
   
 So $i_{dc}$ could be obtained: 
 
-$$\displaystyle{}i_{dc} = \frac{v_{a}i_{a}+v_{b}i_{b}+v_{c}i_{c}}{V_{dc}}$ | (24)   
+$$\displaystyle{}i_{dc} = \frac{v_{a}i_{a}+v_{b}i_{b}+v_{c}i_{c}}{V_{dc}}\tag{24}$$   
 ---|---  
   
 The differential equation of the dc side circuit can be described as: 
 
-$$\displaystyle{}C\frac{dV_{dc}}{dt}=I_{PV}-I_{DC}$ | (25)   
+$$\displaystyle{}C\frac{dV_{dc}}{dt}=I_{PV}-I_{DC}\tag{25}$$   
 ---|---  
   
 ### Controller Modelling
 
 To model the dc bus of PV inverter, the controller also needs to be appropriately modified. Specifically, the voltage controller should be modified to mitigate the impact of dc bus voltage, and the overload mitigation controller should be modified to prevent the dc bus voltage from collapsing. The modified PV grid-forming controller is shown in Figure 18, with Figure 18(a) representing the modified Q-V droop control and Figure 18(b) representing the modified P-f droop control. 
 
-[![](//images.shoutwiki.com/gridlab-d/thumb/d/d3/Inv_dyn_fig19.png/300px-Inv_dyn_fig19.png)](/wiki/File:Inv_dyn_fig19.png)
-
-[]
+![Modified controller for PV grid-forming inverters](../../../images/300px-Inv_dyn_fig19.png)
 
 Figure 18 - Modified controller for PV grid-forming inverters
 
@@ -563,9 +540,7 @@ The Virtual Synchronous Machine control mode allows the grid-forming inverter to
 
 For the reactive power ($Q$) and voltage ($V$) control in the VSM mode Q-V droop controller is used. The Q-V droop control in the VSM and CERTS droop mode is identical. However, in the VSM mode the active power ($P$) and frequency control is different than the CERTS droop mode, which is shown in Figure 19. In Figure 19, $H$ and $D$ respective represent the inertia and damping constant of the VSM mode. 
 
-[![](//images.shoutwiki.com/gridlab-d/thumb/b/bd/Inv_dyn_figVSM.png/300px-Inv_dyn_figVSM.png)](/wiki/File:Inv_dyn_figVSM.png)
-
-[]
+![Active power ($P$) - frequency ($f$) control in VSM mode](../../../images/300px-Inv_dyn_figVSM.png)
 
 Figure 19 - Active power ($P$) - frequency ($f$) control in VSM mode
 

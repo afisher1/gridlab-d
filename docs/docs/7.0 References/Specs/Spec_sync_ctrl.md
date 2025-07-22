@@ -35,11 +35,9 @@ Inputs and outputs of related objects
 
 The inputs and outputs of the [switch], [sync_check], [sync_ctrl], and controlled generation unit (i.e., [diesel_dg]/[inverter_dyn]) objects are shown in the following figure, together with the dataflow. 
 
-[![Sync ctrl dataflow.png](//images.shoutwiki.com/gridlab-d/thumb/c/cf/Sync_ctrl_dataflow.png/700px-Sync_ctrl_dataflow.png) ](/wiki/File:Sync_ctrl_dataflow.png)
+![Sync ctrl dataflow.png](../../../images/700px-Sync_ctrl_dataflow.png) 
 
-# 
-
-Published properties
+# Published properties
 
 The published public and hidden properties are listed in Table 1 and 2, respectively, together with the mapped member variables. The [sync_ctrl] object inherits all standard [Object_(directive)] values as well. The definitions of other member variables, which are not published as properties, are presented in Table 3 of the next section ["Member variable definitions"]. 
 
@@ -91,10 +89,7 @@ One sample [sync_ctrl] object defined in the glm file is show as follows.
 Table 1 - Published Public Properties and Mapped Member Variables  Property  | Mapped Member Variable  | Data Type  | Unit  | Descriptions   
 ---|---|---|---|---  
 Flag   
-armed  | sct_armed_flag  | Boolean  | N/A  | Turns on/off the action functionality: 
-
-  * `True` \- This object is armed/functional
-  * `False` \- This object is disarmed/disabled
+armed  | sct_armed_flag  | Boolean  | N/A  | Turns on/off the action functionality: (- `True` \- This object is armed/functional - `False` \- This object is disarmed/disabled)
 
   
 Object   
@@ -179,15 +174,13 @@ Methodology of quasi-steady state time series (QSTS)
 
 No explicit functions are performed in the QSTS mode. The [sync_ctrl] will perform all behavior in deltamode, under the assumption the call to deltamode was triggered by either the device arming the [sync_ctrl] object, or by something elsewhere in the system making the adjustments for synchronization to occur. 
 
-# 
-
-Methodology of deltamode
+# Methodology of deltamode
 
 ## Flowchart
 
 The flowchart for [sync_ctrl] in deltamode is shown as follows. In mode A, the [sync_ctrl] adjusts the voltage and frequency settings of the controlled generation unit actively. In mode B, it monitors the voltage magnitudes and frequency and counts a timer, determining to switch to mode A if needed. 
 
-[![Sync ctrl flowchart.png](//images.shoutwiki.com/gridlab-d/thumb/6/60/Sync_ctrl_flowchart.png/700px-Sync_ctrl_flowchart.png) ](/wiki/File:Sync_ctrl_flowchart.png)
+![Sync ctrl flowchart.png](../../../images/700px-Sync_ctrl_flowchart.png) 
 
 ## Pseudocode of modes
 
@@ -278,17 +271,13 @@ The pseudocode of two functions that check the metrics in mode A and B, respecti
 
 There are two PI controllers that adjust the respective voltage magnitude and frequency settings of the controlled generation unit. The desired set-point of that frequency PI controller is calculated by _(frequency_tolerance_ub_Hz + frequency_tolerance_lb_Hz)/2_. The other PI controller that adjusts the voltage magnitude difference uses the set-point of 0, which cannot be modified by the user at this stage. 
 
-# 
-
-Validation
+# Validation
 
 This subsection provides an outline on how the [sync_ctrl] object will be tested to ensure its functionality. The current plan is to use two 4-node test systems interconnected through a [switch] object, which is the parent of a [sync_check] object. The switch object is initially open and disarmed. The [sync_check] object is specified as a property of the [sync_ctrl] object, which is initially disarmed as well. 
 
 The frequency and voltage values measured at the 'from' and 'to' nodes of the [switch] object are initialized in different values. The deviations must be larger than the user defined tolerances. The frequency and voltage of the 'from'/'to' node of the parent [switch] object of the [sync_check] object are manipulated by the [sync_ctrl] object via the controlled generation unit (i.e., a diesel generator or a grid-forming inverter) towards the measurements of the 'from'/'to' node. The controlled generation unit is specified as a property of the [sync_ctrl] object. It is physically in the same island with the 'from'/'to' node. Once the deviations are both within the tolerance longer than the user defined period, the [sync_ctrl] object transits from 'Mode A' to 'Mode B' and sends an 'armed' command to the [sync_check] object. This sample use case will be included in the autotest for the [sync_ctrl] object. 
 
-# 
-
-See also
+# See also
 
   * [Requirements of sync_ctrl]
   * [Implementation of sync_ctrl]

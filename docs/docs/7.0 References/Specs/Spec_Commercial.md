@@ -12,7 +12,7 @@
   * 2 See also
 Spec:Commercial \- Specifications for commercial building models 
 
-[![](//images.shoutwiki.com/gridlab-d/thumb/3/30/Spec_Commercial_Fig_1.png/300px-Spec_Commercial_Fig_1.png)](/wiki/File:Spec_Commercial_Fig_1.png)
+[![](../../../images/300px-Spec_Commercial_Fig_1.png)](/wiki/File:Spec_Commercial_Fig_1.png)
 
 []
 

@@ -42,9 +42,7 @@ core event (module exports)
         * response handling
 ### Loader processing
 
-[![](//images.shoutwiki.com/gridlab-d/thumb/c/c0/Connection_1.png/300px-Connection_1.png)](/wiki/File:Connection_1.png)
-
-[]
+![Create hierarchy](../../../../images/300px-Connection_1.png)
 
 Figure 1: Create hierarchy (Source: SVN/connection/connection.pptx)
 
@@ -54,9 +52,7 @@ The transport type [tcp] or [udp] is passed to the connection when it is created
 
 ### Event handling
 
-[![](//images.shoutwiki.com/gridlab-d/thumb/3/36/Connection_2.png/300px-Connection_2.png)](/wiki/File:Connection_2.png)
-
-[]
+![Event hierarchy](../../../../images/300px-Connection_2.png)
 
 Figure 2: Event hierarchy (Source: SVN/connection/connection.pptx)
 

@@ -162,9 +162,7 @@ power | kW | 0 | load shape | The nominal power of the pulse, if constant
   
 ### Amplitude Modulation
 
-[![](//images.shoutwiki.com/gridlab-d/thumb/1/14/Modulated_loadshape.png/300px-Modulated_loadshape.png)](/wiki/File:Modulated_loadshape.png)
-
-[]
+[![Example of an amplitude modulated loadshape](../../images/300px-Modulated_loadshape.png)](/wiki/File:Modulated_loadshape.png)
 
 Figure 1 - Example of an amplitude modulated loadshape
 
@@ -181,9 +179,7 @@ Modulated loadshapes where the power varies as a function of load have fixed dut
 
 ### Pulse-width Modulation
 
-[![](//images.shoutwiki.com/gridlab-d/thumb/1/18/Pw_modulated_loadshape.png/300px-Pw_modulated_loadshape.png)](/wiki/File:Pw_modulated_loadshape.png)
-
-[]
+[![Example of a pulse-width modulated loadshapes](../../images/300px-Pw_modulated_loadshape.png)](/wiki/File:Pw_modulated_loadshape.png)
 
 Figure 2b - Example of a pulse-width modulated loadshapes
 

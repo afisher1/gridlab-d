@@ -110,7 +110,7 @@ Parameters related to Q constant mode
 
 In order to verify the implementation of PQ_CONSTANT mode diesel generator, a test case in 123-bus feeder with one isochronous mode diesel_dg Gen 1, and one PQ_CONSTANT mode diesel_dg Gen 2is applied. At 5.001 second, part of the feeder is disconnected. Gen 1 will reduce its generation, and Gen 2 will maintain its generation after the transient. Below diagram shows the generation from the two generators before and after the transient. 
 
-[![caption](//images.shoutwiki.com/gridlab-d/thumb/6/68/Diesel_dg_PQ_constant_simulation_result.png/700px-Diesel_dg_PQ_constant_simulation_result.png) ]
+![PQ_CONSTANT mode diesel generator result](../../images/700px-Diesel_dg_PQ_constant_simulation_result.png)
 
 To run this case, please find in the autotest in GridLAB-D generator module. 
 

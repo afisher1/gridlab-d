@@ -3,7 +3,11 @@
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Spec:Range
 # Spec:Range
 
-[![Workinprogress.jpg](//images.shoutwiki.com/gridlab-d/d/d5/Workinprogress.jpg)](/wiki/File:Workinprogress.jpg)EDITING IN PROGRESS[![Workinprogress.jpg](//images.shoutwiki.com/gridlab-d/d/d5/Workinprogress.jpg)](/wiki/File:Workinprogress.jpg)
+![Workinprogress.jpg](../../../images/Workinprogress.jpg)
+
+EDITING IN PROGRESS
+
+
 
 ## Contents
 

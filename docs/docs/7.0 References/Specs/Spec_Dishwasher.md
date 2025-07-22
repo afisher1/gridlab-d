@@ -23,9 +23,8 @@ The purpose of this document is to describe the specifications of the [dishwashe
   * Energy consumption in [dishwasher] is split between motors and resistance heaters. Thus, the power factor changes depending on whether the wash cycle includes water temperature boost and changes from one part of the cycle to another. At this point, however, power factor modeling is simplified to be a constant value.
   * The [dishwasher] model was designed as a multi-state machine model. These states are defined by the level of their electricity consumption.
   * Eight different time intervals are considered in this model, and these intervals determine the transition times between the states.
-[![](//images.shoutwiki.com/gridlab-d/thumb/4/40/Dishwasher_states.png/300px-Dishwasher_states.png)](/wiki/File:Dishwasher_states.png)
 
-[]
+![Dishwasher representative cycle](../../../images/300px-Dishwasher_states.png)
 
 Figure 1. Dishwasher representative cycle
 
@@ -33,17 +32,13 @@ The [dishwasher] model developed in [GridLAB-D] is a multi-state load model and 
 
 Each state in the model is governed by a ZIP model with transitions between states determined by internal state transition rules. The multi-state dishwasher model is shown Figure 2. 
 
-[![](//images.shoutwiki.com/gridlab-d/thumb/e/e6/Dishwasher_multi-state_model.png/300px-Dishwasher_multi-state_model.png)](/wiki/File:Dishwasher_multi-state_model.png)
-
-[]
+![Dishwasher multi-state model](../../../images/300px-Dishwasher_multi-state_model.png)
 
 Figure 2. Dishwasher multi-state model
 
 Figure 3 shows the time intervals considered in the multi-state model of the dishwasher. These time intervals determine the transition times between the states. There are eight different time intervals are considered in this model and they are not fixed. It means user do have an option to change the time intervals between states. If user does not specify any inputs, the default values will be used. The default values are estimated based on the energy consumption profile of the dishwasher [1]. 
 
-[![](//images.shoutwiki.com/gridlab-d/thumb/0/0d/Dishwasher_time_intervals.png/300px-Dishwasher_time_intervals.png)](/wiki/File:Dishwasher_time_intervals.png)
-
-[]
+![ Dishwasher time intervals](../../../images/300px-Dishwasher_time_intervals.png)
 
 Figure 3. Dishwasher time intervals
 
@@ -69,7 +64,7 @@ A common way to model the voltage response of a device is to model it as a colle
 
 If motor is only running (i.e., State 3): 
 
-    $\begin{align} \mathrm{Load\ power\ [kW]} &= \mathrm{motor\ power\ [VA]}\cdot \mathrm{power\ factor\_motor}/1000\\\
+$$\begin{align} \mathrm{Load\ power\ [kW]} &= \mathrm{motor\ power\ [VA]}\cdot \mathrm{power\ factor\_motor}/1000\\\
 
 \mathrm{Load\ current\ [kW]} = 0\\\ 
 
@@ -77,13 +72,13 @@ If motor is only running (i.e., State 3):
 
 If heating coil is only ON (i.e., State 2 and State 5): 
 
-    $\begin{align} \mathrm{Load\ power\ [kW]} =0\\\
+$$\begin{align} \mathrm{Load\ power\ [kW]} =0\\\
 
 \mathrm{Load\ current\ [kW]}=0\\\ \mathrm{Load\ impedance\ [kW]} &= \mathrm{heating\_element\_capacity\ [W]}/1000\\\ \end{align}$$
 
 If heating coil and motor are ON (i.e., State 4): 
 
-    $\begin{align} \mathrm{Load\ power\ [kW]} &= \mathrm{motor\ power\ [VA]}\cdot \mathrm{power\ factor\_motor}/1000\\\
+$$\begin{align} \mathrm{Load\ power\ [kW]} &= \mathrm{motor\ power\ [VA]}\cdot \mathrm{power\ factor\_motor}/1000\\\
 
 \mathrm{Load\ current\ [kW]}=0\\\ 
 
@@ -93,11 +88,11 @@ If heating coil and motor are ON (i.e., State 4):
 
 Energy calculation: 
 
-    $\begin{align}\mathrm{Total\ power\ [kW]} &= \mathrm{Load\ power\ [kW]}+ \mathrm{Load\ current\ [kW]} + \mathrm{Load\ impedance\ [kW]} \\\
+$$\begin{align}\mathrm{Total\ power\ [kW]} &= \mathrm{Load\ power\ [kW]}+ \mathrm{Load\ current\ [kW]} + \mathrm{Load\ impedance\ [kW]} \\\
 
 \end{align}$$
 
-    $\begin{align}\mathrm{Energy\ used\ [kWh]} &= \mathrm{Total\ power\ [kW]}\cdot \Delta t\mathrm{[ sec]}/3600\\\
+$$\begin{align}\mathrm{Energy\ used\ [kWh]} &= \mathrm{Total\ power\ [kW]}\cdot \Delta t\mathrm{[ sec]}/3600\\\
 
 \end{align}$$
 
@@ -167,9 +162,7 @@ $$\begin{align} queue(0) &= q _0\end{align}$ | 1.2
   
 where $E_k$ denotes the energy consumed by the dishwasher over the $k^{th}$ time step as specified by ELCAP(integral of an ELCAP curve such as the one shown in Figure 4 between $(k-1)T$ )$kT$) and $E_{tot}$ denotes the total energy consumed by the appliance over the course of a day as specified by ELCAP. The ratio $Ek/E_{tot}$ gives a measure of the percentage of daily appliance consumption over the $k^{th}$ time step, and a plot of $E_k/E_{tot}$ as a function of $kT$ gives the normalized ELCAP dishwasher load shape. The difference Equation (1.1) is initialized to a random number $q_o$ (1.2). 
 
-[![](//images.shoutwiki.com/gridlab-d/thumb/f/f9/ELCAP_Dishwasher_Load_Shape.png/300px-ELCAP_Dishwasher_Load_Shape.png)](/wiki/File:ELCAP_Dishwasher_Load_Shape.png)
-
-[]
+![ELCAP Dishwasher Load Shape](../../../images/300px-ELCAP_Dishwasher_Load_Shape.png)
 
 Figure 4. ELCAP Dishwasher Load Shape
 

@@ -12,9 +12,9 @@ Approval item:  TECHNICAL MANUAL [Grizzly (Version 2.3)]
     * 1.2 Class implementations
     * 1.3 Multithreading Support
     * 1.4 See also
-[![](//images.shoutwiki.com/gridlab-d/thumb/8/88/Deltamode.png/300px-Deltamode.png)](/wiki/File:Deltamode.png)
+    
+![Deltamode](../../../images/300px-Deltamode.png)
 
-[]
 
 Delta mode UML flow diagram [Edit this diagram](http://www.websequencediagrams.com/?lz=bWFpbi0-ZXhlYzogc3RhcnQKYWN0aXZhdGUgZXhlYwoKbG9vcCBtYWluIGV2ZW50IGxvb3AKCmV4ZWMtPmRlbHRhOiBkZXNpcmVkPwAxCgAUBQoAGgUAVQgAJwUgcnVudGltZQpkZQAdDwBiBgBdBnNvbHZlciBpdGVyYXRpb24AZwhvYmplY3Q6IHBhc3MgcHJlL3Bvc3Qgc3luYy9jb21taQCBMQsAJQYKACwGAIFYCG5leHQAgT8HAHUQACkHCmVuZAoKb3B0AIEoB21vZGUAgVcIAIFmD3VwZGF0ZQCBYxAAgWwIbW9kdWxlOiBwcmUAGRAAFQYKABwGAII7CXN0YXR1cwCCDAwAIQcAgnsGAII4BnRpbWVzdGVwAAgNAIIcCwCCagcAgiAIAIETEACCBg8AYRkAggUIAIE9D2ludGVyAIEoJmNvbnRpbnUAg1sNAIFICACCXgUAgmMFAIIcEG9zdACBbj8AhGUNAIJMBwCEWRMAhHMLAIVfBgCBCgoAhVMGbWFpbjogZG9uZQoKCgo&s=default)
 

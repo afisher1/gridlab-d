@@ -21,7 +21,7 @@
   * 16 Version 0.1
 For the sake of posterity we're keeping track of the major versions and releases of GridLAB-D. 
 
-[![GridLAB-D Family Tree.png](//images.shoutwiki.com/gridlab-d/2/29/GridLAB-D_Family_Tree.png)](/wiki/File:GridLAB-D_Family_Tree.png)  
+![GridLAB-D Family Tree.png](../../images/GridLAB-D_Family_Tree.png)  
 Figure 1: GridLAB-D Family Tree (Source: [[1]](https://github.com/gridlab-d/gridlab-ddesign/GridLAB-D_Family_Tree.pptx)) 
 
 ## [Navajo (trunk)]

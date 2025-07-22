@@ -18,17 +18,15 @@ The **evcharger** simulation is based on demand state profile of the vehicle. Wh
   * **WORK** trip to work (standard distance defined by trip.d_work)
   * **SHORTTRIP** random trip up to 50 miles (battery will not be fully discharged) (**TODO**)
   * **LONGTRIP** random trip over 50 miles (battery will be discharged up to 25%) but only possible for **HYBRID** vehicles (**TODO**)
-[![](//images.shoutwiki.com/gridlab-d/thumb/e/e9/Slide1.PNG/300px-Slide1.PNG)](/wiki/File:Slide1.PNG)
 
-[]
+![EV/PHEV trip state diagram](../../images/300px-Slide1.PNG)
+
 
 Figure 1 - EV/PHEV trip state diagram
 
 When away, the probability of a return is used to determine when the vehicle returns, as shown in Figure 2. 
 
-[![](//images.shoutwiki.com/gridlab-d/thumb/1/13/Slide2.PNG/300px-Slide2.PNG)](/wiki/File:Slide2.PNG)
-
-[]
+![Daily EV/PHEV arrival/departure probabilities](../../images/300px-Slide2.PNG)
 
 Figure 2 - Daily EV/PHEV arrival/departure probabilities
 

@@ -35,9 +35,7 @@ As the pw_model signals that objects have requested an update, the pw_recorder o
 
 When GridLAB-D stops and exits, the pw_model shall close the PowerWorld model. 
 
-[![](//images.shoutwiki.com/gridlab-d/thumb/4/43/T_D_Integration_Figure.png/300px-T_D_Integration_Figure.png)](/wiki/File:T_D_Integration_Figure.png)
-
-[]
+![Basic structure of PowerWorld/GridLAB-D Interactions](../../../images/300px-T_D_Integration_Figure.png)
 
 Figure 1. Basic structure of PowerWorld/GridLAB-D Interactions
 

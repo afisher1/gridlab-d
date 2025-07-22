@@ -18,6 +18,7 @@ The basic ETP parameters are
   * $T_m$: the inner mass temperature
   * $Q_a$: the heat flux to the interior air mass
   * $Q_m$: the heat flux to the interior solid mass (this is not supported yet)
+  
 The solution to the ETP model is based on the two ordinary differential equations (ODEs) 
 
 $$\begin{align} \frac{d T_i}{d t} & = \frac{1}{C_a} \left [ T_m U_m - T_i \left ( U_a + U_m \right ) +Q_a +T_0 U_a \right ] \\\ \frac{d T_m}{d t} & = \frac{1}{C_m} \left [ U_m \left ( T_i - T_m \right ) + Q_m \right ] \end{align} 
@@ -62,6 +63,7 @@ with
 
   * $c_7 = \frac{Q_a}{C_a}$, and
   * $ T_{m,t} = k_1 \frac{r_1-c_1}{c_2} + k_2 \frac{r_2-c_1}{c_2} - \frac{p_4}{p_3} + \frac{c_6}{c_2}$
+
 ## Modeling Assumptions
 
 The house model assumes that only envelope characteristics, solar gain through windows and internal gain contribute to the HVAC load. Only air conditioners and heat pumps are modeled in the current implementation. 
@@ -70,9 +72,7 @@ The house model assumes that only envelope characteristics, solar gain through w
 
 The model approach that is used to estimate thermal loads is called an equivalent thermal parameter (ETP) modeling approach. Because the ETP approach has been proven to provide reasonably model the residential (and small commercial building) loads and energy consumption and also because it is based on first principles, this modeling approach has been chosen for the current work (Sonderegger 1978; Subbarao 1981; Wilson et al. 1985; Pratt and Taylor 1994). The electric circuit analog of an ETP model used to simulate heating and cooling loads in a typical residence is shown in Figure 3. The heat transfer properties are represented by equivalent electrical components with associated parameters for modeling the thermostatically controlled heating, ventilation, and air-conditioning (HVAC) system. 
 
-[![](//images.shoutwiki.com/gridlab-d/thumb/5/5c/Residential_Module_Guide_Figure_3.png/300px-Residential_Module_Guide_Figure_3.png) ](/wiki/File:Residential_Module_Guide_Figure_3.png)
-
-[]
+![ETP Representation of the Typical Residences](../../../images/300px-Residential_Module_Guide_Figure_3.png)
 
 Figure 1 – ETP Representation of the Typical Residences
 
@@ -211,9 +211,7 @@ This **STABLE** state is illustrated in Figure 1. For an example water heater, t
 
 These two critical flow rates depend on many factors, including the tank size and shape, tank $UA$, heating element capacity, and the hot and cold layer temperatures. They are identified in the GridLAB-D water heater model by calculating the rate of change of the hot/cold boundary position $h$ with respect to time $(dh/dt)$. Note in the lower graphic of Figure 1 that the time to transition is positive when $dh/dt$, calculated at the **FULL** starting point $h0$, is negative (meaning the tank is depleting). Also note that the time to transition is negative (meaning the tank is really recovering and will remain **FULL**) when $dh/dt$, calculated at the target **EMPTY** state, is positive. The area between the two critical flow rates is identified by differing signs between $dh/dt$ calculated at **FULL** and $dh/dt$ calculated at **EMPTY**. 
 
-[![](//images.shoutwiki.com/gridlab-d/thumb/8/86/Residential_Module_Guide_Figure_1.png/300px-Residential_Module_Guide_Figure_1.png) ](/wiki/File:Residential_Module_Guide_Figure_1.png)
-
-[]
+![Illustration of using dh/dt to identify the **STABLE** state](../../../images/300px-Residential_Module_Guide_Figure_1.png)
 
 Figure 1 – Illustration of using dh/dt to identify the **STABLE** state
 
@@ -225,9 +223,7 @@ $$C_w = V(gal) \frac{1(ft^3)}{7.48(gal)} \frac{62.4(lb_m)}{1(ft^3)} \frac{1(Btu)
 
 The thermal conductance of the tank shell (or “jacket”) $UA$ is calculated from the known R-values of the sides and top of the tank divided into their corresponding areas. 
 
-[![](//images.shoutwiki.com/gridlab-d/thumb/f/f6/Residential_Module_Guide_Figure_2.png/300px-Residential_Module_Guide_Figure_2.png) ](/wiki/File:Residential_Module_Guide_Figure_2.png)
-
-[]
+![Water heater model schematic representation](../../../images/300px-Residential_Module_Guide_Figure_2.png)
 
 Figure 2: Water heater model schematic representation
 

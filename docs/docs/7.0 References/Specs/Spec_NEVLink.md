@@ -97,9 +97,7 @@ Table 2 - Line_config properties  Property | Definition
 `spacing` | The physical position of different conductors between the two nodes. This can either be specified as a distance array (with diagonal elements ignored), or as a physical coordinate space for each conductor. See the example given following the table.   
 `length` | Physical length of the connection between the two [node] objects. Only one length entry is permitted.   
   
-[![](//images.shoutwiki.com/gridlab-d/thumb/8/84/Line_spacing.png/300px-Line_spacing.png)](/wiki/File:Line_spacing.png)
-
-[]
+![Line Spacing Example](../../../images/300px-Line_spacing.png)
 
 Figure 1. Line Spacing Example
 
@@ -167,13 +165,12 @@ Self admittance components will be accumulated directly into a self-admittance m
 
 Following the previous implementation, individual current and power flow calculation (on the link) can be calculated in the post-sync phase of each timestep by each link object itself. The transfer series admittance matrix can be used to calculate line current flows by: 
 
-    $ \displaystyle{}\mathbf{I}_{ij}=-\mathbf{I}_{ji}=\mathbf{Y}_{series}*\left (\mathbf{V}_i-\mathbf{V}_j\right )$
-
+$$\displaystyle{}\mathbf{I}_{ij}=-\mathbf{I}_{ji}=\mathbf{Y}_{series}*\left (\mathbf{V}_i-\mathbf{V}_j\right )$$
 The complex powers can then be calculated by: 
 
-    $ \displaystyle{}\mathbf{S}_{ij}=\mathbf{V}_i{I}_{ij}^*$
-    $ \displaystyle{}\mathbf{S}_{ji}=\mathbf{V}_j{I}_{ji}^*$
+$$\displaystyle{}\mathbf{S}_{ij}=\mathbf{V}_i{I}_{ij}^*$$
 
+$$\displaystyle{}\mathbf{S}_{ji}=\mathbf{V}_j{I}_{ji}^*$$
 ## Overhead Lines
 
 There are four classes that contain all the information necessary to construct an overhead line model: overhead_line, line_configuration, line_spacing, and overhead_line_conductor. 
@@ -257,27 +254,36 @@ Current ratings can also be included in this object as described in the [Power F
 
 As in the current implementation, each of the described objects above will be rendered during runtime as a C++ object of the corresponding class. The overhead_line object's line_configuration variable will contain an address to the correct line-configuration object, which in turn will contain a pointer array with addresses of each conductor's conductor object, as well as the address of the correct spacing object. Since the NEV power flow implementation will solely support the Newton-Raphson method, the overhead lines are incorporated in the solver by constructing primitive series and shunt admittance matrices to be inserted in the larger system nodal admittance matrices. With all the data necessary data assembled in the aforementioned GridLAB-D objects, the primitive admittance matrices are constructed as described in detail on the [Overhead Line Equations] page. The primitive series impedance matrix is an $n\times n$ matrix where n is the number of phases present. For example, for a line with 6 phases (including one neutral denoted 'n'), the matrix will be of form: 
 
-    $\displaystyle{}\begin{bmatrix}
+$$
+\displaystyle
+\begin{bmatrix}
+\hat z_{1-2_{aa}} & \hat z_{1-2_{ab}} & \hat z_{1-2_{ac}} & \hat z_{1-2_{ad}} & \hat z_{1-2_{ae}} & \hat z_{1-2_{an}} \\
+\hat z_{1-2_{ba}} & \hat z_{1-2_{bb}} & \hat z_{1-2_{bc}} & \hat z_{1-2_{bd}} & \hat z_{1-2_{be}} & \hat z_{1-2_{bn}} \\
+\hat z_{1-2_{ca}} & \hat z_{1-2_{cb}} & \hat z_{1-2_{cc}} & \hat z_{1-2_{cd}} & \hat z_{1-2_{ce}} & \hat z_{1-2_{cn}} \\
+\hat z_{1-2_{da}} & \hat z_{1-2_{db}} & \hat z_{1-2_{dc}} & \hat z_{1-2_{dd}} & \hat z_{1-2_{de}} & \hat z_{1-2_{dn}} \\
+\hat z_{1-2_{ea}} & \hat z_{1-2_{eb}} & \hat z_{1-2_{ec}} & \hat z_{1-2_{ed}} & \hat z_{1-2_{ee}} & \hat z_{1-2_{en}} \\
+\hat z_{1-2_{na}} & \hat z_{1-2_{nb}} & \hat z_{1-2_{nc}} & \hat z_{1-2_{nd}} & \hat z_{1-2_{ne}} & \hat z_{1-2_{nn}}
+\end{bmatrix}
+$$
 
-\hat z_{1-2_{aa}}&\hat z_{1-2_{ab}}&\hat z_{1-2_{ac}}&\hat z_{1-2_{ad}}&\hat z_{1-2_{ae}}&\hat z_{1-2_{an}}\\\ \hat z_{1-2_{ba}}&\hat z_{1-2_{bb}}&\hat z_{1-2_{bc}}&\hat z_{1-2_{bd}}&\hat z_{1-2_{be}}&\hat z_{1-2_{bn}}\\\ \hat z_{1-2_{ca}}&\hat z_{1-2_{cb}}&\hat z_{1-2_{cc}}&\hat z_{1-2_{cd}}&\hat z_{1-2_{ce}}&\hat z_{1-2_{cn}}\\\ \hat z_{1-2_{da}}&\hat z_{1-2_{db}}&\hat z_{1-2_{dc}}&\hat z_{1-2_{dd}}&\hat z_{1-2_{de}}&\hat z_{1-2_{dn}}\\\ \hat z_{1-2_{ea}}&\hat z_{1-2_{eb}}&\hat z_{1-2_{ec}}&\hat z_{1-2_{ed}}&\hat z_{1-2_{ee}}&\hat z_{1-2_{en}}\\\ \hat z_{1-2_{na}}&\hat z_{1-2_{nb}}&\hat z_{1-2_{nc}}&\hat z_{1-2_{nd}}&\hat z_{1-2_{ne}}&\hat z_{1-2_{nn}} \end{bmatrix}$ The off-diagonal element $z_{m-n_{ij}}$ models the mutual coupling impedance between phases $i$ and $j$ for the line connecting buses $m$ and $n$, and is calculated by: 
+The off-diagonal element $z_{m-n_{ij}}$ models the mutual coupling impedance between phases $i$ and $j$ for the line connecting buses $m$ and $n$, and is calculated by: 
 
-    $ \displaystyle{}\hat z_{1-2_{ij}}=4\omega P_{ii}G + j\left(2\omega G\ln{\frac{S_{ij}}{D_{ij}}} + 4\omega Q_{ij}G\right)\Omega /mi$
+$$\displaystyle{}\hat z_{1-2_{ij}}=4\omega P_{ii}G + j\left(2\omega G\ln{\frac{S_{ij}}{D_{ij}}} + 4\omega Q_{ij}G\right)\Omega /mi$$
 
 The diagonal element $z_{m-n_{ii}}$ models the self impedance of phase $i$ for the line connecting buses $m$ and $n$, and is calculated by: 
 
-    $ \displaystyle{}\hat z_{1-2_{ii}}=r_i+4\omega P_{ii}G + j\left(X_i + 2\omega G\ln{\frac{S_{ii}}{RD_i}} + 4\omega Q_{ii}G\right)\Omega /mi$
+$$\displaystyle{}\hat z_{1-2_{ii}}=r_i+4\omega P_{ii}G + j\left(X_i + 2\omega G\ln{\frac{S_{ii}}{RD_i}} + 4\omega Q_{ii}G\right)\Omega /mi$$
 
 The primitive series impedance matrix is inverted to yield the primitive series admittance matrix. The primitive shunt admittance matrix for the overhead line which models shunt capacitance is of the same form as the series admittance matrix and is given by: 
 
-    $ \displaystyle{}Y_{shunt}=j\omega 10^{-6}P^{-1} Siemens/mi$
+$$\displaystyle{}Y_{shunt}=j\omega 10^{-6}P^{-1} Siemens/mi$$
 
-$$P$ is the primitive potential coefficient matrix with off-diagonal elements $P_{ij}$ calculated by: 
+$P$ is the primitive potential coefficient matrix with off-diagonal elements $P_{ij}$ calculated by: 
 
-    $ \displaystyle{}P_{ij}= \frac{1}{2\pi\epsilon_{air}}\ln{\frac{S_{ij}}{D_{ij}}}mile/\mu F$
-
+$$\displaystyle{}P_{ij}= \frac{1}{2\pi\epsilon_{air}}\ln{\frac{S_{ij}}{D_{ij}}}mile/\mu F$$
 The primitive potential coefficient matrix diagonal elements $P_{ii}$ are calculated by: 
 
-    $ \displaystyle{}P_{ii}= \frac{1}{2\pi\epsilon_{air}}\ln{\frac{S_{ii}}{RD_{i}}}mile/\mu F$
+$$\displaystyle{}P_{ii}= \frac{1}{2\pi\epsilon_{air}}\ln{\frac{S_{ii}}{RD_{i}}}mile/\mu F$$
 
 These matrices can be stored in array form. 
 
@@ -522,69 +528,132 @@ It is during this time that the link class will determine the following.
 
 Table 1 - Equation Notation  Variable | Definition   
 ---|---  
-$$\displaystyle{}V_{i_{mg}}$ | Voltage at node i, phase m relative to true ground (V)   
-$$\displaystyle{}I_{i_{mg}}$ | Voltage at node i, phase m relative to true ground (A)   
-$$\displaystyle{}\hat z_{i-j_{nn}}$ | Element of series impedance matrix relating voltage/current relationship for line connecting nodes i and j, corresponding to self impedance of phase n. Return path (ground) impedance folded in ($\Omega /mile$)   
-$$\displaystyle{}\hat z_{i-j_{nm}}$ | Element of series impedance matrix relating voltage/current relationship for line connecting nodes i and j, corresponding to phases n and m. Return path (ground) impedance folded in ($\Omega /mile$)   
-$$\displaystyle{}r_{i,c}$ | Resistance of the phase conductor for cable i ($\Omega /mi$)   
-$$\displaystyle{}r_{i,cn}$ | The effective resistance of the concentric neutral ring for cable i ($\Omega /mi$)   
-$$\displaystyle{}r_{i,sh}$ | The effective resistance of the tape-shield for cable i ($\Omega /mi$)   
-$$\displaystyle{}\omega$ | System angular frequency ($rad/s$)   
-$$\displaystyle{}f$ | System frequency ($Hz$)   
-$$\displaystyle{}G=0.1609347\times 10^{-3}$ | Constant for converting from CGS units ($\Omega /mi$)   
-$$\displaystyle{}d_{i,c}$ | Diameter of the phase conductor for cable i ($in$)   
-$$\displaystyle{}d_{i,s}$ | Diameter of a neutral strand for cable i ($in$)   
-$$\displaystyle{}d_{i,sh}$ | Diameter of the tape-shield for cable i ($in$)   
-$$\displaystyle{}d_{i,od}$ | Outer diameter of cable i ($in$)   
-$$\displaystyle{}R_{i}$ | Radius of the circle passing through the concentric neutral strands for cable i ($in$)   
-$$\displaystyle{}T_{i}$ | Thickness of the tape-shield for cable i ($mil$)   
-$$\displaystyle{}k_{i}$ | The number of neutral strands for cable i ($unitless$)   
-$$\displaystyle{}GMR_{i,c}$ | Geometric mean radius of the phase conductor for cable i ($ft$)   
-$$\displaystyle{}GMR_{i,s}$ | Geometric mean radius of a neutral strand for cable i ($ft$)   
-$$\displaystyle{}GMR_{i,sh}$ | Geometric mean radius of the tape-shield for cable i ($ft$)   
-$$\displaystyle{}GMR_{i,cn}$ | The effective Geometric mean radius of the concentric neutral ring for cable i ($ft$)   
-$$\displaystyle{}D_{ij}$ | Distance between conductors i and j ($ft$)   
-$$\displaystyle{}S_{ij}$ | Distance between conductor i and conductor j's image ($ft$)   
-$$\displaystyle{}\theta_{ij}$ | Angle between a pair of lines drawn from conductor i to its own image and to the image of conductor j ($rad$)   
-$$\displaystyle{}\rho$ | Resistivity of earth ($\Omega -meters$)   
-$$\displaystyle{}\rho_{i,sh}$ | Resistivity of the tape-shield for cable i at a temperature of 50\Celsius ($\Omega -meters$)   
-$$\displaystyle{}\epsilon_{0}$ | The permittivity of free space = $1.4240\times 10^{-2} (\mu F/mi)$  
-$$\displaystyle{}\epsilon_{i,r}$ | The relative permittivity of the insulation medium for cable i ($unitless$)   
-$$\displaystyle{}C_{1}=\frac{1}{63360}$ | conversion factor for converting inches to miles for cable i ($mi/in$)   
-$$\displaystyle{}C_{2}=\frac{1}{63360000}$ | conversion factor for converting mils to miles for cable i ($mi/mil$)   
-$$\displaystyle{}C_{3}=\frac{1}{1609.344}$ | conversion factor for converting meters to miles for cable i ($mi/m$)   
+$\displaystyle{}V_{i_{mg}}$ | Voltage at node i, phase m relative to true ground (V)   
+$\displaystyle{}I_{i_{mg}}$ | Voltage at node i, phase m relative to true ground (A)   
+$\displaystyle{}\hat z_{i-j_{nn}}$ | Element of series impedance matrix relating voltage/current relationship for line connecting nodes i and j, corresponding to self impedance of phase n. Return path (ground) impedance folded in ($\Omega /mile$)   
+$\displaystyle{}\hat z_{i-j_{nm}}$ | Element of series impedance matrix relating voltage/current relationship for line connecting nodes i and j, corresponding to phases n and m. Return path (ground) impedance folded in ($\Omega /mile$)   
+$\displaystyle{}r_{i,c}$ | Resistance of the phase conductor for cable i ($\Omega /mi$)   
+$\displaystyle{}r_{i,cn}$ | The effective resistance of the concentric neutral ring for cable i ($\Omega /mi$)   
+$\displaystyle{}r_{i,sh}$ | The effective resistance of the tape-shield for cable i ($\Omega /mi$)   
+$\displaystyle{}\omega$ | System angular frequency ($rad/s$)   
+$\displaystyle{}f$ | System frequency ($Hz$)   
+$\displaystyle{}G=0.1609347\times 10^{-3}$ | Constant for converting from CGS units ($\Omega /mi$)   
+$\displaystyle{}d_{i,c}$ | Diameter of the phase conductor for cable i ($in$)   
+$\displaystyle{}d_{i,s}$ | Diameter of a neutral strand for cable i ($in$)   
+$\displaystyle{}d_{i,sh}$ | Diameter of the tape-shield for cable i ($in$)   
+$\displaystyle{}d_{i,od}$ | Outer diameter of cable i ($in$)   
+$\displaystyle{}R_{i}$ | Radius of the circle passing through the concentric neutral strands for cable i ($in$)   
+$\displaystyle{}T_{i}$ | Thickness of the tape-shield for cable i ($mil$)   
+$\displaystyle{}k_{i}$ | The number of neutral strands for cable i ($unitless$)   
+$\displaystyle{}GMR_{i,c}$ | Geometric mean radius of the phase conductor for cable i ($ft$)   
+$\displaystyle{}GMR_{i,s}$ | Geometric mean radius of a neutral strand for cable i ($ft$)   
+$\displaystyle{}GMR_{i,sh}$ | Geometric mean radius of the tape-shield for cable i ($ft$)   
+$\displaystyle{}GMR_{i,cn}$ | The effective Geometric mean radius of the concentric neutral ring for cable i ($ft$)   
+$\displaystyle{}D_{ij}$ | Distance between conductors i and j ($ft$)   
+$\displaystyle{}S_{ij}$ | Distance between conductor i and conductor j's image ($ft$)   
+$\displaystyle{}\theta_{ij}$ | Angle between a pair of lines drawn from conductor i to its own image and to the image of conductor j ($rad$)   
+$\displaystyle{}\rho$ | Resistivity of earth ($\Omega -meters$)   
+$\displaystyle{}\rho_{i,sh}$ | Resistivity of the tape-shield for cable i at a temperature of 50\Celsius ($\Omega -meters$)   
+$\displaystyle{}\epsilon_{0}$ | The permittivity of free space = $1.4240\times 10^{-2} (\mu F/mi)$  
+$\displaystyle{}\epsilon_{i,r}$ | The relative permittivity of the insulation medium for cable i ($unitless$)   
+$\displaystyle{}C_{1}=\frac{1}{63360}$ | conversion factor for converting inches to miles for cable i ($mi/in$)   
+$\displaystyle{}C_{2}=\frac{1}{63360000}$ | conversion factor for converting mils to miles for cable i ($mi/mil$)   
+$\displaystyle{}C_{3}=\frac{1}{1609.344}$ | conversion factor for converting meters to miles for cable i ($mi/m$)   
   
 Initially neglecting shunt admittances, the voltage/current relationship between two 'nodes' 1 and 2 (corresponding to physical terminal locations in the network) with $m$ phases can be expressed in matrix form: 
 
-    $ \displaystyle{}\begin{bmatrix}V_{1_{ag}}\\\\\downarrow \\\V_{1_{mg}}\end{bmatrix}-\begin{bmatrix}V_{2_{ag}}\\\\\downarrow \\\V_{2_{mg}}\end{bmatrix}=\begin{bmatrix}\hat z_{1-2_{aa}}&\rightarrow &\hat z_{1-2_{am}}\\\\\downarrow &\searrow &\downarrow \\\\\hat z_{1-2_{ma}}&\rightarrow &\hat z_{1-2_{mm}}\end{bmatrix}\begin{bmatrix}I_{1-2_{ag}}\\\\\downarrow \\\I_{1-2_{mg}}\end{bmatrix}$
+$$
+\begin{bmatrix}
+V_{1_{ag}} \\
+\downarrow \\
+V_{1_{mg}}
+\end{bmatrix}
+-
+\begin{bmatrix}
+V_{2_{ag}} \\
+\downarrow \\
+V_{2_{mg}}
+\end{bmatrix}
+=
+\begin{bmatrix}
+\hat z_{1-2_{aa}} & \rightarrow & \hat z_{1-2_{am}} \\
+\downarrow & \searrow & \downarrow \\
+\hat z_{1-2_{ma}} & \rightarrow & \hat z_{1-2_{mm}}
+\end{bmatrix}
+\begin{bmatrix}
+I_{1-2_{ag}} \\
+\downarrow \\
+I_{1-2_{mg}}
+\end{bmatrix}
+$$
 
 For example, consider a distribution line with two electrically isolated feeders sharing one neutral phase. One of the feeders has all three phases $(a, b, c)$ present, while the other has only two phases $(a, c)$ present. For clarity, the two phases on the second feeder are renamed $(d, e)$. Then, the voltage drop on the line can be expressed by: 
 
-    $\displaystyle{}\begin{bmatrix}V_{1_{ag}}\\\V_{1_{bg}}\\\V_{1_{cg}}\\\V_{1_{dg}}\\\V_{1_{eg}}\\\V_{1_{ng}}\end{bmatrix}
+$$
+\begin{bmatrix}
+V_{1_{ag}} \\
+V_{1_{bg}} \\
+V_{1_{cg}} \\
+V_{1_{dg}} \\
+V_{1_{eg}} \\
+V_{1_{ng}}
+\end{bmatrix}
+-
+\begin{bmatrix}
+V_{2_{ag}} \\
+V_{2_{bg}} \\
+V_{2_{cg}} \\
+V_{2_{dg}} \\
+V_{2_{eg}} \\
+V_{2_{ng}}
+\end{bmatrix}
+=
+\begin{bmatrix}
+\hat z_{1-2_{aa}} & \hat z_{1-2_{ab}} & \hat z_{1-2_{ac}} & \hat z_{1-2_{ad}} & \hat z_{1-2_{ae}} & \hat z_{1-2_{an}} \\
+\hat z_{1-2_{ba}} & \hat z_{1-2_{bb}} & \hat z_{1-2_{bc}} & \hat z_{1-2_{bd}} & \hat z_{1-2_{be}} & \hat z_{1-2_{bn}} \\
+\hat z_{1-2_{ca}} & \hat z_{1-2_{cb}} & \hat z_{1-2_{cc}} & \hat z_{1-2_{cd}} & \hat z_{1-2_{ce}} & \hat z_{1-2_{cn}} \\
+\hat z_{1-2_{da}} & \hat z_{1-2_{db}} & \hat z_{1-2_{dc}} & \hat z_{1-2_{dd}} & \hat z_{1-2_{de}} & \hat z_{1-2_{dn}} \\
+\hat z_{1-2_{ea}} & \hat z_{1-2_{eb}} & \hat z_{1-2_{ec}} & \hat z_{1-2_{ed}} & \hat z_{1-2_{ee}} & \hat z_{1-2_{en}} \\
+\hat z_{1-2_{na}} & \hat z_{1-2_{nb}} & \hat z_{1-2_{nc}} & \hat z_{1-2_{nd}} & \hat z_{1-2_{ne}} & \hat z_{1-2_{nn}}
+\end{bmatrix}
+\begin{bmatrix}
+I_{1-2_{ag}} \\
+I_{1-2_{bg}} \\
+I_{1-2_{cg}} \\
+I_{1-2_{dg}} \\
+I_{1-2_{eg}} \\
+I_{1-2_{ng}}
+\end{bmatrix}
+$$
 
-\- \begin{bmatrix}V_{2_{ag}}\\\V_{2_{bg}}\\\V_{2_{cg}}\\\V_{2_{dg}}\\\V_{2_{eg}}\\\V_{2_{ng}}\end{bmatrix} = \begin{bmatrix} \hat z_{1-2_{aa}}&\hat z_{1-2_{ab}}&\hat z_{1-2_{ac}}&\hat z_{1-2_{ad}}&\hat z_{1-2_{ae}}&\hat z_{1-2_{an}}\\\ \hat z_{1-2_{ba}}&\hat z_{1-2_{bb}}&\hat z_{1-2_{bc}}&\hat z_{1-2_{bd}}&\hat z_{1-2_{be}}&\hat z_{1-2_{bn}}\\\ \hat z_{1-2_{ca}}&\hat z_{1-2_{cb}}&\hat z_{1-2_{cc}}&\hat z_{1-2_{cd}}&\hat z_{1-2_{ce}}&\hat z_{1-2_{cn}}\\\ \hat z_{1-2_{da}}&\hat z_{1-2_{db}}&\hat z_{1-2_{dc}}&\hat z_{1-2_{dd}}&\hat z_{1-2_{de}}&\hat z_{1-2_{dn}}\\\ \hat z_{1-2_{ea}}&\hat z_{1-2_{eb}}&\hat z_{1-2_{ec}}&\hat z_{1-2_{ed}}&\hat z_{1-2_{ee}}&\hat z_{1-2_{en}}\\\ \hat z_{1-2_{na}}&\hat z_{1-2_{nb}}&\hat z_{1-2_{nc}}&\hat z_{1-2_{nd}}&\hat z_{1-2_{ne}}&\hat z_{1-2_{nn}} \end{bmatrix} \begin{bmatrix}I_{1-2_{ag}}\\\I_{1-2_{bg}}\\\I_{1-2_{cg}}\\\I_{1-2_{dg}}\\\I_{1-2_{eg}}\\\I_{1-2_{ng}}\end{bmatrix}$$
 
 The hat notation, taken from [Kersting], indicates that the return path, i.e. the ground impedance, has been folded into the other impedances. According to Carson's equations, the elements of the primitive impedance matrix can be calculated by: 
 
-    $ \displaystyle{}\hat z_{1-2_{ii}}=r_i+4\omega P_{ii}G + j\left(X_i + 2\omega G\ln{\frac{S_{ii}}{RD_i}} + 4\omega Q_{ii}G\right)\Omega /mi$
-    $ \displaystyle{}\hat z_{1-2_{ij}}=4\omega P_{ii}G + j\left(2\omega G\ln{\frac{S_{ij}}{D_{ij}}} + 4\omega Q_{ij}G\right)\Omega /mi$
+$$\displaystyle{}\hat z_{1-2_{ii}}=r_i+4\omega P_{ii}G + j\left(X_i + 2\omega G\ln{\frac{S_{ii}}{RD_i}} + 4\omega Q_{ii}G\right)\Omega /mi$$
+
+$$\displaystyle{}\hat z_{1-2_{ij}}=4\omega P_{ii}G + j\left(2\omega G\ln{\frac{S_{ij}}{D_{ij}}} + 4\omega Q_{ij}G\right)\Omega /mi$$
 
 Wherein: 
 
-    $ X_i = 2\omega{}G\ln{\frac{RD_i}{GMR_{i}}}\Omega /mi$
-    $ P_{ij} = \frac{\pi}{8}-\frac{1}{3\sqrt{2}}k_{ij}\cos{\theta_{ij}}+\frac{k_{ij}^2}{16}\cos{2\theta_{ij}}\left(0.6728+\ln{2}{k_{ij}}\right)+\frac{k_{ij}^2}{16}\theta_{ij}\sin{2\theta_{ij}}$
-    $ Q_{ij} = -0.0386 + \frac{1}{2}\ln{\frac{2}{k_{ij}}}+\frac{1}{3\sqrt{2}}k_{ij}\cos{\theta_{ij}}$
-    $ k_{ij} = 8.565\times 10^{-4}S_{ij}\sqrt{\frac{f}{\rho}}$
+$$X_i = 2\omega{}G\ln{\frac{RD_i}{GMR_{i}}}\Omega /mi$$
+
+$$P_{ij} = \frac{\pi}{8}-\frac{1}{3\sqrt{2}}k_{ij}\cos{\theta_{ij}}+\frac{k_{ij}^2}{16}\cos{2\theta_{ij}}\left(0.6728+\ln{2}{k_{ij}}\right)+\frac{k_{ij}^2}{16}\theta_{ij}\sin{2\theta_{ij}}$$
+
+$$Q_{ij} = -0.0386 + \frac{1}{2}\ln{\frac{2}{k_{ij}}}+\frac{1}{3\sqrt{2}}k_{ij}\cos{\theta_{ij}}$$
+
+$$k_{ij} = 8.565\times 10^{-4}S_{ij}\sqrt{\frac{f}{\rho}}$$
 
 The modified Carson equations will be used for calculating the primitive series impedance matrix by making the following approximations 
 
-    $ P_{ij} = \frac{\pi}{8}$
-    $ Q_{ij} = -0.0386 + \frac{1}{2}\ln{\frac{2}{k_{ij}}}$
+$$P_{ij} = \frac{\pi}{8}$$
+
+$$Q_{ij} = -0.0386 + \frac{1}{2}\ln{\frac{2}{k_{ij}}}$$
 
 which result in the following equations for the self and mutual impedance for underground cables 
 
-    $ \displaystyle{}\hat z_{1-2_{ii}}=r_i+\pi^{2}fG + j4\pi fG\left(\ln{\frac{1}{GMR_i}} + \ln{\frac{2}{0.0008565\sqrt{\frac{f}{\rho}}}} - 2(0.0386)\right)\Omega /mi$
-    $ \displaystyle{}\hat z_{1-2_{ij}}=\pi^{2}fG + j4\pi fG\left(\ln{\frac{1}{D_{ij}}} + \ln{\frac{2}{0.0008565\sqrt{\frac{f}{\rho}}}} - 2(0.0386)\right)\Omega /mi$
+$$\displaystyle{}\hat z_{1-2_{ii}}=r_i+\pi^{2}fG + j4\pi fG\left(\ln{\frac{1}{GMR_i}} + \ln{\frac{2}{0.0008565\sqrt{\frac{f}{\rho}}}} - 2(0.0386)\right)\Omega /mi$$
+
+$$\displaystyle{}\hat z_{1-2_{ij}}=\pi^{2}fG + j4\pi fG\left(\ln{\frac{1}{D_{ij}}} + \ln{\frac{2}{0.0008565\sqrt{\frac{f}{\rho}}}} - 2(0.0386)\right)\Omega /mi$$
 
 The primitive series admittance matrix can be inverted to yield the primitive series admittance matrix for the line. For a more complete model of the line, the primitive shunt admittance matrix can then be added. 
 
@@ -594,15 +663,15 @@ The effective resistance and GMR of the tape-shield and concentric neutral ring 
 
 The effective geomentric mean of the concentric neutral ring can be found using the following equation. 
 
-    $ \displaystyle{}GMR_{i,cn}=(GMR_{i,s}k_{i}R_{i}^{k_{i}-1})^{\frac{1}{k_{i}}} ft$
+$$\displaystyle{}GMR_{i,cn}=(GMR_{i,s}k_{i}R_{i}^{k_{i}-1})^{\frac{1}{k_{i}}} ft$$
 
-$$R$ is the radius of the circle passing through the center of the concentric neutral strands in ft and can be found using the equation below. 
+$R$ is the radius of the circle passing through the center of the concentric neutral strands in ft and can be found using the equation below. 
 
-    $ \displaystyle{}R_{i}=\frac{d_{i,od}-d_{i,s}}{24} ft$
+$$\displaystyle{}R_{i}=\frac{d_{i,od}-d_{i,s}}{24} ft$$
 
 The effective resistance of the concentric neutral ring is calculated using the following equation. 
 
-    $ \displaystyle{}r_{i,cn}=\frac{r_{i,s}}{k_{i}} \Omega/mi$
+$$\displaystyle{}r_{i,cn}=\frac{r_{i,s}}{k_{i}} \Omega/mi$$
 
 Because the distance between cables is much greater than $R_{i}$ it is a good approximation to treat the concentric neutral strands as a single conductor located a distance $R$ above the center of the cable when determining distances between adjacent conductor cables. 
 
@@ -610,11 +679,11 @@ Because the distance between cables is much greater than $R_{i}$ it is a good ap
 
 The GMR of the tape shield is given the equation below. 
 
-    $ \displaystyle{}GMR_{i,sh}=\frac{\frac{d_{i,sh}}{2}-\frac{T_{i}}{2000}}{12} ft$
+$$\displaystyle{}GMR_{i,sh}=\frac{\frac{d_{i,sh}}{2}-\frac{T_{i}}{2000}}{12} ft$$
 
 The resistance of the tape sheild is the given in the equation below. 
 
-    $ \displaystyle{}r_{i,sh}=\frac{C_{3}\rho_{i,sh}}{(C_{1}C_{2}d_{i,sh}T{i}+(C_{2}T_{i})^2)} \Omega/mi$
+$$\displaystyle{}r_{i,sh}=\frac{C_{3}\rho_{i,sh}}{(C_{1}C_{2}d_{i,sh}T{i}+(C_{2}T_{i})^2)} \Omega/mi$$
 
 The distance between the tape shield and it's own phase conductor is $GMR_{sh}$. 
 
@@ -626,13 +695,13 @@ The equations presented below assume that the electric field created by the char
 
 The shunt admittance between a conductor and the concentric neutral ring for a single cable is defined by the equation below. 
 
-    $ \displaystyle{}y_{in}=0+j\frac{2\pi\omega\epsilon_{0}\epsilon_{i,r}}{10^{6}(ln(\frac{2R_{i}}{d_{i,c}})-\frac{1}{k_{i}}ln(k_{i}\frac{d_{i,s}}{2R_{i}}))} S/mi$
+$$\displaystyle{}y_{in}=0+j\frac{2\pi\omega\epsilon_{0}\epsilon_{i,r}}{10^{6}(ln(\frac{2R_{i}}{d_{i,c}})-\frac{1}{k_{i}}ln(k_{i}\frac{d_{i,s}}{2R_{i}}))} S/mi$$
 
 #### Tape-Shield
 
 The shunt admittance between a conductor and the tape-shield for a single cable is defined by the equation below. 
 
-    $ \displaystyle{}y_{in}=0+j\frac{2\pi\omega\epsilon_{0}\epsilon_{i,r}}{10^{6}ln(\frac{2R_{i}}{d_{i,c}})} S/mi$
+$$\displaystyle{}y_{in}=0+j\frac{2\pi\omega\epsilon_{0}\epsilon_{i,r}}{10^{6}ln(\frac{2R_{i}}{d_{i,c}})} S/mi$$
 
 #### Solid Underground Conductors
 
@@ -729,25 +798,18 @@ The transformer_configuration class specifies the connection type for the transf
         }
     
 
-[![](//images.shoutwiki.com/gridlab-d/thumb/7/79/CustomXfmr.JPG/300px-CustomXfmr.JPG)](/wiki/File:CustomXfmr.JPG)
-
-[]
+![CUSTOM transformer configuration](../../../images/300px-CustomXfmr.JPG)
 
 Figure 2. CUSTOM transformer configuration
 
 In the first two examples above, included connect_type models are used, which internally contain all of the transformer winding coupling/connection information. If a user wishes to model a transformer not included in the set, they can denote 'CUSTOM' under the 'connect-type' field and include the additional fields shown in the third example. Figure 2 illustrates the connections for this example, wherein there are three three-phase winding sets. Figure 2 illustrates that for each of the three phase sets A, B, and C, Winding 1 (on the left) links Windings 2 and 3 (on the right). The shaded terminal sets denoted I, II, and III denote the external primary, secondary and tertiary terminal sets which correspond to the sets in the transformer object. The field 'winding_coupling' should include pairs of winding numbers (separated by semicolons) which are magnetically coupled. In the example above, Winding 1 is magnetically coupled to both Winding 2 and Winding 3. The fields 'winding_connection_top' and 'winding_connection_bottom' describe how the winding terminals are connected to the external transformer terminals. For both fields, each group delineated by a line return corresponds to a winding set. Within a winding set group, each pair (delineated by semicolons) represents a single phase for the winding. The number of pairs in a set implies the number of phases for the winding. For the example above, each field includes three sets of three pairs, indicating three winding sets each with three phases. The values within the pairs give the external terminal address to which the winding terminal is connected. The first pair for the 'winding_connection_top' field, '1,3', indicates that the top of the first winding's first phase is connected to terminal set '1', phase '3' of the external terminals. Note also that in this example, an alternate array entry format has been used for both the winding voltage rating ('V_rating') and the winding per unit impedances ('impedance'). Note that, for unusual cases, kVA rating can also be specified in [M] double array format rather than a single double, where [M] is the number of windings. 
 
   
-
-
-  
-
-
 ### Model Implementation
 
 The formation of the set of transformer primitive admittance matrices is a lengthy process, described in detail at the [NEV Transformer] page. In short, four matrices are assembled as follows. $\mathbf{A}$ is constructed to model the terminal connections (information described in the 'winding_connection' field for the transformer_configuration object). $\mathbf{N}$ is constructed to model the turns ratio(s), which are derived from the 'V_primary', 'V_secondary', and sometimes 'V_tertiary' fields. $\mathbf{B}$ is constructed to model the winding couplings as described in 'winding_coupling'. Finally, $\mathbf{Z_B}$ is constructed to model the short circuit impedances between windings. With these matrices assembled, the primitive series admittance matrix for the transformer is calculated by: 
 
-    $ \displaystyle{}\mathbf{Y}_{series}=\mathbf{A}\mathbf{N}\mathbf{B}\mathbf{Z_B}^{-1}\mathbf{B}^T\mathbf{N}^T\mathbf{A}^T$
+$$\displaystyle{}\mathbf{Y}_{series}=\mathbf{A}\mathbf{N}\mathbf{B}\mathbf{Z_B}^{-1}\mathbf{B}^T\mathbf{N}^T\mathbf{A}^T$$
 
 Note that the resulting matrix is a complete set of all four primitive matrices (the two diagonal self matrices as well as the two off-diagonal transfer matrices). 
 

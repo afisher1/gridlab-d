@@ -30,42 +30,40 @@ Tech:Multizone_ETP_Linearization \- Linearized solution of the Equivalent Therma
 
 ### Nomenclature
 
-$$C_n$$
+$C_n$
     The heat capacity of $n$th node (Btu/degF).
-$$\Delta t$$
+$\Delta t$
     The time-step taken for the next iteration (h).
-$$\Delta T_n$$
+$\Delta T_n$
     The difference between the observed temperature and the setpoint temperature of the $n$th node, if controlled.
-$$k$$
+$k$
     The proportional control gain of the HVAC control system (unitless).
-$$N$$
+$N$
     The number of nodes in a thermal network (integer).
-$$n$$
+$n$
     A reference to the $n$th of $N$ nodes (integer).
-$$m$$
+$m$
     A reference to the $m$th of $N$ nodes (integer).
-$$Mode_n$$
+$Mode_n$
     The HVAC mode of the system interacting with the $n$th zone (_heat_ , _cool_ , etc.).
-$$Q_n$$
+$Q_n$
     The HVAC heat flow into (positive for heating) or out of (negative for cooling) the $n$th node, if controlled (Btu/h).
-$$Q_{nm}$$
+$Q_{nm}$
     The heat flow from the $n$th to $m$th nodes (Btu/h).
-$$Q_{mode-cap,n}$$
+$Q_{mode-cap,n}$
     The heating (positive) or cooling (negative) capacity of the HVAC system interacting with the $n$th node, if controlled (Btu/h).
-$$T_n$$
+$T_n$
     The temperature of the $n$th node (degF).
-$$T_{cool,n}$$
+$T_{cool,n}$
     The cooling setpoint temperature of the $n$th node, if controlled (degF).
-$$T_{heat,n}$$
+$T_{heat,n}$
     The heating setpoint temperature of the $n$th node, if controlled (degF).
-$$U_{nm}$$
+$U_{nm}$
     The thermal conductance of the path from the $n$th and $m$th nodes (Btu/degF/h).
 
 ## Methodology
 
-[![](//images.shoutwiki.com/gridlab-d/thumb/0/05/Tech-Multizone_ETP_Linearization_Figure_1.png/300px-Tech-Multizone_ETP_Linearization_Figure_1.png)](/wiki/File:Tech-Multizone_ETP_Linearization_Figure_1.png)
-
-[]
+![6-Node Thermal Network](../../../../images/300px-Tech-Multizone_ETP_Linearization_Figure_1.png)
 
 Figure 1. 6-Node Thermal Network
 
@@ -77,9 +75,8 @@ Nodes $m$ and $n$ are connected by conductance’s $U_{mn}$. A conductance might
 
 To solve this circuit explicitly, the heat flow from any node $m$ through the conductance to any other node $n$ at the time $t$is denoted as $Q_{mn}(t)$. Thus 
 
-    $ Q_{mn}(t)=U_{mn}\left[T_m(t)-T_n(t)\right]$
+$$Q_{mn}(t)=U_{mn}\left[T_m(t)-T_n(t)\right]\tag{1}$$
 
-(1)
 
 Note that this implies a sign convention for heat flow into a node as positive. Thus, by definition, $Q_{mn}=-Q_{nm}$. 
 
@@ -95,59 +92,41 @@ Assume a "small" time step $\Delta t$ during which all temperatures change by a 
 
 Then the heat balance on a massive node $n$, i.e., $C_n >0$, from a set of connected nodes $m=1$ to $M$, from time $t$ to time $t+\Delta t$ is: 
 
-    $ Q_n(t)+\sum_{m=1}^M Q_{mn}(t)=\frac{C_n\left[T_n(t+\Delta t)-T_n(t) \right]}{\Delta t}$
-
-(2)
+$$ Q_n(t)+\sum_{m=1}^M Q_{mn}(t)=\frac{C_n\left[T_n(t+\Delta t)-T_n(t) \right]}{\Delta t}\tag{2}$$
 
 where $Q_n(t)$ is assumed to be constant boundary condition over the interval. 
 
 Solving this for the temperature of the node at the next time step: 
 
-    $ \frac{C_n T_n(t+\Delta t)}{\Delta t} = Q_n(t)+\sum_{m=1}^M Q_{nm}(t)+\frac{C_n T_n(t)}{\Delta t}$
+$$ \frac{C_n T_n(t+\Delta t)}{\Delta t} = Q_n(t)+\sum_{m=1}^M Q_{nm}(t)+\frac{C_n T_n(t)}{\Delta t}\tag{3}$$
 
-(3)
-
-    $ T_n(t+\Delta t) = \frac{\Delta t}{C_n} \left[Q_n(t)+\sum_{m=1}^M Q_{nm}(t)\right] + T_n(t)$
-
-(4)
+$$ T_n(t+\Delta t) = \frac{\Delta t}{C_n} \left[Q_n(t)+\sum_{m=1}^M Q_{nm}(t)\right] + T_n(t)\tag{4}$$
 
 Substituting the definition for $Q_{nm}$ from Equation (1): 
 
-    $ T_n(t+\Delta t) = \frac{\Delta t}{C_n} \left[Q_n(t)+\sum_{m=1}^M U_{mn}\left[T_m(t)-T_n(t)\right]\right] + T_n (t)$
-
-(5)
+$$ T_n(t+\Delta t) = \frac{\Delta t}{C_n} \left[Q_n(t)+\sum_{m=1}^M U_{mn}\left[T_m(t)-T_n(t)\right]\right] + T_n (t)\tag{5}$$
 
 or 
 
-    $ T_n(t+\Delta t) = \frac{\Delta t}{C_n} Q_n(t) + \frac{\Delta t}{C_n} \sum_{m=1}^M U_{mn} T_m(t) + T_n(t) \left[1-\frac{\Delta t}{C_n}\sum_{m=1}^M U_{mn}\right]$
-
-(6)
+$$ T_n(t+\Delta t) = \frac{\Delta t}{C_n} Q_n(t) + \frac{\Delta t}{C_n} \sum_{m=1}^M U_{mn} T_m(t) + T_n(t) \left[1-\frac{\Delta t}{C_n}\sum_{m=1}^M U_{mn}\right]\tag{6}$$
 
 ### Step 2: Compute temperatures of all massless nodes
 
 If node $n$ is massless, i.e., $C_n = 0$, then it must be in thermal equilibrium with all adjacent nodes at any time. For massless nodes, Equation (2) reduces to 
 
-    $ Q_n(t)+\sum_{m=1}^M Q_{nm}(t+\Delta t)=0$
-
-(7)
+$$ Q_n(t)+\sum_{m=1}^M Q_{nm}(t+\Delta t)=0\tag{7}$$
 
 where over the time interval from $t$ to $t+\Delta t$ $Qn$ is a constant boundary condition. 
 
 Substituting the definition for $Q_{mn}$ from Equation (1): 
 
-    $ Q_n(t)+\sum_{m=1}^M U_{mn} \left[ T_m(t+\Delta t)-T_n(t+\Delta t) \right]=0$
-
-(8)
+$$ Q_n(t)+\sum_{m=1}^M U_{mn} \left[ T_m(t+\Delta t)-T_n(t+\Delta t) \right]=0\tag{8}$$
 
 Solving for the temperature of the node at time t+Δt: 
 
-    $ T_n(t+\Delta t)=\frac{Q_n(t)+\sum_{m=1}^M U_{mn}T_m(t+\Delta t)}{\sum_{m=1}^M U_{mn}}$
+$$ T_n(t+\Delta t)=\frac{Q_n(t)+\sum_{m=1}^M U_{mn}T_m(t+\Delta t)}{\sum_{m=1}^M U_{mn}}\tag{9}$$
 
-(9)
-
-[![](//images.shoutwiki.com/gridlab-d/thumb/b/b0/Tech-Multizone_ETP_Linearization_Figure_2.png/300px-Tech-Multizone_ETP_Linearization_Figure_2.png)](/wiki/File:Tech-Multizone_ETP_Linearization_Figure_2.png)
-
-[]
+![Reduced equivalent of 6-node thermal network](../../../../images/300px-Tech-Multizone_ETP_Linearization_Figure_2.png)
 
 Figure 2. Reduced equivalent of 6-node thermal network
 
@@ -157,57 +136,47 @@ The simplest way to resolve this is to reduce the network to an equivalent netwo
 
 #### Series massless nodes configurations
 
-[![](//images.shoutwiki.com/gridlab-d/c/cf/Tech-Multizone_ETP_Linearization_Figure_3a.png)](/wiki/File:Tech-Multizone_ETP_Linearization_Figure_3a.png)
-
-[]
+![Series massless node reduction](../../../../images/Tech-Multizone_ETP_Linearization_Figure_3a.png)
 
 Figure 3a - Series massless node reduction
 
 A series configuration of two nodes, such as the thermal network in Figure 1, can be reduced as shown in Figure 2, where Node 5 is eliminated and the equivalent series conductance from Node 0 to Node 4 is 
 
-    $ U_{xy} = \frac{U_{xw} + U_{wy}}{U_{xw} U_{wy}}$
-
-(10a)
+$$ U_{xy} = \frac{U_{xw} + U_{wy}}{U_{xw} U_{wy}}\tag{10a}$$
 
 #### Parallel massless nodes configurations
 
-[![](//images.shoutwiki.com/gridlab-d/a/ac/Tech-Multizone_ETP_Linearization_Figure_3b.png)](/wiki/File:Tech-Multizone_ETP_Linearization_Figure_3b.png)
-
-[]
+![Parallel thermal path reduction](../../../../images/Tech-Multizone_ETP_Linearization_Figure_3b.png)
 
 Figure 3b - Parallel thermal path reduction
 
 A parallel configuration of two nodes can be reduced to a single node thus: 
 
-    $ U_{xy} = U_{A} + U_{B} \\!$
-
-(10b)
+$$ U_{xy} = U_{A} + U_{B} \\!\tag{10b}$$
 
 #### Delta massless nodes configurations
 
 A "delta" configuration of 3 nodes $(x, y, z)$ can be transformed to a "wye" configuration of four nodes $(x,y,z,w)$ as follows: 
 
-    $\begin{align}
+$$\begin{align}
 
 U_{xw} &= U_{xy}U_{xz}\left[ \frac{1}{U_{xy}} + \frac{1}{U_{yz}} + \frac{1}{U_{xz}} \right] \\\ U_{yw} &= U_{xy}U_{yz}\left[ \frac{1}{U_{xy}} + \frac{1}{U_{yz}} + \frac{1}{U_{xz}} \right] \\\ U_{zw} &= U_{xz}U_{yz}\left[ \frac{1}{U_{xy}} + \frac{1}{U_{yz}} + \frac{1}{U_{xz}} \right] 
 
-\end{align}$$
+\end{align}\tag{10c}$$
 
 (10c)
 
 Note that for the general "star-mesh" case, the transformation is: 
 
-    $  U_{ij} = U_iw U_jw \sum_{n=1}^N \frac{1}{U_n} \\!$
+$$ U_{ij} = U_iw U_jw \sum_{n=1}^N \frac{1}{U_n} \tag{10d}$$
 
-(10d)
 
 where $N=1$ is the dangling node case (which eliminates the node), $N=2$ is the series node case (see above) and $N=3$ is the "delta-wye" transformation case. The "star-mesh" transformation has no general inverse without additional constraints, so all mesh configurations must be simplified using a series of appropriate wye-delta transformations. 
 
 In such all cases, the temperature of the new node, $w$ is calculated as follows: 
 
-    $  T_w = \frac{\sum_{n=1}^N U_{nw} T_n}{\sum_{n=1}^N U_{nw}} \\! $
+$$T_w = \frac{\sum_{n=1}^N U_{nw} T_n}{\sum_{n=1}^N U_{nw}} \tag{10e}$$
 
-(10e)
 
 #### Special Case for "Bang-Bang" HVAC Control
 
@@ -215,37 +184,27 @@ Nodes whose temperature is used to control $Q_n$ (typically heating or cooling f
 
 Define $Q_n$ as the sum of the HVAC energy input (heating positive, cooling negative), and the sum of internal heat gains and solar heat gains, to Node $n$: 
 
-    $ Q_n = Q_{hvac,n}+Q_{gains,n} \quad$
-
-(11)
+$$ Q_n = Q_{hvac,n}+Q_{gains,n} \quad\tag{11}$$
 
 Let $Q_{cool-cap,n}$ and $Q_{heat-cap,n}$ be the net cooling and heating capacity available to supply the zone, respectively (net of the fan power). Let $Q_{fan,n}$ be the fan power when the HVAC is off (i.e. if the fan runs continually then $Q_{fan,n} > 0$). 
 
 Assume a heating and cooling thermostat with setpoints centered in a deadband with range $+\Delta T_n$ on either side of the setpoint. Note that setpoints must not overlap: 
 
-    $ T_{cool,n} - \Delta T_n > T_{heat,n} + \Delta T_n \quad$
-
-(12)
+$$ T_{cool,n} - \Delta T_n > T_{heat,n} + \Delta T_n \quad\tag{12}$$
 
 The thermostat sets $ Q_{hvac,n} $, which persists in subsequent time steps until changed by the thermostat: 
 
 When $  T_n < T_{heat,n} - \Delta T_n $
 
-    $ Mode_n = On \quad ; \quad Q_{hvac,n} = Q_{heat-cap,n} $.
-
-(13)
+$$ Mode_n = On \quad ; \quad Q_{hvac,n} = Q_{heat-cap,n} \tag{13}$$
 
 When $  T_n > T_{cool,n} + \Delta T_n $
 
-    $ Mode_n = On \quad ; \quad Q_{hvac,n} = Q_{cool-cap,n} $.
-
-(14)
+$$ Mode_n = On \quad ; \quad Q_{hvac,n} = Q_{cool-cap,n} \tag{14}$$
 
 When $  Mode_n=On $ and $ T_{heat,n}+ \Delta T_n $ ≤ $ T_n $ ≤ $ T_{cool,n} - \Delta T_n $
 
-    $ Mode_n = Off \quad ; \quad Q_{hvac,n} = Q_{fan,n} $.
-
-(15)
+$$ Mode_n = Off \quad ; \quad Q_{hvac,n} = Q_{fan,n} \tag{15}$$
 
 Then the node temperature at time $t+\Delta t$ can be calculated from Equation (6). Note that all HVAC control nodes with On/Off control must be massive. If one were massless, Equation (9) indicates there is no way to maintain a setpoint without proportional control of $Q_{hvac,n}$. 
 
@@ -255,21 +214,15 @@ In the case of proportional control for $Q_{hvac,n}$, then a proportional-differ
 
 When $  T_{heat,n} - \Delta T_n < T_n(t) < T_{heat,n} + \Delta T_n \quad$
 
-    $ Q_{hvac,n}(t) = Q_{heat-cap,n}(t) \left[ \frac{T_{heat,n}+\Delta T_n-T_n(t)}{2\Delta T_n} - \frac{k}{2\Delta T_n} \left[ T_n(t)-T_n(t-\Delta t)\right]\right]$.
-
-(16)
+$$ Q_{hvac,n}(t) = Q_{heat-cap,n}(t) \left[ \frac{T_{heat,n}+\Delta T_n-T_n(t)}{2\Delta T_n} - \frac{k}{2\Delta T_n} \left[ T_n(t)-T_n(t-\Delta t)\right]\right]\tag{16}$$
 
 When $  T_{cool,n} - \Delta T_n < T_n(t) < T_{cool,n} + \Delta T_n \quad$
 
-    $ Q_{hvac,n}(t) = Q_{cool-cap,n}(t) \left[ \frac{T_n(t) - T_{cool,n} + \Delta T_n}{2 ∆T_n} - \frac{k}{2\Delta T_n} \left[ T_n(t-\Delta t)-T_n(t) \right] \right]$.
-
-(17)
+$$ Q_{hvac,n}(t) = Q_{cool-cap,n}(t) \left[ \frac{T_n(t) - T_{cool,n} + \Delta T_n}{2 ∆T_n} - \frac{k}{2\Delta T_n} \left[ T_n(t-\Delta t)-T_n(t) \right] \right]\tag{17}$$
 
 When $  T_{heat,n} + \Delta T_n \le T_n(t) \le T_{cool,n} - \Delta T_n$
 
-    $Q_{hvac,n}(t) = Q_{fan,n} \quad$.
-
-(18)
+$$Q_{hvac,n}(t) = Q_{fan,n} \quad\tag{18}$$
 
 where $k$ is the proportional gain for the controller. 
 
