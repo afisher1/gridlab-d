@@ -116,9 +116,7 @@ The secondary functionality of bidder status will be useful on systems where not
 
 ## Market Clearing
 
-[![](../../../images/300px-SimpleMarket-Marginal_Sell.png)](/wiki/File:SimpleMarket-Marginal_Sell.png)
-
-[]
+![Marginal seller clearing scenario](../../../images/300px-SimpleMarket-Marginal_Sell.png)
 
 Figure 1. Marginal seller clearing scenario
 
@@ -273,9 +271,8 @@ The above testing and specifications should cover all initial functionality requ
   * Implement the ability for market overrides in critical conditions. In a powerflow sense, this would be an emergency or critical pricing structure. e.g., a market may clear and become active once an hour, but there may be need to update market constraints and clear it 20 minutes into the bidding process to accommodate higher than expected feeder loads.
   * Implement more advanced types of markets than the double auction, such as multiple auction clearings in a single period.
   * Implement "block-bidding" capabilities for multiple periods at once. e.g., submitting all 24 1-hour bids once the day in advance for the day-ahead market, not in 1-hour intervals.
-# 
 
-See also
+# See also
 
 [Market_User_Guide]
 

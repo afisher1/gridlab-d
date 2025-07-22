@@ -12,11 +12,10 @@
   * 2 See also
 Spec:Commercial \- Specifications for commercial building models 
 
-[![](../../../images/300px-Spec_Commercial_Fig_1.png)](/wiki/File:Spec_Commercial_Fig_1.png)
+![An example of a 6-node commercial building model](../../../images/300px-Spec_Commercial_Fig_1.png)
 
-[]
-
-Fig. 1: An example of a 6-node commercial building model. The branch from node 0 to node 2 is the original ETP model such as is used by the [residential] module. Node 3 represents an unconditioned space, while nodes 4 and 5 represent a series of massless nodes between the indoor spaces and the outdoor.
+Fig. 1: An example of a 6-node commercial building model. 
+The branch from node 0 to node 2 is the original ETP model such as is used by the [residential] module. Node 3 represents an unconditioned space, while nodes 4 and 5 represent a series of massless nodes between the indoor spaces and the outdoor.
 
 Large multizone commercial buildings are simulated using a linearized _N_ -node ETP model, such as the one illustrated in Fig. 1. Because large buildings are separated into multiple control zones, each control zone must be associated with exactly one thermal node. Other thermal nodes may be defined as needed. 
 

@@ -46,7 +46,7 @@ To enable the doxygen build, `pip install mkdoxy` and go to the doxygen [website
 
 To build latest commit to be hosted publicly. Push your latest commit before building.
 
-  * Navigate to: `https://app.readthedocs.org/projects/gridlab-d/`
+  * Navigate to our [docs](https://app.readthedocs.org/projects/gridlab-d/): `https://app.readthedocs.org/projects/gridlab-d/`
 
 ![readthedocs](../../images/readthedocs.png)
 
