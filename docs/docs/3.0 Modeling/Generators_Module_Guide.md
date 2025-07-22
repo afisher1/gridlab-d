@@ -50,7 +50,7 @@ The following will describe the available models within GridLAB-D and how they i
 
 # Generators Objects
 
-## [Battery] Model
+## Battery Model
 
 The battery object is in a state of flux, containing some legacy models and some new models. In early versions of GridLAB-D (pre-v3.0), it was assumed that the model included both the battery and the inverter; the battery was connected directly to a meter (or triplex_meter) object. Post-v3.0, the inverter model has been separated from the battery object. In this case, the battery is connected as a child of an inverter object and the inverter is then connected to the meter object. This may cause some confusion - development of new models will focus on a full separation of the inverter and battery models, but legacy code still exists for those that are still using it. 
 
@@ -157,7 +157,7 @@ This model has only been tested when using the internal battery model. All other
     }
     
 
-## [Diesel DG] Model
+## Diesel DG Model
 
 [![Generator internal electrical model](../../images/300px-Generator_Module_Guide_Figure_1.png)](/wiki/File:Generator_Module_Guide_Figure_1.png)
 
@@ -176,7 +176,7 @@ $$
 
 This model is considered experimental and may not work as designed. 
 
-## [Energy Storage] Model
+## Energy Storage Model
 
 ### Default Energy Storage
 
@@ -253,7 +253,7 @@ efficiency  |  double  |  unit  |  Efficiency of the inverter. This is assigned 
 
 This model is considered experimental and may not work as designed. 
 
-## [Microturbine] DG Model
+## Microturbine DG Model
 
 ### Default Microturbine
 
@@ -263,7 +263,7 @@ This model is considered experimental and may not work as designed.
 
 This model is considered experimental and may not work as designed. 
 
-## [Power Electronics] Model
+## Power Electronics Model
 
 ### Default Power Electronics
 
@@ -273,7 +273,7 @@ This model is considered experimental and may not work as designed.
 
 This model is considered experimental and may not work as designed. 
 
-## [Rectifier] Model
+## Rectifier Model
 
 ### Default Rectifier
 
@@ -283,7 +283,7 @@ This model is considered experimental and may not work as designed.
 
 This model is considered experimental and may not work as designed. 
 
-## [Solar] DG Model
+## Solar DG Model
 
 ### Default Solar
 
@@ -365,7 +365,7 @@ FF  |  double  |  None  |  The Fill Factor (FF) is essentially a measure of qual
 
 This model is considered experimental and may not work as designed. 
 
-## [Wind Turbine DG] Model
+## Wind Turbine DG Model
 
 A minimal model could be created via: 
     
@@ -521,7 +521,7 @@ The power curve-based implementation is included in the GridLAB-D v4.3 Release. 
 
 ## Model testing
 
-[![](../../images/300px-Generator_Module_Guide_Figure_2.png)](/wiki/File:Generator_Module_Guide_Figure_2.png)
+![Generator testing model](../../images/300px-Generator_Module_Guide_Figure_2.png)
 
 Figure 2 - Generator testing model
 
@@ -533,16 +533,16 @@ Note
 
 ## See Also
 
-  * [Generator Module Guide]
-  * [Generators (module)]
-    * [Battery]
-    * [Diesel dg]
-    * [Energy storage]
+  * Generator Module Guide
+  * Generators (module)
+    * Battery
+    * Diesel dg
+    * Energy storage
     * inverter
-    * [Microturbine]
-    * [Power electronics]
-    * [Rectifier]
-    * [Solar]
-    * [Windturb dg]
-  * [Modules]
+    * Microturbine
+    * Power electronics
+    * Rectifier
+    * Solar
+    * Windturb dg
+  * Modules
 

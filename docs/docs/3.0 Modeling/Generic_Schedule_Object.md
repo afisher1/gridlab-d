@@ -101,7 +101,7 @@ s=off: & \begin{cases}
 
 ## Schedule Caveats
 
-The use of schedules should be moderated due to their size of about 15MB apiece. If large numbers of objects take linearly related schedule input data, [schedule transforms] should be considered. 
+The use of schedules should be moderated due to their size of about 15MB apiece. If large numbers of objects take linearly related schedule input data, schedule transforms should be considered. 
 
 # Shape Types
 

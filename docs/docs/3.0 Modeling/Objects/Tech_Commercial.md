@@ -116,7 +116,7 @@ $$
 
 where 
 
-  * $ Q_{vent}=0.2402 \times 0.0735(T_{design_{cool}}-T_{set_{cool}}) \times V_{air} \times ACH $
+$ Q_{vent}=0.2402 \times 0.0735(T_{design_{cool}}-T_{set_{cool}}) \times V_{air} \times ACH $
 
 The heating COP is given by $COP_{heat} = Dist_{triangle}(1,2)$ and the cooling COP is given by $COP_{cool} = Dist_{triangle}(3,5)$. 
 
@@ -151,18 +151,23 @@ Except as noted below, when ventilation is required, $P_{vent} = floor\_area (0.
 * OFF:
         
         COP = 0, Qactive = Qpassive = 0, Pvent = 0
+
 * VENT:
     
         COP = 0, Qactive = 0, Qpassive = Qvent
+
 * HEAT:
     
         COP = 1.0 + (COP_{heating}-1) (T_{out} - T_{aux}) / Trange, zone.hvac.heating.capacity + zone.hvac.heating.capacity_perF*(zone.hvac.heating.balance_temperature-Tout), Qpassive = Qvent
+
 * AUX:
     
         COP = 1.0, Qactive = COP * heating_capacity, Qpassive = Qvent
+
 * COOL:
             
         COP = -1.0 - (zone.hvac.cooling.cop+1)*(Tout-TmaxCool)/(TmaxCool-Tecon), zone.hvac.cooling.capacity - zone.hvac.cooling.capacity_perF*(Tout-zone.hvac.cooling.balance_temperature), Qpassive = Qvent
+        
 * ECON:
     
         COP = 0, Qactive = 0, Qpassive = Qvent
@@ -203,19 +208,15 @@ $$\begin{align}
 And from (25), the solution is: 
 
 $$
-    y_t= \sum_{j=0}^n(S_j u_{t-j\delta})-\sum_{j=1}^n(e_j y_{t-j\delta})
+y_t= \sum_{j=0}^n(S_j u_{t-j\delta})-\sum_{j=1}^n(e_j y_{t-j\delta})
 $$
 
 where 
 
-$$\begin{align} 
-    
-    
-    S_0 & = CR_0 \Gamma_2+D \\
-    S_j & = C \left[ R_{j-1} ( \Gamma_1 -\Gamma_2 ) + R_j \Gamma_2 \right] + e_j D, for 1 \le j \le n-1 \\
-    S_n & = CR_{n-1} (\Gamma_1 -\Gamma_2 ) + e_n D
-    
-
+$$\begin{align}     
+S_0 & = CR_0 \Gamma_2+D \\
+S_j & = C \left[ R_{j-1} ( \Gamma_1 -\Gamma_2 ) + R_j \Gamma_2 \right] + e_j D, for 1 \le j \le n-1 \\
+S_n & = CR_{n-1} (\Gamma_1 -\Gamma_2 ) + e_n D
 \end{align}$$
 
 ## Caveat
@@ -373,7 +374,6 @@ U_{xw} &= U_{xy}U_{xz}\left[ \frac{1}{U_{xy}} + \frac{1}{U_{yz}} + \frac{1}{U_{x
 
 \end{align}$$
 
-(10c)
 
 Note that for the general "star-mesh" case, the transformation is: 
 

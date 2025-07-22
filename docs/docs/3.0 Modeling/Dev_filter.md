@@ -3,7 +3,7 @@
 **Source URL:** https://gridlab-d.shoutwiki.com/wiki/Dev:filter
 Dev:filter \- Filter implementation  PROPOSED FOR 4.0 
 
-The [filter] directive is implemented using an augmented [transform] object. The filter is converted to a discrete-time state-space model using the canonical observable form for a strictly causal system: 
+The filter directive is implemented using an augmented transform object. The filter is converted to a discrete-time state-space model using the canonical observable form for a strictly causal system: 
 
 $$H(z) = \frac {\sum_{n=1}^{N-1} b_n z^{n-N}} {z^N + \sum_{n=1}^{N-1} a_n z^{n-N}}
 \left\{
@@ -28,5 +28,5 @@ The state vector _x_ is update whenever the global clock modulo the time step is
 
 ## See also
 
-  * [filter]
+  * filter
 

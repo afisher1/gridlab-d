@@ -12,7 +12,7 @@ MySQL database connection
       schema "gridlabd";
       port 3306;
       socketname "/tmp/mysql.sock";
-      clientflags COMPRESS|FOUND_ROWS|IGNORE_SIGPIPE|INTERACTIVE|LOCAL_FILES|MULTI_RESULTS|MULTI_STATEMENTS|NO_SCHEMA|[ODBC]|SSL|REMEMBER_OPTIONS;
+      clientflags COMPRESS|FOUND_ROWS|IGNORE_SIGPIPE|INTERACTIVE|LOCAL_FILES|MULTI_RESULTS|MULTI_STATEMENTS|NO_SCHEMA|ODBC|SSL|REMEMBER_OPTIONS;
       options SHOWQUERY|NOCREATE|NEWDB|OVERWRITE;
       on_init _file-name_ ;
       on_sync _file-name_ ;
@@ -25,23 +25,23 @@ MySQL database connection
 
 ## Description
 
-At least one database object must defined for recorder, [player], and [collector] objects to function using a database. Typically, if no connection is specified by these objects, the last database defined will be used automatically. 
+At least one database object must defined for recorder, player, and collector objects to function using a database. Typically, if no connection is specified by these objects, the last database defined will be used automatically. 
 
 ### hostname
 
-    Specifies the MySQL server hostname. By default this is the [default hostname], which is by default **127.0.0.1** or **localhost**.
+    Specifies the MySQL server hostname. By default this is the default hostname, which is by default **127.0.0.1** or **localhost**.
 
 ### username
 
-    Specifies the MySQL username. By default this is the [default username], which is by default **gridlabd**.
+    Specifies the MySQL username. By default this is the default username, which is by default **gridlabd**.
 
 ### password
 
-    Specifies the MySQL password. By default this is the [default password], which is by default an empty string (i.e., none provided).
+    Specifies the MySQL password. By default this is the default password, which is by default an empty string (i.e., none provided).
 
 ### schema
 
-    Specifies the database schema to use. If none is specified, the [default schema] is used (which is by default _gridlabd_). If a blank schema name is specified, the [modelname] is used. The schema will be automatically created if it does not exist unless the NOCREATE [option] is specified.
+    Specifies the database schema to use. If none is specified, the default schema is used (which is by default _gridlabd_). If a blank schema name is specified, the modelname is used. The schema will be automatically created if it does not exist unless the NOCREATE option is specified.
 
 ### port
 
@@ -69,7 +69,7 @@ At least one database object must defined for recorder, [player], and [collector
 
 #### INTERACTIVE
 
-    Permit [interactive_timeout] seconds of inactivity (rather than [wait_timeout] seconds) before closing the connection. The client's session [wait_timeout] variable is set to the value of the session [interactive_timeout] variable.
+    Permit interactive_timeout seconds of inactivity (rather than wait_timeout seconds) before closing the connection. The client's session wait_timeout variable is set to the value of the session interactive_timeout variable.
 
 #### LOCAL_FILES
 
@@ -113,7 +113,7 @@ At least one database object must defined for recorder, [player], and [collector
 
 #### NEWDB
 
-    When the NEWDB [option] is specified, then the schema is destroyed before it used. CAUTION: this may cause loss of data and should be used with care, especially if the default schema _gridlabd_ is used.
+    When the NEWDB option is specified, then the schema is destroyed before it used. CAUTION: this may cause loss of data and should be used with care, especially if the default schema _gridlabd_ is used.
 
 #### OVERWRITE
 
@@ -137,7 +137,7 @@ At least one database object must defined for recorder, [player], and [collector
 
 ### tz_offset
 
-    Specifies the number of seconds offset between database times and object [timestamps].
+    Specifies the number of seconds offset between database times and object timestamps.
 
 ### uses_dst
 
@@ -145,17 +145,17 @@ At least one database object must defined for recorder, [player], and [collector
 
 ## Version
 
-The database object was introduced in [Hassayampa (Version 3.0)]. 
+The database object was introduced in Hassayampa (Version 3.0). 
 
 ## See also
 
-  * [mysql] module 
+  * mysql module 
     * database class
     * recorder class
-    * [player] class
-    * [collector] class
-    * [MySQL Import/Export]
+    * player class
+    * collector class
+    * MySQL Import/Export
   * Technical manuals 
-    * [Programmer's manual]
-    * [MySQL How To Guide]
+    * Programmer's manual
+    * MySQL How To Guide
 

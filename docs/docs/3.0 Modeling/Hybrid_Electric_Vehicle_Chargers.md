@@ -5,7 +5,7 @@
 
   * 1 EV/PHEV Model
   * 2 Demand profiles
-In December 2008 the **residential** module received a preliminary implementation of all-electric and plug-in hybrid-electric vehicle charger loads for inclusion in [Diablo (Version 2.0)]. The following describes that implementation and the requiremenets for subsequent enhancements (noted as **TODO**). 
+In December 2008 the **residential** module received a preliminary implementation of all-electric and plug-in hybrid-electric vehicle charger loads for inclusion in Diablo (Version 2.0). The following describes that implementation and the requiremenets for subsequent enhancements (noted as **TODO**). 
 
 ## EV/PHEV Model
 
@@ -51,7 +51,7 @@ The format of the demand profile is as follows: ` `
 `
     
     
-    [_DAYTYPE_]
+    _DAYTYPE_
     _DIRTRIP_ ,_DIRTRIP_ ,...
     #.###,#.###,...
     #.###,#.###,...

@@ -37,22 +37,22 @@ While operating in delta mode, the simulation performs the following sequence of
   * Module updates are processed in the order in which modules are loaded by the GLM file. This means that modules which depend on other modules in delta mode should be loaded last. For example, for the timestamps of recordings from the tape module to coincide with the states of sampled values the tape module should be loaded after the modules which the recorder samples. This way the high-speed recorders can sample the states of the other models after the delta time update has been applied to all objects and modules.
 ## Version
 
-This capability was introduced to a limited extent in [Grizzly (Version 2.3)] and not all modules support subsecond simulations. 
+This capability was introduced to a limited extent in Grizzly (Version 2.3) and not all modules support subsecond simulations. 
 
 ### Support
 
 Only certain objects support subsecond processing. They are (listed by module): 
 
-[tape]
+tape
     
 
-  * [player]
+  * player
   * recorder
-[powerflow]
+powerflow
     
 
-  * **TODO**:  [node]
-  * **TODO**:  [link]
+  * **TODO**:  node
+  * **TODO**:  link
 **TODO**: 
     
 
@@ -61,16 +61,16 @@ Only certain objects support subsecond processing. They are (listed by module):
 
   * Subsecond
     * Development 
-      * [Requirements]
-      * [Specifications]
-      * [Programmer's Manual]
-    * [Global variables]
-      * [simulation_mode]
-      * [deltamode_maximumtime]
-      * [deltamode_timestep]
-      * [deltamode_preferred_module_order]
-      * [deltamode_updateorder]
-      * [deltamode_iteration_limit]
-      * [deltamode_forced_extra_timesteps]
-      * [deltamode_forced_always]
+      * Requirements
+      * Specifications
+      * Programmer's Manual
+    * Global variables
+      * simulation_mode
+      * deltamode_maximumtime
+      * deltamode_timestep
+      * deltamode_preferred_module_order
+      * deltamode_updateorder
+      * deltamode_iteration_limit
+      * deltamode_forced_extra_timesteps
+      * deltamode_forced_always
 

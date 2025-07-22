@@ -1,24 +1,6 @@
 # Mysql
 
-**Source URL:** https://gridlab-d.shoutwiki.com/wiki/Mysql#default_schema
-
----
-
-Database changes have finished applying - please report any issues you're (still) seeing to support@shoutwiki.com. 
-
-# Mysql
-
-  * [Language]( "Language")
-  * [Watch](/w/index.php?title=Special:UserLogin&returnto=Mysql "Watch")
-  * [Edit](/w/index.php?title=Mysql&action=edit&section=0 "Edit the lead section of this page")
-
-
-
-mysql \- MySQL module [Template:NEW30](/w/index.php?title=Template:NEW30&action=edit&redlink=1 "Template:NEW30 \(page does not exist\)")
-
-## 
-
-Synopsis
+## Synopsis
     
     
     [module](/wiki/Module "Module") mysql {
@@ -32,9 +14,7 @@ Synopsis
     }
     
 
-## 
-
-Description
+## Description
 
 The mysql module implements the principal [tape](/wiki/Tape "Tape") module classes [recorder](/wiki/Recorder "Recorder"), [player](/wiki/Player "Player"), and [collector](/wiki/Collector "Collector") in a property-compatible manner. For details on the functionality of these classes, see the [tape](/wiki/Tape "Tape") module. The main difference between the [tape](/wiki/Tape "Tape") implementation and the mysql implementation is that these classes can refer to a [database](/wiki/Database "Database") connection if there is more than one connection in the GLM file. 
 
