@@ -33,8 +33,10 @@
 
 # Miscellaneous Notes
 - [ ] Branding, logo
-- [ ] Get images from wiki (urls to wiki pages will no longer work)
+- [x] Get images from wiki (urls to wiki pages will no longer work)
 - [ ] Remove "History" sections from docs, irrelevant 
+- [ ] Visual navigation:
+    - [ ] Pages with subpages should be more visually distinct, bold, underilned, something. The [+] left of the header that is just barely visible until you hover over it is not very helpful.
 - [ ] Remove dated clauses, like:
 
     `"As of Hassayampa (Version 3.0)..."`
