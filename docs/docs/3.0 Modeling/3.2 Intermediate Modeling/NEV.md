@@ -1,4 +1,4 @@
-# NEV: Neutral Earth Voltage
+# Neutral Earth Voltage (NEV)
 
 Implement neutral earth voltage and generic capabilities into the powerflow module. 
 

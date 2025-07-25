@@ -28,12 +28,12 @@ $$
 
 where the constants $c_1$ through $c_6$ are 
 
-  * $ c_1 = -\frac{U_a + U_m}{C_a}$
-  * $ c_2 = \frac{U_m}{C_a}$
-  * $ c_3 = \frac{Q_a + U_a T_0}{C_a}$
-  * $ c_4 = \frac{U_m}{C_m}$
-  * $ c_5 = -\frac{U_m}{C_m}$
-  * $ c_6 = \frac{Q_m}{C_m}$
+  * $c_1 = -\frac{U_a + U_m}{C_a}$
+  * $c_2 = \frac{U_m}{C_a}$
+  * $c_3 = \frac{Q_a + U_a T_0}{C_a}$
+  * $c_4 = \frac{U_m}{C_m}$
+  * $c_5 = -\frac{U_m}{C_m}$
+  * $c_6 = \frac{Q_m}{C_m}$
 
 The general form of the second-order ODE is given by 
 
@@ -42,10 +42,10 @@ $$
 
 where 
 
-  * $ p_1 = \frac{1}{c_2}$
-  * $ p_2 = -\frac{c_1+c_5}{c_2}$
-  * $ p_3 = \frac{c_1 c_5}{c_2}-c_4$
-  * $ p_4 = \frac{c_3 c_5}{c_2}-c_6$
+  * $p_1 = \frac{1}{c_2}$
+  * $p_2 = -\frac{c_1+c_5}{c_2}$
+  * $p_3 = \frac{c_1 c_5}{c_2}-c_4$
+  * $p_4 = \frac{c_3 c_5}{c_2}-c_6$
 
 where 
 
@@ -54,12 +54,12 @@ where
   * $ k_2 = \frac{T_{i,0} -r_1 k_1}{r_2}$
   * $t$ is the elapsed time,
   * $T_{i,0}$ is the initial value of $T_i$, and
-  * $ \dot T_{i,0} = c_1 T_{i,0} + c_2 T_{m,0} + (c_1 + c_2) T_0 + c_7$
+  * $\dot T_{i,0} = c_1 T_{i,0} + c_2 T_{m,0} + (c_1 + c_2) T_0 + c_7$
 
 with 
 
   * $c_7 = \frac{Q_a}{C_a}$, and
-  * $ T_{m,t} = k_1 \frac{r_1-c_1}{c_2} + k_2 \frac{r_2-c_1}{c_2} - \frac{p_4}{p_3} + \frac{c_6}{c_2}$
+  * $T_{m,t} = k_1 \frac{r_1-c_1}{c_2} + k_2 \frac{r_2-c_1}{c_2} - \frac{p_4}{p_3} + \frac{c_6}{c_2}$
 
 ## Modeling Assumptions
 
@@ -126,9 +126,7 @@ When the _enduse_ structure is inherited, it is strongly recommend that it's nam
 However, when an object implements multiple enduses, then each one is embedded and the name of the property should be given when the end-use is published, i.e., 
     
     
-     ...
      PT_enduse, "lights", PADDR(enduse),
-     ...
     
 
 In addition, the corresponding shape must be defined and linked. When inheriting the enduse structure, this is already done. However, when defining the enduse structure in an object, it must done explicitly during _create_ using the command 
@@ -140,17 +138,13 @@ In addition, the corresponding shape must be defined and linked. When inheriting
 where _shape_ is a property of type _loadshape_ and can be published as 
     
     
-     ...
      PT_loadshape, "shape", PADDR(lighting_shape),
-     ...
     
 
 It is recommended that shape for embedded enduses be published with the enduse name as a prefix, e.g., 
     
     
-     ...
      PT_loadshape, "lights.shape", PADDR(lighting_shape),
-     ...
     
 
 The following updates are made before any _presync_ calls are made 
@@ -439,6 +433,7 @@ The major heat gains that contribute to the refrigerator thermal load are:
   1. Conduction through refrigerator/freezer walls.
   2. Heat gain from infiltration of ambient air when the refrigerator/freezer door is opened.
   3. Heat gains from additions of food to the refrigerator/freezer.
+  
 In general, the amount of heat that must be removed (cooling load) is not always equal to the amount of heat received at a given time. The difference is a result of the heat storage and time lag effects. Only a portion of the heat entering refrigerator actually cools the air inside the refrigerator immediately; the rest cools the mass – the food material. The heat that is stored in the mass will result in thermal load at a later time. So, the modeling approach will have to account for the storage effect. 
 
 ### Modeling Assumptions
@@ -470,13 +465,12 @@ where
 
   * $t$ is the elapsed time
   * $T_0$ is the initial temperature
-  * $ T_t$ is the temperature at time $t$
-  * $ C_1 = C_f / ( UA_r + UA_f )$
-  * $ C_2 = T_{out} + Q_r / UA_f$
+  * $T_t$ is the temperature at time $t$
+  * $C_1 = C_f / ( UA_r + UA_f )$
+  * $C_2 = T_{out} + Q_r / UA_f$
 The time solution is: 
 
-$$t = -ln \frac{T_t-C_2}{T_0-C_2}C_1 
-$$
+$$t = -ln \frac{T_t-C_2}{T_0-C_2}C_1$$
 
 During each synchronization cycle, the refrigerator model calculates the internal gain based on the rated capacity of the refrigerator and returns the time solution for determining the next synchronization time. 
 
@@ -490,6 +484,7 @@ Each house modeled in GridLAB-D has two primary sources of internally generated 
   * The installed capacity of plug loads is randomly selected at a value between 700 and 2000 Watts.
   * The fraction of plug load consumption that ends up as heat in the house is fixed at 90%.
   * The power factor of the aggregate plug loads is fixed at 0.95.
+  
 ### Modeling Approach
 
 The internal gains reported by modeled devices are simply collected and summed at the house level, the house object being unaware of any details other than the consumption, circuit, and power factor reported by each device. 
