@@ -51,23 +51,23 @@ When $\eta$, $\varphi$, or $L$ change too quickly for the equilibrium solution t
 
 When $\eta > 0$ we have 
 
-$$ \Delta n_{on}(L,t+\Delta t) = -r_{on} n_{on}(L,t) + \eta n_{off}(L,t) + (1-\eta) r_{off} n_{off}(L,t) $$
+$$\Delta n_{on}(L,t+\Delta t) = -r_{on} n_{on}(L,t) + \eta n_{off}(L,t) + (1-\eta) r_{off} n_{off}(L,t)$$
 
-$$ \Delta n_{on}(x,t+\Delta t) = -r_{on} n_{on}(x,t) + \eta n_{off}(x,t) + r_{on} n_{on}(x+\Delta x,t) $$
+$$\Delta n_{on}(x,t+\Delta t) = -r_{on} n_{on}(x,t) + \eta n_{off}(x,t) + r_{on} n_{on}(x+\Delta x,t)$$
 
-$$ \Delta n_{off}(0,t+\Delta t) = -(1-\eta) r_{off} n_{off}(0,t) - \eta n_{off}(0,t) + r_{on} n_{on}(0,t) $$
+$$\Delta n_{off}(0,t+\Delta t) = -(1-\eta) r_{off} n_{off}(0,t) - \eta n_{off}(0,t) + r_{on} n_{on}(0,t)$$
 
-$$ \Delta n_{off}(x,t+\Delta t) = -(1-\eta) r_{off} n_{off}(x,t) - \eta n_{off}(x,t) + (1-\eta) r_{off} n_{off}(x-\Delta x,t) $$
+$$\Delta n_{off}(x,t+\Delta t) = -(1-\eta) r_{off} n_{off}(x,t) - \eta n_{off}(x,t) + (1-\eta) r_{off} n_{off}(x-\Delta x,t)$$
 
 and when $\eta < 0$ we have 
 
-$$ \Delta n_{on}(L,t+\Delta t) = -r_{on} (1+\eta) n_{on}(L,t) + \eta n_{on}(L,t) + r_{off} n_{off}(L,t) $$
+$$\Delta n_{on}(L,t+\Delta t) = -r_{on} (1+\eta) n_{on}(L,t) + \eta n_{on}(L,t) + r_{off} n_{off}(L,t)$$
 
-$$ \Delta n_{on}(x,t+\Delta t) = -r_{on} (1+\eta) n_{on}(x,t) + \eta n_{on}(x,t) + r_{on} (1+\eta) n_{on}(x+\Delta x,t) $$
+$$\Delta n_{on}(x,t+\Delta t) = -r_{on} (1+\eta) n_{on}(x,t) + \eta n_{on}(x,t) + r_{on} (1+\eta) n_{on}(x+\Delta x,t)$$
 
-$$ \Delta n_{off}(0,t+\Delta t) = -r_{off} n_{off}(0,t) - \eta n_{on}(0,t) + r_{on} (1+\eta) n_{on}(0,t) $$
+$$\Delta n_{off}(0,t+\Delta t) = -r_{off} n_{off}(0,t) - \eta n_{on}(0,t) + r_{on} (1+\eta) n_{on}(0,t)$$
 
-$$ \Delta n_{off}(x,t+\Delta t) = -r_{off} n_{off}(x,t) - \eta n_{on}(x,t) + r_{off} n_{off}(x-\Delta x,t) $$
+$$\Delta n_{off}(x,t+\Delta t) = -r_{off} n_{off}(x,t) - \eta n_{on}(x,t) + r_{off} n_{off}(x-\Delta x,t)$$
 
 Note that to guarantee the stability of the numerical solution, we must have $r_{on} + r_{off} \le 1$, so that we always have at least 
 $r_{on} = \varphi$ and $r_{off} = 1- \varphi$.

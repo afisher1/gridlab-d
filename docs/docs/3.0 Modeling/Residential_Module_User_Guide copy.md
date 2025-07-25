@@ -77,69 +77,70 @@ The details of how these are modeled from user-specified inputs are described in
 
 For the thermal circuit in Figure 1, a heat balance (conservation of energy) can be written for the air temperature node ($T_A$) as: 
 
-    $ Q_A - U_A (T_A-T_O) - H_M (T_A-T_M) - C_A \frac{dT_A}{dt} = 0 \qquad\qquad(1)$
+    $Q_A - U_A (T_A-T_O) - H_M (T_A-T_M) - C_A \frac{dT_A}{dt} = 0 \qquad\qquad(1)$
 
 The heat balance for the mass temperature node ($T_M$) can be written as: 
 
-    $ Q_M - H_M (T_M-T_A) - C_M \frac{dT_M}{dt} = 0\qquad\qquad(2)$
+    $Q_M - H_M (T_M-T_A) - C_M \frac{dT_M}{dt} = 0\qquad\qquad(2)$
 
 As shown in [ETP closed form solution], Equation (1) can be solved for $T_M$, differentiated with respect to time to provide $dT_M/dt$, and both of these substituted into (2) to form a second order linear differential equation in $T_A$ of the form 
 
-    $ a \frac{d^2T_A}{dt^2} + b \frac{dT_A}{dt} + c\ T_A = d\qquad\qquad(3)$
+    $a \frac{d^2T_A}{dt^2} + b \frac{dT_A}{dt} + c\ T_A = d\qquad\qquad(3)$
 
 where: 
 
-  * $ a = \frac{C_M C_A}{H_M}$
-  * $ b = \frac{C_M (U_A + H_M)}{H_M} + C_A$
-  * $ c = U_A \\!$
-  * $ d = Q_M + Q_A + U_A T_O \\!$
+  * $a = \frac{C_M C_A}{H_M}$
+  * $b = \frac{C_M (U_A + H_M)}{H_M} + C_A$
+  * $c = U_A \\!$
+  * $d = Q_M + Q_A + U_A T_O \\!$
 which has the solution with known, constant boundary conditions $ T_O$, $Q_A$, and $Q_M$ and initial conditions at time $t=0$ of $T_{A_o}$ and $dT_{A_o}/dt$
 
-    $ T_A = A_1 e^{r_1 t} + A_2 e^{r_2 t} + \frac{d}{c}\qquad\qquad(4)$
+    $T_A = A_1 e^{r_1 t} + A_2 e^{r_2 t} + \frac{d}{c}\qquad\qquad(4)$
 
 where: 
 
-  * $ r_1 = \frac{-b + \sqrt{b^2-4ac}}{2a}$
-  * $ r_2 = \frac{-b - \sqrt{b^2-4ac}}{2a}$
-  * $ A_1 = \frac{r_2 T_{A_o} - \frac{dT_{A_o}}{dt} - r_2 \frac{d}{c}}{( r_2 - r_1 )}$
-  * $ A_2 = T_{A_o} - \frac{d}{c} - \frac{r_2 T_{A_o} - \frac{dT_{A_o}}{dt} - r_2 \frac{d}{c}}{( r_2 - r_1 )}$
+  * $r_1 = \frac{-b + \sqrt{b^2-4ac}}{2a}$
+  * $r_2 = \frac{-b - \sqrt{b^2-4ac}}{2a}$
+  * $A_1 = \frac{r_2 T_{A_o} - \frac{dT_{A_o}}{dt} - r_2 \frac{d}{c}}{( r_2 - r_1 )}$
+  * $A_2 = T_{A_o} - \frac{d}{c} - \frac{r_2 T_{A_o} - \frac{dT_{A_o}}{dt} - r_2 \frac{d}{c}}{( r_2 - r_1 )}$
 The initial condition $T_{A_o}$ is known as the final condition of $T_A$ from previous time step. However, at any time step at which the boundary conditions $T_O$, $Q_A$, or $Q_M$ have changed (i.e. the weather, internal gains, heating/cooling output) from the previous time interval, then the new air temperature trajectory at the beginning of the time step can be derived from Equation (1) as 
 
-    $ \frac{dT_{A_o}}{dt} = \frac{H_M}{C_A T_{M_o}} - \frac{U_A + H_M}{C_A T_{A_o}} + \frac{U_A}{C_A T_O} + \frac{Q_A}{C_A}\qquad\qquad(5)$
+    $\frac{dT_{A_o}}{dt} = \frac{H_M}{C_A T_{M_o}} - \frac{U_A + H_M}{C_A T_{A_o}} + \frac{U_A}{C_A T_O} + \frac{Q_A}{C_A}\qquad\qquad(5)$
 
 Then, differentiating Equation (4) and substituting it and Equation (4) into Equation (1) yields a solution for $T_M$ of the form: 
 
-    $ T_M = A_1 A_3 e^{r_1 t} + A_2 A_4 e^{r_2 t} + g + \frac{d}{c}\qquad\qquad(6)$
+    $T_M = A_1 A_3 e^{r_1 t} + A_2 A_4 e^{r_2 t} + g + \frac{d}{c}\qquad\qquad(6)$
 
 where: 
 
-  * $ g = \frac{Q_M}{H_M}$
-  * $ A_3 = \frac{r_1 C_A}{H_M} + \frac{U_A + H_M}{H_M}$
-  * $ A_3 = \frac{r_2 C_A}{H_M} + \frac{U_A + H_M}{H_M}$
+  * $g = \frac{Q_M}{H_M}$
+  * $A_3 = \frac{r_1 C_A}{H_M} + \frac{U_A + H_M}{H_M}$
+  * $A_3 = \frac{r_2 C_A}{H_M} + \frac{U_A + H_M}{H_M}$
+
 ## Initial Room and Mass Air Temperature
 
 When initializing a House_E simulation, the temperature and weather history prior to the first time step is unknown. First assume the house is at the equilibrium air temperature (at steady state with the heating and cooling system off, i.e. in balance). Equilibrium is defined by $dT_A/dt_o = 0$. Then, by differentiating (4), at the beginning of the initial time step, it can be shown that 
 
-    $ T_{A_{eq}} = \frac{d}{c} = T_O + \frac{Q_M + Q_A}{U_A}\qquad\qquad(7)$
+    $T_{A_{eq}} = \frac{d}{c} = T_O + \frac{Q_M + Q_A}{U_A}\qquad\qquad(7)$
 
 and the corresponding mass temperature at equilibrium is 
 
-    $ T_{M_{eq}} = T_{A_{eq}} + \frac{Q_M}{H_M}\qquad\qquad(8)$
+    $T_{M_{eq}} = T_{A_{eq}} + \frac{Q_M}{H_M}\qquad\qquad(8)$
 
 If the heating system would be “on” (based on the thermostat heating set point; see the section Heating/Cooling Thermostat Operations) at the condition $T_A = T_{A_{eq}}$, then the initial conditions are best approximated as 
 
-    $ T_{A_o} = T_{M_o} = T_{set\ heat}\qquad\qquad(9)$ _# Heating system “on” at_ $T_A = T_{A_{eq}}$
+    $T_{A_o} = T_{M_o} = T_{set\ heat}\qquad\qquad(9)$ _# Heating system “on” at_ $T_A = T_{A_{eq}}$
 
 If the cooling system would be “on” (based on the thermostat cooling set point) at the condition $T_A = T_{A_{eq}}$, then the initial conditions are best approximated as 
 
-    $ T_{A_o} = T_{M_o} = T_{set\ cool}\qquad\qquad(10)$ _# Cooling system “on” at_ $T_A = T_{A_{eq}}$
+    $T_{A_o} = T_{M_o} = T_{set\ cool}\qquad\qquad(10)$ _# Cooling system “on” at_ $T_A = T_{A_{eq}}$
 
 The time of day when either of these approximate initial conditions is most correct is when the conditions in the house have been stable for a long period of time. So, starting the simulation at midnight may be a good choice. An often better choice would be the earlier of sunrise or just prior to a morning thermostat change. 
 
 If neither the heating or cooling system would be “on” at the condition $T_A = T_{A_{eq}}$, then the initial conditions are best approximated as 
 
-    $ T_{A_o} = T_{A_{eq}}\qquad\qquad(11)$ _# Heating/cooling system “off” at_ $T_A = T_{A_{eq}}$
-    $ T_{M_o} = T_{M_{eq}}\qquad\qquad(12)$
+    $T_{A_o} = T_{A_{eq}}\qquad\qquad(11)$ _# Heating/cooling system “off” at_ $T_A = T_{A_{eq}}$
+    $T_{M_o} = T_{M_{eq}}\qquad\qquad(12)$
 
   
 
@@ -297,14 +298,14 @@ Compute exterior surface areas:
 
 The gross exterior wall area ($A_{wt}$) can be derived by introducing the perimeter (p), as follows: 
 
-    $ y\ x = A / n$
-    $ y = R\ x$
-    $ R\ x^2 = A / n$
-    $ x^2 = \frac{A}{n R}$
-    $ x = \sqrt{\frac{A}{nR}}$
-    $ p\ = 2x + 2y = 2x + 2Rx = 2x (1 + R)$
-    $ p\ = 2 (1 + R)\sqrt{\frac{A}{nR}} $
-    $ A_{wt} = n\ h\ p $
+    $y\ x = A / n$
+    $y = R\ x$
+    $R\ x^2 = A / n$
+    $x^2 = \frac{A}{n R}$
+    $x = \sqrt{\frac{A}{nR}}$
+    $p\ = 2x + 2y = 2x + 2Rx = 2x (1 + R)$
+    $p\ = 2 (1 + R)\sqrt{\frac{A}{nR}} $
+    $A_{wt} = n\ h\ p $
 
 Then   
   
@@ -318,7 +319,7 @@ Then
   
 The total heat loss coefficient (conductance), $U_A$, for the house (the last term is for air infiltration); the defaults produce $U_A$ = 522.1 Btu/°F.hr 
 
-    $ U_A = A_g U_g + \frac{A_d}{R_d} + \frac{A_w}{R_w} + \frac{A_c}{R_c} + \frac{A_f}{R_f} + 0.018 A h I $
+    $U_A = A_g U_g + \frac{A_d}{R_d} + \frac{A_w}{R_w} + \frac{A_c}{R_c} + \frac{A_f}{R_f} + 0.018 A h I $
 
     
 
@@ -328,7 +329,7 @@ The total heat loss coefficient (conductance), $U_A$, for the house (the last te
 
 Surface area is estimates as total exterior walls (less doors and windows) + interior walls + ceilings 
 
-    $ H_m = h_s\ (\frac{A_w}{EWR}) + A_{wt} IWR + \frac{A_c n}{ECR}$
+    $H_m = h_s\ (\frac{A_w}{EWR}) + A_{wt} IWR + \frac{A_c n}{ECR}$
 
 ### **Total “Air” Mass ( $C_a$)**
 
@@ -495,7 +496,7 @@ Other  | 6403  | 7856  | 9550  | 10269  | ln(EU) = ln(a) + b ln(x)
   
 For the “Other” end use (excludes heating and water heating) in the ELCAP metered end use data project, the results of a linear regression of the average annual energy consumption as a function of floor area of the form Other = a xb can be converted by an axis transformation into a linear regression of the form 
 
-    $ log_e (kWh/yr) = log_e(a) + b\ log_e(floor area, ft^2)$
+    $log_e (kWh/yr) = log_e(a) + b\ log_e(floor area, ft^2)$
 
 with the resulting coefficients a and b shown in the table above. 
 
@@ -645,9 +646,9 @@ HEAT-EIR-FT  | SDL-C56  | Tout  | cubic  | RESYS  | 2.03914613  | -0.03906753  |
   
 House_e does not explicitly model moisture in the home, so the Twb is assumed to be at the standard test condition 67°F. Eliminating Twb as a variable and inverting the EIR equations to produce equivalent COP equations gives the correction factor equations of the forms: 
 
-    F_COP_T = $  \frac{1}{EIR-FT} = \frac{1}{(K_{0} + K_{1} * T_{out} + K_{2} * T_{out}^{2} + K_{3} * T_{out}^{3})}$
+    F_COP_T = $\frac{1}{EIR-FT} = \frac{1}{(K_{0} + K_{1} * T_{out} + K_{2} * T_{out}^{2} + K_{3} * T_{out}^{3})}$
 
-    F_Capacity_Tout = CAP-FT = $  K_{0} + K_{1} * T_{out} + K_{2} * T_{out}^{2} + K_{3} * T_{out}^{3}$
+    F_Capacity_Tout = CAP-FT = $K_{0} + K_{1} * T_{out} + K_{2} * T_{out}^{2} + K_{3} * T_{out}^{3}$
 
 The resulting coefficients used by GridLAB-D are shown in the Table 6, below. 
 

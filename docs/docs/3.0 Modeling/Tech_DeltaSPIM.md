@@ -21,52 +21,52 @@ This page describes the implementation of a single phase induction motor model u
 
 Variable | Unit | Definition   
 ---|---|---  
-$$ V_{qs}$ | V | Stator q axis voltage   
-$$ V_{ds}$ | V | Stator d-axis voltage   
-$$ r_{ds}$ | ohm | Stator d axis resistance   
-$$ r_{qs}$ | ohm | Stator q axis resistance   
-$$ r_{r}$ | ohm | Rotor resistance   
-$$ X_{r}$ | ohm | Rotor reactance   
-$$ X_{ds}^{'}$ | ohm | Rotor reactance   
-$$ X_{qs}^{'}$ | ohm | Rotor reactance   
-$$ X_{m}$ | ohm | Magnetizing reactance   
-$$ X_{c}$ | ohm | Starting capacitor reactance   
-$$ \omega_{r}$ | rad/sec | Rotor mechanical speed   
-$$ \omega_{s}$ | rad/sec | System speed   
-$$ \omega_{b}$ | rad/sec | Base speed   
-$$ \psi_{f}^{R} + j\psi_{f}^{I}$ | Wb | Forward flux   
-$$ \psi_{b}^{R} + j\psi_{b}^{I}$ | Wb | Backward flux   
-$$ \psi_{dr}^{R} + j\psi_{dr}^{I}$ | Wb | Rotor d axis flux   
-$$ \psi_{qr}^{R} + j\psi_{qr}^{I}$ | Wb | Rotor q axis flux   
-$$ I_{f}^{R} + jI_{f}^{I}$ | A | Forward current   
-$$ I_{b}^{R} + jI_{b}^{I}$ | A | Backward current   
-$$ I_{qs}^{R} + jI_{qs}^{I}$ | A | Stator d axis current   
-$$ I_{ds}^{R} + jI_{ds}^{I}$ | A | Stator q axis current   
-$$ I_{S} $ | A | System current   
-$$ \phi $ | rad | Voltage phasor angle   
-$$ T_{0}^{'} $ | sec | Rotor time constant   
-$$ H $ | Nm | Moment of inertia   
-$$ T_{mech} $ | pu | Mechanical torque   
+$V_{qs}$ | V | Stator q axis voltage   
+$V_{ds}$ | V | Stator d-axis voltage   
+$r_{ds}$ | ohm | Stator d axis resistance   
+$r_{qs}$ | ohm | Stator q axis resistance   
+$r_{r}$ | ohm | Rotor resistance   
+$X_{r}$ | ohm | Rotor reactance   
+$X_{ds}^{'}$ | ohm | Rotor reactance   
+$X_{qs}^{'}$ | ohm | Rotor reactance   
+$X_{m}$ | ohm | Magnetizing reactance   
+$X_{c}$ | ohm | Starting capacitor reactance   
+$\omega_{r}$ | rad/sec | Rotor mechanical speed   
+$\omega_{s}$ | rad/sec | System speed   
+$\omega_{b}$ | rad/sec | Base speed   
+$\psi_{f}^{R} + j\psi_{f}^{I}$ | Wb | Forward flux   
+$\psi_{b}^{R} + j\psi_{b}^{I}$ | Wb | Backward flux   
+$\psi_{dr}^{R} + j\psi_{dr}^{I}$ | Wb | Rotor d axis flux   
+$\psi_{qr}^{R} + j\psi_{qr}^{I}$ | Wb | Rotor q axis flux   
+$I_{f}^{R} + jI_{f}^{I}$ | A | Forward current   
+$I_{b}^{R} + jI_{b}^{I}$ | A | Backward current   
+$I_{qs}^{R} + jI_{qs}^{I}$ | A | Stator d axis current   
+$I_{ds}^{R} + jI_{ds}^{I}$ | A | Stator q axis current   
+$I_{S} $ | A | System current   
+$\phi $ | rad | Voltage phasor angle   
+$T_{0}^{'} $ | sec | Rotor time constant   
+$H $ | Nm | Moment of inertia   
+$T_{mech} $ | pu | Mechanical torque   
   
-$$ |V_{s}| = ( r_{ds} + j \frac{\omega_{s}}{\omega_{b}} X_{ds}^{'} ) (I_{ds}^{R} + jI_{ds}^{I}) + j ( \frac{\omega_{s}}{\omega_{b}} ) \frac{X_{m}}{X_{r}} (\psi_{dr}^{R} + j\psi _{dr}^{I}) $$
+$$|V_{s}| = ( r_{ds} + j \frac{\omega_{s}}{\omega_{b}} X_{ds}^{'} ) (I_{ds}^{R} + jI_{ds}^{I}) + j ( \frac{\omega_{s}}{\omega_{b}} ) \frac{X_{m}}{X_{r}} (\psi_{dr}^{R} + j\psi _{dr}^{I})$$
 
-$$ |V_{s}| = ( r_{qs} + j \frac{\omega_{s}}{\omega_{b}} X_{qs}^{'} + j \frac{\omega_{b}}{\omega_{s}} X_{c} ) (I_{qs}^{R} + jI_{qs}^{I}) + j ( \frac{\omega_{s}}{\omega_{b}} ) \frac{n X_{m}}{X_{r}} (\psi_{qr}^{R} + j\psi _{qr}^{I}) $$
+$$|V_{s}| = ( r_{qs} + j \frac{\omega_{s}}{\omega_{b}} X_{qs}^{'} + j \frac{\omega_{b}}{\omega_{s}} X_{c} ) (I_{qs}^{R} + jI_{qs}^{I}) + j ( \frac{\omega_{s}}{\omega_{b}} ) \frac{n X_{m}}{X_{r}} (\psi_{qr}^{R} + j\psi _{qr}^{I})$$
 
-$$ T_{0}^{'} \frac{d}{dt} (\psi _{f}^{R} + j\psi _{f}^{I}) = X_{m} (I _{f}^{R}+ jI _{f}^{I} ) - ( sat(\psi_{f},\psi_{b}) + j (\omega_{s} - \omega_{r}) T_{0}^{'} ) (\psi _{f}^{R} + j\psi _{f}^{I}) $$
+$$T_{0}^{'} \frac{d}{dt} (\psi _{f}^{R} + j\psi _{f}^{I}) = X_{m} (I _{f}^{R}+ jI _{f}^{I} ) - ( sat(\psi_{f},\psi_{b}) + j (\omega_{s} - \omega_{r}) T_{0}^{'} ) (\psi _{f}^{R} + j\psi _{f}^{I})$$
 
-$$ (\psi_{b}^{R} + j \psi_{b}^{I}) = \frac{X_{m} (I_{b}^{R} + jI_{b}^{I}) }{(sat(\psi_{f},\psi_{b}) + j (\omega_{s} + \omega_{r}) T_{0}^{'} )}$$
+$$(\psi_{b}^{R} + j \psi_{b}^{I}) = \frac{X_{m} (I_{b}^{R} + jI_{b}^{I}) }{(sat(\psi_{f},\psi_{b}) + j (\omega_{s} + \omega_{r}) T_{0}^{'} )}$$
 
-$$ \frac{2H}{\omega_{b}} \frac{d}{dt} \omega_{r} = \frac{X_{m}}{X_{r}} ({I_{f}^{I} \psi_{f}^{R} - I_{f}^{R} \psi_{f}^{I} - I_{b}^{I} \psi_{b}^{R} + I_{b}^{R} \psi_{b}^{I}} ) - T_{mech} $$
+$$\frac{2H}{\omega_{b}} \frac{d}{dt} \omega_{r} = \frac{X_{m}}{X_{r}} ({I_{f}^{I} \psi_{f}^{R} - I_{f}^{R} \psi_{f}^{I} - I_{b}^{I} \psi_{b}^{R} + I_{b}^{R} \psi_{b}^{I}} ) - T_{mech}$$
 
-$$ I_{S} = ( (I_{ds}^{R} + jI_{ds}^{I}) + (I_{qs}^{R} + jI_{qs}^{I}) ) e^{j \phi } $$
+$$I_{S} = ( (I_{ds}^{R} + jI_{ds}^{I}) + (I_{qs}^{R} + jI_{qs}^{I}) ) e^{j \phi }$$
 
-$$ \begin{bmatrix} \psi_{f}^{R} + j \psi_{f}^{I} \\\\\ psi_{b}^{R} + j \psi_{b}^{I} \end{bmatrix} = \frac{1}{2} \begin{bmatrix}1 & -j \\\ 1 & j \end{bmatrix} \begin{bmatrix}\psi_{dr}^{R} + j \psi_{dr}^{I} \\\ \psi_{qr}^{R} + j \psi _{qr}^{I} \\\\\end{bmatrix} $$
+$$\begin{bmatrix} \psi_{f}^{R} + j \psi_{f}^{I} \\\\\ psi_{b}^{R} + j \psi_{b}^{I} \end{bmatrix} = \frac{1}{2} \begin{bmatrix}1 & -j \\\ 1 & j \end{bmatrix} \begin{bmatrix}\psi_{dr}^{R} + j \psi_{dr}^{I} \\\ \psi_{qr}^{R} + j \psi _{qr}^{I} \\\\\end{bmatrix}$$
 
-$$ \begin{bmatrix} \psi_{dr}^{R} + j \psi_{dr}^{I} \\\\\ psi_{qr}^{R} + j \psi_{qr}^{I} \end{bmatrix} = \begin{bmatrix}1 & 1 \\\ j & -j \end{bmatrix} \begin{bmatrix}\psi_{f}^{R} + j \psi_{f}^{I} \\\ \psi_{b}^{R} + j \psi _{b}^{I} \\\\\end{bmatrix} $$
+$$\begin{bmatrix} \psi_{dr}^{R} + j \psi_{dr}^{I} \\\\\ psi_{qr}^{R} + j \psi_{qr}^{I} \end{bmatrix} = \begin{bmatrix}1 & 1 \\\ j & -j \end{bmatrix} \begin{bmatrix}\psi_{f}^{R} + j \psi_{f}^{I} \\\ \psi_{b}^{R} + j \psi _{b}^{I} \\\\\end{bmatrix}$$
 
-$$ \begin{bmatrix}I_{f}^{R} + j I_{f}^{I} \\\ I_{b}^{R} + j I_{b}^{I} \end{bmatrix} = \frac{1}{2} \begin{bmatrix} 1 & -jn \\\ 1 & jn \end{bmatrix} \begin{bmatrix} I_{ds}^{R} + j I_{ds}^{I} \\\ I_{qs}^{R} + j I_{qs}^{I} \\\\\end{bmatrix} $$
+$$\begin{bmatrix}I_{f}^{R} + j I_{f}^{I} \\\ I_{b}^{R} + j I_{b}^{I} \end{bmatrix} = \frac{1}{2} \begin{bmatrix} 1 & -jn \\\ 1 & jn \end{bmatrix} \begin{bmatrix} I_{ds}^{R} + j I_{ds}^{I} \\\ I_{qs}^{R} + j I_{qs}^{I} \\\\\end{bmatrix}$$
 
-$$ \begin{bmatrix}I_{ds}^{R} + j I_{ds}^{I} \\\ I_{qs}^{R} + j I_{qs}^{I} \end{bmatrix} = \begin{bmatrix} 1 & 1 \\\ \frac{j}{n} & -\frac{j}{n} \end{bmatrix} \begin{bmatrix} I_{f}^{R} + j I_{f}^{I} \\\ I_{f}^{R} + j I_{f}^{I} \\\\\end{bmatrix} $$
+$$\begin{bmatrix}I_{ds}^{R} + j I_{ds}^{I} \\\ I_{qs}^{R} + j I_{qs}^{I} \end{bmatrix} = \begin{bmatrix} 1 & 1 \\\ \frac{j}{n} & -\frac{j}{n} \end{bmatrix} \begin{bmatrix} I_{f}^{R} + j I_{f}^{I} \\\ I_{f}^{R} + j I_{f}^{I} \\\\\end{bmatrix}$$
 
 # GridLAB-D Implementation
 

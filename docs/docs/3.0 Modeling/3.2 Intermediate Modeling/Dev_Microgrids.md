@@ -80,23 +80,23 @@ Unbalanced operation of three phase synchronous machines is modeled using a simp
 
 The machine electrical dynamic equations are: 
 
-$$ T^{\prime}_{doi} \frac{d E^{\prime}_{qi}}{dt}=E_{fd}- E^{\prime}_{qi}- (x_{di}-x^{\prime}_{di}) \left[I_{di}- \frac{(x^{\prime}_{di}-x^{\prime\prime}_{di})}{( x^{\prime}_{di}-x_{li})^2} \left[\psi_{1di}+ (x^{\prime}_{di}-x_{li}) I_{di}- E^{\prime}_{qi}\right] \right] $$
+$$T^{\prime}_{doi} \frac{d E^{\prime}_{qi}}{dt}=E_{fd}- E^{\prime}_{qi}- (x_{di}-x^{\prime}_{di}) \left[I_{di}- \frac{(x^{\prime}_{di}-x^{\prime\prime}_{di})}{( x^{\prime}_{di}-x_{li})^2} \left[\psi_{1di}+ (x^{\prime}_{di}-x_{li}) I_{di}- E^{\prime}_{qi}\right] \right]$$
 
-$$  T^{\prime\prime}_{doi} \frac{d \psi_{1di}}{dt}=- \psi_{1di}+ E^{\prime}_{qi}- (x^{\prime}_{di}-x_{li}) I_{di} $$
+$$T^{\prime\prime}_{doi} \frac{d \psi_{1di}}{dt}=- \psi_{1di}+ E^{\prime}_{qi}- (x^{\prime}_{di}-x_{li}) I_{di}$$
 
-$$ T^{\prime}_{qoi} \frac{d E^{\prime}_{di}}{dt}=- E^{\prime}_{di}+ (x_{qi}-x^{\prime}_{qi}) \left[I_{qi}- \frac{(x^{\prime}_{qi}-x^{\prime\prime}_{qi})}{( x^{\prime}_{qi}-x_{li})^2} \left[\psi_{2qi}+ (x^{\prime}_{qi}-x_{li}) I_{qi}+ E^{\prime}_{di}\right] \right] $$
+$$T^{\prime}_{qoi} \frac{d E^{\prime}_{di}}{dt}=- E^{\prime}_{di}+ (x_{qi}-x^{\prime}_{qi}) \left[I_{qi}- \frac{(x^{\prime}_{qi}-x^{\prime\prime}_{qi})}{( x^{\prime}_{qi}-x_{li})^2} \left[\psi_{2qi}+ (x^{\prime}_{qi}-x_{li}) I_{qi}+ E^{\prime}_{di}\right] \right]$$
 
-$$  T^{\prime\prime}_{qoi} \frac{d \psi_{2qi}}{dt}=- \psi_{2qi}- E^{\prime}_{di}- (x^{\prime}_{qi}-x_{li}) I_{qi} $$
+$$T^{\prime\prime}_{qoi} \frac{d \psi_{2qi}}{dt}=- \psi_{2qi}- E^{\prime}_{di}- (x^{\prime}_{qi}-x_{li}) I_{qi}$$
 
-$$ E^{\prime\prime}_{di}=-\frac{(x^{\prime\prime}_{qi}-x_{li})}{(x^{\prime}_{qi}-x_{li})} E^{\prime}_{di}+ \frac{(x^{\prime}_{qi}-x^{\prime\prime}_{qi})}{(x^{\prime}_{qi}-x_{li})} \psi_{2qi} $$
+$$E^{\prime\prime}_{di}=-\frac{(x^{\prime\prime}_{qi}-x_{li})}{(x^{\prime}_{qi}-x_{li})} E^{\prime}_{di}+ \frac{(x^{\prime}_{qi}-x^{\prime\prime}_{qi})}{(x^{\prime}_{qi}-x_{li})} \psi_{2qi}$$
 
-$$ E^{\prime\prime}_{qi}= \frac{(x^{\prime\prime}_{di}-x_{li})}{(x^{\prime}_{di}-x_{li})} E^{\prime}_{qi}+ \frac{(x^{\prime}_{di}-x^{\prime\prime}_{di})}{(x^{\prime}_{di}-x_{li})} \psi_{1di} $$
+$$E^{\prime\prime}_{qi}= \frac{(x^{\prime\prime}_{di}-x_{li})}{(x^{\prime}_{di}-x_{li})} E^{\prime}_{qi}+ \frac{(x^{\prime}_{di}-x^{\prime\prime}_{di})}{(x^{\prime}_{di}-x_{li})} \psi_{1di}$$
 
 The machine mechanical dynamic equations are: 
 
-$$ \frac{d\delta_{i}}{dt}=\omega_{i}-\omega_{s}$$
+$$\frac{d\delta_{i}}{dt}=\omega_{i}-\omega_{s}$$
 
-$$ \frac{2 H_{i}}{\omega_{s}} \frac{d\omega_{i}}{dt}=T_{mechi}- \frac{(x^{\prime\prime}_{qi}-x_{li})}{( x^{\prime}_{qi}-x_{li})} E^{\prime}_{di} I_{di}- \frac{(x^{\prime\prime}_{di}-x_{li})}{( x^{\prime}_{di}-x_{li})} E^{\prime}_{qi} I_{qi}- \frac{(x^{\prime}_{di}-x^{\prime\prime}_{di})}{( x^{\prime}_{di}-x_{li})} \psi_{1di} I_{qi}+ \frac{(x^{\prime}_{qi}-x^{\prime\prime}_{qi})}{( x^{\prime}_{qi}-x_{li})} \psi_{2qi} I_{di}- (x^{\prime\prime}_{qi}-x^{\prime\prime}_{di}) I_{di} I_{qi}- (R_{2i}-R_{si}) I_{2i}^2- D_{i}(\omega_{i}- \omega_{s}) $$
+$$\frac{2 H_{i}}{\omega_{s}} \frac{d\omega_{i}}{dt}=T_{mechi}- \frac{(x^{\prime\prime}_{qi}-x_{li})}{( x^{\prime}_{qi}-x_{li})} E^{\prime}_{di} I_{di}- \frac{(x^{\prime\prime}_{di}-x_{li})}{( x^{\prime}_{di}-x_{li})} E^{\prime}_{qi} I_{qi}- \frac{(x^{\prime}_{di}-x^{\prime\prime}_{di})}{( x^{\prime}_{di}-x_{li})} \psi_{1di} I_{qi}+ \frac{(x^{\prime}_{qi}-x^{\prime\prime}_{qi})}{( x^{\prime}_{qi}-x_{li})} \psi_{2qi} I_{di}- (x^{\prime\prime}_{qi}-x^{\prime\prime}_{di}) I_{di} I_{qi}- (R_{2i}-R_{si}) I_{2i}^2- D_{i}(\omega_{i}- \omega_{s}) $$
 
   
 ### Network solution: initial static power flow and network solution during dynamic simulations
@@ -109,21 +109,21 @@ To adequately initialize the dynamic simulation, the static power flow solution 
   
 The following equations describe the network solution model in compact form, for more details see [8]. 
 
-$$  \left[ \Delta I_{a,b,c} \right] = \left[ Jac \right] \left[ \Delta V_{a,b,c} \right]$$
+$$\left[ \Delta I_{a,b,c} \right] = \left[ Jac \right] \left[ \Delta V_{a,b,c} \right]$$
 
-Where the matrix $ \left[ Jac \right] $ is equal to the bus admittance matrix, except for the diagonal elements that have additional terms to represent ZIP loads [8]. The full generator admittances are incorporated to the bus admittance matrices to represent the machine characteristics. The generator admittance matrices are, according to [9]: 
+Where the matrix $\left[ Jac \right]$ is equal to the bus admittance matrix, except for the diagonal elements that have additional terms to represent ZIP loads [8]. The full generator admittances are incorporated to the bus admittance matrices to represent the machine characteristics. The generator admittance matrices are, according to [9]: 
 
- $$ \left[ Y_{Ga,b,ci} \right] = \frac{1}{3}\begin{bmatrix} 1 & 1 & 1 \\\ 1 & e^{j 4\pi /3} & e^{j 2\pi /3} \\\ 1 & e^{j 2\pi /3} & e^{j 4\pi /3} \\\ \end{bmatrix} \begin{bmatrix} Y_{G0i} & 0 & 0 \\\ 0 & Y_{G1i} & 0 \\\ 0 & 0 & Y_{G2i} \\\ \end{bmatrix} \begin{bmatrix} 1 & 1 & 1 \\\ 1 & e^{j 2\pi /3} & e^{j 4\pi /3} \\\ 1 & e^{j 4\pi /3} & e^{j 2\pi /3} \\\ \end{bmatrix} $$ 
+ $$\left[ Y_{Ga,b,ci} \right] = \frac{1}{3}\begin{bmatrix} 1 & 1 & 1 \\\ 1 & e^{j 4\pi /3} & e^{j 2\pi /3} \\\ 1 & e^{j 2\pi /3} & e^{j 4\pi /3} \\\ \end{bmatrix} \begin{bmatrix} Y_{G0i} & 0 & 0 \\\ 0 & Y_{G1i} & 0 \\\ 0 & 0 & Y_{G2i} \\\ \end{bmatrix} \begin{bmatrix} 1 & 1 & 1 \\\ 1 & e^{j 2\pi /3} & e^{j 4\pi /3} \\\ 1 & e^{j 4\pi /3} & e^{j 2\pi /3} \\\ \end{bmatrix}$$ 
  
  The symmetry constraint applied to generator buses in the initial static power flow solution is given by [9]: 
 
-$$  I_{GS1}= \frac{P_{T}+jQ_{T} + \left[ V_{Ga,b,c} \right]^{*T} \left[ Y_{Ga,b,ci} \right] \left[ V_{Ga,b,ci} \right]} {V_{Ga}^{*}+ e^{j 4\pi /3} V_{Gb}^{*}+ e^{j 2\pi /3} V_{Gc}^{*}} $$
+$$I_{GS1}= \frac{P_{T}+jQ_{T} + \left[ V_{Ga,b,c} \right]^{*T} \left[ Y_{Ga,b,ci} \right] \left[ V_{Ga,b,ci} \right]} {V_{Ga}^{*}+ e^{j 4\pi /3} V_{Gb}^{*}+ e^{j 2\pi /3} V_{Gc}^{*}}$$
 
-$$ \left[ I_{GSa,b,ci} \right] = \frac{1}{3}\begin{bmatrix} 1 \\\ e^{j 4\pi /3} \\\ e^{j 2\pi /3} \\\ \end{bmatrix} I_{GS1} $$ 
+$$left[ I_{GSa,b,ci} \right] = \frac{1}{3}\begin{bmatrix} 1 \\\ e^{j 4\pi /3} \\\ e^{j 2\pi /3} \\\ \end{bmatrix} I_{GS1}$$ 
 
 Due to generator symmetry built, there are no negative and zero sequence current sources [9]: 
 
-$$ \displaystyle{} I_{GS0}= I_{GS2}=0 $$
+$$\displaystyle{} I_{GS0}= I_{GS2}=0$$
 
 The symmetry built constraint was applied to PQ generator buses in [9]. The application to Slack and PV generator buses in a micro grid setting is reported in [10]. The symmetry constraint is no longer applied during the dynamic simulations, where the symmetric generator’s current source injection depend on the dynamic states as explained in the following point. 
 
@@ -131,9 +131,9 @@ The symmetry built constraint was applied to PQ generator buses in [9]. The appl
 
 The synchronous machine dynamic models are linked to the network solution by using Norton current source equivalents with shunt generator impedances, as suggested in [9, 11]. The current sources are symmetric balanced current injections to respect the generator symmetry built (windings symmetrically distributed in stator and rotor), and the generator impedances account for the effect of unbalanced terminal voltages. It is important to notice that the total generator current (current source minus current derived through generator shunt impedance) can also be unbalanced. The interface is formulated as: 
 
-$$ \left[ I_{GSa,b,ci} \right]= \left[ E^{\prime\prime}_{a,b,c} \right] \left[ Y_{Ga,b,ci} \right] $$
+$$\left[ I_{GSa,b,ci} \right]= \left[ E^{\prime\prime}_{a,b,c} \right] \left[ Y_{Ga,b,ci} \right] $$
 
-Where $\left[ E^{\prime\prime}_{a,b,c} \right] $ is a balanced voltage calculated by transforming $ E^{\prime\prime}_{di} $ and $ E^{\prime\prime}_{qi} $ to network reference frame and then to abc reference frame. 
+Where $\left[ E^{\prime\prime}_{a,b,c} \right]$ is a balanced voltage calculated by transforming $E^{\prime\prime}_{di} $ and $ E^{\prime\prime}_{qi}$ to network reference frame and then to abc reference frame. 
 
 ### Synchronous machine controllers: governor and automatic voltage regulator
 

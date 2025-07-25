@@ -28,7 +28,7 @@ This section provides definitions to assist the user in understanding the factor
 
 The factors listed below indicate the data needed to calculate the indices. All factors are collected over a single reporting period of one year. 
 
-  * $ r_i$ = restoration time, in minutes, for interruption event $i$
+  * $r_i$ = restoration time, in minutes, for interruption event $i$
   * $N_i$ = number of interrupted customers for each sustained interruption event
   * $N_{mi}$ = number of interrupted customers for each momentary interruption event
   * $N_T$ = number of customers for distribution area of interest

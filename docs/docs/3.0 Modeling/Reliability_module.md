@@ -41,10 +41,10 @@ The reliability module must be able to perform the following tasks:
   * As an example, the data to obtain Mean Time To Failure (MTTF)calculated by Weibull Distribution is described below. Weibull distribution has become increasingly popular because the three parameters associated with it scale(alpha),shape(gamma)and location can be easily changed to obtain different characteristics. For this module gamma=1(exponential distribution).
 
 
-$$PDF : f(t) = (\gamma/t)(t/\alpha)^\gamma e^{-(t/\alpha)^\gamma} 
-$$ $ \lambda = \frac{\gamma}{\alpha}(\frac{t}{\alpha})^{\gamma -1}$
+$$PDF : f(t) = (\gamma/t)(t/\alpha)^\gamma e^{-(t/\alpha)^\gamma}$$ 
+$\lambda = \frac{\gamma}{\alpha}(\frac{t}{\alpha})^{\gamma -1}$
 
-when, $  \gamma =1$,$\alpha = \frac{1}{\lambda}$
+when, $\gamma =1$,$\alpha = \frac{1}{\lambda}$
 
   
 where, 
@@ -57,8 +57,8 @@ where,
 
   * MTTR = time to diagnose a problem + time to get repair technician on-site + time to physically repair a system. As an example , Pareto distribution to obtain MTTR is described below.
 
-$$PDF: f(t) = \frac{C \alpha m^ \alpha}{t^ \alpha+1}, m<=t<=n 
-$$ $ C = \frac {1} {1-(n/m)^\alpha}$
+$$PDF: f(t) = \frac{C \alpha m^ \alpha}{t^ \alpha+1}, m<=t<=n$$
+$C = \frac {1} {1-(n/m)^\alpha}$
 
 where 
 

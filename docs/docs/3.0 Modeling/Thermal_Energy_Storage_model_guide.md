@@ -29,7 +29,7 @@ The thermal energy storage unit is sized based on the sizing of the air conditio
 
 The power consumption for the thermal energy storage unit is a simple ratio of the Ice Bear® power consumption ($P_{IceBear}$) and cooling load ($Q_{IceBear}$) compared to the cooling load as defined in house or as defined by the user ($Q_{house}$). The 5 Ton Ice Bear® unit uses 3,360 Watts to charge at off peak hours and 300 Watts to cool air during on peak hours. 
 
-    $ P_{actual} = P_{IceBear}\frac{Q_{house}}{Q_{IceBear}}$
+    $P_{actual} = P_{IceBear}\frac{Q_{house}}{Q_{IceBear}}$
 
 It should be noted that house will run the fan to circulate air when the thermal energy storage is used to cool the air. This is a requirement of the system, but the calculations for the fan power are handled by house and not thermal energy storage. 
 
@@ -37,7 +37,7 @@ It should be noted that house will run the fan to circulate air when the thermal
 
 The cooling load rating for the thermal energy storage unit is, by default, defined by house, but can be user defined. The Ice Bear® is a 5 Ton unit ($Q_{IceBear}$) with 30 Ton-hours or 360,000 Btu of energy storage ($S_{IceBear}$). This information is used to calculate the energy storage of the thermal energy storage unit to be used with the house. 
 
-    $ S_{actual} = S_{IceBear}\frac{Q_{house}}{Q_{IceBear}}$
+    $S_{actual} = S_{IceBear}\frac{Q_{house}}{Q_{IceBear}}$
 
 Additionally, the level of the stored energy at start up can be defined as the actual amount in Btu or as a state of charge defined as a percentage. By default, the unit is set to be fully charged. 
 

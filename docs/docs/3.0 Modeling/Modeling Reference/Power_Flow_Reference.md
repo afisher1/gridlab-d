@@ -64,7 +64,7 @@ where
   * $E_k$ represents the voltage of the bus such that 
     * $V_{rk}$ is the real portion of the voltage
     * $V_{mk}$ is the imaginary portion of the voltage, so
-    * $ E_k = V_{rk} + \jmath{}V_{mk}$
+    * $E_k = V_{rk} + \jmath{}V_{mk}$
   
 With the current injections calculated, the voltage updates are computed via 
 
@@ -77,13 +77,9 @@ where
 
 $\mathbf{J^{-1}}$ represents the inverse Jacobian given by 
 
-$$\mathbf{J} = \begin{bmatrix} \displaystyle \frac{\delta{}\Delta{}I_{mk}}{\delta{}V_{rk}} & \displaystyle \frac{\delta{}I_{mk}}{\delta{}V_{mk}}\\\ 
-    
-    
+$$\mathbf{J} = \begin{bmatrix} \displaystyle \frac{\delta{}\Delta{}I_{mk}}{\delta{}V_{rk}} & \displaystyle \frac{\delta{}I_{mk}}{\delta{}V_{mk}}\\\   
     & \\
-    
-
-\displaystyle \frac{\delta{}\Delta{}I_{rk}}{\delta{}V_{rk}} & \displaystyle \frac{\delta{}I_{rk}}{\delta{}V_{mk}} \end{bmatrix} $$ 
+\displaystyle \frac{\delta{}\Delta{}I_{rk}}{\delta{}V_{rk}} & \displaystyle \frac{\delta{}I_{rk}}{\delta{}V_{mk}} \end{bmatrix}$$ 
 
 As with the Gauss-Seidel method, one node must be designated a swing or slack bus. This node will represent an infinite bus and provides the fixed voltage reference for the solver iterations. 
 
@@ -175,13 +171,13 @@ Due to the nature of GridLAB-D's solvers, current passing through a node or load
 
 All power measurements in the meter are based on the fundamental power equation given by 
 
-$$ S = P + \jmath{}Q = V \cdot{} I^{*} $$
+$$S = P + \jmath{}Q = V \cdot{} I^{*}$$
 
 where $V$ and $I$ represent the complex voltage and current respectively. Three different power measurements are available from a meter and are defined as: 
 
   * `measured_power` or power magnitude as $|S| = |S_A| + |S_B| + |S_C|$,
   * `measured_real_power` as $P = P_A + P_B + P_C$, and
-  * `measured_reactive_power` as $ Q = Q_A + Q_B + Q_C$
+  * `measured_reactive_power` as $Q = Q_A + Q_B + Q_C$
 
 where $A$, $B$, and $C$ represent the three different phases of the distribution system. 
 
@@ -270,10 +266,7 @@ $$S= \begin{bmatrix}
     0 & -1 & 0
     
 
-\end{bmatrix} 
-    
-    
-    $$
+\end{bmatrix}$$
     
 
   
@@ -287,10 +280,7 @@ $$S^{-1}= \begin{bmatrix}
     -1 & 0 & 0
     
 
-\end{bmatrix} 
-    
-    
-    $$
+\end{bmatrix}$$
     
 
 ### Grounded Y-Grounded Y (Step-up and Step-down)
@@ -317,110 +307,78 @@ Transformers are modeled using an interlaced design. The representative equation
 
 #### A-Phase Connected Primary
 
-$$[a] = \left [ \begin{matrix} Z_{eq} n_t & 0 & 0 \\\ Z_{eq} n_t & 0 & 0 \\\ 0 & 0 & 0 \end{matrix} \right ] 
-$$
+$$[a] = \left [ \begin{matrix} Z_{eq} n_t & 0 & 0 \\\ Z_{eq} n_t & 0 & 0 \\\ 0 & 0 & 0 \end{matrix} \right ]$$
+
+
+$$[b] = \left [ \begin{matrix} Z_{eq} n_t Z_1 + \frac{Z_0}{n_t} & -\frac{Z_0}{n_t} & 0 \\\ \frac{Z_0}{n_t} & -\left ( Z_{eq} n_t Z_2 + \frac{Z_0}{n_t} \right ) & 0 \\\ 0 & 0 & 0 \end{matrix} \right ]$$
+
+$$[c] = \left [ \begin{matrix} \frac{n_t}{Z_c} & 0 & 0 \\\ 0 & 0 & 0 \\\ 0 & 0 & 0 \end{matrix} \right ]$$
+
+
+$$[d] = \left [ \begin{matrix} \frac{Z_1 n_t}{Z_c} + \frac{1}{n_t} & \frac{-1}{n_t} & 0 \\\ 0 & 0 & 0 \\\ 0 & 0 & 0 \end{matrix} \right ]$$ 
+
+
+$$[A] = \left [ \begin{matrix} \frac{1}{n_t} & 0 & 0 \\\ \frac{1}{n_t} & 0 & 0 \\\ 0 & 0 & 0 \end{matrix} \right ]$$
 
   
 
 
-$$[b] = \left [ \begin{matrix} Z_{eq} n_t Z_1 + \frac{Z_0}{n_t} & -\frac{Z_0}{n_t} & 0 \\\ \frac{Z_0}{n_t} & -\left ( Z_{eq} n_t Z_2 + \frac{Z_0}{n_t} \right ) & 0 \\\ 0 & 0 & 0 \end{matrix} \right ] 
-$$
-
-  
-
-
-$$[c] = \left [ \begin{matrix} \frac{n_t}{Z_c} & 0 & 0 \\\ 0 & 0 & 0 \\\ 0 & 0 & 0 \end{matrix} \right ] 
-$$
-
-  
-
-
-$$[d] = \left [ \begin{matrix} \frac{Z_1 n_t}{Z_c} + \frac{1}{n_t} & \frac{-1}{n_t} & 0 \\\ 0 & 0 & 0 \\\ 0 & 0 & 0 \end{matrix} \right ] 
-$$
-
-  
-
-
-$$[A] = \left [ \begin{matrix} \frac{1}{n_t} & 0 & 0 \\\ \frac{1}{n_t} & 0 & 0 \\\ 0 & 0 & 0 \end{matrix} \right ] 
-$$
-
-  
-
-
-$$[B] = \left [ \begin{matrix} Z_1 + \frac{Z_0}{Z_{eq} n_t^2} & -\frac{Z_0}{Z_{eq} n_t^2} & 0 \\\ \frac{Z_0}{Z_{eq} n_t^2} & -\left ( Z_2 + \frac{Z_0}{Z_{eq} n_t^2} \right ) & 0 \\\ 0 & 0 & 0 \end{matrix} \right ] 
-$$
+$$[B] = \left [ \begin{matrix} Z_1 + \frac{Z_0}{Z_{eq} n_t^2} & -\frac{Z_0}{Z_{eq} n_t^2} & 0 \\\ \frac{Z_0}{Z_{eq} n_t^2} & -\left ( Z_2 + \frac{Z_0}{Z_{eq} n_t^2} \right ) & 0 \\\ 0 & 0 & 0 \end{matrix} \right ]$$
 
 #### B-Phase Connected Primary
 
-$$[a] = \left [ \begin{matrix} 0 & Z_{eq} n_t & 0 \\\ 0 & Z_{eq} n_t & 0 \\\ 0 & 0 & 0 \end{matrix} \right ] 
-$$
+$$[a] = \left [ \begin{matrix} 0 & Z_{eq} n_t & 0 \\\ 0 & Z_{eq} n_t & 0 \\\ 0 & 0 & 0 \end{matrix} \right ]$$
 
   
 
 
-$$[b] = \left [ \begin{matrix} Z_{eq} n_t Z_1 + \frac{Z_0}{n_t} & -\frac{Z_0}{n_t} & 0 \\\ \frac{Z_0}{n_t} & -\left ( Z_{eq} n_t Z_2 + \frac{Z_0}{n_t} \right ) & 0 \\\ 0 & 0 & 0 \end{matrix} \right ] 
-$$
+$$[b] = \left [ \begin{matrix} Z_{eq} n_t Z_1 + \frac{Z_0}{n_t} & -\frac{Z_0}{n_t} & 0 \\\ \frac{Z_0}{n_t} & -\left ( Z_{eq} n_t Z_2 + \frac{Z_0}{n_t} \right ) & 0 \\\ 0 & 0 & 0 \end{matrix} \right ]$$
+
+$$[c] = \left [ \begin{matrix} 0 & 0 & 0 \\\ \frac{n_t}{Z_c} & 0 & 0 \\\ 0 & 0 & 0 \end{matrix} \right ]$$
 
   
 
 
-$$[c] = \left [ \begin{matrix} 0 & 0 & 0 \\\ \frac{n_t}{Z_c} & 0 & 0 \\\ 0 & 0 & 0 \end{matrix} \right ] 
-$$
+$$[d] = \left [ \begin{matrix} 0 & 0 & 0 \\\ \frac{Z_1 n_t}{Z_c} + \frac{1}{n_t} & \frac{-1}{n_t} & 0 \\\ 0 & 0 & 0 \end{matrix} \right ]$$
 
   
 
 
-$$[d] = \left [ \begin{matrix} 0 & 0 & 0 \\\ \frac{Z_1 n_t}{Z_c} + \frac{1}{n_t} & \frac{-1}{n_t} & 0 \\\ 0 & 0 & 0 \end{matrix} \right ] 
-$$
-
-  
+$$[A] = \left [ \begin{matrix} 0 & \frac{1}{n_t} & 0 \\\ 0 & \frac{1}{n_t} & 0 \\\ 0 & 0 & 0 \end{matrix} \right ]$$
 
 
-$$[A] = \left [ \begin{matrix} 0 & \frac{1}{n_t} & 0 \\\ 0 & \frac{1}{n_t} & 0 \\\ 0 & 0 & 0 \end{matrix} \right ] 
-$$
-
-  
-
-
-$$[B] = \left [ \begin{matrix} Z_1 + \frac{Z_0}{Z_{eq} n_t^2} & -\frac{Z_0}{Z_{eq} n_t^2} & 0 \\\ \frac{Z_0}{Z_{eq} n_t^2} & -\left ( Z_2 + \frac{Z_0}{Z_{eq} n_t^2} \right ) & 0 \\\ 0 & 0 & 0 \end{matrix} \right ] 
-$$
+$$[B] = \left [ \begin{matrix} Z_1 + \frac{Z_0}{Z_{eq} n_t^2} & -\frac{Z_0}{Z_{eq} n_t^2} & 0 \\\ \frac{Z_0}{Z_{eq} n_t^2} & -\left ( Z_2 + \frac{Z_0}{Z_{eq} n_t^2} \right ) & 0 \\\ 0 & 0 & 0 \end{matrix} \right ]$$
 
 #### C-Phase Connected Primary
 
-$$[a] = \left [ \begin{matrix} 0 & 0 & Z_{eq} n_t \\\ 0 & 0 & Z_{eq} n_t \\\ 0 & 0 & 0 \end{matrix} \right ] 
-$$
+$$[a] = \left [ \begin{matrix} 0 & 0 & Z_{eq} n_t \\\ 0 & 0 & Z_{eq} n_t \\\ 0 & 0 & 0 \end{matrix} \right ]$$
 
   
 
 
-$$[b] = \left [ \begin{matrix} Z_{eq} n_t Z_1 + \frac{Z_0}{n_t} & -\frac{Z_0}{n_t} & 0 \\\ \frac{Z_0}{n_t} & -\left ( Z_{eq} n_t Z_2 + \frac{Z_0}{n_t} \right ) & 0 \\\ 0 & 0 & 0 \end{matrix} \right ] 
-$$
+$$[b] = \left [ \begin{matrix} Z_{eq} n_t Z_1 + \frac{Z_0}{n_t} & -\frac{Z_0}{n_t} & 0 \\\ \frac{Z_0}{n_t} & -\left ( Z_{eq} n_t Z_2 + \frac{Z_0}{n_t} \right ) & 0 \\\ 0 & 0 & 0 \end{matrix} \right ]$$
 
   
 
 
-$$[c] = \left [ \begin{matrix} 0 & 0 & 0 \\\ 0 & 0 & 0 \\\ \frac{n_t}{Z_c} & 0 & 0 \end{matrix} \right ] 
-$$
+$$[c] = \left [ \begin{matrix} 0 & 0 & 0 \\\ 0 & 0 & 0 \\\ \frac{n_t}{Z_c} & 0 & 0 \end{matrix} \right ]$$
 
   
 
 
-$$[d] = \left [ \begin{matrix} 0 & 0 & 0 \\\ 0 & 0 & 0 \\\ \frac{Z_1 n_t}{Z_c} + \frac{1}{n_t} & \frac{-1}{n_t} & 0 \end{matrix} \right ] 
-$$
+$$[d] = \left [ \begin{matrix} 0 & 0 & 0 \\\ 0 & 0 & 0 \\\ \frac{Z_1 n_t}{Z_c} + \frac{1}{n_t} & \frac{-1}{n_t} & 0 \end{matrix} \right ]$$
 
   
 
 
-$$[A] = \left [ \begin{matrix} 0 & 0 & \frac{1}{n_t} \\\ 0 & 0 & \frac{1}{n_t} \\\ 0 & 0 & 0 \end{matrix} \right ] 
-$$
+$$[A] = \left [ \begin{matrix} 0 & 0 & \frac{1}{n_t} \\\ 0 & 0 & \frac{1}{n_t} \\\ 0 & 0 & 0 \end{matrix} \right ]$$
 
   
 
 
-$$[B] = \left [ \begin{matrix} Z_1 + \frac{Z_0}{Z_{eq} n_t^2} & -\frac{Z_0}{Z_{eq} n_t^2} & 0 \\\ \frac{Z_0}{Z_{eq} n_t^2} & -\left ( Z_2 + \frac{Z_0}{Z_{eq} n_t^2} \right ) & 0 \\\ 0 & 0 & 0 \end{matrix} \right ] 
-$$
+$$[B] = \left [ \begin{matrix} Z_1 + \frac{Z_0}{Z_{eq} n_t^2} & -\frac{Z_0}{Z_{eq} n_t^2} & 0 \\\ \frac{Z_0}{Z_{eq} n_t^2} & -\left ( Z_2 + \frac{Z_0}{Z_{eq} n_t^2} \right ) & 0 \\\ 0 & 0 & 0 \end{matrix} \right ]$$
 
-where $ Z_{eq} = \frac{Z_0+Z_c}{Z_c}$
+where $Z_{eq} = \frac{Z_0+Z_c}{Z_c}$
 
 and 
 
@@ -428,9 +386,9 @@ $Z_c = \frac{R_c jX_c}{R_c + jX_c}$ is the core shunt impedance.
 
 Voltage and current values used for the secondary system sweeps are shown below. 
 
-Backward sweep: $  [ I_{abc} ] = [c] \times [V_{12n}] + [d] \times [I_{12n}] $
+Backward sweep: $[ I_{abc} ] = [c] \times [V_{12n}] + [d] \times [I_{12n}]$
 
-Forward sweep: $  V_{12n} = [A] \times [V_{abc}] - [B] \times [I_{12n}] $
+Forward sweep: $V_{12n} = [A] \times [V_{abc}] - [B] \times [I_{12n}]$
 
 where 
 
@@ -513,16 +471,14 @@ $$[a] = \left [ \begin{matrix} 1 & 0 & 0 \\\ 0 & 1 & 0 \\\ 0 & 0 & 1 \end{matrix
 
 [c] = \left [ \begin{matrix} 0 & 0 & 0 \\\ 0 & 0 & 0 \\\ 0 & 0 & 0 \end{matrix} \right ] 
 
-[d] = \left [ \begin{matrix} 1 & 0 & 0 \\\ 0 & 1 & 0 \\\ 0 & 0 & 1 \end{matrix} \right ] 
-$$
+[d] = \left [ \begin{matrix} 1 & 0 & 0 \\\ 0 & 1 & 0 \\\ 0 & 0 & 1 \end{matrix} \right ]$$
 
   
 
 
 $$[A] = \left [ \begin{matrix} 1 & 0 & 0 \\\ 0 & 1 & 0 \\\ 0 & 0 & 1 \end{matrix} \right ] 
 
-[B] = \left [ Z_{abc} \right ] 
-$$
+[B] = \left [ Z_{abc} \right ]$$
 
 ## Fuse
 
@@ -538,16 +494,12 @@ $$[a] = \left [ \begin{matrix} 1 & 0 & 0 \\\ 0 & 1 & 0 \\\ 0 & 0 & 1 \end{matrix
 
 [c] = \left [ \begin{matrix} 0 & 0 & 0 \\\ 0 & 0 & 0 \\\ 0 & 0 & 0 \end{matrix} \right ] 
 
-[d] = \left [ \begin{matrix} 1 & 0 & 0 \\\ 0 & 1 & 0 \\\ 0 & 0 & 1 \end{matrix} \right ] 
-$$
-
-  
+[d] = \left [ \begin{matrix} 1 & 0 & 0 \\\ 0 & 1 & 0 \\\ 0 & 0 & 1 \end{matrix} \right ]$$
 
 
 $$[A] = \left [ \begin{matrix} 1 & 0 & 0 \\\ 0 & 1 & 0 \\\ 0 & 0 & 1 \end{matrix} \right ] 
 
-[B] = \left [ Z_{abc} \right ] 
-$$
+[B] = \left [ Z_{abc} \right ]$$
 
 ## Substation
 
@@ -559,7 +511,7 @@ Substation is a child class of the node object inside the powerflow module.
 
 Substation uses the following equation to convert the positive sequence value from its pw_load connection (load_voltage) to the three phase balanced voltages used as the swing bus voltage solution. 
 
-$$\begin{bmatrix} \displaystyle V_{A}\\\ & \\\ \displaystyle V_{B}\\\ & \\\ \displaystyle V_{C} \end{bmatrix} = \begin{bmatrix} \displaystyle 1 & \displaystyle 1 & \displaystyle 1 \\\ & \\\ \displaystyle 1 & \displaystyle a^2 & \displaystyle a \\\ & \\\ \displaystyle 1 & \displaystyle a & \displaystyle a^2 \end{bmatrix}*\begin{bmatrix} \displaystyle 0\\\ & \\\ \displaystyle V_{positive sequence}\\\ & \\\ \displaystyle 0 \end{bmatrix}*b $$ 
+$$\begin{bmatrix} \displaystyle V_{A}\\\ & \\\ \displaystyle V_{B}\\\ & \\\ \displaystyle V_{C} \end{bmatrix} = \begin{bmatrix} \displaystyle 1 & \displaystyle 1 & \displaystyle 1 \\\ & \\\ \displaystyle 1 & \displaystyle a^2 & \displaystyle a \\\ & \\\ \displaystyle 1 & \displaystyle a & \displaystyle a^2 \end{bmatrix}*\begin{bmatrix} \displaystyle 0\\\ & \\\ \displaystyle V_{positive sequence}\\\ & \\\ \displaystyle 0 \end{bmatrix}*b$$ 
 
 Where $b$ is conditional upon which phase is chosen as the reference phase, $a$ is the complex number $1\angle120^\circ$, and all other variables are complex. The values of $b$ for each of the possible reference phases are shown below. 
 
