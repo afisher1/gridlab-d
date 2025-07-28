@@ -1,18 +1,6 @@
 # Series compensator
 
-**Source URL:** https://gridlab-d.shoutwiki.com/wiki/Series_compensator
-## Contents
-
-  * 1 Overview
-  * 2 Introduction of a Series Compensator
-  * 3 Modeling of the Series Compensator in GridLAB-D
-  * 4 Frequency Control
-    * 4.1 Frequency Controller Design
-    * 4.2 Simulation
-  * 5 GridLAB-D Model Example
-## Overview
-
-This document introduces the models of power-electronics-based series compensators and a frequency controller designed for it. Some simulation examples are included to explain the model and the frequency control strategy. 
+This page introduces the models of power-electronics-based series compensators and a frequency controller designed for it. Some simulation examples are included to explain the model and the frequency control strategy. 
 
 ## Introduction of a Series Compensator
 

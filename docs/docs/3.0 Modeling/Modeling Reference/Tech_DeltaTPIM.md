@@ -1,17 +1,3 @@
-# Tech:DeltaTPIM
-
-**Source URL:** https://gridlab-d.shoutwiki.com/wiki/Tech:DeltaTPIM
-## Contents
-
-  * 1 Three Phase Induction Motors
-    * 1.1 Synopsis
-    * 1.2 Classes
-    * 1.3 Variables
-    * 1.4 Dynamic Phasor Equations
-    * 1.5 Simulation study
-      * 1.5.1 Case 1
-      * 1.5.2 Case 2
-  * 2 References
 # Three Phase Induction Motors
 
 Implement three phase induction motor dynamic phasor model into GridLAB-D. 
@@ -26,20 +12,20 @@ This work will incorporate the ability to model three phase induction motor and 
 
 Variable | Definition   
 ---|---  
-$V_{p} $ | Positive sequence voltage   
-$V_{n}^{*} $ | Complex conjugate of negative sequence voltage   
-$r_{s} $ | Stator resistance   
+$V_{p}$ | Positive sequence voltage   
+$V_{n}^{*}$ | Complex conjugate of negative sequence voltage   
+$r_{s}$ | Stator resistance   
 $L_{s}$ | Stator inductance   
 $w_{s}$ | Angular speed   
 $L_{m}$ | Magnetizing inductance   
 $L_{r}$ | Rotor inductance   
 $\Omega _{r,0}$ | Mechanical speed dc component   
-$\Omega _{r,2} $ | Mechanical speed second harmonic component   
-$I_{P}^{s} $ | Positive sequence of stator current   
+$\Omega _{r,2}$ | Mechanical speed second harmonic component   
+$I_{P}^{s}$ | Positive sequence of stator current   
 $I_{n,s}^{*}$ | Complex conjugate of negative sequence stator current   
 $I_{n,r}^{*}$ | Complex conjugate of negative sequence rotor current   
-$J $ | Inertia   
-$B $ | Damping constant   
+$J$ | Inertia   
+$B$ | Damping constant   
 $\psi _{f}^{R} + j. \psi _{f}^{I}$ | Forward rotating flux   
 $\psi _{f}^{R} + j. \psi _{f}^{I}$ | Backward rotating flux   
 $\phi $ | Voltage phasor angle   

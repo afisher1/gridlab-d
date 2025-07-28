@@ -1,6 +1,5 @@
 # Refrigerator
 
-**Source URL:** https://gridlab-d.shoutwiki.com/wiki/Refrigerator
 **TODO**:  This page needs to be completed. 
 
 Refrigerator \- Residential Refrigerator (explicit model) 

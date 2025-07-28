@@ -1,16 +1,5 @@
 # Thermal Energy Storage model guide
 
-**Source URL:** https://gridlab-d.shoutwiki.com/wiki/Thermal_Energy_Storage_model_guide
-## Contents
-
-  * 1 Model
-    * 1.1 Sizing
-    * 1.2 Power Consumption
-    * 1.3 Ice Storage
-    * 1.4 Thermal Losses
-  * 2 Inputs
-    * 2.1 User Defined Inputs
-    * 2.2 Inputs Taken From house
 Thermal energy storage is based on technology that uses ice to cool air in place of a standard air conditioning unit. By making the ice at night with a compressor and utilizing the ice during the day to cool, the peak load of the cooling can be shifted to off peak hours. The model is based on the specifications and general functionality of the Ice Bear® unit developed by Ice Energy®. 
 
 The thermal energy storage unit uses a standard compressor and R410a refrigerant to cool down and freeze stored water during off peak hours when demand on the power grid is less. During peak hours when the demand for power is higher, the thermal storage unit runs a pump to flow the refrigerant through the ice block and a heat exchanger to cool air for the building. The heat exchanger is integrated into the existing cooling system of the building such that it is in the air conditioning unit itself or in the duct work of the building. The pump uses relatively little power, thereby reducing the additional peak demand load that would normally by placed by a traditional compressor in a standard air conditioning unit. 

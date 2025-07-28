@@ -1,9 +1,7 @@
 # Range
-
-**Source URL:** https://gridlab-d.shoutwiki.com/wiki/Range
 **TODO**:  This page needs to be completed. 
 
-Range \- Residential Range (explicit model) 
+Residential Range (explicit model) 
 
 ## Synopsis
     

@@ -1,29 +1,5 @@
 # Running Simulations
 
-**Source URL:** https://gridlab-d.shoutwiki.com/wiki/Running_Simulations
-# Running Simulations
-
-
-  
-  
-
-## Contents
-
-  * 1 Installation Notes
-  * 2 Running Simulations
-    * 2.1 **GridLAB-D Command-Line Tool**
-      * 2.1.1 **Command Line Arguments**
-    * 2.2 **GridLAB-D Server Mode**
-      * 2.2.1 **Level 1 Requirements**
-        * 2.2.1.1 **Platforms supported**
-        * 2.2.1.2 **Presentment encoding**
-        * 2.2.1.3 **Input entities**
-        * 2.2.1.4 **Output entities**
-        * 2.2.1.5 **Client/server model**
-        * 2.2.1.6 **Communication protocol**
-      * 2.2.2 **Level 2 Requirements**
-      * 2.2.3 **Level 3 Requirements**
-      * 2.2.4 **Level 4 Requirements**
 ## Installation Notes
 
   * For installation instructions, refer to the [Installation Guide].
@@ -35,10 +11,7 @@ If [runtime classes] are being used, please observe the following.
   * MinGW must be installed (MinGW does not work on 64-bit Windows at this time)
 
 
-  * GridLAB-D uses the temporary folder `HOMEDRIVE\HOMEPATH\Local Settings\Temp\gridlabd` to store files associated with runtime classes (source files, object files). This will cause errors if this folder does not exist or you do not have permission to write to this folder. If a different directory is desired for temporary files, the environment variable `GLTEMP` can be created and its value set to the path to an existing temporary directory you can write to. Alternatively, to set the path to the temporary directory on a case by case basis, the following line of code may be added to each GLM file:
-
-
-    
+  * GridLAB-D uses the temporary folder `HOMEDRIVE\HOMEPATH\Local Settings\Temp\gridlabd` to store files associated with runtime classes (source files, object files). This will cause errors if this folder does not exist or you do not have permission to write to this folder. If a different directory is desired for temporary files, the environment variable `GLTEMP` can be created and its value set to the path to an existing temporary directory you can write to. Alternatively, to set the path to the temporary directory on a case by case basis, the following line of code may be added to each GLM file:    
     
         #set tmp="path to temporary directory"
     
@@ -47,7 +20,7 @@ If [runtime classes] are being used, please observe the following.
 
 
   * Also note that it is best to enclose the path in double quotes.
-* * *
+
 
 ## Running Simulations
 

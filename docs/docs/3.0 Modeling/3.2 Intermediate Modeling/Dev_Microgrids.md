@@ -13,7 +13,7 @@ Implementation details
 
 The GridLAB-D dynamic simulations represent electro-mechanic transients of unbalanced micro grid operation. The synchronous machines models are in fundamental frequency phasor representation considering unbalanced operation. The network and loads are represented with a full abc model. Additionally, diesel governor control and automatic voltage regulators are modeled. Figure 1 briefly presents the overall algorithm. Each model in the algorithm is explained in detail below. 
 
-![Figure 1](../../images/Sub-second_algorithm.png)
+![Figure 1](../../../images/Sub-second_algorithm.png)
 
 Figure 1. Overall algorithm of sub-second implementation
 
@@ -119,7 +119,7 @@ Where the matrix $\left[ Jac \right]$ is equal to the bus admittance matrix, exc
 
 $$I_{GS1}= \frac{P_{T}+jQ_{T} + \left[ V_{Ga,b,c} \right]^{*T} \left[ Y_{Ga,b,ci} \right] \left[ V_{Ga,b,ci} \right]} {V_{Ga}^{*}+ e^{j 4\pi /3} V_{Gb}^{*}+ e^{j 2\pi /3} V_{Gc}^{*}}$$
 
-$$left[ I_{GSa,b,ci} \right] = \frac{1}{3}\begin{bmatrix} 1 \\\ e^{j 4\pi /3} \\\ e^{j 2\pi /3} \\\ \end{bmatrix} I_{GS1}$$ 
+$$\left[ I_{GSa,b,ci} \right] = \frac{1}{3}\begin{bmatrix} 1 \\\ e^{j 4\pi /3} \\\ e^{j 2\pi /3} \\\ \end{bmatrix} I_{GS1}$$ 
 
 Due to generator symmetry built, there are no negative and zero sequence current sources [9]: 
 
@@ -133,7 +133,7 @@ The synchronous machine dynamic models are linked to the network solution by usi
 
 $$\left[ I_{GSa,b,ci} \right]= \left[ E^{\prime\prime}_{a,b,c} \right] \left[ Y_{Ga,b,ci} \right] $$
 
-Where $\left[ E^{\prime\prime}_{a,b,c} \right]$ is a balanced voltage calculated by transforming $E^{\prime\prime}_{di} $ and $ E^{\prime\prime}_{qi}$ to network reference frame and then to abc reference frame. 
+Where $\left[ E^{\prime\prime}_{a,b,c} \right]$ is a balanced voltage calculated by transforming $E^{\prime\prime}_{di}$ and $E^{\prime\prime}_{qi}$ to network reference frame and then to abc reference frame. 
 
 ### Synchronous machine controllers: governor and automatic voltage regulator
 

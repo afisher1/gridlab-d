@@ -1,56 +1,5 @@
 # Residential module user's guide
 
-**Source URL:** https://gridlab-d.shoutwiki.com/wiki/Residential_Module_Guide
-
----
- 
- 
-## Contents
-
-  * 1 Introduction
-  * 2 Envelope
-    * 2.1 Solution to the ETP Heat Balance Equations
-    * 2.2 Initial Room and Mass Air Temperature
-    * 2.3 Predicting the Time of the Next Heating/Cooling State Change
-  * 3 Primary Inputs
-    * 3.1 Derived Defaults
-      * 3.1.1 **Glazing**
-    * 3.2 **Thermal Integrity Table Inputs and Defaults**
-      * 3.2.1 **Heat Loss Coefficient ( $U_A$)**
-      * 3.2.2 **Interior Mass Surface Conductance ( $H_m$)**
-      * 3.2.3 **Total “Air” Mass ( $C_a$)**
-      * 3.2.4 **Total Thermal Mass ( $C_m$)**
-  * 4 HVAC Systems
-    * 4.1 Primary Inputs
-    * 4.2 How to Specify Common HVAC Systems
-      * 4.2.1 **Air Conditioning (Cooling)**
-      * 4.2.2 **Heating**
-      * 4.2.3 **Auxiliary heating(For Heat Pumps Only)**
-      * 4.2.4 **Circulation Fan**
-      * 4.2.5 **Example HVAC System Specification**
-    * 4.3 **Design Loads and HVAC System Sizing**
-      * 4.3.1 **User Inputs (and Defaults)**
-      * 4.3.2 **Design Internal Gains**
-      * 4.3.3 **Sizing Calculations**
-    * 4.4 **Heating/Cooling Thermostat Operations**
-      * 4.4.1 **Cooling Thermostat**
-      * 4.4.2 **Heating Thermostat**
-      * 4.4.3 **Auxiliary Heating Control (Heat Pumps Only)**
-      * 4.4.4 **Band control**
-      * 4.4.5 **No control**
-      * 4.4.6 **Outdoor Temperature Adjustments to Capacity and COP**
-      * 4.4.7 **HVAC and Electrical Loads**
-    * 4.5 Using House_E
-      * 4.5.1 HVAC Settings
-      * 4.5.2 Thermal Envelope Settings
-        * 4.5.2.1 Thermal Integrity Option
-        * 4.5.2.2 Window Options
-      * 4.5.3 Example HVAC Configurations
-  * 5 New Features
-    * 5.1 Window Openings
-  * 6 See Also
-# Introduction
-
 The thermal performance of a home in the House_e module is based on a simple thermal heat flow circuit, shown in Figure 1. Here, the complexity of much more detailed thermal models, as used in most building simulations, is reduced to an equivalent thermal parameter (ETP) model in which parallel or nearly parallel heat flow paths and series thermal mass elements are lumped into a few parameters and portrayed as a simple DC electric circuit. This reduces the number of details of the building design that must be specified by the user of House_e , greatly reduces memory requirements, and speeds execution (all critical when simulating populations of buildings, especially relevant where the thermal details of the population are somewhat uncertain in any event). 
 
 [![Equivalent Thermal Parameters Circuit Modeled by House-e.](../../images/300px-Residential_module_users_guide_figure_1.png)](/wiki/File:Residential_module_users_guide_figure_1.png)
@@ -71,21 +20,76 @@ Finally, a time-series solution of the ETP circuit must be solved, with a thermo
 
 The details of how these are modeled from user-specified inputs are described in the sections that follow. 
 
+# Synopsis
+    
+    
+    module residential;
+    module residential {
+      default_outdoor_temperature 74.0 [degF];
+      default_humidity 75.0 [%];
+      default_etp_iterations 100;
+      implicit_enduses LIGHTS|PLUGS|OCCUPANCY|DISHWASHER|MICROWAVE|FREEZER|REFRIGERATOR|RANGE|EVCHARGER|WATERHEATER|CLOTHESWASHER|DRYER;
+      house_low_temperature_warning 55 [degF];
+      house_high_temperature_warning 95 [degF];
+      thermostat_control_warning TRUE;
+      system_dwell_time 1 [s];
+      aux_cutin_temperature 10 [degF];
+    }
+    
+# Classes
+
+As of Four Corners (Version 2.2)
+
+  * house – Single-family home model.
+  * residential_enduse – Abstract residential end-use class.
+  * waterheater – Typical residential water heating appliance.
+  * ZIPload – Generic constant impedance/current/power end-use load.
+As of Hassayampa (Version 3.0)
+    These may be available in earlier versions but they have not been validated and are not supported.
+
+  * lights – Typical residential lights.
+  * occupantload – Residential occupants (sensible and latent heat).
+  * plugload – Typical residential plug loads.
+Unsupported
+    These may be available in many versions but they have not been validated and are not supported.
+
+  * clotheswasher – Typical residential clothes washing appliance.
+  * dishwasher – Typical residential dish washing appliance.
+  * dryer – Typical residential clothes drying appliance.
+  * evcharger – Standard electric vehicle charger.
+  * freezer – Typical residential freezing appliance.
+  * microwave – Typical residential microwave appliance.
+  * range – Typical residential cooking appliance.
+  * refrigerator – Typical residential refrigeration appliance.
+
+# Variables
+
+  * default_line_voltage (complex3) Incoming line voltage to use when no power objects are defined (default is 240V+0j,120V+0j,120V+0j).
+  * default_line_current (complex3) Line current across the outside energy meter (default is 0A+0j,0A+0j,0A+0j).
+  * default_outdoor_temperature (double) Used when no climate/weather data is available (default is 74 degF).
+  * default_humidity (double) Used when no climate/weather data is available (default is 75%).
+  * default_solar (double9) Used when no climate/weather data is available (default is 0,0,0,0,0,0,0,0,0).
+  * default_etp_iterations (int64) Limits the number of iterations the ETP solver will perform before stopping (default is 100).
+
+# Bugs
+
+Due to parsing limitations on arrays default_line_voltage, default_line_current, and default_solar cannot be set from a GLM file. 
+
 # Envelope
 
 ## Solution to the ETP Heat Balance Equations
 
 For the thermal circuit in Figure 1, a heat balance (conservation of energy) can be written for the air temperature node ($T_A$) as: 
 
-    $Q_A - U_A (T_A-T_O) - H_M (T_A-T_M) - C_A \frac{dT_A}{dt} = 0 \qquad\qquad(1)$
+$Q_A - U_A (T_A-T_O) - H_M (T_A-T_M) - C_A \frac{dT_A}{dt} = 0 \qquad\qquad(1)$
 
 The heat balance for the mass temperature node ($T_M$) can be written as: 
 
-    $Q_M - H_M (T_M-T_A) - C_M \frac{dT_M}{dt} = 0\qquad\qquad(2)$
+$Q_M - H_M (T_M-T_A) - C_M \frac{dT_M}{dt} = 0\qquad\qquad(2)$
 
 As shown in [ETP closed form solution], Equation (1) can be solved for $T_M$, differentiated with respect to time to provide $dT_M/dt$, and both of these substituted into (2) to form a second order linear differential equation in $T_A$ of the form 
 
-    $a \frac{d^2T_A}{dt^2} + b \frac{dT_A}{dt} + c\ T_A = d\qquad\qquad(3)$
+$a \frac{d^2T_A}{dt^2} + b \frac{dT_A}{dt} + c\ T_A = d\qquad\qquad(3)$
 
 where: 
 
@@ -93,9 +97,10 @@ where:
   * $b = \frac{C_M (U_A + H_M)}{H_M} + C_A$
   * $c = U_A \\!$
   * $d = Q_M + Q_A + U_A T_O \\!$
+
 which has the solution with known, constant boundary conditions $T_O$, $Q_A$, and $Q_M$ and initial conditions at time $t=0$ of $T_{A_o}$ and $dT_{A_o}/dt$
 
-    $T_A = A_1 e^{r_1 t} + A_2 e^{r_2 t} + \frac{d}{c}\qquad\qquad(4)$
+$T_A = A_1 e^{r_1 t} + A_2 e^{r_2 t} + \frac{d}{c}\qquad\qquad(4)$
 
 where: 
 
@@ -103,13 +108,14 @@ where:
   * $r_2 = \frac{-b - \sqrt{b^2-4ac}}{2a}$
   * $A_1 = \frac{r_2 T_{A_o} - \frac{dT_{A_o}}{dt} - r_2 \frac{d}{c}}{( r_2 - r_1 )}$
   * $A_2 = T_{A_o} - \frac{d}{c} - \frac{r_2 T_{A_o} - \frac{dT_{A_o}}{dt} - r_2 \frac{d}{c}}{( r_2 - r_1 )}$
+
 The initial condition $T_{A_o}$ is known as the final condition of $T_A$ from previous time step. However, at any time step at which the boundary conditions $T_O$, $Q_A$, or $Q_M$ have changed (i.e. the weather, internal gains, heating/cooling output) from the previous time interval, then the new air temperature trajectory at the beginning of the time step can be derived from Equation (1) as 
 
-    $\frac{dT_{A_o}}{dt} = \frac{H_M}{C_A T_{M_o}} - \frac{U_A + H_M}{C_A T_{A_o}} + \frac{U_A}{C_A T_O} + \frac{Q_A}{C_A}\qquad\qquad(5)$
+$$\frac{dT_{A_o}}{dt} = \frac{H_M}{C_A T_{M_o}} - \frac{U_A + H_M}{C_A T_{A_o}} + \frac{U_A}{C_A T_O} + \frac{Q_A}{C_A}\qquad\qquad(5)$$
 
 Then, differentiating Equation (4) and substituting it and Equation (4) into Equation (1) yields a solution for $T_M$ of the form: 
 
-    $T_M = A_1 A_3 e^{r_1 t} + A_2 A_4 e^{r_2 t} + g + \frac{d}{c}\qquad\qquad(6)$
+$$T_M = A_1 A_3 e^{r_1 t} + A_2 A_4 e^{r_2 t} + g + \frac{d}{c}\qquad\qquad(6)$$
 
 where: 
 
@@ -120,26 +126,26 @@ where:
 
 When initializing a House_E simulation, the temperature and weather history prior to the first time step is unknown. First assume the house is at the equilibrium air temperature (at steady state with the heating and cooling system off, i.e. in balance). Equilibrium is defined by $dT_A/dt_o = 0$. Then, by differentiating (4), at the beginning of the initial time step, it can be shown that 
 
-    $T_{A_{eq}} = \frac{d}{c} = T_O + \frac{Q_M + Q_A}{U_A}\qquad\qquad(7)$
+$$T_{A_{eq}} = \frac{d}{c} = T_O + \frac{Q_M + Q_A}{U_A}\qquad\qquad(7)$$
 
 and the corresponding mass temperature at equilibrium is 
 
-    $T_{M_{eq}} = T_{A_{eq}} + \frac{Q_M}{H_M}\qquad\qquad(8)$
+$$T_{M_{eq}} = T_{A_{eq}} + \frac{Q_M}{H_M}\qquad\qquad(8)$$
 
 If the heating system would be “on” (based on the thermostat heating set point; see the section Heating/Cooling Thermostat Operations) at the condition $T_A = T_{A_{eq}}$, then the initial conditions are best approximated as 
 
-    $T_{A_o} = T_{M_o} = T_{set\ heat}\qquad\qquad(9)$ _# Heating system “on” at_ $T_A = T_{A_{eq}}$
+$T_{A_o} = T_{M_o} = T_{set\ heat}\qquad\qquad(9)$ _# Heating system “on” at_ $T_A = T_{A_{eq}}$
 
 If the cooling system would be “on” (based on the thermostat cooling set point) at the condition $T_A = T_{A_{eq}}$, then the initial conditions are best approximated as 
 
-    $T_{A_o} = T_{M_o} = T_{set\ cool}\qquad\qquad(10)$ _# Cooling system “on” at_ $T_A = T_{A_{eq}}$
+$T_{A_o} = T_{M_o} = T_{set\ cool}\qquad\qquad(10)$ _# Cooling system “on” at_ $T_A = T_{A_{eq}}$
 
 The time of day when either of these approximate initial conditions is most correct is when the conditions in the house have been stable for a long period of time. So, starting the simulation at midnight may be a good choice. An often better choice would be the earlier of sunrise or just prior to a morning thermostat change. 
 
 If neither the heating or cooling system would be “on” at the condition $T_A = T_{A_{eq}}$, then the initial conditions are best approximated as 
 
-    $T_{A_o} = T_{A_{eq}}\qquad\qquad(11)$ _# Heating/cooling system “off” at_ $T_A = T_{A_{eq}}$
-    $T_{M_o} = T_{M_{eq}}\qquad\qquad(12)$
+$T_{A_o} = T_{A_{eq}}\qquad\qquad(11)$ _# Heating/cooling system “off” at_ $T_A = T_{A_{eq}}$
+$T_{M_o} = T_{M_{eq}}\qquad\qquad(12)$
 
 ## Predicting the Time of the Next Heating/Cooling State Change
 
@@ -237,7 +243,7 @@ Treatment** | **SHGC by Frame Type**
 
 The SHGC is the product of the nominal SHGC and the window exterior transmission coefficient 
 
-    $SHGC = SHGC_{nom}\ WET\ A_g$ _# See next section for derivation of $A_g$ (area of glazing)_
+$SHGC = SHGC_{nom}\ WET\ A_g$ _# See next section for derivation of $A_g$ (area of glazing)_
 
 ## **Thermal Integrity Table Inputs and Defaults**
 
@@ -294,14 +300,14 @@ Compute exterior surface areas:
 
 The gross exterior wall area ($A_{wt}$) can be derived by introducing the perimeter (p), as follows: 
 
-    $y\ x = A / n$
-    $y = R\ x$
-    $R\ x^2 = A / n$
-    $x^2 = \frac{A}{n R}$
-    $x = \sqrt{\frac{A}{nR}}$
-    $p\ = 2x + 2y = 2x + 2Rx = 2x (1 + R)$
-    $p\ = 2 (1 + R)\sqrt{\frac{A}{nR}} $
-    $A_{wt} = n\ h\ p $
+$y\ x = A / n$
+$y = R\ x$
+$R\ x^2 = A / n$
+$x^2 = \frac{A}{n R}$
+$x = \sqrt{\frac{A}{nR}}$
+$p\ = 2x + 2y = 2x + 2Rx = 2x (1 + R)$
+$p\ = 2 (1 + R)\sqrt{\frac{A}{nR}} $
+$A_{wt} = n\ h\ p $
 
 Then   
   
@@ -315,7 +321,7 @@ Then
   
 The total heat loss coefficient (conductance), $U_A$, for the house (the last term is for air infiltration); the defaults produce $U_A$ = 522.1 Btu/°F.hr 
 
-    $U_A = A_g U_g + \frac{A_d}{R_d} + \frac{A_w}{R_w} + \frac{A_c}{R_c} + \frac{A_f}{R_f} + 0.018 A h I $
+$$U_A = A_g U_g + \frac{A_d}{R_d} + \frac{A_w}{R_w} + \frac{A_c}{R_c} + \frac{A_f}{R_f} + 0.018 A h I $$
 
     
 
@@ -325,17 +331,17 @@ The total heat loss coefficient (conductance), $U_A$, for the house (the last te
 
 Surface area is estimates as total exterior walls (less doors and windows) + interior walls + ceilings 
 
-    $H_m = h_s\ (\frac{A_w}{EWR}) + A_{wt} IWR + \frac{A_c n}{ECR}$
+$$H_m = h_s\ (\frac{A_w}{EWR}) + A_{wt} IWR + \frac{A_c n}{ECR}$$
 
 ### **Total “Air” Mass ( $C_a$)**
 
 Based on tuning to typical home heating system cycling times, the “air mass” seems to be well approximated as 3 times the volumetric capacitance of the interior air volume. 
 
-    $C_a = 3\ (0.018 A\ h)$ _# Short-cycle thermal mass_
+$C_a = 3\ (0.018 A\ h)$ _# Short-cycle thermal mass_
 
 ### **Total Thermal Mass ( $C_m$)**
 
-    $C_m = A\ m_f - 2\ (0.018 A\ h)$ # Thermal mass (daily cycle), less that added to the “air” mass
+$C_m = A\ m_f - 2\ (0.018 A\ h)$ # Thermal mass (daily cycle), less that added to the “air” mass
 
 # HVAC Systems
 
@@ -492,7 +498,7 @@ Other  | 6403  | 7856  | 9550  | 10269  | ln(EU) = ln(a) + b ln(x)
   
 For the “Other” end use (excludes heating and water heating) in the ELCAP metered end use data project, the results of a linear regression of the average annual energy consumption as a function of floor area of the form Other = a xb can be converted by an axis transformation into a linear regression of the form 
 
-    log_e (kWh/yr) = log_e(a) + b\ log_e(floor area, ft^2)$
+$$log_e (kWh/yr) = log_e(a) + b\ log_e(floor area, ft^2)$$
 
 with the resulting coefficients a and b shown in the table above. 
 
@@ -544,35 +550,32 @@ The power input to the fan is based on the greater of the Design_cooling_airflow
     Fan_power = Round(0.117 * Duct_pressure_drop * Max(Design_cooling_airflow, Design_heating_airflow)/$\frac {0.42}{745.7} + \frac {1}{16})/ \frac{1}{8}))*\frac{1}{8} * \frac{745.7}{0.88}$$
 
   
-
-
 ## **Heating/Cooling Thermostat Operations**
 
 For convenience, define a set of HVAC functionality indicators, F, which define the capabilities of the HVAC system and whether they are enabled at a given time: 
 
-    Fcool = Boolean(Cool_system_type = _electric_ & cooling system is enabled )
+  * Fcool = Boolean(Cool_system_type = _electric_ & cooling system is enabled )
 
-    Fheat = Boolean(Heat_system_type $\neq$ none & heating system is enabled)
+  * Fheat = Boolean(Heat_system_type $\neq$ none & heating system is enabled)
 
-    Faux = Boolean(Heat_system_type = _heat pump_ & Auxiliary_heat = _electric_ & heating system is enabled )
+  * Faux = Boolean(Heat_system_type = _heat pump_ & Auxiliary_heat = _electric_ & heating system is enabled )
 
-    Ffan = Boolean(Fan type$\neq$none)
+  * Ffan = Boolean(Fan type$\neq$none)
 
 Also define a set of state variables: 
 
-    Coolon = Boolean(Cooling system is “on” )
-    Cooloff = Boolean(Cooling system is “off” )=$1-\text{Cool}_\text{on}$$
-    Heaton = Boolean(Cooling system is “on” )
-    Heatoff = Boolean( Heating system is “off” )=$1-\text{Heat}_\text{on}$$
+  * Coolon = Boolean(Cooling system is “on” )
+  * Cooloff = Boolean(Cooling system is “off” )=$1-\text{Cool}_\text{on}$
+  * Heaton = Boolean(Cooling system is “on” )
+  * Heatoff = Boolean( Heating system is “off” )=$1-\text{Heat}_\text{on}$
 
 For heat pumps with electric auxiliary heat, define additional functionality indicators and state variables: 
 
-    Faux_deadband = Boolean(Faux & $dT_\text{aux}\neq$none)
-
-    Faux_lockout=Boolean(Faux & Taux_on$\neq$none)
-    Faux_delay=Boolean(Faux & taux_on $\neq$none )
-    Auxon = Boolean( Auxiliary heat is “on” )
-    Auxoff = Boolean(Auxiliary heat is “off” ) = 1 - Auxon
+  * Faux_deadband = Boolean(Faux & $dT_\text{aux}\neq$none)
+  * Faux_lockout=Boolean(Faux & Taux_on$\neq$none)
+  * Faux_delay=Boolean(Faux & taux_on $\neq$none )
+  * Auxon = Boolean( Auxiliary heat is “on” )
+  * Auxoff = Boolean(Auxiliary heat is “off” ) = 1 - Auxon
 
 Further, define the time (in minutes) from the last state change as thvac. 
 
@@ -580,23 +583,23 @@ To initialize the time-series, heating, cooling (and auxiliary heat) are “off�
 
 ### **Cooling Thermostat**
 
-    Coolon = Boolean(Cooloff $t_\text{hvac}$ > $t_\text{min}$ & $F_\text{cool}$ & $T_\text{air}$ > (Tset_cool + ½ dTdeadband))
+  * Coolon = Boolean(Cooloff $t_\text{hvac}$ > $t_\text{min}$ & $F_\text{cool}$ & $T_\text{air}$ > (Tset_cool + ½ dTdeadband))
 
-    Cooloff = Boolean(Coolon&thvac > tmin& Fcool & Tair $\leq $(Tset_cool \- ½ dTdeadband))
+  * Cooloff = Boolean(Coolon&thvac > tmin& Fcool & Tair $\leq$ (Tset_cool \- ½ dTdeadband))
 
 ### **Heating Thermostat**
 
-    Heaton = Boolean( Heatoff & thvac > tmin & Fheat & Tair $ \leq $(Tset_heat - ½ dTdeadband))
+  * Heaton = Boolean( Heatoff & thvac > tmin & Fheat & Tair $\leq$ (Tset_heat - ½ dTdeadband))
 
-    Heatoff = Boolean( Heaton & thvac > tmin & Fheat & Tair > (Tset_heat \+ ½ dTdeadband) )
+  * Heatoff = Boolean( Heaton & thvac > tmin & Fheat & Tair > (Tset_heat \+ ½ dTdeadband) )
 
 ### **Auxiliary Heating Control (Heat Pumps Only)**
 
 To allow a state change from heating to auxiliary to occur in a single time step, the heating and cooling state change evaluations should be followed by: 
 
-    Auxon = Boolean( Heaton & Auxoff & OR(NOT(Faux_deadband) * ( Tair $ \leq $( Tset_heat \- ½ dTaux) ) & OR (NOT(Faux_lockout * (Tair $ \leq $ Taux) & OR(NOT (Faux_delay,(thvac > taux) )
+  * Auxon = Boolean( Heaton & Auxoff & OR(NOT(Faux_deadband) * ( Tair $\leq$( Tset_heat \- ½ dTaux) ) & OR (NOT(Faux_lockout * (Tair $\leq$ Taux) & OR(NOT (Faux_delay,(thvac > taux) )
 
-    Auxoff = Boolean( Auxon & T Faux_deadband * ( Tair > (Tset_heat + dTdeadband) ) & thvac > tmin )
+  * Auxoff = Boolean( Auxon & T Faux_deadband * ( Tair > (Tset_heat + dTdeadband) ) & thvac > tmin )
 
 If Auxon then Heatoff = 1 and Heaton = 0 
 
@@ -604,15 +607,19 @@ If Auxon then Heatoff = 1 and Heaton = 0
 
 Under **band control** regime (e.g., `object house {thermostat_control BAND;}`), the setpoint and deadband settings are ignore, and instead the HVAC control uses the band control variables: 
 
-TauxOn
+* TauxOn - 
     The indoor temperature at which auxiliary heating is turned on.
-TheatOn
+
+* TheatOn -
     The indoor temperature at which normal heating is turned on.
-TheatOff
+
+* TheatOff -
     The indoor temperature at which heating is turned off.
-TcoolOff
+
+* TcoolOff -
     The indoor temperature at which cooling is turned off.
-TcoolOn
+
+* TcoolOn -
     The indoor temperature at which cooling is turned on.
 
 The control regime is used for external controllers that wish to directly control the actual temperatures at which the HVAC system changes state. 
@@ -627,13 +634,12 @@ The DOE-2 building stimulation program provides curves that adjust nameplate COP
 
 **Table 5. DOE-2 System-Equipment Default Curves**
 
-**DOE-2 System-Equipment Default Curves  
-Extracted from Table IV.11, DOE-2 Reference Manual, Part 1, Version 1.2 (pg IV.72-73)**  
----  
-**Keyword** | **Curve** | **Variables** | **Curve  
-Type  * ** | **Applicable  
-SYSTEM-TYPE(s)** | **Default Curve Coefficients**  
-**a** | **b** | **c** | **d** | **e** | **f**  
+DOE-2 System-Equipment Default Curves  
+Extracted from Table IV.11, DOE-2 Reference Manual, Part 1, Version 1.2 (pg IV.72-73)
+
+
+Keyword | Curve | Variables | Curve Type  | Applicable  SYSTEM-TYPE(s) | Default Curve Coefficients
+---|--- | ---|--- |---|---   
 COOL-CAP-FT  | SDL-C1  | Twb,Tout  | bi-linear  | RESYS  | 0.59815404  | 0.01329987  | 0.0  | -0.00514995  | 0.0  | 0.0   
 COOL-EIR-FT  | SDL-C11  | Twb,Tout  | bi-linear  | RESYS  | 0.49957503  | -0.00765992  | 0.0  | 0.01066989  | 0.0  | 0.0   
 HEAT-CAP-FT  | SDL-C51  | Tout  | quadratic  | RESYS  | 0.34148808  | 0.00894102  | 0.00010787  | 0.0  | 0.0  | 0.0   
@@ -642,9 +648,9 @@ HEAT-EIR-FT  | SDL-C56  | Tout  | cubic  | RESYS  | 2.03914613  | -0.03906753  |
   
 House_e does not explicitly model moisture in the home, so the Twb is assumed to be at the standard test condition 67°F. Eliminating Twb as a variable and inverting the EIR equations to produce equivalent COP equations gives the correction factor equations of the forms: 
 
-    F_COP_T = $\frac{1}{EIR-FT} = \frac{1}{(K_{0} + K_{1} * T_{out} + K_{2} * T_{out}^{2} + K_{3} * T_{out}^{3})}$
+  F_COP_T = $\frac{1}{EIR-FT} = \frac{1}{(K_{0} + K_{1} * T_{out} + K_{2} * T_{out}^{2} + K_{3} * T_{out}^{3})}$
 
-    F_Capacity_Tout = CAP-FT = $K_{0} + K_{1} * T_{out} + K_{2} * T_{out}^{2} + K_{3} * T_{out}^{3}$
+  F_Capacity_Tout = CAP-FT = $K_{0} + K_{1} * T_{out} + K_{2} * T_{out}^{2} + K_{3} * T_{out}^{3}$
 
 The resulting coefficients used by GridLAB-D are shown in the Table 6, below. 
 
@@ -653,14 +659,12 @@ The resulting coefficients used by GridLAB-D are shown in the Table 6, below.
 **HVAC Equipment COP Factors**  
 ---  
 **COP Factor** | **K 0** | **K 1** | **K 2** | **K 3** | **Limit**  
+---|--- | ---|--- |---|---   
 F_Cool_COP_Tout | -0.01363961  | 0.01066989  | 0.0  | 0.0  | 40   
 F_Heat_COP_Tout | 2.03914613  | -0.03906753  | 0.00045617  | -0.00000203  | 80   
 F_Cooling_Capacity_Tout | 1.48924533  | -0.00514995  | 0.0  | 0.0  | \-   
 F_Heating_Capacity_Tout | 0.34148808  | 0.00894102  | 0.00010787  | 0.0  | \-   
   
-  
-
-
 These are then used to compute the actual COP and capacity as a function of outdoor temperature, as follows: 
 
 Note that part-load effects (the effect of starting a heating/cooling cycle are not yet accounted for in GridLAB-D). They will be added in a future release. 
@@ -671,58 +675,60 @@ Note that part-load effects (the effect of starting a heating/cooling cycle are 
     Heating_capacity = Design_heating_capacity
 
   1. If the Heat system type is a heat pump, then the heating capacity is determined using Table 6 and the previous section to evaluate F_Heating_Capacity_Tout
+
     Heating_capacity = Design_heating_capacity * F_Heating_Capacity_Tout
 
   1. The actual capacity at operating conditions for air conditioning is determined using Table 6 and the previous section to evaluate F_Cooling_Capacity_Tout
+
     Cooling_capacity = Design_cooling_capacity * F_Cooling_Capacity_Tout
 
   1. The electrical load of the fan is
+
     Pfan = Ffan * (HVACon * Fan_power +F2-speed* HVACoff * Fan_power_low_speed_fraction
 
   1. The sensible heat provided by the HVAC system to the air (Qhvac), with a sign convention of heating positive and cooling negative, is
+
     Qhvac = Heaton * Heating_capacity + Auxon * Auxiliary_capacity –Coolon * Cooling_capacity / (1 + Latent_cooling_fraction) + Pfan
 
   1. If use_latent_heat is set to TRUE the latent heat is
+
     Latent_heat_load = Cooling_capacity * (1 - 1 / Latent_cooling_fraction)
 
   1. if use_latent_heat is set to FALSE, the latent heat is
+
     Latent_heat_load = 0;
 
   1. If the Heat system type is not a heat pump, then the heating COP is
+
     Heat_COP = 1
 
   1. If the Heat system type is not a heat pump, then the heating COP is determined using Table 6 and the previous section to evaluate F_Heating_Capacity_Tout
+
     Heat_COP = Heat_COP_std * F_Heat_COP_Tout
 
   1. The cooling capacity is determined using Table 6 and the previous section to evaluate F_Cool_COP_Tout
+
     Cool_COP = Cool_COP_std * F_Cool_COP_Tout
 
   
-
-
   1. Define additional HVAC functionality indicators, indicating electricity as the source for heating and the presence of a two-speed fan
+
     Felectric = Boolean(Heat_system_type = _heat pump_ <OR>
-    
-    
+        
     Heat_system_type = _resistance_ )
     
-
     F2-speed = Boolean(Fan_type = _2-speed_ )
 
   1. Define additional state variables indicating that heating/cooling is “on” or “off”
+
     Hvacon = Boolean( Heaton <OR> Coolon )
 
     Hvacoff = Boolean( Heatoff & Cooloff )
 
   
-
-
   1. The electrical power drawn by the HVAC system (Phvac, kW) is the sum of the heating, cooling, and fan electricity consumption
-Phvac = FelectricHeaton * ( Heating_Capacity / 3.413 (Btu/hr- 
 
-kW) ) / Heating_COP + (Cooling_Capacity / 3.413 (Btu/hr-kW) ) * 1 + Latent_Cooling_Fraction) / 
-
-Cooling_COP + Pfan
+    Phvac = FelectricHeaton * ( Heating_Capacity / 3.413 (Btu/hr- kW) ) / Heating_COP + (Cooling_Capacity / 3.413 (Btu/hr-kW) ) * 1 + Latent_Cooling_Fraction) / Cooling_COP + Pfan
 
 ## Using House_E
 
@@ -739,6 +745,7 @@ The first method exclusively uses the "system_type" property for describing a ho
   * FORCEDAIR for the presence of a central ventilation system (including duct fans)
   * TWOSTAGE for two-speed central ventilation fan systems
   * RESISTIVE for purely resistive heating
+
 If neither GAS nor RESISTIVE are set, the model will assume that a given house has a heat pump, a one-speed central ventilation fan, auxiliary heating with an auxiliary deadband for heating. 
 
 The second method uses a combination of "heating_system_type", "cooling_system_type", "auxiliary_system_type", "auxiliary_strategy", and "fan_type" to describe the HVAC system more explicitly. 
@@ -778,8 +785,6 @@ heating_system_type
   * TIMER
   * LOCKOUT
 
-  
----|---|---|---|---  
   
 It is assumed that any system with a heat pump will have electric auxiliary heating, and that any system with central heating or cooling will include a fan for circulation. 
 
@@ -827,9 +832,7 @@ glass_type
   * THREE
   * OTHER
 
-  
----|---|---|---  
-  
+    
 ### Example HVAC Configurations
 
 The following snippets can be used to define the HVAC system within a house. The two methods will results in the same system in both cases. The values for the houses with the separate system types are being set explicitly for clarity, even if the defaults would apply the same value. 
@@ -842,9 +845,7 @@ Gas heating
     object house{
      system_type GAS;
     }
-    
-    
-    
+       
     object house{
      heating_system_type GAS;
      cooling_system_type NONE;
@@ -858,8 +859,6 @@ Heat pump
     object house{
      system_type AIRCONDITIONING|FORCEDAIR;
     }
-    
-    
     
     object house{
      heating_system_type HEAT_PUMP;
@@ -876,9 +875,7 @@ Heat pump with two-speed fan
     object house {
      system_type AIRCONDITIONING|TWOSTAGE;
     }
-    
-    
-    
+        
     object house{
      heating_system_type HEAT_PUMP;
      cooling_system_type ELECTRIC;
@@ -893,9 +890,7 @@ Baseboard heating
     
     object house{
      system_type RESISTIVE;
-    }
-    
-    
+    }   
     
     object house{
      heating_system_type RESISTANCE;
@@ -911,8 +906,6 @@ Electric heat and central air
     object house{
      system_type RESISTIVE|FORCEDAIR;
     }
-    
-    
     
     object house{
      heating_system_type RESISTANCE;
@@ -997,6 +990,8 @@ This section will document changes from the original model (as specified above).
 
 ## Window Openings
 
+TODO: Confirm bug fix, consider adding example with comparison plots
+
 This model is designed to represent the effects of people opening their windows during shoulder temperature periods. This is a complicated human interaction to model, as it is often related to current temperature, forecast of the temperature and other weather conditions, history of temperature, humidity, etc. This model is designed to be a brute force approach to representing this impact. 
 
 Basically, you activate the model (simulate_window_openings is FALSE by default), then describe the upper and lower cutoffs of when the window WILL absolutely be open versus absolutely WILL NOT be open (window_low_temperature_cutoff and window_high_temperature_cutoff). 
@@ -1006,9 +1001,6 @@ The three coefficients listed below then describe a probability curve between th
 The effect is that if windows are closed, normal operation. If open, the HVAC is overridden (to OFF) and UA is raised by a factor of 10 (which makes heat transfer very fast). 
 
 What we don’t have a great model for is the probability curve or what the cutoff values should be! For previous work, we found that a simple linear between the cutoffs was a pretty good representation. I think for cutoffs, we used -2 to +8 around the setpoint. 
-
-  
-
 
 **Parameter** | **Default Value** | **Units**  
 ---|---|---  
@@ -1025,69 +1017,75 @@ window_temperature_delta | 5 | °F | change in outdoor temperature required to u
     
     module residential;
     module residential {
-      [default_outdoor_temperature] 74.0 [degF];
-      [default_humidity] 75.0 [%];
-      [default_etp_iterations] 100;
-      [implicit_enduses] [LIGHTS]|[PLUGS]|[OCCUPANCY]|[DISHWASHER]|[MICROWAVE]|[FREEZER]|[REFRIGERATOR]|[RANGE]|[EVCHARGER]|[WATERHEATER]|[CLOTHESWASHER]|[DRYER];
-      [house_low_temperature_warning] 55 [degF];
-      [house_high_temperature_warning] 95 [degF];
-      [thermostat_control_warning] [TRUE];
-      [system_dwell_time] 1 [s];
-      [aux_cutin_temperature] 10 [degF];
+      default_outdoor_temperature 74.0 [degF];
+      default_humidity 75.0 [%];
+      default_etp_iterations 100;
+      implicit_enduses LIGHTS|PLUGS|OCCUPANCY|DISHWASHER|MICROWAVE|FREEZER|REFRIGERATOR|RANGE|EVCHARGER|WATERHEATER|CLOTHESWASHER|DRYER;
+      house_low_temperature_warning 55 [degF];
+      house_high_temperature_warning 95 [degF];
+      thermostat_control_warning [TRUE];
+      system_dwell_time 1 [s];
+      aux_cutin_temperature 10 [degF];
     }
     
 
 # Classes
 
-As of [Four Corners (Version 2.2)]
+TODO: Review this list, deprecate or update where needed
 
-  * [house] – Single-family home model.
+As of Four Corners (Version 2.2)
+
+  * house – Single-family home model.
   * residential_enduse – Abstract residential end-use class.
-  * [waterheater] – Typical residential water heating appliance.
-  * [ZIPload] – Generic constant impedance/current/power end-use load.
-As of [Hassayampa (Version 3.0)]
+  * waterheater – Typical residential water heating appliance.
+  * ZIPload – Generic constant impedance/current/power end-use load.
+
+As of Hassayampa (Version 3.0) - 
     These may be available in earlier versions but they have not been validated and are not supported.
 
-  * [lights] – Typical residential lights.
-  * [occupantload] – Residential occupants (sensible and latent heat).
-  * [plugload] – Typical residential plug loads.
-Unsupported
+  * lights – Typical residential lights.
+  * occupantload – Residential occupants (sensible and latent heat).
+  * plugload – Typical residential plug loads.
+
+Unsupported - 
     These may be available in many versions but they have not been validated and are not supported.
 
-  * [clotheswasher] – Typical residential clothes washing appliance.
-  * [dishwasher] – Typical residential dish washing appliance.
-  * [dryer] – Typical residential clothes drying appliance.
-  * [evcharger] – Standard electric vehicle charger.
-  * [freezer] – Typical residential freezing appliance.
-  * [microwave] – Typical residential microwave appliance.
-  * [range] – Typical residential cooking appliance.
-  * [refrigerator] – Typical residential refrigeration appliance.
+  * clotheswasher – Typical residential clothes washing appliance.
+  * dishwasher – Typical residential dish washing appliance.
+  * dryer – Typical residential clothes drying appliance.
+  * evcharger – Standard electric vehicle charger.
+  * freezer – Typical residential freezing appliance.
+  * microwave – Typical residential microwave appliance.
+  * range – Typical residential cooking appliance.
+  * refrigerator – Typical residential refrigeration appliance.
+
 # Variables
 
-  * [default_line_voltage] (complex[3]) Incoming line voltage to use when no power objects are defined (default is 240V+0j,120V+0j,120V+0j).
-  * [default_line_current] (complex[3]) Line current across the outside energy meter (default is 0A+0j,0A+0j,0A+0j).
-  * [default_outdoor_temperature] (double) Used when no climate/weather data is available (default is 74 degF).
-  * [default_humidity] (double) Used when no climate/weather data is available (default is 75%).
-  * [default_solar] (double[9]) Used when no climate/weather data is available (default is 0,0,0,0,0,0,0,0,0).
-  * [default_etp_iterations] ([int64]) Limits the number of iterations the ETP solver will perform before stopping (default is 100).
+  * default_line_voltage (complex3) Incoming line voltage to use when no power objects are defined (default is 240V+0j,120V+0j,120V+0j).
+  * default_line_current (complex3) Line current across the outside energy meter (default is 0A+0j,0A+0j,0A+0j).
+  * default_outdoor_temperature (double) Used when no climate/weather data is available (default is 74 degF).
+  * default_humidity (double) Used when no climate/weather data is available (default is 75%).
+  * default_solar (double9) Used when no climate/weather data is available (default is 0,0,0,0,0,0,0,0,0).
+  * default_etp_iterations (int64) Limits the number of iterations the ETP solver will perform before stopping (default is 100).
+  
 # Bugs
 
-Due to parsing limitations on arrays [default_line_voltage], [default_line_current], and [default_solar] cannot be set from a GLM file. 
+Due to parsing limitations on arrays default_line_voltage, default_line_current, and default_solar cannot be set from a GLM file. 
 
 
 # See Also
 
-  * [Residential module]
+  * Residential module
     * User's Guide
-    * [Appliances]
-    * [house] class – Single-family home model.
+    * Appliances
+    * house class – Single-family home model.
     * residential_enduse class – Abstract residential end-use class.
-    * [occupantload] – Residential occupants (sensible and latent heat).
-    * [ZIPload] – Generic constant impedance/current/power end-use load.
+    * occupantload – Residential occupants (sensible and latent heat).
+    * ZIPload – Generic constant impedance/current/power end-use load.
   * Technical Documents 
-    * [Requirements]
-    * [Specifications]
-    * [Developer notes]
-    * [Technical support document]
-    * [Validation]
+    * Requirements
+    * Specifications
+    * Developer notes
+    * Technical support document
+    * Validation
 

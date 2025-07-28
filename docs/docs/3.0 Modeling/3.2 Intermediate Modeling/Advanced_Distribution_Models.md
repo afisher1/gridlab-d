@@ -171,5 +171,5 @@ We can see that the control mode has been set to `VOLT` and that this 10 kVAR ca
 
 Running this model in GridLAB-D™produces "voltage_data.csv" (among others) which contains a record of the capacitor switch state and the measured voltage at the `branch_1_meter_3` node. As can be seen, when the voltage drops below 6900 V the capacitor switches in, the voltage rises, and capacitor switches out and the voltage drops. We can also see the delay caused by the `time_delay` and `dwell_time` parameter values.
 
-![Dist syst switching capacitors.png](/images/Dist_syst_switching_capacitors.png)
+![Dist syst switching capacitors.png](../../../images/Dist_syst_switching_capacitors.png)
 

@@ -178,7 +178,7 @@ Module blocks may include additional information, such as assignments of the val
        MyDoubleGlobal 1.2 ft/s;
      }
     
-``` To enforce verification of the module's version information, simply include the desired version in the module block: ` ``
+To enforce verification of the module's version information, simply include the desired version in the module block: ` ``
     
     
      module MyModule {
@@ -187,7 +187,7 @@ Module blocks may include additional information, such as assignments of the val
      }
     
 
-``` If the version loaded is not version 2.0 or greater, an error will be displayed and the loader will stop. The minor and build numbers can also be specified, if necessary. Class blocks are used to create, modify, or verify class definitions. If a class is already defined in a static module, then a class block either modifies or verifies the definition provided by the module. Consider the following example ` ``
+If the version loaded is not version 2.0 or greater, an error will be displayed and the loader will stop. The minor and build numbers can also be specified, if necessary. Class blocks are used to create, modify, or verify class definitions. If a class is already defined in a static module, then a class block either modifies or verifies the definition provided by the module. Consider the following example ` ``
     
     
      module MyModule;
@@ -199,7 +199,7 @@ Module blocks may include additional information, such as assignments of the val
      }
     
 
-``` If the properties `svalue`, `evalue`, and `dvalue` are already defined as specified, the class block will load successfully. However, if there are any differences between the class block and the module's definition of the class, then the loader will attempt to address the discrepancy as follows: 
+If the properties `svalue`, `evalue`, and `dvalue` are already defined as specified, the class block will load successfully. However, if there are any differences between the class block and the module's definition of the class, then the loader will attempt to address the discrepancy as follows: 
 
   1. If the class defines a property differently than the module, then the loader will fail.
   2. If the class defines a property that the module does not define, then the loader will extend the module's definition of the class to include this new property.
@@ -271,7 +271,7 @@ To see what version of GridLAB-D is installed, type: ` ``
 **Note**
     The **host%** refers the command shell prompt, which indicates that you are logged in on the host computer where GridLAB-D is installed. It will probably look different on your computer—on Windows machines it’s usually **C:\ >** and sometimes it’s simply **$** on Unix machines.
 
-To get a list of commonly used command lines options, you can enter the following: ` ``
+To get a list of commonly used command lines options, you can enter the following: 
     
     
     host% **gridlabd –-help**
@@ -280,7 +280,7 @@ To get a list of commonly used command lines options, you can enter the followin
     (...lots of helpful output...)
     
 
-``` The command line options are used to alter the mode of operation of GridLAB-D. The normal setting for a mode of operation is called the default, and command line options are one way to override those defaults. For example, GridLAB-D can be instructed to describing everything it is doing using the verbose mode: ` ``
+The command line options are used to alter the mode of operation of GridLAB-D. The normal setting for a mode of operation is called the default, and command line options are one way to override those defaults. For example, GridLAB-D can be instructed to describing everything it is doing using the verbose mode: ` ``
     
     
     host% **gridlabd --verbose**
@@ -411,6 +411,7 @@ The follow section describes various ways that you can use to extend or improve 
 
 
 ## The Clock
+TODO: The clock, timezones, and related content should be pulled out into their own doc page
 
 The GridLAB-D clock is one of the simplest and most frequently confused pieces of the system. During each sync pass, every object returns a timestamp “at which its internal state will next change”. As each object is processed, a quick comparison is made between the time the object’s sync() returns, and the lowest timestamp that has been returned by the other objects that iteration. At the end of the iteration, the core checks to see that every object is able to progress to a later timestamp, ie, that it has converged and returned a timestamp in the future. If any object returns a time that is not in the future, either an error is reported, or it is assumed that another simulator iteration is required. 
 
@@ -489,10 +490,202 @@ which results in the following output:
     2000-01-01 09:00:00 EST,+73.7618
     
 
-  
+### Timezones
+
 Time zones are specified in the time zone file `tzinfo.txt` file that is installed with the system in the gridlabd folder. GridLAB-D does not use the operating system’s time zone specifications for several reasons. First, some operating systems don’t recognize time zone that are historically relevant but no longer used. Second, the simulation often needs to run the simulation in a different time zone than that used by the host computer. Finally, the ability to use alternate time zone rules is essential to understanding the energy use implication of altering the time zone rules, something which policymakers have an interest in and sometimes ask. GridLAB-D can address these questions only if the rules for the simulation are different from the rules on the computer on which the simulation is running. 
 
-#### On Sync()
+In GridLAB-D timezones follow the [Posix TZ standard](http://www.gnu.org/s/hello/manual/libc/TZ-Variable.html). Each timezone is described with a string using the form 
+    
+    
+     STZ[hh[:mm][DTZ][,M#[#].#.#/hh:mm,M#[#].#.#/hh:mm]]
+    
+
+where STZ is the 3-digit standard time zone specification and DTZ is the 3 digit daylight time zone specification, hh:mm describes the offset from GMT with negative for each and positive for west, the first M-spec describes the month, week and weekday on which daylight savings starts, and the second on which it ends. 
+
+Because GridLAB-D must run historical simulations, the timezone rules may change from year to year. Consequently, there are different section specify the year in which the timezone specification goes into effect. Each year section is described with the string 
+    
+    
+    [YYYY]
+    
+
+The following timezones are currently supported in `tzinfo.txt` for the United States: 
+    
+    
+    UTC0 ; Coordinated Universal Time ~ never uses DST
+    GMT0 ; Greenwich Mean Time, no DST
+    EST5 ; Eastern no DST
+    CST6 ; Central no DST
+    MST7 ; Mountain no DST
+    PST8 ; Pacific no DST 
+    
+    [1970] ; Rules as of 1967
+    GMT0GMT,M3.5.0/02:00,M10.5.0/2:00 ; GMT, DST last Sun/Mar to last Sun/Oct
+    EST+5EDT,M4.5.0/02:00,M10.5.0/02:00 ; Eastern, DST last Sun/Apr to last Sun/Oct
+    CST+6CDT,M4.5.0/02:00,M10.5.0/02:00 ; Central, DST last Sun/Apr to last Sun/Oct
+    MST+7MDT,M4.5.0/02:00,M10.5.0/02:00 ; Mountain, DST last Sun/Apr to last Sun/Oct
+    PST+8PDT,M4.5.0/02:00,M10.5.0/02:00 ; Pacific, DST last Sun/Apr to last Sun/Oct
+    
+    [1986] ; Rules as of 1986
+    EST+5EDT,M4.1.0/02:00,M10.5.0/02:00 ; Eastern, DST first Sun/Apr to last Sun/Oct
+    CST+6CDT,M4.1.0/02:00,M10.5.0/02:00 ; Central, DST first Sun/Apr to last Sun/Oct
+    MST+7MDT,M4.1.0/02:00,M10.5.0/02:00 ; Mountain, DST first Sun/Apr to last Sun/Oct
+    PST+8PDT,M4.1.0/02:00,M10.5.0/02:00 ; Pacific, DST first Sun/Apr to last Sun/Oct
+    
+    [2007] ; Rules as of 2007
+    EST+5EDT,M3.2.0/02:00,M11.1.0/02:00 ; Eastern, DST second Sun/Mar to first Sun/Nov
+    CST+6CDT,M3.2.0/02:00,M11.1.0/02:00 ; Central, DST second Sun/Mar to first Sun/Nov
+    MST+7MDT,M3.2.0/02:00,M11.1.0/02:00 ; Mountain, DST second Sun/Mar to first Sun/Nov
+    PST+8PDT,M3.2.0/02:00,M11.1.0/02:00 ; Pacific, DST second Sun/Mar to first Sun/Nov
+
+## Synopsis
+    
+    
+    clock {
+      timezone _tz-spec_ ;
+    }
+    
+
+## Description
+
+The timezone [clock directive] determines which timezone to use during the simulation. The timezone must be known before any [timestamps] can be interpreted. The timezone rules are used to determine the offset from UTC for all time calculations, as well as determine daylight or summer time shifts. 
+
+Prior to [Hassayampa (Version 3.0)]
+    If the timezone is not set, the system will assume all [timestamps] are in UTC.
+
+As of [Hassayampa (Version 3.0)]
+    If the timezone is not set, the system will assume all [timestamps] are in local time.
+
+Time zones are specified using the [POSIX timezone standard](http://www.gnu.org/software/libc/manual/html_node/TZ-Variable.html). 
+
+### GLM
+
+The timezone is usually set using the [clock directive] as follows: 
+    
+    
+     clock {
+       timezone PST8PDT;
+       starttime '2000-01-01 00:00:00 PST';
+       stoptime '2001-01-01 00:00:00 PST';
+     }
+    
+
+### Command line
+
+The timezone can be set using the command line: 
+    
+    
+    host% export TZ=PST8PDT
+    
+
+On Windows machines, the syntax is 
+    
+    
+    C:\> set TZ=PST8PDT
+    
+
+If the timezone is not set either using a [clock directive] or the [TZ] [environment variable], GridLAB-D may be unable to interpret [timestamps] and fatal errors may occur. 
+
+### Locale names
+
+As of [Hassayampa (Version 3.0)] you may use locale names instead of the timezone codes. Locale names are listed in the `tzinfo` file and take the form 
+    
+    
+    Country/Region/City
+    
+
+  
+For example, instead of coding 
+    
+    
+    timezone PST+8PDT;
+    
+
+you can code 
+    
+    
+    timezone US/CA/Los Angeles;
+    
+
+For a listing of country and region codes, see [ISO Std 3166-2](http://en.wikipedia.org/wiki/ISO_3166-2). 
+
+Timezones and daylight-savings/summer time rules can be found at [www.worldtimezone.com](http://http://www.worldtimezone.com/). 
+
+## Version
+
+Prior to [Hassayampa (Version 3.0)]
+    Only US timezones were distributed with GridLAB-D. City names are not supported.
+
+As of [Hassayampa (Version 3.0)]
+    All officially recognized international timezones are implemented. Many city names are supported. The list of recognized cities and timezones can be found in the [timezone file](http://gridlab-d.svn.sourceforge.net/viewvc/gridlab-d/trunk/core/tzinfo.txt).
+
+## Caveats
+
+* Most Asia and Africa timezones are not yet implemented in the [timezone file](http://gridlab-d.svn.sourceforge.net/viewvc/gridlab-d/trunk/core/tzinfo.txt). 
+
+* It is not clear whether 1/2 and 1/4 hours offset timezones always work properly. 
+
+* Many of the historical rules for summer time around the world are not supported. In some cases the current summer time rules may be inappropriately applied to past years. 
+
+
+### Run Realtime
+
+The run_realtime clock control global variable controls whether and at what rate the simulation runs at a rate coupled to the wall clock. When non-zero, the simulation clock runs at a rate of run_realtime seconds per second (i.e., a value of 2 causes the simulation to run twice as fast as the realtime clock.)
+
+* To set the realtime simulation rate at 1 second/second: `#set run_realtime=1`
+  
+* To set disable the realtime simulation rate: `#set run_realtime=0`
+    
+* To display the realtime rate during GLM loading: `#print ${run_realtime}`
+    
+* To test the realtime rate during GLM loading 
+
+      #if ${run_realtime}>1
+      #error cannot run faster than realtime
+      #endif
+
+* To set the realtime rate at the command line 
+
+      host% gridlabd -D run_realtime=1 _myfile_.glm
+
+* To get the realtime rate 
+    
+      [gld_global] run_realtime("run_realtime");
+      int32 value = run_realtime.get_int32();
+    
+* To write to a string 
+    
+      [gld_global] run_realtime("run_realtime");
+      char1024 value;
+      run_realtime.to_string(value,sizeof(value));
+    
+* To set the realtime rate 
+       
+      [gld_global] run_realtime("run_realtime");
+      int32 value = 1;
+      run_realtime.set(value);
+    
+* To read from a string 
+    
+      [gld_global] run_realtime("run_realtime");
+      char1024 value = "1";
+      run_realtime.from_string(value);
+
+### Skipsafe
+
+Certain objects permit the clock to advance more quickly if possible and avoid calling unnecessary time synchronization events. The skipsafe [global variable] controls for how much time (in seconds) it is safe for the clock to skip when synchronizing objects. 
+
+The default value of skipsafe is 0, meaning that it is not safe to skip any time when advancing the clock. 
+
+* GLM - To set the safe clock skipping time to 1 minute, use the syntax 
+    
+      #set skipsafe=60
+    
+
+* Command line - To set the safe clock skipping time to 1 minute, use the syntax 
+        
+      host% gridlabd -D skipsafe=60
+
+### On Sync()
 
 One frequently asked question is “Why is my object running until the 31st century?” The sync() call seems to be the least understood and most unpredictable part of the GridLAB-D model. 
 

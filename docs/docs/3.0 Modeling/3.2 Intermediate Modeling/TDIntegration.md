@@ -1,46 +1,15 @@
 # Transmission
 
-**Source URL:** https://gridlab-d.shoutwiki.com/wiki/TDIntegration
-
----
- 
- 
-## Contents
-
-  * 1 Synopsis
-  * 2 Classes
-    * 2.1 pw_model
-      * 2.1.1 Prerequisites
-      * 2.1.2 Usage
-      * 2.1.3 Published Inputs
-      * 2.1.4 Published Outputs
-    * 2.2 pw_load
-      * 2.2.1 Usage
-      * 2.2.2 Published Inputs
-      * 2.2.3 Published Outputs
-    * 2.3 pw_recorder
-      * 2.3.1 Usage
-      * 2.3.2 Published Inputs
-    * 2.4 Substation Property Hooks
-      * 2.4.1 Published Inputs
-      * 2.4.2 Published Outputs
-  * 3 See also
-# Synopsis
-
 The transmission and distribution integration framework provides a means for GridLAB-D's distribution-level powerflow results to interact with a transmission-level model. This allows modeling the impact of aggregating control effects and demand response on the transmission grid, as well as the transmission-level impact of distribution-side resources. GridLAB-D interfaces with the commercially available [PowerWorld Corporation's Simulator](http://www.powerworld.com/products/simulator.asp) program, which handles the model and the transmission solver, while providing both transmission-level powerflow and dynamics simulation. 
 
 # Classes
 
-All T&D [ classes] will reside inside a [network] module. This module will provide classes that connect to PowerWorld, that pass values from [powerflow] [ objects] to a PowerWorld model, and record the behavior of the module and its instantiated objects. 
+All T&D  classes will reside inside a network module. This module will provide classes that connect to PowerWorld, that pass values from powerflow  objects to a PowerWorld model, and record the behavior of the module and its instantiated objects. 
 
 Currently, all the GridLAB-D classes are loaded with 
     
-    
     module network;
     
-
-  
-
 
 ## pw_model
 
@@ -49,7 +18,6 @@ The pw_model class represents an individual PowerWorld model that GridLAB-D is c
 ### Prerequisites
 
 The pw_model must be initialized before any pw_load or pw_recorder objects. As a rule, the directive 
-    
     
       #set init_sequence=DEFERRED
     
@@ -83,9 +51,6 @@ model_name  | string  | The file path for the PowerWorld model to run. If the pa
 update_flag  | bool  | A flag set by the pw_load objects that are attached to the specific pw_model, and reset by the model when it calls for a PowerWorld update.   
 valid_flag  | bool  | A flag set by the pw_model if the underlying PowerWorld model is in a valid state. Should this flag be set to 'false', the GridLAB-D powerflow solution will use the last good voltage value and will abort should GridLAB-D converge while PowerWorld remains divergent.   
   
-  
-
-
 ### Published Outputs
 
 Output Name  | Quantity type  | Description   
@@ -94,7 +59,7 @@ exchange_count  | int32  | The number of times PowerWorld and GridLAB-D have exc
   
 ## pw_load
 
-pw_load objects correspond with loads in PowerWorld. When PowerWorld updates, the positive sequence voltage is read in and applied to the GridLAB-D object, which is later converted to balanced three-phase by a [substation] object. When the GridLAB-D pw_load's present load changes by more than a certain threshold, the pw_load will set a flag in its corresponding pw_model indicating that the PowerWorld loads need to be updated, that PowerWorld needs to recalculate at the end of the iteration, and that GridLAB-D will need to reiterate with new values from PowerWorld. 
+pw_load objects correspond with loads in PowerWorld. When PowerWorld updates, the positive sequence voltage is read in and applied to the GridLAB-D object, which is later converted to balanced three-phase by a substation object. When the GridLAB-D pw_load's present load changes by more than a certain threshold, the pw_load will set a flag in its corresponding pw_model indicating that the PowerWorld loads need to be updated, that PowerWorld needs to recalculate at the end of the iteration, and that GridLAB-D will need to reiterate with new values from PowerWorld. 
 
 ### Usage
 
@@ -119,7 +84,7 @@ A typical pw_load looks like:
       }
     
 
-A [Substation] object must be used to connect a pw_load to the GridLAB-D [Powerflow] solver. 
+A Substation object must be used to connect a pw_load to the GridLAB-D Powerflow solver. 
 
 ### Published Inputs
 
@@ -204,13 +169,7 @@ Listed below are the additional properties that interact with the pw_load object
 Input Name  | Quantity type  | Description   
 ---|---|---  
 positive_sequence_voltage  | complex Volts  | The positive sequence voltage given from the PowerWorld bus model.   
-reference_phase  | enumeration  | The phase that will be used as the reference angle for the powerflow solution. 
-
-  * PHASE_A(Default)
-  * PHASE_B
-  * PHASE_C
-
-  
+reference_phase  | enumeration  | The phase that will be used as the reference angle for the powerflow solution. <br/> - PHASE_A(Default) <br/> -PHASE_B <br/> -PHASE_C  
 transmission_level_constant_power_load  | complex Volt-Amperes  | the positive-sequence constant power load to be posted directly to the pw_load object (powerflow solver does not handle this, it is explicitly converted and posted to PowerWorld's solver).   
 transmission_level_constant_impedance_load  | complex Ohms  | the positive-sequence constant impedance load to be posted directly to the pw_load object (powerflow solver does not handle this, it is explicitly converted and posted to PowerWorld's solver).   
 transmission_level_constant_current_load  | complex Amperes  | the positive-sequence constant current load to be posted directly to the pw_load object (powerflow solver does not handle this, it is explicitly converted and posted to PowerWorld's solver).   
@@ -228,10 +187,10 @@ Please note that the transmission current and impedance loads are converted to c
 
 # See also
 
-  * [Powerflow module]
-  * [Requirements]
-  * [Specifications]
-  * [Implementation]
+  * Powerflow module
+  * Requirements
+  * Specifications
+  * Implementation
   * User's manual
-  * [Navajo (trunk)]
+  * Navajo (trunk)
 

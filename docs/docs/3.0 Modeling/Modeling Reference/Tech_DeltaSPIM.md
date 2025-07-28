@@ -150,20 +150,8 @@ delta_mode_rotor_speed_exit  | double  | Percent  | Percentage speed of nominal 
 delta_mode_voltage_exit  | double  | Percent  | Percentage voltage of nominal to exit delta mode.   
 maximum_speed_error  | double  | N/A  | Variable to set the maximum speed error in the steady state model.   
 wr  | double  | rad/sec  | The speed of the rotor.   
-motor_status  | enumeration  | N/A  | The current status of the motor. 
-
-  * `RUNNING`, the motor is running
-  * `STALLED`, the motor is stalled
-  * `TRIPPED`, the motor is tripped
-  * `OFF`, the motor is off
-
-  
-motor_override  | enumeration  | N/A  | The current status of the motor. 
-
-  * `ON`, the motor is turned ON
-  * `OFF`, the motor is turned OFF
-
-  
+motor_status  | enumeration  | N/A  | The current status of the motor. <br/> - `RUNNING`, the motor is running <br/> - `STALLED`, the motor is stalled <br/> - `TRIPPED`, the motor is tripped <br/> - `OFF`, the motor is off  
+motor_override  | enumeration  | N/A  | The current status of the motor. <br/> - `ON`, the motor is turned ON <br/> - `OFF`, the motor is turned OFF 
   
 ## Motor Model Verification
 

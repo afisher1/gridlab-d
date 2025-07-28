@@ -1,24 +1,6 @@
 # Tech:CompositionMotor
 
-**Source URL:** https://gridlab-d.shoutwiki.com/wiki/Tech:CompositionMotor
-## Contents
-
-  * 1 Overview
-    * 1.1 Introduction
-      * 1.1.1 Air-source Heat Pump
-      * 1.1.2 Refrigerator
-    * 1.2 Gry-box Modeling Framework
-      * 1.2.1 Simplified Heat Pump Models
-      * 1.2.2 Simplified Refrigerator Model
-      * 1.2.3 Representative Heat Pumps
-      * 1.2.4 Model Coefficient Determination
-      * 1.2.5 Integration with GLD
-# Overview
-
 As part of the DistribuDyn project funded by the U.S. Department of Energy Solar Energy Technology Office (SETO), the integrated thermal-electrical models to represent behind-the-meter (BTM) building loads devices that are driven by electrical motors in the modern power system. The model in motor.cpp represents an induction motor. This page describes the simplified models of air-source heat pump and refrigerator that have been added into “motor.cpp,” respectively. 
-
-  
-
 
 ## Introduction
 
@@ -123,15 +105,12 @@ Below is an example model in GridLAB-D
 
   * C++ motor class simulation for HVAC and refrigeration power and torque estimation
   * Code includes device selection, regression-based power models, and total torque calculation
-  
-
-    
-    
-    <code>void motor::calc_num_devices(double power_tot)
-    {
-        double power_map[7] = {527, 2230, 4100, 6720, 31290, 31719, 70500};
-        int n_1ton=0, n_3ton=0, n_5ton=0, n_30ton=0, n_30tonVFD=0, n_60ton=0;
-        int n_max_1ton = floor(power_tot / (power_map[1] + power_map[0]));
+      
+        void motor::calc_num_devices(double power_tot)
+        {
+            double power_map[7] = {527, 2230, 4100, 6720, 31290, 31719, 70500};
+            int n_1ton=0, n_3ton=0, n_5ton=0, n_30ton=0, n_30tonVFD=0, n_60ton=0;
+            int n_max_1ton = floor(power_tot / (power_map[1] + power_map[0]));
     
         if (n_max_1ton > 0) {
             n_1ton = rand() % n_max_1ton + 1;
@@ -152,31 +131,31 @@ Below is an example model in GridLAB-D
         num_devices[4] = n_30ton;
         num_devices[5] = n_30tonVFD;
         num_devices[6] = n_60ton;
-    }
+        }
     
-    double motor::model_power_refrigerator(double *coeffs, double Tamb, double Tcase) {
-        return coeffs[0] + coeffs[1] * Tamb + coeffs[2] * Tamb * Tamb +
-               coeffs[3] * Tcase + coeffs[4] * Tcase * Tcase + coeffs[5] * Tamb * Tcase;
-    }
+        double motor::model_power_refrigerator(double *coeffs, double Tamb, double Tcase) {
+            return coeffs[0] + coeffs[1] * Tamb + coeffs[2] * Tamb * Tamb +
+                  coeffs[3] * Tcase + coeffs[4] * Tcase * Tcase + coeffs[5] * Tamb * Tcase;
+        }
+        
+        double motor::model_HP_power(double *coeffs, double Tindoor, double Toa) {
+            return coeffs[0] + coeffs[1] * Tindoor + coeffs[2] * Tindoor * Tindoor +
+                  coeffs[3] * Toa + coeffs[4] * Toa * Toa + coeffs[5] * Tindoor * Toa;
+        }
+        
+        double motor::model_HPVFD_power(double *coeffs, double Tindoor, double Toa, double PLR) {
+            double poly1 = coeffs[0] + coeffs[1] * PLR + coeffs[2] * PLR * PLR;
+            double poly2 = coeffs[3] + coeffs[4] * Tindoor + coeffs[5] * Tindoor * Tindoor +
+                          coeffs[6] * Toa + coeffs[7] * Toa * Toa + coeffs[8] * Tindoor * Toa;
+            return poly1 * poly2;
+        }
     
-    double motor::model_HP_power(double *coeffs, double Tindoor, double Toa) {
-        return coeffs[0] + coeffs[1] * Tindoor + coeffs[2] * Tindoor * Tindoor +
-               coeffs[3] * Toa + coeffs[4] * Toa * Toa + coeffs[5] * Tindoor * Toa;
-    }
-    
-    double motor::model_HPVFD_power(double *coeffs, double Tindoor, double Toa, double PLR) {
-        double poly1 = coeffs[0] + coeffs[1] * PLR + coeffs[2] * PLR * PLR;
-        double poly2 = coeffs[3] + coeffs[4] * Tindoor + coeffs[5] * Tindoor * Tindoor +
-                       coeffs[6] * Toa + coeffs[7] * Toa * Toa + coeffs[8] * Tindoor * Toa;
-        return poly1 * poly2;
-    }
-    
-    double motor::torque_tot(double power_tot, double wr, double Tindoor, double Toa, double Tcase, double Tamb) {
-        double coeffs_rfgt[6] = {...}; // Refrigeration coefficients
-        double coeffs_1ton[6] = {...};
-        double coeffs_30ton[6] = {...};
-        double coeffs_30tonVFD[9] = {...};
-        // other coeff arrays
+        double motor::torque_tot(double power_tot, double wr, double Tindoor, double Toa, double Tcase, double Tamb) {
+            double coeffs_rfgt[6] = {...}; // Refrigeration coefficients
+            double coeffs_1ton[6] = {...};
+            double coeffs_30ton[6] = {...};
+            double coeffs_30tonVFD[9] = {...};
+            // other coeff arrays
     
         double power_rfgt = model_power_refrigerator(coeffs_rfgt, Tcase, Tamb);
         double power_1ton = model_HP_power(coeffs_1ton, Tindoor, Toa);
@@ -190,8 +169,8 @@ Below is an example model in GridLAB-D
                           // ... other terms ...
                           num_devices[5] * power_30tonVFD) / wr / TQbase : 0.0;
         return TQmech;
-    }
-    </code>
+        }
+
 
 
   

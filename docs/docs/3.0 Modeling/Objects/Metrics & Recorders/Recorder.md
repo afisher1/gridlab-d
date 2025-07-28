@@ -1,7 +1,6 @@
 # Recorder
 
-**Source URL:** https://gridlab-d.shoutwiki.com/wiki/Recorder
-recorder \- Record data to a stream 
+Record data to a stream 
 
 ## Synopsis
     
