@@ -73,8 +73,8 @@ jobs:
       
       - name: Run GridLAB-D Autotests
         run: |
-        export PATH=$PATH:~/.temp/GridLAB-D/bin
-        gridlabd -T 0 --validate
+          export PATH=$PATH:~/.temp/GridLAB-D/bin
+          gridlabd -T 0 --validate
 
       - name: Package
         working-directory: ${{github.workspace}}/build
