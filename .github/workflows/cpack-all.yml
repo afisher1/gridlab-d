@@ -236,7 +236,13 @@ jobs:
           cmake -B ${{github.workspace}}/build-${{matrix.arch}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} \
           -DCMAKE_INSTALL_PREFIX=~/.temp/GridLAB-D -DGLD_USE_HELICS=ON -DGLD_HELICS_DIR=~/.cache/HELICS \
           -DCMAKE_APPLE_SILICON_PROCESSOR=${{matrix.arch}} -DGLD_CI_BUILD=ON
-          cmake --build ${{github.workspace}}/build-${{matrix.arch}} --config ${{env.BUILD_TYPE}} --parallel $threads
+          cmake --build ${{github.workspace}}/build-${{matrix.arch}} --config ${{env.BUILD_TYPE}} --parallel $threads \
+          --target install
+
+      - name: Run GridLAB-D Autotests
+        run: |
+          export PATH=$PATH:~/.temp/GridLAB-D
+          gridlabd -T 0 --validate
 
       - name: Package
         working-directory: ${{github.workspace}}/build-${{matrix.arch}}
