@@ -165,7 +165,7 @@ jobs:
         run: |
           workspace="$(cygpath -u '${{github.workspace}}')"
           export PATH=$PATH:$workspace/.temp/GridLAB-D/bin
-          gridlabd -T 0 --validate
+          gridlabd --validate
 
       - name: Package
         working-directory: ${{github.workspace}}/gridlab-build/build
@@ -191,7 +191,7 @@ jobs:
     steps:
       - name: Install Homebrew dependencies
         run: |
-          brew update --preinstall
+          brew update
           env HOMEBREW_NO_AUTO_UPDATE=1 brew install boost
 
       - name: Build HELICS Cache
