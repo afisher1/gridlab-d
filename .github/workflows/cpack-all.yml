@@ -1,6 +1,7 @@
 name: GridLAB-D Build
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - 'feature/1478'
