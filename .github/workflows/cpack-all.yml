@@ -241,7 +241,7 @@ jobs:
 
       - name: Run GridLAB-D Autotests
         run: |
-          export PATH=$PATH:~/.temp/GridLAB-D
+          export PATH=$PATH:~/.temp/GridLAB-D/bin
           gridlabd -T 0 --validate
 
       - name: Package
