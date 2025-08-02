@@ -153,74 +153,37 @@ nav:
       - Object (property): docs/3.0 Modeling/Objects/Object_(property).md
       - Voltage source inverter (VSI): docs/3.0 Modeling/Objects/Voltage_source_inverter_(VSI).md
   - 4.0 Developing:
-    - API:
-      - Dev:KML: docs/4.0 Developing/API/Dev_KML.md
-      - Dev:Link: docs/4.0 Developing/API/Dev_Link.md
-      - Dev:Locking: docs/4.0 Developing/API/Dev_Locking.md
-      - Dev:Solvers: docs/4.0 Developing/API/Dev_Solvers.md
-      - Dev:load method: docs/4.0 Developing/API/Dev_load_method.md
-      - Dev:notify: docs/4.0 Developing/API/Dev_notify.md
-      - Extern: docs/4.0 Developing/API/Extern.md
-      - Gld object: docs/4.0 Developing/API/Object.md
-      - PT ACCESS: docs/4.0 Developing/API/PT_ACCESS.md
-      - Powerflow External LU Solver Interface: docs/4.0 Developing/API/Powerflow_External_LU_Solver_Interface.md
-      - Publishing methods: docs/4.0 Developing/API/Publishing_methods.md
-      - Publishing properties: docs/4.0 Developing/API/Publishing_properties.md
-      - Using Global Variables: docs/4.0 Developing/API/Using_Global_Variables.md
-      - Module globals: docs/4.0 Developing/API/globals.md
-    - Build_Installation:
-      - CMake Build | Building GridLAB-D: docs/4.0 Developing/Build_Installation/Build.md
-      - Building and Releasing GridLAB-D: docs/4.0 Developing/Build_Installation/Building_for_release.md
-      - Installing GridLAB-D™: docs/4.0 Developing/Build_Installation/Installing.md
-    - Code templates: docs/4.0 Developing/Code_templates.md
-    - Debugging:
-      - Command options: docs/4.0 Developing/Debugging/Command_line_arguments.md
-      - Performance Profiling: docs/4.0 Developing/Debugging/performance-profiling.md
-    - Deltamode:
-      - Dev:Subsecond: docs/4.0 Developing/Deltamode/Dev_Subsecond.md
-    - Fundamentals:
-      - Class: docs/4.0 Developing/Fundamentals/CLASS.md
-      - Core Guide: docs/4.0 Developing/Fundamentals/Core_Guide.md
-      - Creating a class: docs/4.0 Developing/Fundamentals/Creating_a_class.md
-      - Creating a module: docs/4.0 Developing/Fundamentals/Creating_a_module.md
-      - Dev:HowTo:Create a module: docs/4.0 Developing/Fundamentals/Dev_HowTo_Create_a_module.md
-      - Environment: docs/4.0 Developing/Fundamentals/Environment.md
-      - Gld object: docs/4.0 Developing/Fundamentals/Gld_object.md
-      - How To Write GridLAB-D Modules: docs/4.0 Developing/Fundamentals/How_To_Write_GridLAB-D_Modules.md
-      - Integrated Testing: docs/4.0 Developing/Fundamentals/Integrated_Testing.md
-      - Introduction to Programming GridLAB-D: docs/4.0 Developing/Fundamentals/Introduction_to_Programming_GridLAB-D.md
-      - Mainloop state: docs/4.0 Developing/Fundamentals/Mainloop_state.md
-      - Code templates: docs/4.0 Developing/Fundamentals/Module_templates.md
-      - Programming conventions: docs/4.0 Developing/Fundamentals/Programming_conventions.md
-      - Gld property: docs/4.0 Developing/Fundamentals/Property.md
-      - Developing 101: docs/4.0 Developing/Fundamentals/intro-to-developing.md
-    - Modules:
-      - autotest:
-        - Validate: docs/4.0 Developing/Modules/autotest/Validate_report.md
-      - connections:
-        - Connection: docs/4.0 Developing/Modules/connections/Connection.md
-        - Connection:fncs msg: docs/4.0 Developing/Modules/connections/Connection_fncs_msg.md
-        - Connection:helics msg: docs/4.0 Developing/Modules/connections/Connection_helics_msg.md
-        - Connection:json: docs/4.0 Developing/Modules/connections/Connection_json.md
-        - Connection:link: docs/4.0 Developing/Modules/connections/Connection_link.md
-        - Connection:lockout: docs/4.0 Developing/Modules/connections/Connection_lockout.md
-        - Connection:mode: docs/4.0 Developing/Modules/connections/Connection_mode.md
-        - Connection:native: docs/4.0 Developing/Modules/connections/Connection_native.md
-        - Connection:security: docs/4.0 Developing/Modules/connections/Connection_security.md
-        - Connection:transport: docs/4.0 Developing/Modules/connections/Connection_transport.md
-        - Connection:xml: docs/4.0 Developing/Modules/connections/Connection_xml.md
-        - Dev:connection: docs/4.0 Developing/Modules/connections/Dev_connection.md
-        - Dev:mysql: docs/4.0 Developing/Modules/connections/Dev_mysql.md
-      - gldcore:
-        - Glengine: docs/4.0 Developing/Modules/gldcore/Glengine.md
-      - optimization:
-        - Optimize: docs/4.0 Developing/Modules/optimization/Optimize.md
-        - Tech:Optimize: docs/4.0 Developing/Modules/optimization/Tech_Optimize.md
-      - powerflow:
-        - HowTo:Create a solver: docs/4.0 Developing/Modules/powerflow/HowTo_Create_a_solver.md
-      - residential:
-        - Tech:Multizone ETP Linearization: docs/4.0 Developing/Modules/residential/Tech_Multizone_ETP_Linearization.md
-    - Dev:class: docs/4.0 Developing/Style_guide.md
+  - Introduction: docs/4.0 Developing/4.1 - Introduction.md
+  - Building GridLAB-D from Source: docs/4.0 Developing/4.2 - Building GridLAB-D from Source.md
+  - 4.3 - GridLAB-D Software Architecture:
+    - GridLAB-D Software Architecture Introduction.md: docs/4.0 Developing/4.3 - GridLAB-D Software Architecture/4.3.0 - GridLAB-D Software Architecture Introduction.md
+    - GLDCore: docs/4.0 Developing/4.3 - GridLAB-D Software Architecture/4.3.1 - GLD Core.md
+    - Object Synchronization Process: docs/4.0 Developing/4.3 - GridLAB-D Software Architecture/4.3.2 - GridLAB-D Object Synchronization Process.md
+    - GridLAB-D Modules: docs/4.0 Developing/4.3 - GridLAB-D Software Architecture/4.3.3 - GridLAB-D Modules.md
+    - GridLAB-D Device Model Structure: docs/4.0 Developing/4.3 - GridLAB-D Software Architecture/4.3.4 - GridLAB-D Device Model Structure.md
+    - GridLAB-D Objects: docs/4.0 Developing/4.3 - GridLAB-D Software Architecture/4.3.5 - GridLAB-D Objects.md
+    - GridLAB-D Parallelization: docs/4.0 Developing/4.3 - GridLAB-D Software Architecture/4.3.6 - GridLAB-D Parallelization.md
+    - GridLAB-D Loader: docs/4.0 Developing/4.3 - GridLAB-D Software Architecture/4.3.7 - GridLAB-D Loader.md
+    - GridLAB-D Data Transforms: docs/4.0 Developing/4.3 - GridLAB-D Software Architecture/4.3.8 - GridLAB-D Transforms.md
+    - libgld: docs/4.0 Developing/4.3 - GridLAB-D Software Architecture/4.3.9 - libgld.md
+  - 4.4 - GridLAB-D Development Fundamentals:
+    - Programming conventions: docs/4.0 Developing/4.4 - GridLAB-D Development Fundamentals/4.4.1 - Programming_conventions.md
+    - Creating a module - v1: docs/4.0 Developing/4.4 - GridLAB-D Development Fundamentals/4.4.2 - Creating_a_module.md
+    - Creating a class: docs/4.0 Developing/4.4 - GridLAB-D Development Fundamentals/4.4.3 - Creating_a_class.md
+    - Integrated Testing: docs/4.0 Developing/4.4 - GridLAB-D Development Fundamentals/4.4.4 - Integrated_Testing.md
+  - 4.5 - Deltamode Development:
+    - Introduction to Deltamode Development: docs/4.0 Developing/4.5 - Deltamode Development/4.5.0 - Introduction to Deltamode Development.md
+    - Dev:Subsecond: docs/4.0 Developing/4.5 - Deltamode Development/4.5.1 - Dev_Subsecond.md
+  - 4.6- Debugging:
+    - Introduction to Debugging when Developing GridLAB-Debugging: docs/4.0 Developing/4.6- Debugging/4.6.0 - Introduction.md
+    - Command options: docs/4.0 Developing/4.6- Debugging/4.6.1 - Command_line_arguments.md
+    - Performance Profiling: docs/4.0 Developing/4.6- Debugging/4.6.2 - performance-profiling.md
+  - Dev:class: docs/4.0 Developing/4.7 - Style_guide.md
+  - undecided:
+    - Dev:mysql: docs/4.0 Developing/undecided/Dev_mysql.md
+    - HowTo:Create a solver: docs/4.0 Developing/undecided/HowTo_Create_a_solver.md
+    - Powerflow External LU Solver Interface: docs/4.0 Developing/undecided/Powerflow_External_LU_Solver_Interface.md
+    - Tech:Optimize: docs/4.0 Developing/undecided/Tech_Optimize.md
   - 5.0 Integration:
     - Interfacing with External Software: docs/5.0 Integration/Interfacing_with_External_Software.md
     - Intro to Integration: docs/5.0 Integration/intro-to-integration.md
