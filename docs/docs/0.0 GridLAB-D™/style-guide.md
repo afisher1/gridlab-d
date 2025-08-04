@@ -11,14 +11,23 @@ Before you build, re-generate the navigation list/table of contents to tell `mkd
       nav:
       - Home: index.md
       - 0.0 GridLAB-D™:
-          - Contacts: docs\0.0 GridLAB-D™\Contacts_list.md
-          - Announcements: docs\0.0 GridLAB-D™\Version History.md
-          - projects: docs\0.0 GridLAB-D™\projects.md
-          - publications: docs\0.0 GridLAB-D™\publications.md
-          - Source: docs\0.0 GridLAB-D™\resources.md
-          - Style Guide: docs\0.0 GridLAB-D™\style-guide.md
+          - Contacts: docs/0.0 GridLAB-D™/Contacts_list.md
+          - Announcements: docs/0.0 GridLAB-D™/Version History.md
+          - projects: docs/0.0 GridLAB-D™/projects.md
+          - publications: docs/0.0 GridLAB-D™/publications.md
+          - Source: docs/0.0 GridLAB-D™/resources.md
+          - Style Guide: docs/0.0 GridLAB-D™/style-guide.md
       - 1.0 Prospective Users:
-        - Key Attributes of GridLAB-D™: docs\1.0 Prospective Users\GridLAB-D_Key_Attributes.md
+        - Key Attributes of GridLAB-D™: docs/1.0 Prospective Users/GridLAB-D_Key_Attributes.md
+
+
+Things to keep in mind when updating the nav: list
+- "docs/" needs to be at the start of each path
+- Docs will not build if there are empty folders in the nav. If it's a placeholder folder, remove it from the nav list until something is in it.
+- Make sure the indentention follows the folder hierarchy
+- Don't put special characters in title pages (first headers), ex: no "&"
+- The order they are listed is the order they will display. Rearrange as needed.
+
 
 ## Local Build
 
@@ -107,13 +116,7 @@ Looks overwhelming. Not the least of which because it's bad Latin. Instead, let'
 
 *"Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."*
 
-![Here's an image](https://images.shoutwiki.com/gridlab-d/e/e6/Gdlogo.jpg)
 
-Another image (local) and resized
-
-<img   src=../../images/Gdlogo.jpg width="750">
-
-Not edited
 
 ![logo](../../images/Gdlogo.jpg)
 
@@ -132,6 +135,24 @@ print("Hello, world!)
 
 Much better!
 
+## Adding Images
+
+We added an image in the chunking example, but here are a few more options for how to do that. Images can be either local (in the images folder), or refering an external url. See the below examples:
+
+![Here's an image](https://images.shoutwiki.com/gridlab-d/e/e6/Gdlogo.jpg)
+
+Another image (local) and resized
+
+<img   src=../../images/Gdlogo.jpg width="750">
+
+Not edited
+
+![logo](../../images/Gdlogo.jpg)
+
+# Local Image Reference
+
+![Dist syst switching capacitors.png](../../images/Dist_syst_switching_capacitors.png)
+
 ## Accessibility
 
 There are some specific accessibility tips to note, below. But in general, remember who we are writing for. If they're reading this documentation, they're not an expert. They're learning.  Just as you once learned these things. The reader may not even be a user yet, they might just want to know what GridLAB-D™is in order to decide whether they should learn it. They might be a user, but this is their first experience performing distribution system modeling. They might have no coding experience at all. Keep the audience in mind while you write, and remember that we are here to teach. Other notes on accessibility:
@@ -147,6 +168,7 @@ There are some specific accessibility tips to note, below. But in general, remem
 For example, when you add an image, add text for both the "Alt text" (this should be very brief) and the caption. Like so:
 
 <Image align="center" alt="A diagram of a populated feeder model" border={false} caption="A diagram of the populated Copperplate Feeder model, composed of commercial buildings and distributed energy resources (DER) on a reduced feeder." src="https://files.readme.io/3a0e8652e725fcc533b615ce01cab5fe51346a8f08f8f301e2abf7d45b498146-Copperplate-Populated.png" />
+
 
 # Avoid Biased Language
 
@@ -184,21 +206,63 @@ The PNNL Style Guide is available [here](https://confluence.pnnl.gov/confluence/
 
 > Blockquote
 
+# Bulleted Lists
+
+Below are a few options for making a list. All are acceptable options.
+
 * List
 * List
 * List
 
 or
 
-* List
-* List
-* List
+- List
+- List
+- List
 
 or
 
 1. one
 2. two
 3. three
+
+Note that longer descriptions may be placed on the subsequent line for ease of reading (on the .md page, the built docs will place the description immediately following the term). 
+
+One should also bold the term in a list for ease of viewing. For example:
+
+## DO:
+
+* **Initialization** -
+    The external application is started and if possible global variables, if any, are exported.
+
+## DO NOT: 
+
+The following will not display correctly as a bulleted list: 
+
+* **Initialization** -
+
+    The external application is started and if possible global variables, if any, are exported.
+
+*Note that the line must directly follow the term (no extra line between) to show up correctly.*
+
+or
+
+Initialization
+    The external application is started and if possible global variables, if any, are exported.
+
+*Many wiki pages use this format for lists, it is our job to convert them into lists that render correctly.*
+
+
+* **Initialization** -
+    The external application is started and if possible global variables, if any, are exported.
+**My next sentence is on a new line so it looks distinct, but without a line between, it gets absorbed into the bulleted list. Put an extra return after a list ends before continuing to write.** 
+
+
+## There is no try.
+
+When in doubt, build the docs and see if it looks right. If not, refer back to this style guide for advice.
+
+# Quick Markdown Reference, Continued.
 
 Horizontal rule:
 
@@ -227,9 +291,6 @@ flowchart LR
  B --> D[fa:fa-ban D]
 ```
 
-# Local Image Reference
-
-![Dist syst switching capacitors.png](../../images/Dist_syst_switching_capacitors.png)
 
 # Equations
 
@@ -246,6 +307,9 @@ $$x^n + y^n = z^n \tag{1}$$
 An example with both multi-letter subscripts and variable names with hyphens:
 
 $P_{vent} = floor\_area (0.1 - 0.01\imath)$ VA/sf, and $Q_{vent}=0.2402 \times 0.0735 (T_{out}-T_{air}) V_{air} \times ventilation\_rate$
+
+
+Note that there cannot be spaces between the $ and the equation, on either side, to display correctly.
 
 # References
 

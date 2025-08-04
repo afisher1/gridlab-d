@@ -1,21 +1,4 @@
-# Connection:helics msg
-
-**Source URL:** https://gridlab-d.shoutwiki.com/wiki/Connection:helics_msg
-
-
-## Contents
-
-  * 1 Overview
-    * 1.1 Enabling the helics_msg object
-    * 1.2 Environment Considerations
-  * 2 Helics_msg
-    * 2.1 Default Helics_msg
-    * 2.2 Helics_msg Parameters
-    * 2.3 Configuration File Syntax
-      * 2.3.1 HELICS 1.X Library
-      * 2.3.2 HELICS 2.X
-      * 2.3.3 HELICS 3.X and GridLAB-D 5.X
-## Overview
+# helics msg
 
 The helics_msg object is part of the `connection` module. It allows GridLAB-D models to be run as federates in a HELICS co-simulation. In 4.1 the helics_msg object is available by default. 
 

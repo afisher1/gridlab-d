@@ -146,32 +146,32 @@ DEGOV1 and SEXS models are commonly used in power system industry-grade transien
   
 The simplified exciter system (SEXS) equations are: 
 
-$$  V_{err} = V_{set}- average \left( |\left[ V_{Ga,b,c} \right] | \right)$$
+$$V_{err} = V_{set}- average \left( |\left[ V_{Ga,b,c} \right] | \right)$$
 
-$$  T_{B} \frac{d x_{b}}{dt} = V_{err}- x_{b} $$
+$$ T_{B} \frac{d x_{b}}{dt} = V_{err}- x_{b}$$
 
-$$  V_{R}= x_{b}+ T_{C} \frac{d x_{b}}{dt} $$
+$$V_{R}= x_{b}+ T_{C} \frac{d x_{b}}{dt}$$
 
-$$  T_{A} \frac{d E_{fd}}{dt} = K_{A} V_{R}- E_{fd} $$
+$$T_{A} \frac{d E_{fd}}{dt} = K_{A} V_{R}- E_{fd}$$
 
-$$  E_{MIN} \leq E_{fd} \leq E_{MAX} $$
+$$E_{MIN} \leq E_{fd} \leq E_{MAX}$$
 
 The diesel governor DGOV1 equations are: 
 
   * Electric control box
-  $$  T_{1} T_{2} \frac{d x_{2}}{dt} = \omega_{set}- \omega_{i}- R \cdot y_{throttle}- x_{1}- x_{2} $$
-  $$  \frac{d x_{1}}{dt} = x_{2} $$
-  $$ \displaystyle{} y_{gov} = T_{3} x_{2}+ x_{1} $$
+  $$T_{1} T_{2} \frac{d x_{2}}{dt} = \omega_{set}- \omega_{i}- R \cdot y_{throttle}- x_{1}- x_{2}$$
+  $$ \frac{d x_{1}}{dt} = x_{2}$$
+  $$\displaystyle{} y_{gov} = T_{3} x_{2}+ x_{1}$$
 
   * Actuator
-  $$  T_{5} \frac{d x_{5}}{dt} = K \cdot y_{gov}- x_{5} $$
-  $$  T_{6} \frac{d x_{6}}{dt} = x_{5}- x_{6} $$
-  $$  \frac{d x_{4}}{dt} = x_{6} $$
-  $$  T_{MIN} \leq x_{4} \leq T_{MAX} $$
-  $$ \displaystyle{} y_{throttle}= T_{4} x_{6}+ x_{4} $$
+  $$T_{5} \frac{d x_{5}}{dt} = K \cdot y_{gov}- x_{5}$$
+  $$T_{6} \frac{d x_{6}}{dt} = x_{5}- x_{6}$$
+  $$\frac{d x_{4}}{dt} = x_{6}$$
+  $$T_{MIN} \leq x_{4} \leq T_{MAX}$$
+  $$\displaystyle{} y_{throttle}= T_{4} x_{6}+ x_{4}$$
 
   * Diesel engine
-  $$  T_{mechi} = delay \left( y_{t}, T_{D} \right) $$
+  $$T_{mechi} = delay \left( y_{t}, T_{D} \right)$$
 
 ### References
 

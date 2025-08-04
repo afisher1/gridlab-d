@@ -18,9 +18,9 @@ would make the powerflow module objects available to your model file and solve t
 
 The basic equations are in the following forms: 
 
-Backward sweep: $  [ I_{abc} ]_n = [ c ] \times [ V_{abc} ]_m + [ d ] \times [ I_{abc} ]_n $
+Backward sweep: $[ I_{abc} ]_n = [ c ] \times [ V_{abc} ]_m + [ d ] \times [ I_{abc} ]_n$
 
-Forward sweep: $  [ V_{abc} ]_m = [ A ] \times [ V_{abc} ]_m + [ B ] \times [ I_{abc} ]_n $
+Forward sweep: $[ V_{abc} ]_m = [ A ] \times [ V_{abc} ]_m + [ B ] \times [ I_{abc} ]_n$
 
 where the $[c]$, $[d]$, $[A]$, and $[B]$ matrices represent individual characteristics of each link section as described in Kersting (2007). 
 
@@ -28,8 +28,7 @@ where the $[c]$, $[d]$, $[A]$, and $[B]$ matrices represent individual character
 
 The basic Gauss-Seidel equation is: 
 
-$$V_i^{(k)} = \frac{1}{Y_{ii}} \left [ \frac{P_{i,sch} - \jmath Q_{i,sch}}{V_i^{(k-1)*}} - \sum_{j=1}^{i-1} Y_{ij} V_j^{(k)} - \sum_{j=i+1}^{N} Y_{ij} V_j^{(k-1)} \right ] 
-$$
+$$V_i^{(k)} = \frac{1}{Y_{ii}} \left [ \frac{P_{i,sch} - \jmath Q_{i,sch}}{V_i^{(k-1)*}} - \sum_{j=1}^{i-1} Y_{ij} V_j^{(k)} - \sum_{j=i+1}^{N} Y_{ij} V_j^{(k-1)} \right ]$$
 
 where 
 
@@ -40,6 +39,7 @@ where
   * $P_{i,sch}$ is the scheduled real power injection;
   * $Q_{i,sch}$ is the schedule reactive power injection; and
   * $Y_{ij}$ is the admittance of the line connecting node $i$ with the $j$node.
+
 As a requirement of the Gauss-Seidel method, one node in the system must be designated as a swing bus. This node represents an infinite bus and provides a fixed voltage reference for Gauss-Seidel iterations. 
 
 The Gauss-Seidel solver is an ongoing implementation. Most objects in the powerflow library are available for use. Objects that still need to be implemented include switches, relays, fuses, split-phase transformers, and regulators. 
@@ -50,8 +50,7 @@ Newton-Raphson is currently under development. Some features in the powerflow so
 
 The Newton-Raphson solver is comprised of two principle sets of equations. The first set of equations describes the current injection from loads into the system. They are split into a real and imaginary component and are given as: 
 
-$$\begin{matrix} \displaystyle \Delta{}I^s_{rk}=\frac{(P_k^{sp})^sV_{rk}^s+(Q_k^{sp})^sV_{mk}^s}{(V_{rk}^s)^2+(V_{mk}^s)^2}-\sum_{i=1}^n \sum_{t} \left(G_{ki}^{st}V_{r_i}^t-B_{ki}^{st}V_{m_i}^t\right)\\\ \\\ \displaystyle \Delta{}I^s_{mk}=\frac{(P_k^{sp})^sV_{mk}^s+(Q_k^{sp})^sV_{rk}^s}{(V_{rk}^s)^2+(V_{mk}^s)^2}-\sum_{i=1}^n \sum_{t} \left(G_{ki}^{st}V_{m_i}^t-B_{ki}^{st}V_{r_i}^t\right) \end{matrix} 
-$$
+$$\begin{matrix} \displaystyle \Delta{}I^s_{rk}=\frac{(P_k^{sp})^sV_{rk}^s+(Q_k^{sp})^sV_{mk}^s}{(V_{rk}^s)^2+(V_{mk}^s)^2}-\sum_{i=1}^n \sum_{t} \left(G_{ki}^{st}V_{r_i}^t-B_{ki}^{st}V_{m_i}^t\right)\\\ \\\ \displaystyle \Delta{}I^s_{mk}=\frac{(P_k^{sp})^sV_{mk}^s+(Q_k^{sp})^sV_{rk}^s}{(V_{rk}^s)^2+(V_{mk}^s)^2}-\sum_{i=1}^n \sum_{t} \left(G_{ki}^{st}V_{m_i}^t-B_{ki}^{st}V_{r_i}^t\right) \end{matrix}$$
 
 where 
 
@@ -69,8 +68,7 @@ where
 With the current injections calculated, the voltage updates are computed via 
 
   
-$$\begin{bmatrix} \Delta{}I_{mk} \\\ \Delta{}I_{rk} \end{bmatrix} = -\mathbf{J^{-1}} \begin{bmatrix} \Delta{}V_{mk} \\\ \Delta{}V_{rk} \end{bmatrix} 
-$$
+$$\begin{bmatrix} \Delta{}I_{mk} \\\ \Delta{}I_{rk} \end{bmatrix} = -\mathbf{J^{-1}} \begin{bmatrix} \Delta{}V_{mk} \\\ \Delta{}V_{rk} \end{bmatrix}$$
 
   
 where 
@@ -102,11 +100,10 @@ The Gauss-Seidel and Newton-Raphson methods have more explicitly defined bus typ
   * `SWING` \- the infinite bus, voltage reference of a particular system
   * `PQ` \- a standard bus providing voltage levels (loads are handled explicitly in load objects)
   * `PV` \- a fixed voltage magnitude bus
+
 and are specified with the input parameter `bustype`. All busses are `PQ` by default, so if a swing bus needed to be designated, use the parameter 
     
-    
     bustype SWING;
-    
 
 in the input file. 
 
@@ -126,24 +123,21 @@ Loads can explicitly model three different types of loads connected to the distr
 
 The different loads are specified through the `constant_power_X`, `constant_current_X` and `constant_impedance_X` input parameters respectively. In each of the loading types, the `X` value is substituted by the appropriate phase. For example, if a constant current load of $1.044 - \jmath0.98 \text{ Amps}$ were needed on phase A, the load object would have a parameter of 
     
-    
     constant_current_A 1.044-j0.98;
     
   
 Loads are primarily connected in one of two forms: wye or delta. The connection of the different aspects of the load are determined by the `phases` parameter of the load. If a `D` appears anywhere in the `phases` parameter, a delta connection is assumed. For example, 
-    
     
     phases ABD;
     
 
 would indicate that a delta connected load exists on the line-to-line connection AB. 
 
-  
 Many IEEE test systems and feeders have all of the loads defined in terms of power, but subclassed as either a power, current, or impedance load. Due to GridLAB-D's ability to explicitly model these load types, the constant current and impedance load values must be translated from their power rating into an Amperage or impedance value. 
 
 To calculate the constant current load from a system, use the equation 
 
-$$\displaystyle I_{load} = \left(\frac{P}{V}\right)^{*} $$
+$$\displaystyle I_{load} = \left(\frac{P}{V}\right)^{*}$$
 
 where 
 
@@ -157,7 +151,7 @@ It is important to point out that $V$ is _not_ a magnitude value. It is the nomi
   
 Constant impedance loads are calculated using the equation 
 
-$$\displaystyle Z_{load} = \left( \frac{V \cdot V^{*}}{P}\right)^{*} $$
+$$\displaystyle Z_{load} = \left( \frac{V \cdot V^{*}}{P}\right)^{*}$$
 
 where $Z_{load}$ represents the constant impedance load. 
 
@@ -227,28 +221,20 @@ Equations for the Delta-Grounded Wye step-down transformer are consistent with K
 
 The equations for the step-up and step-down transformer are not identical because of the use of the “American Standard Thirty Degree” connection, as described in Kersting (2007) and IEEE C57.12.00 (2006). In order to obtain the equations for the step-up transformer from the step-down transformer equations the $[c]$ and $[d]$ matrices must be multiplied by: 
 
-$$S= \begin{bmatrix} 
-    
-    
+$$S= \begin{bmatrix}     
     0 & 0 & -1 \\
     -1 & 0 & 0 \\
     0 & -1 & 0
-    
-
-\end{bmatrix} $$
+\end{bmatrix}$$
 
   
 Matrix $[A]$ must be multiplied by: 
 
 $$S^{-1}= \begin{bmatrix} 
-    
-    
     0 & -1 & 0 \\
     0 & 0 & -1 \\
     -1 & 0 & 0
-    
-
-\end{bmatrix} $$
+\end{bmatrix}$$
 
 ### Ungrounded Y-Δ (Step-down)
 
@@ -259,13 +245,9 @@ Equations for the Ungrounded Y-Δ step-down transformer are consistent with Kers
 The equations for the step-up and step-down transformer are not identical because of the use of the "American Standard Thirty Degree" connection, as described in Kersting (2007) and C57.12.00 (2006). In order to obtain the equations for the step-up transformer from the step-down transformer equations the _c_ and _d_ matrices must be multiplied by: 
 
 $$S= \begin{bmatrix} 
-    
-    
     0 & 0 & -1 \\
     -1 & 0 & 0 \\
     0 & -1 & 0
-    
-
 \end{bmatrix}$$
     
 
@@ -273,13 +255,9 @@ $$S= \begin{bmatrix}
 Matrix _A_ must be multiplied by: 
 
 $$S^{-1}= \begin{bmatrix} 
-    
-    
     0 & -1 & 0 \\
     0 & 0 & -1 \\
     -1 & 0 & 0
-    
-
 \end{bmatrix}$$
     
 
@@ -320,28 +298,19 @@ $$[d] = \left [ \begin{matrix} \frac{Z_1 n_t}{Z_c} + \frac{1}{n_t} & \frac{-1}{n
 
 $$[A] = \left [ \begin{matrix} \frac{1}{n_t} & 0 & 0 \\\ \frac{1}{n_t} & 0 & 0 \\\ 0 & 0 & 0 \end{matrix} \right ]$$
 
-  
-
-
 $$[B] = \left [ \begin{matrix} Z_1 + \frac{Z_0}{Z_{eq} n_t^2} & -\frac{Z_0}{Z_{eq} n_t^2} & 0 \\\ \frac{Z_0}{Z_{eq} n_t^2} & -\left ( Z_2 + \frac{Z_0}{Z_{eq} n_t^2} \right ) & 0 \\\ 0 & 0 & 0 \end{matrix} \right ]$$
 
 #### B-Phase Connected Primary
 
 $$[a] = \left [ \begin{matrix} 0 & Z_{eq} n_t & 0 \\\ 0 & Z_{eq} n_t & 0 \\\ 0 & 0 & 0 \end{matrix} \right ]$$
 
-  
-
 
 $$[b] = \left [ \begin{matrix} Z_{eq} n_t Z_1 + \frac{Z_0}{n_t} & -\frac{Z_0}{n_t} & 0 \\\ \frac{Z_0}{n_t} & -\left ( Z_{eq} n_t Z_2 + \frac{Z_0}{n_t} \right ) & 0 \\\ 0 & 0 & 0 \end{matrix} \right ]$$
 
 $$[c] = \left [ \begin{matrix} 0 & 0 & 0 \\\ \frac{n_t}{Z_c} & 0 & 0 \\\ 0 & 0 & 0 \end{matrix} \right ]$$
 
-  
-
 
 $$[d] = \left [ \begin{matrix} 0 & 0 & 0 \\\ \frac{Z_1 n_t}{Z_c} + \frac{1}{n_t} & \frac{-1}{n_t} & 0 \\\ 0 & 0 & 0 \end{matrix} \right ]$$
-
-  
 
 
 $$[A] = \left [ \begin{matrix} 0 & \frac{1}{n_t} & 0 \\\ 0 & \frac{1}{n_t} & 0 \\\ 0 & 0 & 0 \end{matrix} \right ]$$
@@ -353,27 +322,17 @@ $$[B] = \left [ \begin{matrix} Z_1 + \frac{Z_0}{Z_{eq} n_t^2} & -\frac{Z_0}{Z_{e
 
 $$[a] = \left [ \begin{matrix} 0 & 0 & Z_{eq} n_t \\\ 0 & 0 & Z_{eq} n_t \\\ 0 & 0 & 0 \end{matrix} \right ]$$
 
-  
 
-
-$$[b] = \left [ \begin{matrix} Z_{eq} n_t Z_1 + \frac{Z_0}{n_t} & -\frac{Z_0}{n_t} & 0 \\\ \frac{Z_0}{n_t} & -\left ( Z_{eq} n_t Z_2 + \frac{Z_0}{n_t} \right ) & 0 \\\ 0 & 0 & 0 \end{matrix} \right ]$$
-
-  
+$$[b] = \left [ \begin{matrix} Z_{eq} n_t Z_1 + \frac{Z_0}{n_t} & -\frac{Z_0}{n_t} & 0 \\\ \frac{Z_0}{n_t} & -\left ( Z_{eq} n_t Z_2 + \frac{Z_0}{n_t} \right ) & 0 \\\ 0 & 0 & 0 \end{matrix} \right ]$$  
 
 
 $$[c] = \left [ \begin{matrix} 0 & 0 & 0 \\\ 0 & 0 & 0 \\\ \frac{n_t}{Z_c} & 0 & 0 \end{matrix} \right ]$$
 
   
-
-
 $$[d] = \left [ \begin{matrix} 0 & 0 & 0 \\\ 0 & 0 & 0 \\\ \frac{Z_1 n_t}{Z_c} + \frac{1}{n_t} & \frac{-1}{n_t} & 0 \end{matrix} \right ]$$
 
   
-
-
 $$[A] = \left [ \begin{matrix} 0 & 0 & \frac{1}{n_t} \\\ 0 & 0 & \frac{1}{n_t} \\\ 0 & 0 & 0 \end{matrix} \right ]$$
-
-  
 
 
 $$[B] = \left [ \begin{matrix} Z_1 + \frac{Z_0}{Z_{eq} n_t^2} & -\frac{Z_0}{Z_{eq} n_t^2} & 0 \\\ \frac{Z_0}{Z_{eq} n_t^2} & -\left ( Z_2 + \frac{Z_0}{Z_{eq} n_t^2} \right ) & 0 \\\ 0 & 0 & 0 \end{matrix} \right ]$$
@@ -560,7 +519,7 @@ Capacitance values are defined as the nominal reactive power the capacitor can p
 
 Regardless of the nominal voltage used, the impedance value is calculated in the same manner. Using the constant impedance calculation for the load object, the capacitor impedance is determined by 
 
-$$ \displaystyle{} Z_{cap} = \left(\frac{V \cdot{} V^{*}}{P}\right)^{*} $$
+$$\displaystyle{} Z_{cap} = \left(\frac{V \cdot{} V^{*}}{P}\right)^{*}$$
 
 where $V$ is the nominal voltage, $P$ is the nominal power rating, and $*$ again represents the complex conjugate operator. Once obtained, this impedance value is applied as a load to the system any time the appropriate switch of the capacitor is closed. During open periods, an impedance of $Z_{cap} = \infty{}$ is used. 
 

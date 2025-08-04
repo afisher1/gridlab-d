@@ -212,7 +212,7 @@ Figure 6 and equations (10) to (13) show how the grid side voltage $U_{gi}\angle
 
 ![Coordinate Transformation: $ xy$ to $dq$](../../../images/300px-Inv_dyn_fig6.png)
 
-Figure 6 - Coordinate Transformation: $ xy$ to $dq$
+Figure 6 - Coordinate Transformation: $xy$ to $dq$
 
 $$\displaystyle{}u_{gdi}=\frac{\left[\textrm{Re}\left(U_{gi}\angle{\delta_{gi}}\right)\cos{\delta_{PLLi}}+\textrm{Im}\left(U_{gi}\angle{\delta_{gi}}\right)\sin{\delta_{PLLi}}\right]}{U_B}\tag{10}$$  
 ---|---  
@@ -244,7 +244,7 @@ Figure 8, Equation (17) and (18) show how the internal voltages $e_{di}$ and $e_
 
 ![Coordinate Transformation: $ dq$ to $xy$](../../../images/300px-Inv_dyn_fig8.png)
 
-Figure 8 - Coordinate Transformation: $ dq$ to $xy$
+Figure 8 - Coordinate Transformation: $dq$ to $xy$
 
 $$\displaystyle{}\textrm{Re}\left(E_i\angle{\delta_i}\right)=\left(e_{di}\cos{\delta_{PLLi}}-e_{qi}\sin{\delta_{PLLi}}\right)U_B\tag{17}$$  
 ---|---  
@@ -274,11 +274,13 @@ $$\displaystyle{}\textrm{Im}\left(E_i\angle{\delta_i}\right)=\left(e_{di}\sin{\d
   * Force-populate the state variables with the final values
   * Back-calculate any intermediate states (frequency deviation, angle difference) from the "final states" obtained from the powerflow.
   * Update on each powerflow solution, potentially through a direct update call (to cut down on iterations).
+
 #### QSTS start
 
   * Determine terminal currents based on ($P_{ref}$,$Q_{ref}$) and current terminal voltages
   * Adjust terminal currents, if necessary, for Norton-equivalent impedance/admittance
   * Update on each powerflow solution, potentially through a direct update call (to cut down iterations)
+
 ### External Controls
 
 The external controls include frequency-watt control and volt-var control. These functions can be enabled or disabled. 

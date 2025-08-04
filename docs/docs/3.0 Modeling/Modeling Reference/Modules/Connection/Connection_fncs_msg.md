@@ -1,20 +1,4 @@
-# Connection:fncs msg
-
-**Source URL:** https://gridlab-d.shoutwiki.com/wiki/Connection:fncs_msg
-
-
-## Contents
-
-  * 1 Overview
-    * 1.1 Enabling the fncs_msg object
-    * 1.2 Environment Considerations
-  * 2 Fncs_msg
-    * 2.1 Default Fncs_msg
-    * 2.2 Fncs_msg Parameters
-    * 2.3 Configuration File Syntax
-      * 2.3.1 GENERAL Configuration
-      * 2.3.2 JSON Configuration
-## Overview
+# fncs msg
 
 The fncs_msg object is part of the `connection` module. It allows GridLAB-D models to be run as federates in a FNCS co-simulation. Starting in 4.0 this object is not available in the default 4.0 distribution of GridLAB-D but can be compiled with FNCS from the source code. In 4.1 the fncs_msg object is available by default. 
 
@@ -69,12 +53,7 @@ Property Name  | Type  | Unit  | Description
 ---|---|---|---  
 name  | string  | none  | This is the name of the object in the GridLAB-D context. It is also the name of the FNCS federate. This means that all published property topics get prepended with this name like so: name/publish_topic   
 option  | string  | none  | This parameter is used by the fncs_msg object to define the FNCS broker object location. (ie, IP address and port number)   
-message_type  | enumeration  | none  | An enumeration setting to define the structure of outgoing and incoming messages. The valid choices are 
-
-  * `GENERAL` all messages contain the value for a single object's property.
-  * `JSON` messages can contain values for multiple object properties.
-
-  
+message_type  | enumeration  | none  | An enumeration setting to define the structure of outgoing and incoming messages. The valid choices are <br/> - `GENERAL` all messages contain the value for a single object's property. <br/> - `JSON` messages can contain values for multiple object properties. 
 configure  | string  | none  | The name of the file used to configure the FNCS federate. This format varies depending on the message_type being used.   
   
 ### Configuration File Syntax

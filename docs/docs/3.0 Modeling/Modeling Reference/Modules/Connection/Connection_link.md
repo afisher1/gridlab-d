@@ -1,19 +1,6 @@
-# Connection:link
+# link
 
-**Source URL:** https://gridlab-d.shoutwiki.com/wiki/Connection:link
-# Connection:link
-
-PROPOSED FOR 3.1 
-
-## Contents
-
-  * 1 Synopsis
-  * 2 Description
-    * 2.1 Link file
-  * 3 Example
-  * 4 Version
-  * 5 See also
-link (pseudo-property) \- Connection link pseudo-property 
+The **link** pseudo-property allow one or more variables to be mapped to and from a remote system during various events in GridLAB-D. 
 
 ## Synopsis
     
@@ -28,8 +15,6 @@ link (pseudo-property) \- Connection link pseudo-property
     
 
 ## Description
-
-The **link** pseudo-property allow one or more variables to be mapped to and from a remote system during various events in GridLAB-D. 
 
 The _map_ may be one of the following: 
 
@@ -47,6 +32,7 @@ The _map_ may be one of the following:
   * prenotify : Map before a change to any connection property
   * postnotify : Map after a change to any connection property
   * file : Map using the specifications provided in the specified link file file
+
 The _local_ variable is specified in the form _name_._property_. If the _name_._property_ form is not found, the list of global variables is searched for a match. The _name_ and the _property_ may be specified using simple pattern matching as _prefix_ *, in which case all names or properties that have the same prefix will be linked. 
 
 The _direction_ may be specified as one of the following 
@@ -54,6 +40,7 @@ The _direction_ may be specified as one of the following
   * <\- : Copy to local from remote
   * -> : Copy to remote from local
   * <-> : Copy both ways
+
 The _remote_ variable is specified as a string of arbitrary structure terminated by a semicolon or white space. The following special characters will be substituted if encountered 
 
   * \\# : GridLAB-D object number
@@ -61,6 +48,7 @@ The _remote_ variable is specified as a string of arbitrary structure terminated
   * \$ : GridLAB-D object class
   * \\\ : A single backslash
   * \\! : Lookup _local_ in the link file index
+
 ### Link file
 
 The **link** map file is used to provide a connection map with a list of **link** directives and mapping it should use. The **link** map contains a section for each map, e.g., 
@@ -112,24 +100,3 @@ The following example creates a [native connection] and maps
     	link "commit:my.y<-var2";
     }
     
-
-## Version
-
-The connection module is proposed for [Hatwai (Version 3.1)]. Its development is tracked under [Ticket 797](http://sourceforge.net/p/gridlab-d/tickets/797). 
-
-## See also
-
-  * [Connection] classes 
-    * [xml]
-    * [json]
-    * [native]
-    * [volttron]
-    * [matlab]
-  * [Connection] variables 
-    * [security]
-    * [lockout]
-  * [Connection] documentation 
-    * [Requirements]
-    * [Specifications]
-    * [Validation]
-    * [Developer docs]

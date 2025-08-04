@@ -483,24 +483,21 @@ $$
 
 We define the initial indoor air temperature conditions as 
 
-$ x_0 = T_A(0) - \frac{1}{U_A}f_0 \,$ and $\dot x_0 = \frac{d}{dt}T_A(0)$
+$x_0 = T_A(0) - \frac{1}{U_A}f_0$ and $\dot x_0 = \frac{d}{dt}T_A(0)$
 
 Use Laplace transforms convert equation (8) to $s$-domain 
 
 $$a [ s^2 X(s) - s x_0 - \dot x_0 ] + b [ s X(s) - x_0 ] + c X(s) 
-= \frac{1}{s} \Delta h + \frac{1}{s^2}\Delta g + \frac{C_M}{H_M}
-$$
+= \frac{1}{s} \Delta h + \frac{1}{s^2}\Delta g + \frac{C_M}{H_M}$$
     
 
-Rearrange to solve for $ X(s)$
+Rearrange to solve for $X(s)$
 
-$$\begin{alignat}{2}
-    
+$$\begin{alignat}{2}  
     X(s) = \mathcal{L}[x(t)] 
         &= \frac{ax_0 + bx_0 + a\dot x_0 + \frac{C_M}{H_M} + \frac{\Delta h}{s} + \frac{\Delta g}{s^2}}{as^2+bs+c} \\
         &= \frac{ax_0s^3 + (bx_0+a\dot x_0+\frac{C_M}{H_M})s^2 + \Delta h\ s +\Delta g}{s^2(as^2+bs+c)} & \qquad (9)
-    \end{alignat} 
-$$
+    \end{alignat}$$
     
 
 Expand the partial fractions to get 
@@ -509,65 +506,52 @@ $$\begin{alignat}{2}
     X(s) &= A\frac{s}{as^2+bs+c} + B\frac{1}{as^2+bs+c} + C\frac{1}{s} + D\frac{1}{s^2} \\
             &= \frac{As^3 + Bs^2 + Cs(as^2+bs+c) + D(as^2+bs+c)}{s^2(as^2+bs+c)} \\
             &= \frac{(A+Ca)s^3 + (B+Cb+Da)s^2 + (Cc+Db)s + Dc}{s^2(as^2+bs+c)} & \qquad (9.1) 
-    \end{alignat}
-$$
+    \end{alignat}$$
     
 
 Match the terms in equations (9) and (9.1) 
 
 $$ \begin{alignat}{2}
-    
-    
     a x_0 &= A + C a & \qquad (9.1a) \\
     b x_0 + a \dot x_0 + \frac{C_M}{H_M} &= B + C b + D a  & \qquad (9.1b) \\
     \Delta h &= C c + D b  & \qquad (9.1c) \\
     \Delta g &= D c & \qquad (9.1d) 
-    \end{alignat}
-$$
+    \end{alignat}$$
     
 
-Solve for $ A$, $B$, $C$, and $D$
+Solve for $A$, $B$, $C$, and $D$
 
-$$\begin{alignat}{2}
-    
-    
+$$\begin{alignat}{2}   
     (9.1a) & \rarr A = a x_0 - C a \\
     (9.1d) & \rarr D = \Delta g / c \\
     (9.1b) & \rarr B = b x_0 + a \dot x_0 + \frac{C_M}{H_M} - C b - a \Delta g / c \\
     (9.1c) & \rarr C = \Delta h / c - b \Delta g / c^2 \\
            & \rarr A = a x_0 - a \Delta h / c + a b / c^2 \Delta g \\
            & \rarr B = b x_0 + a \dot x_0 + \frac{C_M}{H_M} - b \Delta h / c + (b^2/c^2-a/c) \Delta g
-    \end{alignat}
-$$
+    \end{alignat}$$
     
 
 So we have 
 
-$ A = a x_0 - \frac{a}{c}\Delta h + \frac{ab}{c^2}\Delta g$
-$ B = b x_0 + a \dot x_0 + \frac{C_M}{H_M} - \frac{b}{c}\Delta h + \left ( \frac{b^2}{c^2} - \frac{a}{c} \right ) \Delta g$
-$ C = \frac{1}{c}\Delta h - \frac{b}{c^2}\Delta g$
-$ D = \frac{1}{c}\Delta g$
+$A = a x_0 - \frac{a}{c}\Delta h + \frac{ab}{c^2}\Delta g$
+$B = b x_0 + a \dot x_0 + \frac{C_M}{H_M} - \frac{b}{c}\Delta h + \left ( \frac{b^2}{c^2} - \frac{a}{c} \right ) \Delta g$
+$C = \frac{1}{c}\Delta h - \frac{b}{c^2}\Delta g$
+$D = \frac{1}{c}\Delta g$
 
 From above we know the quantity $(b^2-4ac)>0$ so we factor 
 
-$$
-    as^2+bs+c = (s+p)(s+q)
-    \qquad
-$$
+$$as^2+bs+c = (s+p)(s+q)
+    \qquad$$
     
 
 with 
 
-$$
-    p,q = -\frac{-b \pm \sqrt{b^2-4ac}}{2a}
-$$
+$$p,q = -\frac{-b \pm \sqrt{b^2-4ac}}{2a}$$
     
 
 and use inverse Laplace transforms on (9.1) to get 
 
-$$\begin{alignat}{2}
-    
-    
+$$\begin{alignat}{2}    
     T_A(t) = \mathcal{L}^{-1}[X(s)] &= \mathcal{L}^{-1} \left[ A \frac{s}{(s+p)(s+q)} \right ] \\
       &+ \mathcal{L}^{-1} \left[ B \frac{1}{(s+p)(s+q)} \right ] \\
       &+ \mathcal{L}^{-1} \left[ C \frac{1}{s} \right ] \\
@@ -577,23 +561,18 @@ $$\begin{alignat}{2}
          B \frac{1}{q-p} \left( e^{-pt} - e^{-qt} \right) +
          C +
          Dt + \frac{1}{U_A}f_0
-    \end{alignat}
-$$
+    \end{alignat}$$
     
 
 which simplifies to 
 
-$$
-    T_A(t) = \frac{Ap-B}{p-q}e^{-pt} - \frac{Aq-B}{p-q}e^{-qt} + C + Dt + T_O(0) + \frac{C_M}{H_M U_A} \Delta g + \frac{Q_A(0^-) + Q_H(0^-)}{U_A}
-    \qquad (10)
-$$
+$$T_A(t) = \frac{Ap-B}{p-q}e^{-pt} - \frac{Aq-B}{p-q}e^{-qt} + C + Dt + T_O(0) + \frac{C_M}{H_M U_A} \Delta g + \frac{Q_A(0^-) + Q_H(0^-)}{U_A}
+    \qquad (10)$$
     
 
 where 
 
-$$\begin{alignat}{2}
-    
-    
+$$\begin{alignat}{2}    
     A &= \frac {C_M C_A} {H_M} \left [ T_A(0) - \frac{1}{U_A} f_0 \right ] - \frac {C_M C_A} {H_M U_A}\Delta h + \frac {C_M C_A \left( C_M \frac {U_A} {H_M} + C_M + C_A \right)} {H_M U_A^2} \Delta g \\
     B &= \left( C_M \frac {U_A} {H_M} + C_M + C_A \right) \left [ T_A(0) - \frac{1}{U_A} f_0 \right ] + \frac {C_M C_A} {H_M} \frac{d}{dt} T_A(0) + \frac{C_M}{H_M} \\
       & - \frac{\left( C_M \frac {U_A} {H_M} + C_M + C_A \right)}{U_A} \Delta h 
@@ -602,8 +581,7 @@ $$\begin{alignat}{2}
     D &= \frac{1}{U_A} \Delta g \\
     p &= -r_2=\frac{C_M \frac {U_A} {H_M} + C_M + C_A+\sqrt{ C_M^2 \left[ 1 + 2\frac{U_A}{H_M} + \frac{C_A}{C_M} \right] + C_M^2 \left [ \frac{U_A}{H_M} - \frac{C_A}{C_M}  \right ]^2}}{2\frac {C_M C_A} {H_M}} \\
     q &= -r_1=\frac{C_M \frac {U_A} {H_M} + C_M + C_A-\sqrt{ C_M^2 \left[ 1 + 2\frac{U_A}{H_M} + \frac{C_A}{C_M} \right] + C_M^2 \left [ \frac{U_A}{H_M} - \frac{C_A}{C_M}  \right ]^2}}{2\frac {C_M C_A} {H_M}}
-    \end{alignat}
-$$
+    \end{alignat}$$
     
 
 ## Mass temperature
@@ -614,64 +592,49 @@ The mass temperature is found by solving equation (1.3) after the air temperatur
 
 Solving (1.2) for $T_M$ at any time gives 
 
-$$
-    T_M = \frac{C_A}{H_M} \frac{d}{dt}T_A + \frac{U_A+H_M}{H_M} T_A - \frac{U_A}{H_M}T_O - \frac{Q_A}{H_M}
-    \qquad (1.5)
-$$
+$$T_M = \frac{C_A}{H_M} \frac{d}{dt}T_A + \frac{U_A+H_M}{H_M} T_A - \frac{U_A}{H_M}T_O - \frac{Q_A}{H_M}
+    \qquad (1.5)$$
     
 
 Substituting (3.8) and (3.6.1) for $T_A$ and $dT_A/dt$ gives 
 
-$$
-    T_M = \frac{C_A}{H_M} \left ( A_1r_1e^{r_1t} + A_2r_2e^{r_2t} \right )
+$$T_M = \frac{C_A}{H_M} \left ( A_1r_1e^{r_1t} + A_2r_2e^{r_2t} \right )
         + \frac{U_A+H_M}{H_M} \left ( A_1r_1e^{r_1t} + A_2r_2e^{r_2t} + \frac{Q_M+Q_A+U_AT_O}{U_A} \right )
         - \frac{U_A}{H_M}T_O - \frac{Q_A}{H_M}
-    \qquad (1.5.1)
-$$
+    \qquad (1.5.1)$$
     
 
 Rearranging and simplifying 
 
-$$
-    T_M = A_1 \left ( \frac{C_A}{H_M}r_1 + \frac{U_A+H_M}{H_M} \right ) e^{r_1t}
+$$T_M = A_1 \left ( \frac{C_A}{H_M}r_1 + \frac{U_A+H_M}{H_M} \right ) e^{r_1t}
         + A_2 \left ( \frac{C_A}{H_M}r_2 + \frac{U_A+H_M}{H_M} \right ) e^{r_2t}
         + \frac{Q_M}{H_M} + \frac{Q_M}{U_A} + \frac{Q_A}{U_A} + T_O
-    \qquad (1.5.2)
-$$
+    \qquad (1.5.2)$$
     
 
 Let 
 
-$$
-    T_M = A_1 A_3 e^{r_1t} + A_2 A_4 e^{r_2t} + \frac{Q_M}{H_M} + \frac{Q_M}{U_A} + \frac{Q_A}{U_A} + T_O
-    \qquad (1.5.3)
-$$
+$$T_M = A_1 A_3 e^{r_1t} + A_2 A_4 e^{r_2t} + \frac{Q_M}{H_M} + \frac{Q_M}{U_A} + \frac{Q_A}{U_A} + T_O
+    \qquad (1.5.3)$$
     
 
 where 
 
-$$
-    A_3 \equiv \frac{C_A}{H_M}r_1 + \frac{U_A+H_M}{H_M}
-    \qquad (1.5.3a)
-$$
+$$A_3 \equiv \frac{C_A}{H_M}r_1 + \frac{U_A+H_M}{H_M}
+    \qquad (1.5.3a)$$
     
 
-$$
-    A_4 \equiv \frac{C_A}{H_M}r_2 + \frac{U_A+H_M}{H_M}
-    \qquad (1.5.3b)
-$$
-    
+$$A_4 \equiv \frac{C_A}{H_M}r_2 + \frac{U_A+H_M}{H_M}
+    \qquad (1.5.3b)$$    
 
 (1.5.2) gives $T_M$ for the next time step, i.e., at $t = t_0 + \Delta t$. Note the solution is discontinuous at any time $t_s$ when $Q_M$, $Q_A$ or $T_O$ change. So at the time $t_s^+$ immediately after a change (1.3) must be solved for 
 
-$$
-    \frac{d}{dt}T_A|_{t_s^+}
+$$\frac{d}{dt}T_A|_{t_s^+}
     = \frac{H_M}{C_A}T_{M_{t_s}} 
     - \frac{U_A+H_M}{H_M}T_{A_{t_s}}
     + \frac{U_A}{C_A}T_{O_{t_s}}
     + \frac{Q_{A_{t_s}}}{C_A}
-    \qquad (1.5.4)
-$$
+    \qquad (1.5.4)$$
     
 
 ### Forced conditions
@@ -679,44 +642,33 @@ $$
 Substituting (3.3g) and (3.3h) into (1.5) with $ f_0=g_0+h_0$
 
 $$\begin{alignat}{2}
-    
-    
     T_M(t) &= \frac{C_A}{C_M} \frac{d}{dt}T_A(t) + \frac{U_A+H_M}{H_M} T_A(t) - \frac{1}{H_M} \left ( f_0 + \Delta h + t \Delta g \right )
     & \qquad (11)
-    \end{alignat}
-$$
+    \end{alignat}$$
     
 
 From (10) we have 
 
-$$
-    \frac{d}{dt}T_A(t) = -p \frac{Ap-B}{p-q} e^{-pt} + q \frac{Aq-B}{p-q} e^{-qt} + D
-$$
+$$\frac{d}{dt}T_A(t) = -p \frac{Ap-B}{p-q} e^{-pt} + q \frac{Aq-B}{p-q} e^{-qt} + D$$
     
 
 Substitute this and (10) into (11) 
 
 $$\begin{alignat}{2}
-    
-    
     T_M(t) &= \frac{C_A}{C_M} \left [ -p \frac{Ap-B}{p-q} e^{-pt} + q \frac{Aq-B}{p-q} e^{-qt} + D \right ] \\
            &+ \frac{U_A+H_M}{H_M} \left [ \frac{Ap-B}{p-q} e^{-pt} - \frac{Aq-B}{p-q} e^{-qt} + C + D t \right ] \\
            &- \frac{1}{H_M} \left ( f_0 + \Delta h + t \Delta g \right )
-    \end{alignat}
-$$
+    \end{alignat}$$
     
 
 Rearrange this to get 
 
 $$ \begin{alignat}{2}
-    
-    
     T_M(t) &= \left ( \frac{U_A+H_M}{H_M} - p \frac{C_A}{C_M} \right ) \frac{Ap-B}{p-q} e^{-pt} 
            - \left ( \frac{U_A+H_M}{H_M} - q \frac{C_A}{C_M} \right ) \frac{Aq-B}{p-q} e^{-qt}
            - \frac{1}{H_M} \left ( f_0 + \Delta h + t \Delta g \right )
     & \qquad (11.1)
-    \end{alignat}
-$$
+    \end{alignat}$$
     
 
 ## Implementation Notes
@@ -725,11 +677,8 @@ $$
 
 The initial indoor air temperature condition $T_A(0)$ is available from the initial values given in the GLM model. However, the initial derivative of the indoor air temperature is not usually given. The value of $dT_A/dt(0)$ can be computed based on the initial state of the HVAC system by solving the equation (1.3) for $dT_A/dt$ at time $t=0$: 
 
-$$
-    \frac{d}{dt} T_A(0) = \frac{H_M}{C_A}T_M(0) + \frac{U_A}{C_A}T_O(0) + \frac{1}{C_A}Q_A(0) - \frac{U_A+H_M}{C_A} T_A(0)
-$$
+$$\frac{d}{dt} T_A(0) = \frac{H_M}{C_A}T_M(0) + \frac{U_A}{C_A}T_O(0) + \frac{1}{C_A}Q_A(0) - \frac{U_A+H_M}{C_A} T_A(0)$$
     
-
 where the conditions $T_M(0)$, $T_O(0)$, and $Q_A(0)$ are all known states of the ETP model at the end of the last time increment. 
 
 ### Solving for time

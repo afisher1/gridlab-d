@@ -26,7 +26,7 @@ All of the matrix manipulations are handled using double-precision floating poin
 
 The external matrix solver must accept sparse matrices in a compressed column sparse matrix representation. A brief description can be found at [Netlib's compressed column representation page](http://netlib.org/linalg/html_templates/node92.html#SECTION00931200000000000000). Other modes can be translated inside the external matrix solver, but input data will come in this format. Consider a very simple 4x4 matrix: 
 
-$$ \begin{bmatrix} 2 & 3 & 0 & 0 \\\ 3 & 0 & 4 & 0 \\\ 0 & -1 & -3 & 2 \\\ 0 & 0 & 1 & 0 \end{bmatrix} $. 
+$$\begin{bmatrix} 2 & 3 & 0 & 0 \\\ 3 & 0 & 4 & 0 \\\ 0 & -1 & -3 & 2 \\\ 0 & 0 & 1 & 0 \end{bmatrix}$$
 
 In compressed column format, this matrix is fed in as three separate arrays: 
 
@@ -34,7 +34,7 @@ $$Data = \begin{bmatrix} 2 & 3 & 3 & -1 & 4 & -3 & 1 & 2 \end{bmatrix}$$
 
 $$Rows = \begin{bmatrix}0 & 1 & 0 & 2 & 1 & 2 & 3 & 2 \end{bmatrix}$$
 
-$$Columns = \begin{bmatrix} 0 & 2 & 4 & 7 & 8 \end{bmatrix}$. 
+$$Columns = \begin{bmatrix} 0 & 2 & 4 & 7 & 8 \end{bmatrix}$$ 
 
 The specific arrays that contain the $Data$, $Rows$, and $Columns$ information are outlined below. As long as the information is passed in this format and in a double-precision number, it will interface with the `powerflow` module. 
 

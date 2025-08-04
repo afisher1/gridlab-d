@@ -46,18 +46,6 @@
   - Deprecated:
     - Network: docs/3.0 Modeling/Deprecated/Network_Flow_Solver.md
     - Network Flow Guide: docs/3.0 Modeling/Deprecated/Network_Flow_Guide.md
-  - From Dev - connections:
-    - Connection: docs/3.0 Modeling/From Dev - connections/Connection.md
-    - Connection:fncs msg: docs/3.0 Modeling/From Dev - connections/Connection_fncs_msg.md
-    - Connection:helics msg: docs/3.0 Modeling/From Dev - connections/Connection_helics_msg.md
-    - Connection:json: docs/3.0 Modeling/From Dev - connections/Connection_json.md
-    - Connection:link: docs/3.0 Modeling/From Dev - connections/Connection_link.md
-    - Connection:lockout: docs/3.0 Modeling/From Dev - connections/Connection_lockout.md
-    - Connection:mode: docs/3.0 Modeling/From Dev - connections/Connection_mode.md
-    - Connection:native: docs/3.0 Modeling/From Dev - connections/Connection_native.md
-    - Connection:security: docs/3.0 Modeling/From Dev - connections/Connection_security.md
-    - Connection:transport: docs/3.0 Modeling/From Dev - connections/Connection_transport.md
-    - Connection:xml: docs/3.0 Modeling/From Dev - connections/Connection_xml.md
   - Miscellaneous:
     - HowTo:Create a movie: docs/3.0 Modeling/Miscellaneous/HowTo_Create_a_movie.md
   - Modeling Reference:
@@ -75,6 +63,18 @@
       - Climate:
         - CSV reader: docs/3.0 Modeling/Modeling Reference/Modules/Climate/CSV_reader_(climate_class).md
         - Climate Module: docs/3.0 Modeling/Modeling Reference/Modules/Climate/Climate.md
+      - Connection:
+        - Connection: docs/3.0 Modeling/Modeling Reference/Modules/Connection/Connection.md
+        - fncs msg: docs/3.0 Modeling/Modeling Reference/Modules/Connection/Connection_fncs_msg.md
+        - helics msg: docs/3.0 Modeling/Modeling Reference/Modules/Connection/Connection_helics_msg.md
+        - json: docs/3.0 Modeling/Modeling Reference/Modules/Connection/Connection_json.md
+        - link: docs/3.0 Modeling/Modeling Reference/Modules/Connection/Connection_link.md
+        - Connection_lockout: docs/3.0 Modeling/Modeling Reference/Modules/Connection/Connection_lockout.md
+        - mode: docs/3.0 Modeling/Modeling Reference/Modules/Connection/Connection_mode.md
+        - native: docs/3.0 Modeling/Modeling Reference/Modules/Connection/Connection_native.md
+        - security: docs/3.0 Modeling/Modeling Reference/Modules/Connection/Connection_security.md
+        - transport: docs/3.0 Modeling/Modeling Reference/Modules/Connection/Connection_transport.md
+        - xml: docs/3.0 Modeling/Modeling Reference/Modules/Connection/Connection_xml.md
       - Market:
         - Market Auction: docs/3.0 Modeling/Modeling Reference/Modules/Market/Market_Auction.md
         - Market User Guide: docs/3.0 Modeling/Modeling Reference/Modules/Market/Market_User_Guide.md
@@ -134,8 +134,8 @@
     - Object (property): docs/3.0 Modeling/Objects/Object_(property).md
     - Voltage source inverter (VSI): docs/3.0 Modeling/Objects/Voltage_source_inverter_(VSI).md
 - 4.0 Developing:
-  - Introduction: docs/4.0 Developing/4.1 - Introduction.md
-  - Building GridLAB-D from Source: docs/4.0 Developing/4.2 - Building from Source.md
+  - 4.1 - Introduction: docs/4.0 Developing/4.1 - Introduction.md
+  - 4.2 - Building GridLAB-D from Source: docs/4.0 Developing/4.2 - Building from Source.md
   - 4.3 - Software Architecture and Design:
     - Introduction: docs/4.0 Developing/4.3 - Software Architecture and Design/4.3.0 - Introduction.md
     - GLDCore: docs/4.0 Developing/4.3 - Software Architecture and Design/4.3.1 - gldcore.md
@@ -155,11 +155,11 @@
   - 4.5 - Deltamode Development:
     - Introduction to Deltamode Development: docs/4.0 Developing/4.5 - Deltamode Development/4.5.0 - Introduction to Deltamode Development.md
     - Dev:Subsecond: docs/4.0 Developing/4.5 - Deltamode Development/4.5.1 - Dev_Subsecond.md
-  - 4.6- Debugging:
-    - Introduction to Debugging when Developing GridLAB-Debugging: docs/4.0 Developing/4.6- Debugging/4.6.0 - Introduction.md
-    - Command options: docs/4.0 Developing/4.6- Debugging/4.6.1 - Command_line_arguments.md
-    - Performance Profiling: docs/4.0 Developing/4.6- Debugging/4.6.2 - performance-profiling.md
-  - Style Guide: docs/4.0 Developing/4.7 - Style_guide.md
+  - 4.6 - Debugging:
+    - Introduction to Debugging when Developing GridLAB-Debugging: docs/4.0 Developing/4.6 - Debugging/4.6.0 - Introduction.md
+    - Command options: docs/4.0 Developing/4.6 - Debugging/4.6.1 - Command_line_arguments.md
+    - Performance Profiling: docs/4.0 Developing/4.6 - Debugging/4.6.2 - performance-profiling.md
+  - 4.7 - Style Guide: docs/4.0 Developing/4.7 - Style_guide.md
   - API:
   - Build_Installation:
   - Debugging:

@@ -1,6 +1,6 @@
 # Link (directive)
 
-GLM directive to link an external application [Template:NEW30]
+GLM directive to link an external application Template:NEW30
 
 ## Synopsis
     
@@ -14,13 +14,13 @@ An external application link can be added during the main synchronization proces
 
 The implementation of the link depends on the application, but as a general rule the link behavior is as follows: 
 
-* Initialization -
+* **Initialization** -
     The external application is started and if possible global variables, if any, are exported.
 
-* Synchronization - 
-    If possible specified values, if any, are copied and the external application entry point is called. The timestamp, if any, if copied back. If none is specified, [NEVER] is assumed.
+* **Synchronization** -
+    If possible specified values, if any, are copied and the external application entry point is called. The timestamp, if any, if copied back. If none is specified, NEVER is assumed.
 
-* Shutdown -
+* **Shutdown** -
     If possible, the application is shut down.
 
 ## Link control file
@@ -31,40 +31,32 @@ All link control files support the following commands:
     Use the target option to establish the target application to link with. GridLAB-D will search for the dynamic link library (e.g., .dll or .so file) to load and use to interface with the application. On windows systems, the DLL must be named **glx _target_.dll** and must be found in the GridLAB-D path. On linux and MacOSX system, the DLL must be named **libglx _target_.so** and must be found in the GridLAB-D path.
 
 * **global** - 
-
     Use the global option to enumerate which global variables should be copied to the target application. If none are listed, the default is to send all the globals.
 
 * **object** - 
-
     Use the object option to enumerate which objects should be copied to the target application. If none are listed, the default is to send all the objects.
 
 * **export** -
-
     Use the export option to enumerate which object properties are to be copied to the target application and under what name.
 
 * **import** -
-
     Use the import option to enumerate which object properties are to copied from the target application and from what name. Imported variables are automatically exported.
 
 * **on_error** -
-
     Use the on_error option to control how link error are handled. Possible values are ABORT, RETRY, IGNORE.
 
 * **ABORT** -
-
-    Use the `on_error ABORT` option to indicate that the link should stop the simulation when an error occurs by returning [INVALID] to the core's sync process (which causes the sync loop to exit). This is the default behavior.
+    Use the `on_error ABORT` option to indicate that the link should stop the simulation when an error occurs by returning INVALID to the core's sync process (which causes the sync loop to exit). This is the default behavior.
 
 * **RETRY** -
-
     Use the `on_error RETRY` option to indicate that the link should stop the simulation when an error occurs by returning the current time to the core's sync process (which causes another iteration).
 
 * **IGNORE** -
-
-    Use the `on_error IGNORE` option to indicate that the link should stop the simulation when an error occurs by returning [NEVER] to the core's sync process (which causes it to continue without using any data from the link).
+    Use the `on_error IGNORE` option to indicate that the link should stop the simulation when an error occurs by returning NEVER to the core's sync process (which causes it to continue without using any data from the link).
 
 ## Performance instrumentation
 
-When [verbose] is enabled, a performance measurement of each link is output at the end of the simulation. For example the output 
+When verbose is enabled, a performance measurement of each link is output at the end of the simulation. For example the output 
     
     
       ... link 'json' performance statistics {
@@ -80,16 +72,12 @@ When [verbose] is enabled, a performance measurement of each link is output at t
 
 provides basic information about the link performance. 
 
-## Version
-
-External application link were introduced in [Hassayampa (Version 3.0)]. 
-
 ## See also
 
   * Link (directive)
-    * [Matlab link]
-    * [JSON link] [Template:NEW30]
-    * [Technical manual]
-  * **[How To]**
-    * [How to plot data using Matlab]
-    * [How to create a movie]
+    * Matlab link
+    * JSON link Template:NEW30
+    * Technical manual
+  * **How To**
+    * How to plot data using Matlab
+    * How to create a movie

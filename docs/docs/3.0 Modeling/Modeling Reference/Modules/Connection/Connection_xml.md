@@ -1,23 +1,5 @@
-# Connection:xml
+# xml
 
-**Source URL:** https://gridlab-d.shoutwiki.com/wiki/Connection:xml
-# Connection:xml
-
-PROPOSED FOR 3.1 
-
-## Contents
-
-  * 1 Synopsis
-  * 2 Class members
-    * 2.1 encoding
-      * 2.1.1 UTF8
-      * 2.1.2 UTF16
-    * 2.2 schema
-    * 2.3 stylesheet
-    * 2.4 version
-  * 3 Example
-  * 4 Version
-  * 5 See also
 ## Synopsis
     
     
@@ -70,24 +52,3 @@ PROPOSED FOR 3.1
        [stylesheet] "<http://www.gridlabd.org/gridlabd_3.0.xsl>"; // use 3.0 stylesheet
     }
     
-
-## Version
-
-The [connection] module is proposed for [Hatwai (Version 3.1)]. It's development is tracked under [Ticket 797](http://sourceforge.net/p/gridlab-d/tickets/797). 
-
-## See also
-
-  * [Connection] classes 
-    * xml
-    * [json]
-    * [native]
-    * [volttron]
-    * [matlab]
-  * [Connection] variables 
-    * [security]
-    * [lockout]
-  * [Connection] documentation 
-    * [Requirements]
-    * [Specifications]
-    * [Validation]
-    * [Developer docs]

@@ -1,35 +1,6 @@
 # Spec:sec control
+TODO: SPECIFICATION *** WORKING DRAFT ***   
 
-**Source URL:** https://gridlab-d.shoutwiki.com/wiki/Spec:sec_control
-SPECIFICATION *** WORKING DRAFT ***   
-**Please review, edit and[comment] as necessary**.
-
-* * *
-
-## Contents
-
-  * 1 Overview
-  * 2 Inter-Tie Modelling
-  * 3 Anti-Windup
-    * 3.1 Zero In Deadband
-    * 3.2 Feedback PID Output
-    * 3.3 Feedback Integrator
-  * 4 Requirements/Limitations
-  * 5 Parameters
-    * 5.1 Global Secondary Controller Object Parameters
-    * 5.2 Unit Specific Parameters
-      * 5.2.1 glm syntax
-      * 5.2.2 csv syntax
-    * 5.3 Generator Properties
-    * 5.4 Link Properties
-  * 6 Interaction with QSTS Mode
-    * 6.1 Initialization
-    * 6.2 Return to QSTS Operation
-  * 7 Examples
-    * 7.1 Multiple Secondary Controllers With Inter-Ties
-    * 7.2 Low Pass Filter
-  * 8 References
-  * 9 See Also
 ## Overview
 
 The secondary controller object has a structure illustrated in Figure 1, and is very similar to textbook examples like Figure 2. 
@@ -39,6 +10,7 @@ The secondary controller object has a structure illustrated in Figure 1, and is 
 Figure 1: Secondary controller structure
 
 ![AGC Control Structure](../../../images/300px-AGC_WW.png)
+
 Figure 2 - AGC Control Structure. Source: [1]
 
 The basic idea is that the frequency error $\Delta f$ is 
@@ -69,7 +41,7 @@ Link _to_ end
 (Microgrid B) | Desired | $P_{\text{err}}\downarrow$ | $P_{\text{err}}\uparrow$  
 $c_i$ | 1 | 1   
   
-![Illustration of inter-tie incorporation into the secondary controller via the unit error, $\epsilon_{text{unit}}$ input](../../../images/300px-SecondaryControlIntertie.png)
+!Illustration of inter-tie incorporation into the secondary controller via the unit error, $\epsilon_{text{unit}}$ input(../../../images/300px-SecondaryControlIntertie.png)
 
 Figure 3: Illustration of inter-tie incorporation into the secondary controller via the unit error, $\epsilon_{text{unit}}$ input
 
@@ -83,7 +55,7 @@ This option simply zeros the integrator state, ` xi ` when the the frequency is 
 
 ### Feedback PID Output
 
-This is a common feedback mechanism[2] used on sampled outputs, and is shown in Figure 1. The difference of the PID output, $\text{PID}_{\text{output}}$ and the sampled output $\Delta P$ is fed back to the weighted error signal prior to the integration stage. If we consider $K_d = K_p = 0$ then there are two cases: 
+This is a common feedback mechanism2 used on sampled outputs, and is shown in Figure 1. The difference of the PID output, $\text{PID}_{\text{output}}$ and the sampled output $\Delta P$ is fed back to the weighted error signal prior to the integration stage. If we consider $K_d = K_p = 0$ then there are two cases: 
 
   1. **Sampling** : In this case $\text{PID}_{\text{output}} = \Delta P$, the feedback signal is 0 and the the integration step is  
 
@@ -101,9 +73,10 @@ This is the same as the Feedback PID Ouput except that the integrator output is 
 
 ## Requirements/Limitations
 
-  1. The secondary control object operates in [ deltamode] only, but will transition back to QSTS.
-  2. Currently only [inverter_dyn] and [ diesel_dg] are supported as generators. Any power flow [ link object] can be used as an inter-tie.
+  1. The secondary control object operates in deltamode only, but will transition back to QSTS.
+  2. Currently only inverter_dyn and diesel_dg are supported as generators. Any power flow link object can be used as an inter-tie.
   3. The frequency is currently only measured at the parent node of the secondary controller object.
+
 ## Parameters
 
 ### Global Secondary Controller Object Parameters
@@ -112,21 +85,21 @@ The following parameters are general to the secondary controller object.
 
 Parameter | glm | units | Default | Description   
 ---|---|---|---|---  
-$$ i $ | `participant_input` |  |  | Set of participating objects in secondary control, see [ unit specific parameters].   
-$$f_0$ | `f0` | Hz | 60 | Nominal frequency   
-$$\Delta f_{\text{max}}$ | `underfrequency_limit` | Hz | 57 | The _upper_ limit $\Delta f_{\text{max}}$ on $\Delta f$ is ` f0 - underfrequency_limit`  
-$$\Delta f_{\text{min}}$ | `overfrequency_limit` | Hz | 62 | The _lower_ limit $\Delta f_{\text{min}}$ on $\Delta f$ is ` f0 - overrfrequency_limit`  
-$$\epsilon$ | `deadband` | Hz | 0.2 | Frequency error dead band. As long as $ -\epsilon \leq \Delta f \leq +\epsilon$ the propagated error is 0.   
-$$\epsilon_{\text{tie}}$ | `tieline_tol` | p.u. | 0.05 | Generic tie-line error tolerance in p.u. w.r.t set schedule in link parameter `pdispatch + pdispatch_offset`.   
-$$B$ | `B` | MW/Hz | 1 | Frequency bias: converts frequency error signal to a power signal.   
-$$K_p$ | `KpPID` | p.u. | 0 | PID Proportional gain.   
-$$K_i$ | `KiPID` | p.u./s | 0.0167 | PID Integral gain.   
-$$K_d$ | `KdPID` | p.u.$\cdot$s | 0 | PID derivative gain.   
-$$T_s$ | `Ts` | s | $\Delta t$ | PID output sampling period.   
-$$T_{s,f}$ | `Ts_f` | s | $\Delta t$ | Input frequency sampling period.   
-$$T_{s,P}$ | `Ts_P` | s | $T_s$ | Input unit error (includes tie-line) sampling period.   
-$$T_{\text{lp}}$ | `Tlp` | s | 0 | Default for $T_i$, time constant for low pass filters to participating units. Zero means inactive.   
-anti-windup | `anti_windup` |  | `FEEDBACK_PIDOUTPUT` | Integrator anti-windup options: `NONE, [ZERO_IN_DEADBAND], [ FEEDBACK_PIDOUT], [ FEEDBACK_INTEGRATOR]`.   
+$i$ | `participant_input` |  |  | Set of participating objects in secondary control, see  unit specific parameters.   
+$f_0$ | `f0` | Hz | 60 | Nominal frequency   
+$\Delta f_{\text{max}}$ | `underfrequency_limit` | Hz | 57 | The _upper_ limit $\Delta f_{\text{max}}$ on $\Delta f$ is ` f0 - underfrequency_limit`  
+$\Delta f_{\text{min}}$ | `overfrequency_limit` | Hz | 62 | The _lower_ limit $\Delta f_{\text{min}}$ on $\Delta f$ is ` f0 - overrfrequency_limit`  
+$\epsilon$ | `deadband` | Hz | 0.2 | Frequency error dead band. As long as $ -\epsilon \leq \Delta f \leq +\epsilon$ the propagated error is 0.   
+$\epsilon_{\text{tie}}$ | `tieline_tol` | p.u. | 0.05 | Generic tie-line error tolerance in p.u. w.r.t set schedule in link parameter `pdispatch + pdispatch_offset`.   
+$B$ | `B` | MW/Hz | 1 | Frequency bias: converts frequency error signal to a power signal.   
+$K_p$ | `KpPID` | p.u. | 0 | PID Proportional gain.   
+$K_i$ | `KiPID` | p.u./s | 0.0167 | PID Integral gain.   
+$K_d$ | `KdPID` | p.u.$\cdot$s | 0 | PID derivative gain.   
+$T_s$ | `Ts` | s | $\Delta t$ | PID output sampling period.   
+$T_{s,f}$ | `Ts_f` | s | $\Delta t$ | Input frequency sampling period.   
+$T_{s,P}$ | `Ts_P` | s | $T_s$ | Input unit error (includes tie-line) sampling period.   
+$T_{\text{lp}}$ | `Tlp` | s | 0 | Default for $T_i$, time constant for low pass filters to participating units. Zero means inactive.   
+anti-windup | `anti_windup` |  | `FEEDBACK_PIDOUTPUT` | Integrator anti-windup options: `NONE, ZERO_IN_DEADBAND,  FEEDBACK_PIDOUT,  FEEDBACK_INTEGRATOR`.   
   
 ### Unit Specific Parameters
 
@@ -135,25 +108,25 @@ The unit specific parameters are provided via the `participant_input` parameter 
 Pos | Parameter | Units | Range | Default | Description   
 ---|---|---|---|---|---  
 1 | name |  |  |  | Object name (used to get a pointer to the object internally)   
-2 | **Generator Object:** $ \alpha_i $   
-**Link Object:** $ c_i $ |  | **Generator Object:** $ (0,1] $   
-**Link Object:** $ \\{1,-1\\} $ |  | **Generator Object:** unit participation factor   
+2 | **Generator Object:** $\alpha_i$   
+**Link Object:** $c_i$ |  | **Generator Object:** $(0,1]$   
+**Link Object:** $\\{1,-1\\}$ |  | **Generator Object:** unit participation factor   
 **Link Object:** directionality indicator 1 = Link _to_ zone, -1= Link _from_ zone   
-3 | $\Delta P_{\text{dn}}$ | MW | $ [0, (P_{\text{max}} - P_{\text{min}})P_r] $ | $(P_{\text{max}} - P_{\text{min}})P_r$ | Maximum change from original setpoint in the _downward_ direction. If output is $P^{\star} = P_{\text{set}} + \Delta P^{\star}$ then $\Delta P^{\star} \geq -\Delta P_{\text{dn}}$.  
+3 | $\Delta P_{\text{dn}}$ | MW | $0, (P_{\text{max}} - P_{\text{min}})P_r$ | $(P_{\text{max}} - P_{\text{min}})P_r$ | Maximum change from original setpoint in the _downward_ direction. If output is $P^{\star} = P_{\text{set}} + \Delta P^{\star}$ then $\Delta P^{\star} \geq -\Delta P_{\text{dn}}$.  
 _Note:_ Not used for link objects.   
-4 | $\Delta P_{\text{up}}$ | MW | $ [0, (P_{\text{max}} - P_{\text{min}})P_r] $ | $(P_{\text{max}} - P_{\text{min}})P_r$ | Maximum change from original setpoint in the _upward_ direction. If output is $P^{\star} = P_{\text{set}} + \Delta P^{\star}$ then $\Delta P^{\star} \leq \Delta P_{\text{up}}$.  
+4 | $\Delta P_{\text{up}}$ | MW | $ 0, (P_{\text{max}} - P_{\text{min}})P_r $ | $(P_{\text{max}} - P_{\text{min}})P_r$ | Maximum change from original setpoint in the _upward_ direction. If output is $P^{\star} = P_{\text{set}} + \Delta P^{\star}$ then $\Delta P^{\star} \leq \Delta P_{\text{up}}$.  
 _Note:_ Not used for link objects, since $\Delta P^{\star} = 0$ always.   
-5 | $ P_{\text{max}} $ | p.u. | [-1,1][3] | [ diesel_dg]: 1  
-[ Grid Forming]: `Pmax`   
-[ Grid Following]: `Pref_max`   
-[ link]: $\epsilon_{\text{tie}}$ | **Generator Object** : Maximum allowable output w.r.t rating $P_r$.   
-**Link Object** : positive tie-line tolerance $ (P_i^{\star} - P_{i})/P^{\star} \leq P_{\text{max}} $.   
-6 | $ P_{\text{min}} $ | p.u. | [-1,1][3] | [ diesel_dg]: 0  
-[ Grid Forming]: `Pmin`   
-[ Grid Following]: `Pref_min`   
-[ link]: $-\epsilon_{\text{tie}}$ | **Generator Object** : Minimum allowable output w.r.t rating $P_r$.   
-**Link Object** : negative tie-line tolerance $ (P_i^{\star} - P_{i})/P^{\star} \geq P_{\text{min}} $.   
-7 | $ T_i $ | s | $[\Delta t, \infty)$ | $ T_{\text{lp}} $ | Low pass filter time constant.   
+5 | $P_{\text{max}}$ | p.u. | -1,13 |  diesel_dg: 1  
+ Grid Forming: `Pmax`   
+ Grid Following: `Pref_max`   
+ link: $\epsilon_{\text{tie}}$ | **Generator Object** : Maximum allowable output w.r.t rating $P_r$.   
+**Link Object** : positive tie-line tolerance $(P_i^{\star} - P_{i})/P^{\star} \leq P_{\text{max}}$.   
+6 | $P_{\text{min}}$ | p.u. | -1,13 |  diesel_dg: 0  
+ Grid Forming: `Pmin`   
+ Grid Following: `Pref_min`   
+ link: $-\epsilon_{\text{tie}}$ | **Generator Object** : Minimum allowable output w.r.t rating $P_r$.   
+**Link Object** : negative tie-line tolerance $(P_i^{\star} - P_{i})/P^{\star} \geq P_{\text{min}}$.   
+7 | $T_i$ | s | $[\Delta t, \infty)$ | $T_{\text{lp}}$ | Low pass filter time constant.   
 _Note_ : Note used for link objects.   
   
 There are three different key words that can be specified when passing unit specific parameters: 
@@ -167,21 +140,23 @@ To pass information to the secondary controller:
   2. List the unit name and relevant properties (to skip a property simply leave it blank)
   3. List additional units, separated by a line in csv or `;` in glm.
   4. Repeat steps 1-3 for more key words as necessary
+  
 There are two possible input formats: 
 
   1. glm
   2. csv
+
 The csv method is recommended in general as it is more robust, easy to read, and does not risk exceeding the allotted array buffer of 1024 characters. 
 
 The syntax is demonstrated using the following example. Initially (at ` t0 `) the secondary controller contains: 
 
-Name | $\alpha_i$ | $\Delta P_{\text{dn}}$ [MW] | $\Delta P_{\text{up}}$ [MW] | $ P_{\text{max}} $ [p.u.] | $ P_{\text{min}} $ [p.u.] | $ T_i $ [s]   
+Name | $\alpha_i$ | $\Delta P_{\text{dn}}$ MW | $\Delta P_{\text{up}}$ MW | $P_{\text{max}}$ p.u. | $P_{\text{min}}$ p.u. | $T_i$ s   
 ---|---|---|---|---|---|---  
 gen1 | 0.7 | default | default | 0.9 | 0.3 | default   
 gen2 | 0.3 | 0.5 | 0.5 | default | default | 1   
 tie1 | -1 | N/A | N/A | 0.1 | 0.1 | N/A   
   
-At ` t1 ` gen2 is removed from secondary control. In response gen1's $ \alpha_i = 1$ and $ P_{\text{max}} = 1 $, and the tie line tolerance is changed to $\pm 15\%$
+At ` t1 ` gen2 is removed from secondary control. In response gen1's $\alpha_i = 1$ and $P_{\text{max}} = 1$, and the tie line tolerance is changed to $\pm 15\%$
 
 #### glm syntax
 
@@ -241,28 +216,29 @@ The player would then have contain:
 
 ### Generator Properties
 
-The following properties are implemented in the [ inverter_dyn] and [ diesel_dg] models to allow interaction with the secondary controller.  
+The following properties are implemented in the  inverter_dyn and  diesel_dg models to allow interaction with the secondary controller.  
 **Note:** Any future object that should also be capable of interaction with the secondary object will likely need these properties. 
 
 Object | Parameter | glm | units | Default | Description   
 ---|---|---|---|---|---  
-[ diesel_dg] | $P_{\text{set}}$ | `pdispatch` | p.u. | GGOV with Rselect=1: $ P_{\text{ref}}/R $ | Power set point   
-GGOV with Rselect=-1 or -2: $ K_{\text{turb}}(P_{\text{ref}}/R - w_{\text{fnl}}) $  
-DEGOV1: $ (\omega_{\text{ref}} - 1)/R $  
-P_CONSTANT: $ P_{\text{ref}} $  
-$$\Delta P^{\star}$ | `pdispatch_offset` | p.u. | 0 | Offset to $P_{\text{set}}$. This is the quantity that the secondary controller manipulates   
-[ inverter_dyn] | $P_{\text{set}}$ | `pdispatch` | p.u. | GRID_FORMING, PSET_MODE: $P_{\text{set}}$ | Power set point   
+ diesel_dg | $P_{\text{set}}$ | `pdispatch` | p.u. | GGOV with Rselect=1: $P_{\text{ref}}/R$ | Power set point   
+GGOV with Rselect=-1 or -2: $K_{\text{turb}}(P_{\text{ref}}/R - w_{\text{fnl}})$  
+DEGOV1: $(\omega_{\text{ref}} - 1)/R$  
+P_CONSTANT: $P_{\text{ref}}$  
+$\Delta P^{\star}$ | `pdispatch_offset` | p.u. | 0 | Offset to $P_{\text{set}}$. This is the quantity that the secondary controller manipulates   
+ inverter_dyn | $P_{\text{set}}$ | `pdispatch` | p.u. | GRID_FORMING, PSET_MODE: $P_{\text{set}}$ | Power set point   
 GRID_FORMING, FSET_MODE: $(2\pi f_{\text{set}} - \omega_{\text{ref}})/m_p$  
-GRID_FOLLOWING or GFL_CURRENT_SOURCE: $ P_{\text{ref}}/S_{\text{base}} $  
-$$\Delta P^{\star}$ | `pdispatch_offset` | p.u. | 0 | Offset to $P_{\text{set}}$. This is the quantity that the secondary controller manipulates   
+GRID_FOLLOWING or GFL_CURRENT_SOURCE: $P_{\text{ref}}/S_{\text{base}}$  
+$\Delta P^{\star}$ | `pdispatch_offset` | p.u. | 0 | Offset to $P_{\text{set}}$. This is the quantity that the secondary controller manipulates   
   
-  
-The current set point, $ P^{\star} $, is calculated as  
-$$ P^{\star} = P_{\text{set}} + \Delta P^{\star} $$
+ 
+The current set point, $P^{\star}$, is calculated as  
+
+$$P^{\star} = P_{\text{set}} + \Delta P^{\star}$$
 
 ### Link Properties
 
-The following properties are implemented in the [ link] object to allow interaction with the secondary controller as a tie-line. 
+The following properties are implemented in the  link object to allow interaction with the secondary controller as a tie-line. 
 
 Parameter | glm | units | Description   
 ---|---|---|---  
@@ -270,12 +246,9 @@ $P_{\text{set}}$ | ` pdispatch ` | W | Scheduled flow. Positive flow matches the
 $\Delta P^{\star}$ | `pdispatch_offset` | W | Offset to the scheduled flow.  
 **Note** : currently unused.   
 set dispatch trigger | `set_dispatch` | true/false | Trigger to set schedule to current power flow value. When True will set:  
-$P_{\text{set}} = (P_{\text{in}} + P_{\text{out}})/2 $   
+$P_{\text{set}} = (P_{\text{in}} + P_{\text{out}})/2$   
 $\Delta P^{\star} = 0$  
   
-  
-
-
 ## Interaction with QSTS Mode
 
 ### Initialization
@@ -286,9 +259,10 @@ Since QSTS mode is a steady state formulation there is no frequency error. There
 
 The controller keeps track of two conditions: 
 
-  1. Frequency within deadband: $  -\epsilon \leq \Delta f \leq \epsilon $
-  2. Tie-lines within tolerance: $  P_{\text{min}} \leq (P^{\star}_i - P_i)/P^{\star}_i \leq P_{\text{max}} \forall i$
-When both of these conditions are met for the length of two output sampling periods ($ 2T_s$) then the secondary controller requests to return to QSTS mode. 
+  1. Frequency within deadband: $-\epsilon \leq \Delta f \leq \epsilon$
+  2. Tie-lines within tolerance: $P_{\text{min}} \leq (P^{\star}_i - P_i)/P^{\star}_i \leq P_{\text{max}} \forall i$
+
+When both of these conditions are met for the length of two output sampling periods ($2T_s$) then the secondary controller requests to return to QSTS mode. 
 
 ## Examples
 
@@ -385,11 +359,11 @@ Figure 4: Secondary controller setup on the IEEE 123 Bus case for illustration p
 ## References
 
   1. ↑ "Wood, Allen J., Bruce F. Wollenberg, and Gerald B. Sheblé. Power generation, operation, and control. John Wiley & Sons, 2013."
-  2. ↑ See, for example Aström, Karl (2002). Control System Design ([PDF](https://www.cds.caltech.edu/~murray/courses/cds101/fa02/caltech/astrom-ch6.pdf)). pp. 228–231.
+  2. ↑ See, for example Aström, Karl (2002). Control System Design (PDF(https://www.cds.caltech.edu/~murray/courses/cds101/fa02/caltech/astrom-ch6.pdf)). pp. 228–231.
   3. ↑ 3.0 3.1 Negative values possible for inverters if a battery is assumed that can also charge
 
 ## See Also
 
-[Req:sec_control]
+Req:sec_control
 
 

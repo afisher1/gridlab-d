@@ -88,12 +88,12 @@ Notes
 
   1. $\dot V_{thermal} \approx 1.877 Floorarea \sqrt{Buildingeight|T_{in}-T_{out}|/T_{in}}/Airvolume$ in puV/h
   2. $\dot V_{wind} \approx Floorarea \times Windspeed \times 10^{-5}$ in puV/h
-  3. $ Q_{peaksolar} = Peaksolar \times Windowarea \times Shading \times Exposurefraction/8$ in Btu/h with $Exposurefraction = \begin{cases} Solarelevation > 0 & : \sqrt{2} \cos(Solarelevation) \sin(Solarelevation) \\\ Solarelevation \le 0 & : 0 \end{cases}$
-  4. $ H_{vent} = 0.182 Ventilationrate \times Airvolume$
-  5. $ UA_{wall} = Wallarea(1-Windowwallratio)/Wallrvalue\,\\!$
-  6. $ UA_{roof} = Flooarea/Roofrvalue\,\\!$
-  7. $ UA_{window} = Wallarea \times Windowallratio \times Windowrvalue$
-  8. $ Solarexposure = Windowarea (1-Externalshading)Exposurefraction/8 \,\\!$
+  3. $Q_{peaksolar} = Peaksolar \times Windowarea \times Shading \times Exposurefraction/8$ in Btu/h with $Exposurefraction = \begin{cases} Solarelevation > 0 & : \sqrt{2} \cos(Solarelevation) \sin(Solarelevation) \\\ Solarelevation \le 0 & : 0 \end{cases}$
+  4. $H_{vent} = 0.182 Ventilationrate \times Airvolume$
+  5. $UA_{wall} = Wallarea(1-Windowwallratio)/Wallrvalue\,\\!$
+  6. $UA_{roof} = Flooarea/Roofrvalue\,\\!$
+  7. $UA_{window} = Wallarea \times Windowallratio \times Windowrvalue$
+  8. $Solarexposure = Windowarea (1-Externalshading)Exposurefraction/8 \,\\!$
 
 The end-use electricity is used to determine what fraction of the end-use load ends up as electric load, as shown in Table 2. 
 
@@ -245,11 +245,11 @@ The basic method for determining commercial load composition is to estimate the 
 
 The heating and cooling loads are interpolated based on the building's **balance temperature**. The heating load is multiplied by the heating duty cycle 
 
-$$ \rho_{heating} = \begin{cases} T_{out}< T_{balance}& : \frac{T_{balance}-T_{out}}{T_{balance}-T_{design_{heating}}} \\\ T_{out}\ge T_{balance}& : 0 \end{cases} $$
+$$\rho_{heating} = \begin{cases} T_{out}< T_{balance}& : \frac{T_{balance}-T_{out}}{T_{balance}-T_{design_{heating}}} \\\ T_{out}\ge T_{balance}& : 0 \end{cases} $$
 
 and similarly the cooling load is multiplied by the cooling duty cycle 
 
-$$ \rho_{cooling} = \begin{cases} T_{out}> T_{balance}& : \frac{T_{out}-T_{balance}}{T_{design_{cooling}}-T_{balance}} \\\ T_{out}\le T_{balance}& : 0 \end{cases} $$
+$$\rho_{cooling} = \begin{cases} T_{out}> T_{balance}& : \frac{T_{out}-T_{balance}}{T_{design_{cooling}}-T_{balance}} \\\ T_{out}\le T_{balance}& : 0 \end{cases} $$
 
 ## Small office
 

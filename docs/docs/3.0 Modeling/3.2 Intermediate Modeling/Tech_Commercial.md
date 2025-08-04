@@ -35,12 +35,12 @@ $$\begin{align} T_i' & = c_1 T_i + c_2 T_m + c_3 \\\ T_m' & = c_4 T_i + c_5 T_m 
 
 with the constants $c_1$ through $c_6$ defined as 
 
-  * $ c_1 = - (U_a+U_m)/C_a$
-  * $ c_2 = U_m/C_a$
-  * $ c_3 = (Q_a+U_a T_o)/C_a$
-  * $ c_4 = U_m/C_m$
-  * $ c_5 = - U_m/C_m$
-  * $ c_6 = Q_m/C_m$
+  * $c_1 = - (U_a+U_m)/C_a$
+  * $c_2 = U_m/C_a$
+  * $c_3 = (Q_a+U_a T_o)/C_a$
+  * $c_4 = U_m/C_m$
+  * $c_5 = - U_m/C_m$
+  * $c_6 = Q_m/C_m$
 
 The general form of the second-order ODE is $p_1 T_i + p_2 T_i' + p_3 T_i = p_4$. The solutions to the second-order ODEs for indoor and mass temperatures are:
 
@@ -48,30 +48,28 @@ $$\begin{align} T_i(t) & = k_1 e^{r_1 t} + k_2 e^{r_2 t} + \frac{p_4}{p_3} \\\ T
 
 where: 
 
-  * $ p_1 = 1/c_2$
-  * $ p_2 = -(c_1+c_5)/c_2$
-  * $ p_3 = c_1 c_5 / c_2 - c_4$
-  * $ p_4 = -c_3 c_5 / c_2 + c_6$
-  * $ r_1,r_2$ are the roots of the $p_1 r^2 + p_2 r + p_3 = 0$
-  * $ k_1 = [ r_1 T_i(0) - r_2 p_4/p_3 - T_i'(0) ] / (r_2 - r1)$
-  * $ k_2 = [T_i'(0) - r_1 k_1] / r_2$
+  * $p_1 = 1/c_2$
+  * $p_2 = -(c_1+c_5)/c_2$
+  * $p_3 = c_1 c_5 / c_2 - c_4$
+  * $p_4 = -c_3 c_5 / c_2 + c_6$
+  * $r_1,r_2$ are the roots of the $p_1 r^2 + p_2 r + p_3 = 0$
+  * $k_1 = [ r_1 T_i(0) - r_2 p_4/p_3 - T_i'(0) ] / (r_2 - r1)$
+  * $k_2 = [T_i'(0) - r_1 k_1] / r_2$
   * $t$ = the elapsed time
-  * $ T_i(t)$ = the temperature of the air inside the building at time $t$
-  * $ T_i'(t)$ = the rate of temperature change of the air inside the building at time $t$
+  * $T_i(t)$ = the temperature of the air inside the building at time $t$
+  * $T_i'(t)$ = the rate of temperature change of the air inside the building at time $t$
+
 so that 
 
-$$
-T_i'(0) = c_2 T_m(0) + c_1 T_i(0) - \left(c_1 + c_2\right) T_o + c_7 \tag{}
-$$
+$$T_i'(0) = c_2 T_m(0) + c_1 T_i(0) - \left(c_1 + c_2\right) T_o + c_7 \tag{}$$
 
 and 
 
-$$T_m(t) = k_1 \frac{r_1 - c_1}{c_2} e^{r_1 t} + k_2 \frac{r_2-c_1}{c_2} e^{r_2 t} + \frac{p_4}{p_3} + \frac{c_6}{c_2} 
-$$
+$$T_m(t) = k_1 \frac{r_1 - c_1}{c_2} e^{r_1 t} + k_2 \frac{r_2-c_1}{c_2} e^{r_2 t} + \frac{p_4}{p_3} + \frac{c_6}{c_2}$$
 
 with 
 
-  * $ c_7 = Q_a / C_a$
+  * $c_7 = Q_a / C_a$
 
 ## Defaults
 
@@ -111,12 +109,11 @@ $$Q_{max_{heat}}=UA ( T_{set_{heat}}-T_{design_{heat}} )$$
 
 The default cooling capacity is computed by solving the heat flow equation for the peak cooling condition, which gives: 
 
-$$Q_{max_{cool}} = UA ( T_{design_{cool}}-T_{set_{cool}}) + \sum_{windows}{A_{window} Q_{solar} c_{glazing}} + \sum_{loads}{Q_{load}} +Q_{vent}
-$$
+$$Q_{max_{cool}} = UA ( T_{design_{cool}}-T_{set_{cool}}) + \sum_{windows}{A_{window} Q_{solar} c_{glazing}} + \sum_{loads}{Q_{load}} +Q_{vent}$$
 
 where 
 
-$ Q_{vent}=0.2402 \times 0.0735(T_{design_{cool}}-T_{set_{cool}}) \times V_{air} \times ACH $
+$Q_{vent}=0.2402 \times 0.0735(T_{design_{cool}}-T_{set_{cool}}) \times V_{air} \times ACH $
 
 The heating COP is given by $COP_{heat} = Dist_{triangle}(1,2)$ and the cooling COP is given by $COP_{cool} = Dist_{triangle}(3,5)$. 
 
@@ -124,27 +121,27 @@ The heating COP is given by $COP_{heat} = Dist_{triangle}(1,2)$ and the cooling 
 
 The HVAC system has 6 control modes: 
 
-* OFF
+- **OFF** -
     In the **OFF** mode, the HVAC system is completely off. No ventilation and no heating or cooling of any kind of performed. This mode is engaged whenever $T_{off_{heat}} < T_{air} < T_{off_{cool}}$ and $occupancy = 0$. 
 
-* VENT 
+- **VENT** -
     In the **VENT** mode, the HVAC system is ventilating the zone at the **minimum_ach** rate. This mode is engaged whenever $T_{off_{heat}} < T_{air} < T_{off_{cool}}$ and $occupancy > 0$. 
 
-* HEAT
+- **HEAT** -
     In the **HEAT** mode, the primary heating (COP>1) system is on and the building is ventilating at the **minimum_ach** rate only if **occupancy** is non-zero. This mode is engaged whenever $T_{cutin_{aux}} < T_{air} \le T_{on_{heat}}$. 
 
-* AUX 
+- **AUX** - 
     In the **AUX** mode, the secondary heating (COP=1) system is on and the building is ventilating at the **minimum_ach** rate only if **occupancy** is non-zero. This mode is engaged whenever $T_{air} \le T_{cutin_{aux}}$. 
 
-* COOL 
+- **COOL** - 
     In the **COOL** mode, the active cooling (COP>1) system is on and the building ventilating at the **minimum_ach** rate only if **occupancy** is non-zero. This mode is engaged whenever $T_{air} \ge T_{on_{cool}} and T_{out} > T_{cutin_{econ}}$. 
 
-* ECON 
+- **ECON** -
     In the **ECON** mode, the passive cooling (COP=$\infty$;) system is on and the building is ventilating using the rate required to cool using outdoor air only. This mode is engaged whenever $T_{air} \ge T_{on_{cool}}$ and $T_{out} \le T_{cutin_{econ}}$. 
 
 ## Power calculations
 
-Except as noted below, when ventilation is required, $P_{vent} = floor\_area (0.1 - 0.01\imath) $ VA/sf, and $Q_{vent}=0.2402 \times 0.0735 (T_{out}-T_{air}) V_{air} \times ventilation\_rate$. 
+Except as noted below, when ventilation is required, $P_{vent} = floor\_area (0.1 - 0.01\imath)$ VA/sf, and $Q_{vent}=0.2402 \times 0.0735 (T_{out}-T_{air}) V_{air} \times ventilation\_rate$. 
 
 ### HVAC
 
@@ -194,9 +191,7 @@ The general formulation for a multizone state-space solution
 
 For every node n, the heat transfer equation is 
 
-$$
-    C_n\frac{dT_n(t)}{dt} =    Q_n(t)  + \sum_{m=1}^M{ U_{nm} \left[ T_m(t)-T_n(t) \right] } \tag{6}
-$$
+$$C_n\frac{dT_n(t)}{dt} =    Q_n(t)  + \sum_{m=1}^M{ U_{nm} \left[ T_m(t)-T_n(t) \right] } \tag{6}$$
 
 For a state space representation form a continuous, linear, time-invariant system is 
 
@@ -207,9 +202,7 @@ $$\begin{align}
 
 And from (25), the solution is: 
 
-$$
-y_t= \sum_{j=0}^n(S_j u_{t-j\delta})-\sum_{j=1}^n(e_j y_{t-j\delta})
-$$
+$$y_t= \sum_{j=0}^n(S_j u_{t-j\delta})-\sum_{j=1}^n(e_j y_{t-j\delta})$$
 
 where 
 
@@ -301,40 +294,40 @@ Assume a "small" time step $\Delta t$ during which all temperatures change by a 
 
 Then the heat balance on a massive node $n$, i.e., $C_n >0$, from a set of connected nodes $m=1$ to $M$, from time $t$ to time $t+\Delta t$ is: 
 
-$$ Q_n(t)+\sum_{m=1}^M Q_{mn}(t)=\frac{C_n\left[T_n(t+\Delta t)-T_n(t) \right]} |{\Delta t} \tag{2} $$ 
+$$Q_n(t)+\sum_{m=1}^M Q_{mn}(t)=\frac{C_n\left[T_n(t+\Delta t)-T_n(t) \right]} |{\Delta t} \tag{2}$$ 
 
 where $Q_n(t)$ is assumed to be constant boundary condition over the interval. 
 
 Solving this for the temperature of the node at the next time step: 
 
-$$ \frac{C_n T_n(t+\Delta t)}{\Delta t} = Q_n(t)+\sum_{m=1}^M Q_{nm}(t)+\frac{C_n T_n(t)}{\Delta t} \tag{3}$$
+$$\frac{C_n T_n(t+\Delta t)}{\Delta t} = Q_n(t)+\sum_{m=1}^M Q_{nm}(t)+\frac{C_n T_n(t)}{\Delta t} \tag{3}$$
 
 
-$$ T_n(t+\Delta t) = \frac{\Delta t}{C_n} \left[Q_n(t)+\sum_{m=1}^M Q_{nm}(t)\right] + T_n(t) \tag{4}$$
+$$T_n(t+\Delta t) = \frac{\Delta t}{C_n} \left[Q_n(t)+\sum_{m=1}^M Q_{nm}(t)\right] + T_n(t) \tag{4}$$
 
 Substituting the definition for $Q_{nm}$ from Equation (1): 
 
-$$ T_n(t+\Delta t) = \frac{\Delta t}{C_n} \left[Q_n(t)+\sum_{m=1}^M U_{mn}\left[T_m(t)-T_n(t)\right]\right] + T_n (t) \tag{5}$$
+$$T_n(t+\Delta t) = \frac{\Delta t}{C_n} \left[Q_n(t)+\sum_{m=1}^M U_{mn}\left[T_m(t)-T_n(t)\right]\right] + T_n (t) \tag{5}$$
 
 or 
 
-$$ T_n(t+\Delta t) = \frac{\Delta t}{C_n} Q_n(t) + \frac{\Delta t}{C_n} \sum_{m=1}^M U_{mn} T_m(t) + T_n(t) \left[1-\frac{\Delta t}{C_n}\sum_{m=1}^M U_{mn}\right] \tag{6}$$
+$$T_n(t+\Delta t) = \frac{\Delta t}{C_n} Q_n(t) + \frac{\Delta t}{C_n} \sum_{m=1}^M U_{mn} T_m(t) + T_n(t) \left[1-\frac{\Delta t}{C_n}\sum_{m=1}^M U_{mn}\right] \tag{6}$$
 
 ### Step 2: Compute temperatures of all massless nodes
 
 If node $n$ is massless, i.e., $C_n = 0$, then it must be in thermal equilibrium with all adjacent nodes at any time. For massless nodes, Equation (2) reduces to 
 
-$$ Q_n(t)+\sum_{m=1}^M Q_{nm}(t+\Delta t)=0 \tag{7} $$
+$$Q_n(t)+\sum_{m=1}^M Q_{nm}(t+\Delta t)=0 \tag{7} $$
 
 where over the time interval from $t$ to $t+\Delta t$ $Qn$ is a constant boundary condition. 
 
 Substituting the definition for $Q_{mn}$ from Equation (1): 
 
-$$ Q_n(t)+\sum_{m=1}^M U_{mn} \left[ T_m(t+\Delta t)-T_n(t+\Delta t) \right]=0 \tag{8}$$
+$$Q_n(t)+\sum_{m=1}^M U_{mn} \left[ T_m(t+\Delta t)-T_n(t+\Delta t) \right]=0 \tag{8}$$
 
 Solving for the temperature of the node at time t+Δt: 
 
-$$ T_n(t+\Delta t)=\frac{Q_n(t)+\sum_{m=1}^M U_{mn}T_m(t+\Delta t)}{\sum_{m=1}^M U_{mn}} \tag{9}$$
+$$T_n(t+\Delta t)=\frac{Q_n(t)+\sum_{m=1}^M U_{mn}T_m(t+\Delta t)}{\sum_{m=1}^M U_{mn}} \tag{9}$$
 
 ![Reduced equivalent of 6-node thermal network](../../../images/300px-Tech-Multizone_ETP_Linearization_Figure_2.png)
 
@@ -352,7 +345,7 @@ Figure 3a - Series massless node reduction
 
 A series configuration of two nodes, such as the thermal network in Figure 1, can be reduced as shown in Figure 2, where Node 5 is eliminated and the equivalent series conductance from Node 0 to Node 4 is 
 
-$$ U_{xy} = \frac{U_{xw} + U_{wy}}{U_{xw} U_{wy}} \tag{10}$$
+$$U_{xy} = \frac{U_{xw} + U_{wy}}{U_{xw} U_{wy}} \tag{10}$$
 
 #### Parallel massless nodes configurations
 
@@ -362,7 +355,7 @@ Figure 3b - Parallel thermal path reduction
 
 A parallel configuration of two nodes can be reduced to a single node thus: 
 
-$$ U_{xy} = U_{A} + U_{B} \\ \tag{11}$$
+$$U_{xy} = U_{A} + U_{B} \\ \tag{11}$$
 
 #### Delta massless nodes configurations
 
@@ -377,14 +370,14 @@ U_{xw} &= U_{xy}U_{xz}\left[ \frac{1}{U_{xy}} + \frac{1}{U_{yz}} + \frac{1}{U_{x
 
 Note that for the general "star-mesh" case, the transformation is: 
 
-$$  U_{ij} = U_iw U_jw \sum_{n=1}^N \frac{1}{U_n} \tag{15} $$
+$$U_{ij} = U_iw U_jw \sum_{n=1}^N \frac{1}{U_n} \tag{15}$$
 
 
 where $N=1$ is the dangling node case (which eliminates the node), $N=2$ is the series node case (see above) and $N=3$ is the "delta-wye" transformation case. The "star-mesh" transformation has no general inverse without additional constraints, so all mesh configurations must be simplified using a series of appropriate wye-delta transformations. 
 
 In such all cases, the temperature of the new node, $w$ is calculated as follows: 
 
-$$ T_w = \frac{\sum_{n=1}^N U_{nw} T_n}{\sum_{n=1}^N U_{nw}} \tag{16}$$
+$$T_w = \frac{\sum_{n=1}^N U_{nw} T_n}{\sum_{n=1}^N U_{nw}} \tag{16}$$
 
 
 #### Special Case for "Bang-Bang" HVAC Control
@@ -393,31 +386,31 @@ Nodes whose temperature is used to control $Q_n$ (typically heating or cooling f
 
 Define $Q_n$ as the sum of the HVAC energy input (heating positive, cooling negative), and the sum of internal heat gains and solar heat gains, to Node $n$: 
 
-$$ Q_n = Q_{hvac,n}+Q_{gains,n} \quad \tag{17} $$
+$$Q_n = Q_{hvac,n}+Q_{gains,n} \quad \tag{17}$$
 
 
 Let $Q_{cool-cap,n}$ and $Q_{heat-cap,n}$ be the net cooling and heating capacity available to supply the zone, respectively (net of the fan power). Let $Q_{fan,n}$ be the fan power when the HVAC is off (i.e., if the fan runs continually then $Q_{fan,n} > 0$). 
 
 Assume a heating and cooling thermostat with setpoints centered in a deadband with range $+\Delta T_n$ on either side of the setpoint. Note that setpoints must not overlap: 
 
-$$ T_{cool,n} - \Delta T_n > T_{heat,n} + \Delta T_n \quad \tag{18} $$
+$$T_{cool,n} - \Delta T_n > T_{heat,n} + \Delta T_n \quad \tag{18}$$
 
 
-The thermostat sets $ Q_{hvac,n} $, which persists in subsequent time steps until changed by the thermostat: 
+The thermostat sets $Q_{hvac,n}$, which persists in subsequent time steps until changed by the thermostat: 
 
-When $  T_n < T_{heat,n} - \Delta T_n $
+When $T_n < T_{heat,n} - \Delta T_n$
 
-$$ Mode_n = On \quad ; \quad Q_{hvac,n} = Q_{heat-cap,n} \tag{19} $$
-
-
-When $  T_n > T_{cool,n} + \Delta T_n $
-
-$$ Mode_n = On \quad ; \quad Q_{hvac,n} = Q_{cool-cap,n} \tag{20} $$
+$$Mode_n = On \quad ; \quad Q_{hvac,n} = Q_{heat-cap,n} \tag{19}$$
 
 
-When $  Mode_n=On $ and $ T_{heat,n}+ \Delta T_n $ ≤ $ T_n $ ≤ $ T_{cool,n} - \Delta T_n $
+When $T_n > T_{cool,n} + \Delta T_n$
 
-$$ Mode_n = Off \quad ; \quad Q_{hvac,n} = Q_{fan,n} \tag{21}$$
+$$Mode_n = On \quad ; \quad Q_{hvac,n} = Q_{cool-cap,n} \tag{20}$$
+
+
+When $Mode_n=On$ and $T_{heat,n}+ \Delta T_n $≤ $T_n  ≤ $T_{cool,n} - \Delta T_n$
+
+$$Mode_n = Off \quad ; \quad Q_{hvac,n} = Q_{fan,n} \tag{21}$$
 
 
 Then the node temperature at time $t+\Delta t$ can be calculated from Equation (6). Note that all HVAC control nodes with On/Off control must be massive. If one were massless, Equation (9) indicates there is no way to maintain a setpoint without proportional control of $Q_{hvac,n}$. 
@@ -426,31 +419,31 @@ Then the node temperature at time $t+\Delta t$ can be calculated from Equation (
 
 In the case of proportional control for $Q_{hvac,n}$, then a proportional-differential control scheme: 
 
-When $  T_{heat,n} - \Delta T_n < T_n(t) < T_{heat,n} + \Delta T_n \quad$
+When $T_{heat,n} - \Delta T_n < T_n(t) < T_{heat,n} + \Delta T_n \quad$
 
 $$\begin{align} 
 Q_{hvac,n}(t) = Q_{heat-cap,n}(t) \left[ \frac{T_{heat,n}+\Delta T_n-T_n(t)}{2\Delta T_n} - \frac{k}{2\Delta T_n} \left[ T_n(t)-T_n(t-\Delta t)\right]\right] \tag{22}
 \end{align}$$
 
-When $  T_{cool,n} - \Delta T_n < T_n(t) < T_{cool,n} + \Delta T_n \quad$
+When $T_{cool,n} - \Delta T_n < T_n(t) < T_{cool,n} + \Delta T_n \quad$
 
 $$\begin{align}
 Q_{hvac,n}(t) = Q_{cool-cap,n}(t) \left[ \frac{T_n(t) - T_{cool,n} + \Delta T_n}{2 ∆T_n} - \frac{k}{2\Delta T_n} \left[ T_n(t-\Delta t)-T_n(t) \right] \right] \tag{23}
 \end{align}$$
 
-When $  T_{heat,n} + \Delta T_n \le T_n(t) \le T_{cool,n} - \Delta T_n$
+When $T_{heat,n} + \Delta T_n \le T_n(t) \le T_{cool,n} - \Delta T_n$
 
 $$Q_{hvac,n}(t) = Q_{fan,n} \quad \tag{24}$$
-
 
 where $k$ is the proportional gain for the controller. 
 
 ### Step 3: Compute temperatures of reduced nodes
 
-Massless nodes that have been reduced from the network are unnecessary to the simulation model of the network if :
+Massless nodes that have been reduced from the network are unnecessary to the simulation model of the network if:
 
   1. the temperature of the node does not affect some non-linear aspect such as a thermostatic control, and
   2. the temperature is not needed as an output variable for some purpose.
+
 In general, it may be best to assume that if the user specified “unneeded” nodes, that there was some purpose in mind, and their temperatures should be computed from Equation (9) as a final step. 
 
 ## Validation
@@ -501,15 +494,17 @@ When $a b < 0$, the function always has one extremum and one inflexion point, an
   
 The simplest efficient numerical method is Newton's method, but the method will not converge under certain conditions that depend on when the extremum and the inflexion points occur. The following tests must be made before starting the numerical solution: 
 
-  * for $ t_m > 0$, a solution exists when $f_0$×$f_m < 0$ or $c$×$f_m < 0$
-  * for $ t_m = 0$ a solution only exists when $f_m = 0$
-  * for $ t_m < 0$ ≤ $ti$ a solution only exists when $f_m < 0 < f_i$
-  * for $ t_i = 0$ a solution only exists when $f_i = 0$
-  * for $ t_i < 0$ a solution only exists when $c$×$f_i < 0$
-When a solution exists the starting point $ t_0$ of the numerical solution must be chosen based on the values of $t_m$ and $t_i$
+  * for $ _m > 0$, a solution exists when $f_0$×$f_m < 0$ or $c$×$f_m < 0$
+  * for $t_m = 0$ a solution only exists when $f_m = 0$
+  * for $t_m < 0$ ≤ $ti$ a solution only exists when $f_m < 0 < f_i$
+  * for $t_i = 0$ a solution only exists when $f_i = 0$
+  * for $t_i < 0$ a solution only exists when $c$×$f_i < 0$
 
-  * $ t_0 = 0$ should be used when $t_m > 0$ and $f_m$ ≤ $f_0 < 0$
+When a solution exists the starting point $t_0$ of the numerical solution must be chosen based on the values of $t_m$ and $t_i$
+
+  * $t_0 = 0$ should be used when $t_m > 0$ and $f_m$ ≤ $f_0 < 0$
   * $t_0 = t_i$ should be used for all other conditions for which a solution exists
+  
 # References
 
   * Taylor, ZT and RG Pratt. 1988 "The effects of model simplifications on equivalent thermal parameters calculated from hourly building performance data." In proc. 1988 ACEEE Summer Study on Energy Efficiency in Buildings, pp. 10.268-10.285.

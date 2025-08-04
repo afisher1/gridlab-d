@@ -1,7 +1,6 @@
 # Assert (module)
 
-**Source URL:** https://gridlab-d.shoutwiki.com/wiki/Assert_(module)
-Assert (module) \- Assert objects can be used to monitor the properties of other objects 
+Assert objects can be used to monitor the properties of other objects. The assert class is used purely for validation purposes. They are used to assert that a given parameter will have a certain value at a certain time. In most case, this is used in conjunction with the auto-validation process performed on the nightly builds. More information on the validation process can be found at: Integrated_Testing
 
 ## Synopsis
 
@@ -11,10 +10,6 @@ Assert (module) \- Assert objects can be used to monitor the properties of other
     class complex_assert;
     class enum_assert;
     
-# Assert Overview
-
-The assert class is used purely for validation purposes. They are used to assert that a given parameter will have a certain value at a certain time. In most case, this is used in conjunction with the auto-validation process performed on the nightly builds. More information on the validation process can be found at: Integrated_Testing
-
 # Assert Objects
 
 Assert objects work by taking a user defined value and comparing it against a property that is also specified by the user. There are three different assert objects that may be used, `_complex_assert_` , `_double_assert_` , and `_enum_assert_`. These are used to test against complex numbers $(r + j*x)$, double values (real numbers), and enumerations (strings), respectively. Each object also contains a number of operating modes that will further explained below. 

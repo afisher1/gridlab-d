@@ -32,25 +32,23 @@ The types of nodes that are supported are the following:
 
 The PQ bus is the most commonly found bus type in electric network models. PQ buses are nodes where both the real power (P) and reactive power (Q) are given. In these cases, the updated voltage at a node is found from an existing (non-zero) voltage using 
 
-$$\overline V_k \gets \frac{P_k - \jmath Q_k}{ \overline {Y}_k (\overline V_k^* - \sum\limits_{i = 1,i \neq k}^n{\overline Y_{ki} \overline V_i})} 
-$$
+$$\overline V_k \gets \frac{P_k - \jmath Q_k}{ \overline {Y}_k (\overline V_k^* - \sum\limits_{i = 1,i \neq k}^n{\overline Y_{ki} \overline V_i})}$$
 
-where $  \overline {Y}_k \gets G_k + \jmath B_k + \sum\limits_{i=1,i\neq k}^n{\overline Y_{ki}} $
+where $\overline {Y}_k \gets G_k + \jmath B_k + \sum\limits_{i=1,i\neq k}^n{\overline Y_{ki}}$
 
 ### PV Bus
 
 The PV bus is the next most common bus type in electric network model. PV buses are nodes where the real power (P) is given, but the reactive power (Q) must be determined at each iteration. In these cases, the updated voltage for a node is found by calculating (3.2) If Q exceeds the Q limits [Qmin, Qmax], then the angle is fixed to the corresponding limit and the bus is solved as a PQ bus. 
 
-$$ Q_k \gets \Im \left[ \overline V_k^* ( \overline Y_k \overline V_k + \sum\limits_{i = 1,i \neq k}^n{\overline Y_{ki} \overline V_i} ) \right] $$
+$$Q_k \gets \Im \left[ \overline V_k^* ( \overline Y_k \overline V_k + \sum\limits_{i = 1,i \neq k}^n{\overline Y_{ki} \overline V_i} ) \right]$$
 
 ### SWING Bus
 
 The SWING bus occurs at least once in any given island of a network models. Large models may have more than one SWING bus, particularly if areas of the network are only lightly coupled by relatively high-impedance links. SWING bus nodes are nodes where both the real power (P) and reactive power (Q) must be determined each iteration. In these cases, the updated voltage for a node is found by 
 
-$$\overline S \gets \overline V_k^* ( \overline Y_k \overline V_k + \sum\limits_{i = 1,i \neq k}^n{\overline Y_{ki} \overline V_i} ) 
-$$
+$$\overline S \gets \overline V_k^* ( \overline Y_k \overline V_k + \sum\limits_{i = 1,i \neq k}^n{\overline Y_{ki} \overline V_i} )$$
 
-where $  P + \jmath Q = \overline S $
+where $P + \jmath Q = \overline S$
 
 ## Branch Solutions
 
@@ -58,32 +56,27 @@ The link object implements the general solution elements for branches using the 
 
 The effective admittance Y is calculated by including half of the line charging capacitance B (Kundur 1993): 
 
-$$\overline Y_{k_{eff}} \gets \overline Y_k + \jmath \frac{B}{2} 
-$$
+$$\overline Y_{k_{eff}} \gets \overline Y_k + \jmath \frac{B}{2}$$
 
 The admittance coefficient is the inverse of the transformer turns ratio $n$, if any (Kundur 1993): 
 
-$$c \gets \frac{1}{n} 
-$$
+$$c \gets \frac{1}{n}$$
 
 The effective line self-admittance is the product of the admittance coefficient and component admittance: 
 
-$$\overline Y_c \gets c \overline Y_{k_{eff}} 
-$$
+$$\overline Y_c \gets c \overline Y_{k_{eff}}$$
 
 Add the self-admittance and the shunt admittances to the busses (Kundur 1993): 
 
-$$\begin{alignat}{2} \sum \overline Y_{from} & \gets \sum \overline Y_{from} + \overline Y_c + (c-1) \overline Y_c \\\ \sum \overline Y_{to} & \gets \sum \overline Y_{to} + \overline Y_c + (1-c) \overline Y_{eff} \\\ \end{alignat} $$
+$$\begin{alignat}{2} \sum \overline Y_{from} & \gets \sum \overline Y_{from} + \overline Y_c + (c-1) \overline Y_c \\\ \sum \overline Y_{to} & \gets \sum \overline Y_{to} + \overline Y_c + (1-c) \overline Y_{eff} \\\ \end{alignat}$$
 
 Compute the line current injections on the busses: 
 
-$$\begin{alignat}{2} \begin{alignat}{2} \sum \overline I_{from} & \gets \sum \overline V_{to} \overline Y_c \\\ \sum \overline I_{to} & \gets \sum \overline V_{from} \overline Y_c \\\ \end{alignat} \end{alignat} 
-$$
+$$\begin{alignat}{2} \begin{alignat}{2} \sum \overline I_{from} & \gets \sum \overline V_{to} \overline Y_c \\\ \sum \overline I_{to} & \gets \sum \overline V_{from} \overline Y_c \\\ \end{alignat} \end{alignat}$$
 
 Add the current injections to the busses: 
 
-$$\begin{alignat}{2} \sum \overline {YV}_{from} & \gets \sum \overline {YV}_{from} + \overline I_{from} \\\ \sum \overline {YV}_{to} & \gets \sum \overline {YV}_{to} + \overline I_{to} \\\ \end{alignat} 
-$$
+$$\begin{alignat}{2} \sum \overline {YV}_{from} & \gets \sum \overline {YV}_{from} + \overline I_{from} \\\ \sum \overline {YV}_{to} & \gets \sum \overline {YV}_{to} + \overline I_{to} \\\ \end{alignat}$$
 
 # Network module implementation
 
@@ -100,7 +93,7 @@ convergence_limit  | double | 0.001 | V | The maximum allowable voltage change f
 mvabase  | double | 1.0 | MVA | The megaVolt-Amp basis to use in calculating powers   
 kvbase  | double | 12.5 | kV | The kiloVolt basis to use calculating voltages   
 model_year  | int16 | 2000 | CE | The basis year of the model   
-model_case  | char8 | "S" | [WSF] | The basis of the case (e.g., winter, summer, fall)   
+model_case  | char8 | "S" | WSF | The basis of the case (e.g., winter, summer, fall)   
 model_name  | char32 | (unnamed) | * | The name of the model   
   
 ## Node class
