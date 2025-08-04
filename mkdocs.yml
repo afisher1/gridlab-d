@@ -153,32 +153,32 @@ nav:
       - Object (property): docs/3.0 Modeling/Objects/Object_(property).md
       - Voltage source inverter (VSI): docs/3.0 Modeling/Objects/Voltage_source_inverter_(VSI).md
   - 4.0 Developing:
-    - Introduction: 4.0 Developing/4.1 - Introduction.md
-    - Building GridLAB-D from Source: 4.0 Developing/4.2 - Building from Source.md
+    - Introduction: docs/4.0 Developing/4.1 - Introduction.md
+    - Building GridLAB-D from Source: docs/4.0 Developing/4.2 - Building from Source.md
     - 4.3 - Software Architecture and Design:
-      - Introduction: 4.0 Developing/4.3 - Software Architecture and Design/4.3.0 - Introduction.md
-      - GLDCore: 4.0 Developing/4.3 - Software Architecture and Design/4.3.1 - gldcore.md
-      - GridLAB-D Modules: 4.0 Developing/4.3 - Software Architecture and Design/4.3.2 - Modules.md
-      - GridLAB-D Objects: 4.0 Developing/4.3 - Software Architecture and Design/4.3.3 - Objects.md
-      - Object Synchronization Process: 4.0 Developing/4.3 - Software Architecture and Design/4.3.4 - Object Synchronization Process.md
-      - GridLAB-D Parallelization: 4.0 Developing/4.3 - Software Architecture and Design/4.3.6 - Parallelization.md
-      - GridLAB-D Loader: 4.0 Developing/4.3 - Software Architecture and Design/4.3.7 - Loader.md
-      - GridLAB-D Data Transforms: 4.0 Developing/4.3 - Software Architecture and Design/4.3.8 - Transforms.md
-      - libgld: 4.0 Developing/4.3 - Software Architecture and Design/4.3.9 - libgld.md
+      - Introduction: docs/4.0 Developing/4.3 - Software Architecture and Design/4.3.0 - Introduction.md
+      - GLDCore: docs/4.0 Developing/4.3 - Software Architecture and Design/4.3.1 - gldcore.md
+      - GridLAB-D Modules: docs/4.0 Developing/4.3 - Software Architecture and Design/4.3.2 - Modules.md
+      - GridLAB-D Objects: docs/4.0 Developing/4.3 - Software Architecture and Design/4.3.3 - Objects.md
+      - Object Synchronization Process: docs/4.0 Developing/4.3 - Software Architecture and Design/4.3.4 - Object Synchronization Process.md
+      - GridLAB-D Parallelization: docs/4.0 Developing/4.3 - Software Architecture and Design/4.3.6 - Parallelization.md
+      - GridLAB-D Loader: docs/4.0 Developing/4.3 - Software Architecture and Design/4.3.7 - Loader.md
+      - GridLAB-D Data Transforms: docs/4.0 Developing/4.3 - Software Architecture and Design/4.3.8 - Transforms.md
+      - libgld: docs/4.0 Developing/4.3 - Software Architecture and Design/4.3.9 - libgld.md
     - 4.4 - Development Fundamentals:
-      - Programming conventions: 4.0 Developing/4.4 - Development Fundamentals/4.4.1 - Programming_conventions.md
-      - Creating a module - v1: 4.0 Developing/4.4 - Development Fundamentals/4.4.2 - Creating_a_module.md
-      - Creating a class: 4.0 Developing/4.4 - Development Fundamentals/4.4.3 - Creating_a_class.md
-      - GridLAB-D Device Modeling: 4.0 Developing/4.4 - Development Fundamentals/4.4.4 - GridLAB-D Device Modeling.md
-      - Integrated Testing: 4.0 Developing/4.4 - Development Fundamentals/4.4.5 - Integrated_Testing.md
+      - Programming conventions: docs/4.0 Developing/4.4 - Development Fundamentals/4.4.1 - Programming_conventions.md
+      - Creating a module - v1: docs/4.0 Developing/4.4 - Development Fundamentals/4.4.2 - Creating_a_module.md
+      - Creating a class: docs/4.0 Developing/4.4 - Development Fundamentals/4.4.3 - Creating_a_class.md
+      - GridLAB-D Device Modeling: docs/4.0 Developing/4.4 - Development Fundamentals/4.4.4 - GridLAB-D Device Modeling.md
+      - Integrated Testing: docs/4.0 Developing/4.4 - Development Fundamentals/4.4.5 - Integrated_Testing.md
     - 4.5 - Deltamode Development:
-      - Introduction to Deltamode Development: 4.0 Developing/4.5 - Deltamode Development/4.5.0 - Introduction to Deltamode Development.md
-      - Dev:Subsecond: 4.0 Developing/4.5 - Deltamode Development/4.5.1 - Dev_Subsecond.md
+      - Introduction to Deltamode Development: docs/4.0 Developing/4.5 - Deltamode Development/4.5.0 - Introduction to Deltamode Development.md
+      - Dev:Subsecond: docs/4.0 Developing/4.5 - Deltamode Development/4.5.1 - Dev_Subsecond.md
     - 4.6- Debugging:
-      - Introduction to Debugging when Developing GridLAB-Debugging: 4.0 Developing/4.6- Debugging/4.6.0 - Introduction.md
-      - Command options: 4.0 Developing/4.6- Debugging/4.6.1 - Command_line_arguments.md
-      - Performance Profiling: 4.0 Developing/4.6- Debugging/4.6.2 - performance-profiling.md
-    - Style Guide: 4.0 Developing/4.7 - Style_guide.md
+      - Introduction to Debugging when Developing GridLAB-Debugging: docs/4.0 Developing/4.6- Debugging/4.6.0 - Introduction.md
+      - Command options: docs/4.0 Developing/4.6- Debugging/4.6.1 - Command_line_arguments.md
+      - Performance Profiling: docs/4.0 Developing/4.6- Debugging/4.6.2 - performance-profiling.md
+    - Style Guide: docs/4.0 Developing/4.7 - Style_guide.md
     - API:
     - Build_Installation:
     - Debugging:
@@ -192,10 +192,10 @@ nav:
       - powerflow:
       - residential:
     - undecided:
-      - Dev:mysql: 4.0 Developing/undecided/Dev_mysql.md
-      - HowTo:Create a solver: 4.0 Developing/undecided/HowTo_Create_a_solver.md
-      - Powerflow External LU Solver Interface: 4.0 Developing/undecided/Powerflow_External_LU_Solver_Interface.md
-      - Tech:Optimize: 4.0 Developing/undecided/Tech_Optimize.md
+      - Dev:mysql: docs/4.0 Developing/undecided/Dev_mysql.md
+      - HowTo:Create a solver: docs/4.0 Developing/undecided/HowTo_Create_a_solver.md
+      - Powerflow External LU Solver Interface: docs/4.0 Developing/undecided/Powerflow_External_LU_Solver_Interface.md
+      - Tech:Optimize: docs/4.0 Developing/undecided/Tech_Optimize.md
   - 5.0 Integration:
     - Interfacing with External Software: docs/5.0 Integration/Interfacing_with_External_Software.md
     - Intro to Integration: docs/5.0 Integration/intro-to-integration.md

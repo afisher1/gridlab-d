@@ -5,6 +5,7 @@ Note: this script was produced by the AI Incubator, when asked if it could write
 
 import os
 
+
 def extract_title_from_md(file_path):
     """
     Extract the first markdown header (# Heading) from a markdown file.
@@ -28,6 +29,7 @@ def extract_title_from_md(file_path):
         print(f"Error processing file {file_path}: {e}")
         return os.path.splitext(os.path.basename(file_path))[0]
 
+
 def generate_nav_list(root_dir):
     """
     Generate the `nav:` list for MkDocs based on a given directory structure.
@@ -45,12 +47,13 @@ def generate_nav_list(root_dir):
         nav_dict = {}
         for item in sorted(os.listdir(directory)):  # Sort items for consistent output
             item_path = os.path.join(directory, item)
-            
+
             if os.path.isdir(item_path):  # If the item is a subdirectory
                 nav_dict[item] = traverse_directory(item_path)
             elif item.endswith(".md"):  # If the item is a markdown file
                 page_title = extract_title_from_md(item_path)  # Get title or filename
-                nav_dict[page_title] = os.path.relpath(item_path, root_dir)  # Use title as key
+                relative_path = os.path.relpath(item_path, root_dir)  # Get relative path
+                nav_dict[page_title] = f"docs/{relative_path.replace(os.sep, '/')}"  # Prepend "docs/" and standardize path separators
         return nav_dict
 
     def format_nav(nav_dict, indent=0):
@@ -74,11 +77,13 @@ def generate_nav_list(root_dir):
 
 
 # Path to the `docs/` directory
-docs_directory = "../../docs"
+docs_directory = "../../docs"  # Update this path to your actual docs directory
 
 # Generate and print the nav list
 nav_list = generate_nav_list(docs_directory)
 print("nav:")
 print(nav_list)
-with open("tree.txt", 'w', encoding='utf-8') as txt_file:
+
+# Save the output to `tree.txt`
+with open("tree.txt", "w", encoding="utf-8") as txt_file:
     txt_file.write(nav_list)
