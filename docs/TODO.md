@@ -15,6 +15,10 @@
 
 # 3.0 Modeling
 - [ ] XML files. Still supported? Keep documentation?
+- [ ] How do we handle objects? Source code integration/conversion/hybrid?
+    - [ ] How does Mkdocs handle linking/interactive display elements? 
+        (built-in or scripted?)
+    - [ ] Talk with dev team to build out the built-in documentation within the code itself
 
 # 4.0 Developing
 - [ ] Spec pages: planning document written pre-implementation -- is it actually implemented?
@@ -37,6 +41,8 @@
 - [ ] Remove "History" sections from docs, irrelevant 
 - [ ] Visual navigation:
     - [ ] Pages with subpages should be more visually distinct, bold, underilned, something. The [+] left of the header that is just barely visible until you hover over it is not very helpful.
+- [ ] Word/page limit of a single doc page?
+- [ ] Consistency of Terms, example blocks `<mymodel>`, for example (maybe standalone page in New Users)
 - [ ] Remove dated clauses, like:
 
     `"As of Hassayampa (Version 3.0)..."`

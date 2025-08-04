@@ -1,33 +1,33 @@
 # Technical Overview
 
-    A few pages, describing what GLD can do in more detail. This section is for those that are pretty sure GLD can do something they want and they want to make sure. Still lots of graphics but meant to be browsed and read in 15 minutes or less.
+  A few pages, describing what GLD can do in more detail. This section is for those that are pretty sure GLD can do something they want and they want to make sure. Still lots of graphics but meant to be browsed and read in 15 minutes or less.
 
-    How GLD models the power system and how that’s expressed in a .glm
+  How GLD models the power system and how that’s expressed in a .glm
 
-    * Object definition through parameters
-    * Object synchronization through time
-    * QSTS
+  * Object definition through parameters
+  * Object synchronization through time
+  * QSTS
 
-    Three-phase un-balanced QSTS powerflow
+  Three-phase un-balanced QSTS powerflow
 
-    Smart grid device modeler
+  Smart grid device modeler
 
-    Single-zone structure with HVAC (nominally residential home)
+  Single-zone structure with HVAC (nominally residential home)
 
-    * Rooftop solar
-    * Battery
-    * EV
+  * Rooftop solar
+  * Battery
+  * EV
 
-    Three-phase un-balanced transient
+  Three-phase un-balanced transient
 
-    * Deltamode
-    * Detailed inverter and induction motor models
+  * Deltamode
+  * Detailed inverter and induction motor models
 
-    Co-Simulation and HELICS
+  Co-Simulation and HELICS
 
-    Other features Trevor doesn’t use as much and thus forgets about
+  Other features Trevor doesn’t use as much and thus forgets about
 
-    libgld (if it comes into existence)
+  libgld (if it comes into existence)
 
 # Capabilities
 

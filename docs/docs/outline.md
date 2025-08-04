@@ -68,8 +68,19 @@ Showing off the popular integrated models and the interaction between the device
 Using GLD as an engine in a larger application. Make your own GUI, make a purpose-built script that runs your analysis, use other models as part of the GLD simulation.
 
 ## 2.0 New Users
+- Start with installation instructions
+  - make sure to include the .exe easy installto get people up and running quickly
+  - also include full install
+  - link to build instructions, but those live in dev section
+- Demo that starts with quick install and running a small, simple model
+- Simpler theory of operation doc--existing one seems more like a dev page
+
+
 
 ## 3.0 Modeler Guide
+Where does delta mode fit? Where is it first introduced, where is the bulk of the content?
+- consult with dev team about role of delta mode
+
 
 ### Who is a “modeler” and what does this guide intends to provide? 
 
@@ -100,7 +111,7 @@ Link to any related examples in "6.0 Examples"
 - If we make validation scripts, how to use them
 
 
-## 4.0 Developer Guide
+## 4.0 Developer 
 
 ### Who is a “developer” and what this guide intends to provide 
 
