@@ -155,7 +155,7 @@ nav:
   - 4.0 Developing:
     - Introduction: 4.0 Developing/4.1 - Introduction.md
     - Building GridLAB-D from Source: 4.0 Developing/4.2 - Building from Source.md
-    - Software Architecture and Design:
+    - 4.3 - Software Architecture and Design:
       - Introduction: 4.0 Developing/4.3 - Software Architecture and Design/4.3.0 - Introduction.md
       - GLDCore: 4.0 Developing/4.3 - Software Architecture and Design/4.3.1 - gldcore.md
       - GridLAB-D Modules: 4.0 Developing/4.3 - Software Architecture and Design/4.3.2 - Modules.md
@@ -165,20 +165,32 @@ nav:
       - GridLAB-D Loader: 4.0 Developing/4.3 - Software Architecture and Design/4.3.7 - Loader.md
       - GridLAB-D Data Transforms: 4.0 Developing/4.3 - Software Architecture and Design/4.3.8 - Transforms.md
       - libgld: 4.0 Developing/4.3 - Software Architecture and Design/4.3.9 - libgld.md
-    - Development Fundamentals:
+    - 4.4 - Development Fundamentals:
       - Programming conventions: 4.0 Developing/4.4 - Development Fundamentals/4.4.1 - Programming_conventions.md
       - Creating a module - v1: 4.0 Developing/4.4 - Development Fundamentals/4.4.2 - Creating_a_module.md
       - Creating a class: 4.0 Developing/4.4 - Development Fundamentals/4.4.3 - Creating_a_class.md
       - GridLAB-D Device Modeling: 4.0 Developing/4.4 - Development Fundamentals/4.4.4 - GridLAB-D Device Modeling.md
       - Integrated Testing: 4.0 Developing/4.4 - Development Fundamentals/4.4.5 - Integrated_Testing.md
-    - Deltamode Development:
+    - 4.5 - Deltamode Development:
       - Introduction to Deltamode Development: 4.0 Developing/4.5 - Deltamode Development/4.5.0 - Introduction to Deltamode Development.md
       - Dev:Subsecond: 4.0 Developing/4.5 - Deltamode Development/4.5.1 - Dev_Subsecond.md
-    - Debugging:
+    - 4.6- Debugging:
       - Introduction to Debugging when Developing GridLAB-Debugging: 4.0 Developing/4.6- Debugging/4.6.0 - Introduction.md
       - Command options: 4.0 Developing/4.6- Debugging/4.6.1 - Command_line_arguments.md
       - Performance Profiling: 4.0 Developing/4.6- Debugging/4.6.2 - performance-profiling.md
     - Style Guide: 4.0 Developing/4.7 - Style_guide.md
+    - API:
+    - Build_Installation:
+    - Debugging:
+    - Deltamode:
+    - Fundamentals:
+    - Modules:
+      - autotest:
+      - connections:
+      - gldcore:
+      - optimization:
+      - powerflow:
+      - residential:
     - undecided:
       - Dev:mysql: 4.0 Developing/undecided/Dev_mysql.md
       - HowTo:Create a solver: 4.0 Developing/undecided/HowTo_Create_a_solver.md

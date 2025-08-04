@@ -1,204 +1,216 @@
 - 0.0 GridLAB-D™:
-  - Contact: 0.0 GridLAB-D™/Contacts_list.md
-  - Version History: 0.0 GridLAB-D™/Version History.md
-  - Projects: 0.0 GridLAB-D™/projects.md
-  - Publications: 0.0 GridLAB-D™/publications.md
-  - Resources & Support: 0.0 GridLAB-D™/resources.md
-  - Style Guide: 0.0 GridLAB-D™/style-guide.md
+  - Contact: 0.0 GridLAB-D™\Contacts_list.md
+  - Version History: 0.0 GridLAB-D™\Version History.md
+  - Projects: 0.0 GridLAB-D™\projects.md
+  - Publications: 0.0 GridLAB-D™\publications.md
+  - Resources & Support: 0.0 GridLAB-D™\resources.md
+  - Style Guide: 0.0 GridLAB-D™\style-guide.md
 - 1.0 Prospective Users:
-  - Key Attributes of GridLAB-D™: 1.0 Prospective Users/GridLAB-D_Key_Attributes.md
-  - Technical Overview: 1.0 Prospective Users/Technical_Overview.md
+  - Key Attributes of GridLAB-D™: 1.0 Prospective Users\GridLAB-D_Key_Attributes.md
+  - Technical Overview: 1.0 Prospective Users\Technical_Overview.md
 - 2.0 New Users:
-  - Getting Started: 2.0 New Users/Getting_Started_Using_GridLAB-D.md
+  - Getting Started: 2.0 New Users\Getting_Started_Using_GridLAB-D.md
   - Installation:
     - MySQL:
-      - Database: 2.0 New Users/Installation/MySQL/Database.md
-      - HowTo:mysql: 2.0 New Users/Installation/MySQL/HowTo_mysql.md
-      - MySQL Import/Export: 2.0 New Users/Installation/MySQL/MySQL_Import_Export.md
-      - Mysql: 2.0 New Users/Installation/MySQL/Mysql.md
-  - Theory of Operation: 2.0 New Users/theory-of-operation.md
+      - Database: 2.0 New Users\Installation\MySQL\Database.md
+      - HowTo:mysql: 2.0 New Users\Installation\MySQL\HowTo_mysql.md
+      - MySQL Import/Export: 2.0 New Users\Installation\MySQL\MySQL_Import_Export.md
+      - Mysql: 2.0 New Users\Installation\MySQL\Mysql.md
+  - Theory of Operation: 2.0 New Users\theory-of-operation.md
 - 3.0 Modeling:
   - 3.1 Intro to Modeling:
-    - Basic Distribution System Modeling: 3.0 Modeling/3.1 Intro to Modeling/Modeling 101 - Basic Distribution System Modeling.md
-    - Built-In Distribution Models: 3.0 Modeling/3.1 Intro to Modeling/Modeling 101 - Built-In Distribution Models.md
-    - Distributed Generation: 3.0 Modeling/3.1 Intro to Modeling/Modeling 101 - Distributed_Generation.md
-    - GLM Models: 3.0 Modeling/3.1 Intro to Modeling/Modeling 101 - GLM Models.md
-    - Modules: 3.0 Modeling/3.1 Intro to Modeling/Modeling 101 - Modules.md
-    - Recorders and Players: 3.0 Modeling/3.1 Intro to Modeling/Modeling 101 - Recorders and Players.md
-    - Built-in Schedules and Loadshapes: 3.0 Modeling/3.1 Intro to Modeling/Modeling 101 - Schedules and Loadshapes.md
-    - Running Simulations: 3.0 Modeling/3.1 Intro to Modeling/Running_Simulations.md
+    - Basic Distribution System Modeling: 3.0 Modeling\3.1 Intro to Modeling\Modeling 101 - Basic Distribution System Modeling.md
+    - Built-In Distribution Models: 3.0 Modeling\3.1 Intro to Modeling\Modeling 101 - Built-In Distribution Models.md
+    - Distributed Generation: 3.0 Modeling\3.1 Intro to Modeling\Modeling 101 - Distributed_Generation.md
+    - GLM Models: 3.0 Modeling\3.1 Intro to Modeling\Modeling 101 - GLM Models.md
+    - Modules: 3.0 Modeling\3.1 Intro to Modeling\Modeling 101 - Modules.md
+    - Recorders and Players: 3.0 Modeling\3.1 Intro to Modeling\Modeling 101 - Recorders and Players.md
+    - Built-in Schedules and Loadshapes: 3.0 Modeling\3.1 Intro to Modeling\Modeling 101 - Schedules and Loadshapes.md
+    - Running Simulations: 3.0 Modeling\3.1 Intro to Modeling\Running_Simulations.md
   - 3.2 Intermediate Modeling:
-    - Advanced Distribution Models: 3.0 Modeling/3.2 Intermediate Modeling/Advanced_Distribution_Models.md
-    - Aggregate Demand Response Model: 3.0 Modeling/3.2 Intermediate Modeling/Aggregate_demand_response_model.md
-    - Commercial User Guide: 3.0 Modeling/3.2 Intermediate Modeling/Commercial_User_Guide.md
-    - Microgrids: 3.0 Modeling/3.2 Intermediate Modeling/Dev_Microgrids.md
-    - ETP closed form solution: 3.0 Modeling/3.2 Intermediate Modeling/ETP_closed_form_solution.md
-    - Load Composition: 3.0 Modeling/3.2 Intermediate Modeling/Load_Composition.md
-    - Loadshape: 3.0 Modeling/3.2 Intermediate Modeling/Loadshape.md
-    - Model Debugging: 3.0 Modeling/3.2 Intermediate Modeling/Model_Debugging.md
-    - Neutral Earth Voltage (NEV): 3.0 Modeling/3.2 Intermediate Modeling/NEV.md
-    - Newton-Raphson Distribution Powerflow Solver: 3.0 Modeling/3.2 Intermediate Modeling/Newton-Raphson_Distribution_Powerflow_Solver.md
-    - Power Flow User Guide: 3.0 Modeling/3.2 Intermediate Modeling/Power_Flow_User_Guide.md
-    - Reliability User Guide: 3.0 Modeling/3.2 Intermediate Modeling/Reliability_User_Guide.md
-    - Transmission: 3.0 Modeling/3.2 Intermediate Modeling/TDIntegration.md
-    - Tech:Commercial: 3.0 Modeling/3.2 Intermediate Modeling/Tech_Commercial.md
-    - Tech:Residential: 3.0 Modeling/3.2 Intermediate Modeling/Tech_Residential.md
+    - Advanced Distribution Models: 3.0 Modeling\3.2 Intermediate Modeling\Advanced_Distribution_Models.md
+    - Aggregate Demand Response Model: 3.0 Modeling\3.2 Intermediate Modeling\Aggregate_demand_response_model.md
+    - Commercial User Guide: 3.0 Modeling\3.2 Intermediate Modeling\Commercial_User_Guide.md
+    - Microgrids: 3.0 Modeling\3.2 Intermediate Modeling\Dev_Microgrids.md
+    - ETP closed form solution: 3.0 Modeling\3.2 Intermediate Modeling\ETP_closed_form_solution.md
+    - Load Composition: 3.0 Modeling\3.2 Intermediate Modeling\Load_Composition.md
+    - Loadshape: 3.0 Modeling\3.2 Intermediate Modeling\Loadshape.md
+    - Model Debugging: 3.0 Modeling\3.2 Intermediate Modeling\Model_Debugging.md
+    - Neutral Earth Voltage (NEV): 3.0 Modeling\3.2 Intermediate Modeling\NEV.md
+    - Newton-Raphson Distribution Powerflow Solver: 3.0 Modeling\3.2 Intermediate Modeling\Newton-Raphson_Distribution_Powerflow_Solver.md
+    - Power Flow User Guide: 3.0 Modeling\3.2 Intermediate Modeling\Power_Flow_User_Guide.md
+    - Reliability User Guide: 3.0 Modeling\3.2 Intermediate Modeling\Reliability_User_Guide.md
+    - Transmission: 3.0 Modeling\3.2 Intermediate Modeling\TDIntegration.md
+    - Tech:Commercial: 3.0 Modeling\3.2 Intermediate Modeling\Tech_Commercial.md
+    - Tech:Residential: 3.0 Modeling\3.2 Intermediate Modeling\Tech_Residential.md
   - Deprecated:
-    - Network: 3.0 Modeling/Deprecated/Network_Flow_Solver.md
-    - Network Flow Guide: 3.0 Modeling/Deprecated/Network_Flow_Guide.md
+    - Network: 3.0 Modeling\Deprecated\Network_Flow_Solver.md
+    - Network Flow Guide: 3.0 Modeling\Deprecated\Network_Flow_Guide.md
   - From Dev - connections:
-    - Connection: 3.0 Modeling/From Dev - connections/Connection.md
-    - Connection:fncs msg: 3.0 Modeling/From Dev - connections/Connection_fncs_msg.md
-    - Connection:helics msg: 3.0 Modeling/From Dev - connections/Connection_helics_msg.md
-    - Connection:json: 3.0 Modeling/From Dev - connections/Connection_json.md
-    - Connection:link: 3.0 Modeling/From Dev - connections/Connection_link.md
-    - Connection:lockout: 3.0 Modeling/From Dev - connections/Connection_lockout.md
-    - Connection:mode: 3.0 Modeling/From Dev - connections/Connection_mode.md
-    - Connection:native: 3.0 Modeling/From Dev - connections/Connection_native.md
-    - Connection:security: 3.0 Modeling/From Dev - connections/Connection_security.md
-    - Connection:transport: 3.0 Modeling/From Dev - connections/Connection_transport.md
-    - Connection:xml: 3.0 Modeling/From Dev - connections/Connection_xml.md
+    - Connection: 3.0 Modeling\From Dev - connections\Connection.md
+    - Connection:fncs msg: 3.0 Modeling\From Dev - connections\Connection_fncs_msg.md
+    - Connection:helics msg: 3.0 Modeling\From Dev - connections\Connection_helics_msg.md
+    - Connection:json: 3.0 Modeling\From Dev - connections\Connection_json.md
+    - Connection:link: 3.0 Modeling\From Dev - connections\Connection_link.md
+    - Connection:lockout: 3.0 Modeling\From Dev - connections\Connection_lockout.md
+    - Connection:mode: 3.0 Modeling\From Dev - connections\Connection_mode.md
+    - Connection:native: 3.0 Modeling\From Dev - connections\Connection_native.md
+    - Connection:security: 3.0 Modeling\From Dev - connections\Connection_security.md
+    - Connection:transport: 3.0 Modeling\From Dev - connections\Connection_transport.md
+    - Connection:xml: 3.0 Modeling\From Dev - connections\Connection_xml.md
   - Miscellaneous:
-    - HowTo:Create a movie: 3.0 Modeling/Miscellaneous/HowTo_Create_a_movie.md
+    - HowTo:Create a movie: 3.0 Modeling\Miscellaneous\HowTo_Create_a_movie.md
   - Modeling Reference:
-    - Checkpoints: 3.0 Modeling/Modeling Reference/Checkpoints.md
-    - Command Options: 3.0 Modeling/Modeling Reference/Command_options.md
-    - Subsecond: 3.0 Modeling/Modeling Reference/Delta_mode.md
-    - Droop inverter: 3.0 Modeling/Modeling Reference/Droop_inverter.md
-    - Industrial and agricultural loads: 3.0 Modeling/Modeling Reference/Industrial_and_agricultural_loads.md
-    - Model Initialization: 3.0 Modeling/Modeling Reference/Initialization.md
-    - Link (directive): 3.0 Modeling/Modeling Reference/Link_(directive).md
-    - Macros: 3.0 Modeling/Modeling Reference/Macros.md
-    - Matlab link: 3.0 Modeling/Modeling Reference/Matlab_link.md
+    - Checkpoints: 3.0 Modeling\Modeling Reference\Checkpoints.md
+    - Command Options: 3.0 Modeling\Modeling Reference\Command_options.md
+    - Subsecond: 3.0 Modeling\Modeling Reference\Delta_mode.md
+    - Droop inverter: 3.0 Modeling\Modeling Reference\Droop_inverter.md
+    - Industrial and agricultural loads: 3.0 Modeling\Modeling Reference\Industrial_and_agricultural_loads.md
+    - Model Initialization: 3.0 Modeling\Modeling Reference\Initialization.md
+    - Link (directive): 3.0 Modeling\Modeling Reference\Link_(directive).md
+    - Macros: 3.0 Modeling\Modeling Reference\Macros.md
+    - Matlab link: 3.0 Modeling\Modeling Reference\Matlab_link.md
     - Modules:
-      - Assert (module): 3.0 Modeling/Modeling Reference/Modules/Assert.md
+      - Assert (module): 3.0 Modeling\Modeling Reference\Modules\Assert.md
       - Climate:
-        - CSV reader: 3.0 Modeling/Modeling Reference/Modules/Climate/CSV_reader_(climate_class).md
-        - Climate Module: 3.0 Modeling/Modeling Reference/Modules/Climate/Climate.md
+        - CSV reader: 3.0 Modeling\Modeling Reference\Modules\Climate\CSV_reader_(climate_class).md
+        - Climate Module: 3.0 Modeling\Modeling Reference\Modules\Climate\Climate.md
       - Market:
-        - Market Auction: 3.0 Modeling/Modeling Reference/Modules/Market/Market_Auction.md
-        - Market User Guide: 3.0 Modeling/Modeling Reference/Modules/Market/Market_User_Guide.md
-        - Transactive Controller: 3.0 Modeling/Modeling Reference/Modules/Market/TransactiveController.md
-      - Module functions: 3.0 Modeling/Modeling Reference/Modules/Module_functions.md
-      - Module globals: 3.0 Modeling/Modeling Reference/Modules/Module_globals.md
-      - Powerflow (module): 3.0 Modeling/Modeling Reference/Modules/Powerflow_(module).md
+        - Market Auction: 3.0 Modeling\Modeling Reference\Modules\Market\Market_Auction.md
+        - Market User Guide: 3.0 Modeling\Modeling Reference\Modules\Market\Market_User_Guide.md
+        - Transactive Controller: 3.0 Modeling\Modeling Reference\Modules\Market\TransactiveController.md
+      - Module functions: 3.0 Modeling\Modeling Reference\Modules\Module_functions.md
+      - Module globals: 3.0 Modeling\Modeling Reference\Modules\Module_globals.md
+      - Powerflow (module): 3.0 Modeling\Modeling Reference\Modules\Powerflow_(module).md
       - Residential:
-        - House: 3.0 Modeling/Modeling Reference/Modules/Residential/House.md
-        - Lights: 3.0 Modeling/Modeling Reference/Modules/Residential/Lights.md
-        - Loads: 3.0 Modeling/Modeling Reference/Modules/Residential/Loads.md
-        - Microwave: 3.0 Modeling/Modeling Reference/Modules/Residential/Microwave.md
-        - Range: 3.0 Modeling/Modeling Reference/Modules/Residential/Range.md
-        - Refrigerator: 3.0 Modeling/Modeling Reference/Modules/Residential/Refrigerator.md
-        - Residential module user's guide: 3.0 Modeling/Modeling Reference/Modules/Residential/Residential_Module_Guide.md
-        - Thermal Energy Storage model guide: 3.0 Modeling/Modeling Reference/Modules/Residential/Thermal_Energy_Storage_model_guide.md
-        - ZIPload: 3.0 Modeling/Modeling Reference/Modules/Residential/ZIPload.md
-        - House E: 3.0 Modeling/Modeling Reference/Modules/Residential/house-e.md
-      - Tape (module): 3.0 Modeling/Modeling Reference/Modules/Tape.md
+        - House: 3.0 Modeling\Modeling Reference\Modules\Residential\House.md
+        - Lights: 3.0 Modeling\Modeling Reference\Modules\Residential\Lights.md
+        - Loads: 3.0 Modeling\Modeling Reference\Modules\Residential\Loads.md
+        - Microwave: 3.0 Modeling\Modeling Reference\Modules\Residential\Microwave.md
+        - Range: 3.0 Modeling\Modeling Reference\Modules\Residential\Range.md
+        - Refrigerator: 3.0 Modeling\Modeling Reference\Modules\Residential\Refrigerator.md
+        - Residential module user's guide: 3.0 Modeling\Modeling Reference\Modules\Residential\Residential_Module_Guide.md
+        - Thermal Energy Storage model guide: 3.0 Modeling\Modeling Reference\Modules\Residential\Thermal_Energy_Storage_model_guide.md
+        - ZIPload: 3.0 Modeling\Modeling Reference\Modules\Residential\ZIPload.md
+        - House E: 3.0 Modeling\Modeling Reference\Modules\Residential\house-e.md
+      - Tape (module): 3.0 Modeling\Modeling Reference\Modules\Tape.md
       - mysql:
-        - Player (mysql): 3.0 Modeling/Modeling Reference/Modules/mysql/Player_(mysql).md
-        - Recorder (mysql): 3.0 Modeling/Modeling Reference/Modules/mysql/Recorder_(mysql).md
-    - Multirun mode: 3.0 Modeling/Modeling Reference/Multirun_mode.md
-    - Multithreaded Random Number Generation: 3.0 Modeling/Modeling Reference/Multithreaded_Random_Number_Generation.md
-    - Parameter expansion: 3.0 Modeling/Modeling Reference/Parameter_expansion.md
-    - Pauseat: 3.0 Modeling/Modeling Reference/Pauseat.md
-    - Performance profiling: 3.0 Modeling/Modeling Reference/Performance_profiling.md
-    - Player: 3.0 Modeling/Modeling Reference/Player.md
-    - Powerflow Tehnical Reference: 3.0 Modeling/Modeling Reference/Power_Flow_Reference.md
-    - Realtime server: 3.0 Modeling/Modeling Reference/Realtime_server.md
-    - Series compensator: 3.0 Modeling/Modeling Reference/Series_compensator.md
-    - Tech:CompositionMotor: 3.0 Modeling/Modeling Reference/Tech_CompositionMotor.md
-    - Tech:DeltaSPIM: 3.0 Modeling/Modeling Reference/Tech_DeltaSPIM.md
-    - Three Phase Induction Motors: 3.0 Modeling/Modeling Reference/Tech_DeltaTPIM.md
-    - Units: 3.0 Modeling/Modeling Reference/Units.md
-    - Validate: 3.0 Modeling/Modeling Reference/Validate.md
-    - Finding Objects: 3.0 Modeling/Modeling Reference/finding-objects.md
-    - Plotting Output: 3.0 Modeling/Modeling Reference/plotting-output.md
+        - Player (mysql): 3.0 Modeling\Modeling Reference\Modules\mysql\Player_(mysql).md
+        - Recorder (mysql): 3.0 Modeling\Modeling Reference\Modules\mysql\Recorder_(mysql).md
+    - Multirun mode: 3.0 Modeling\Modeling Reference\Multirun_mode.md
+    - Multithreaded Random Number Generation: 3.0 Modeling\Modeling Reference\Multithreaded_Random_Number_Generation.md
+    - Parameter expansion: 3.0 Modeling\Modeling Reference\Parameter_expansion.md
+    - Pauseat: 3.0 Modeling\Modeling Reference\Pauseat.md
+    - Performance profiling: 3.0 Modeling\Modeling Reference\Performance_profiling.md
+    - Player: 3.0 Modeling\Modeling Reference\Player.md
+    - Powerflow Tehnical Reference: 3.0 Modeling\Modeling Reference\Power_Flow_Reference.md
+    - Realtime server: 3.0 Modeling\Modeling Reference\Realtime_server.md
+    - Series compensator: 3.0 Modeling\Modeling Reference\Series_compensator.md
+    - Tech:CompositionMotor: 3.0 Modeling\Modeling Reference\Tech_CompositionMotor.md
+    - Tech:DeltaSPIM: 3.0 Modeling\Modeling Reference\Tech_DeltaSPIM.md
+    - Three Phase Induction Motors: 3.0 Modeling\Modeling Reference\Tech_DeltaTPIM.md
+    - Units: 3.0 Modeling\Modeling Reference\Units.md
+    - Validate: 3.0 Modeling\Modeling Reference\Validate.md
+    - Finding Objects: 3.0 Modeling\Modeling Reference\finding-objects.md
+    - Plotting Output: 3.0 Modeling\Modeling Reference\plotting-output.md
   - Objects:
     - Commercial:
-      - Office: 3.0 Modeling/Objects/Commercial/Office.md
+      - Office: 3.0 Modeling\Objects\Commercial\Office.md
     - Distributed Energy Resources:
-      - Diesel dg: 3.0 Modeling/Objects/Distributed Energy Resources/Diesel_dg.md
-      - Evcharger: 3.0 Modeling/Objects/Distributed Energy Resources/Evcharger.md
-      - Evcharger det: 3.0 Modeling/Objects/Distributed Energy Resources/Evcharger_det.md
-      - Hybrid Electric Vehicle Chargers: 3.0 Modeling/Objects/Distributed Energy Resources/Hybrid_Electric_Vehicle_Chargers.md
-      - Inverter: 3.0 Modeling/Objects/Distributed Energy Resources/Inverter.md
-      - PQ CONSTANT mode diesel dg: 3.0 Modeling/Objects/Distributed Energy Resources/PQ_CONSTANT_mode_diesel_dg.md
-      - Solar - Solar Panel: 3.0 Modeling/Objects/Distributed Energy Resources/Solar.md
-      - Windturb dg: 3.0 Modeling/Objects/Distributed Energy Resources/Windturb_dg.md
+      - Diesel dg: 3.0 Modeling\Objects\Distributed Energy Resources\Diesel_dg.md
+      - Evcharger: 3.0 Modeling\Objects\Distributed Energy Resources\Evcharger.md
+      - Evcharger det: 3.0 Modeling\Objects\Distributed Energy Resources\Evcharger_det.md
+      - Hybrid Electric Vehicle Chargers: 3.0 Modeling\Objects\Distributed Energy Resources\Hybrid_Electric_Vehicle_Chargers.md
+      - Inverter: 3.0 Modeling\Objects\Distributed Energy Resources\Inverter.md
+      - PQ CONSTANT mode diesel dg: 3.0 Modeling\Objects\Distributed Energy Resources\PQ_CONSTANT_mode_diesel_dg.md
+      - Solar - Solar Panel: 3.0 Modeling\Objects\Distributed Energy Resources\Solar.md
+      - Windturb dg: 3.0 Modeling\Objects\Distributed Energy Resources\Windturb_dg.md
     - Metrics & Recorders:
-      - Metrics collector: 3.0 Modeling/Objects/Metrics & Recorders/Metrics_collector.md
-      - Metrics collector writer: 3.0 Modeling/Objects/Metrics & Recorders/Metrics_collector_writer.md
-      - Multi recorder: 3.0 Modeling/Objects/Metrics & Recorders/Multi_recorder.md
-      - Recorder: 3.0 Modeling/Objects/Metrics & Recorders/Recorder.md
-    - Object (directive): 3.0 Modeling/Objects/Writing_Objects.md
-    - Object (property): 3.0 Modeling/Objects/Object_(property).md
-    - Voltage source inverter (VSI): 3.0 Modeling/Objects/Voltage_source_inverter_(VSI).md
+      - Metrics collector: 3.0 Modeling\Objects\Metrics & Recorders\Metrics_collector.md
+      - Metrics collector writer: 3.0 Modeling\Objects\Metrics & Recorders\Metrics_collector_writer.md
+      - Multi recorder: 3.0 Modeling\Objects\Metrics & Recorders\Multi_recorder.md
+      - Recorder: 3.0 Modeling\Objects\Metrics & Recorders\Recorder.md
+    - Object (directive): 3.0 Modeling\Objects\Writing_Objects.md
+    - Object (property): 3.0 Modeling\Objects\Object_(property).md
+    - Voltage source inverter (VSI): 3.0 Modeling\Objects\Voltage_source_inverter_(VSI).md
 - 4.0 Developing:
-  - Introduction: 4.0 Developing/4.1 - Introduction.md
-  - Building GridLAB-D from Source: 4.0 Developing/4.2 - Building from Source.md
+  - Introduction: 4.0 Developing\4.1 - Introduction.md
+  - Building GridLAB-D from Source: 4.0 Developing\4.2 - Building from Source.md
   - 4.3 - Software Architecture and Design:
-    - Introduction: 4.0 Developing/4.3 - Software Architecture and Design/4.3.0 - Introduction.md
-    - GLDCore: 4.0 Developing/4.3 - Software Architecture and Design/4.3.1 - gldcore.md
-    - GridLAB-D Modules: 4.0 Developing/4.3 - Software Architecture and Design/4.3.2 - Modules.md
-    - GridLAB-D Objects: 4.0 Developing/4.3 - Software Architecture and Design/4.3.3 - Objects.md
-    - Object Synchronization Process: 4.0 Developing/4.3 - Software Architecture and Design/4.3.4 - Object Synchronization Process.md
-    - GridLAB-D Parallelization: 4.0 Developing/4.3 - Software Architecture and Design/4.3.6 - Parallelization.md
-    - GridLAB-D Loader: 4.0 Developing/4.3 - Software Architecture and Design/4.3.7 - Loader.md
-    - GridLAB-D Data Transforms: 4.0 Developing/4.3 - Software Architecture and Design/4.3.8 - Transforms.md
-    - libgld: 4.0 Developing/4.3 - Software Architecture and Design/4.3.9 - libgld.md
+    - Introduction: 4.0 Developing\4.3 - Software Architecture and Design\4.3.0 - Introduction.md
+    - GLDCore: 4.0 Developing\4.3 - Software Architecture and Design\4.3.1 - gldcore.md
+    - GridLAB-D Modules: 4.0 Developing\4.3 - Software Architecture and Design\4.3.2 - Modules.md
+    - GridLAB-D Objects: 4.0 Developing\4.3 - Software Architecture and Design\4.3.3 - Objects.md
+    - Object Synchronization Process: 4.0 Developing\4.3 - Software Architecture and Design\4.3.4 - Object Synchronization Process.md
+    - GridLAB-D Parallelization: 4.0 Developing\4.3 - Software Architecture and Design\4.3.6 - Parallelization.md
+    - GridLAB-D Loader: 4.0 Developing\4.3 - Software Architecture and Design\4.3.7 - Loader.md
+    - GridLAB-D Data Transforms: 4.0 Developing\4.3 - Software Architecture and Design\4.3.8 - Transforms.md
+    - libgld: 4.0 Developing\4.3 - Software Architecture and Design\4.3.9 - libgld.md
   - 4.4 - Development Fundamentals:
-    - Programming conventions: 4.0 Developing/4.4 - Development Fundamentals/4.4.1 - Programming_conventions.md
-    - Creating a module - v1: 4.0 Developing/4.4 - Development Fundamentals/4.4.2 - Creating_a_module.md
-    - Creating a class: 4.0 Developing/4.4 - Development Fundamentals/4.4.3 - Creating_a_class.md
-    - GridLAB-D Device Modeling: 4.0 Developing/4.4 - Development Fundamentals/4.4.4 - GridLAB-D Device Modeling.md
-    - Integrated Testing: 4.0 Developing/4.4 - Development Fundamentals/4.4.5 - Integrated_Testing.md
+    - Programming conventions: 4.0 Developing\4.4 - Development Fundamentals\4.4.1 - Programming_conventions.md
+    - Creating a module - v1: 4.0 Developing\4.4 - Development Fundamentals\4.4.2 - Creating_a_module.md
+    - Creating a class: 4.0 Developing\4.4 - Development Fundamentals\4.4.3 - Creating_a_class.md
+    - GridLAB-D Device Modeling: 4.0 Developing\4.4 - Development Fundamentals\4.4.4 - GridLAB-D Device Modeling.md
+    - Integrated Testing: 4.0 Developing\4.4 - Development Fundamentals\4.4.5 - Integrated_Testing.md
   - 4.5 - Deltamode Development:
-    - Introduction to Deltamode Development: 4.0 Developing/4.5 - Deltamode Development/4.5.0 - Introduction to Deltamode Development.md
-    - Dev:Subsecond: 4.0 Developing/4.5 - Deltamode Development/4.5.1 - Dev_Subsecond.md
+    - Introduction to Deltamode Development: 4.0 Developing\4.5 - Deltamode Development\4.5.0 - Introduction to Deltamode Development.md
+    - Dev:Subsecond: 4.0 Developing\4.5 - Deltamode Development\4.5.1 - Dev_Subsecond.md
   - 4.6- Debugging:
-    - Introduction to Debugging when Developing GridLAB-Debugging: 4.0 Developing/4.6- Debugging/4.6.0 - Introduction.md
-    - Command options: 4.0 Developing/4.6- Debugging/4.6.1 - Command_line_arguments.md
-    - Performance Profiling: 4.0 Developing/4.6- Debugging/4.6.2 - performance-profiling.md
-  - Style Guide: 4.0 Developing/4.7 - Style_guide.md
+    - Introduction to Debugging when Developing GridLAB-Debugging: 4.0 Developing\4.6- Debugging\4.6.0 - Introduction.md
+    - Command options: 4.0 Developing\4.6- Debugging\4.6.1 - Command_line_arguments.md
+    - Performance Profiling: 4.0 Developing\4.6- Debugging\4.6.2 - performance-profiling.md
+  - Style Guide: 4.0 Developing\4.7 - Style_guide.md
+  - API:
+  - Build_Installation:
+  - Debugging:
+  - Deltamode:
+  - Fundamentals:
+  - Modules:
+    - autotest:
+    - connections:
+    - gldcore:
+    - optimization:
+    - powerflow:
+    - residential:
   - undecided:
-    - Dev:mysql: 4.0 Developing/undecided/Dev_mysql.md
-    - HowTo:Create a solver: 4.0 Developing/undecided/HowTo_Create_a_solver.md
-    - Powerflow External LU Solver Interface: 4.0 Developing/undecided/Powerflow_External_LU_Solver_Interface.md
-    - Tech:Optimize: 4.0 Developing/undecided/Tech_Optimize.md
+    - Dev:mysql: 4.0 Developing\undecided\Dev_mysql.md
+    - HowTo:Create a solver: 4.0 Developing\undecided\HowTo_Create_a_solver.md
+    - Powerflow External LU Solver Interface: 4.0 Developing\undecided\Powerflow_External_LU_Solver_Interface.md
+    - Tech:Optimize: 4.0 Developing\undecided\Tech_Optimize.md
 - 5.0 Integration:
-  - Interfacing with External Software: 5.0 Integration/Interfacing_with_External_Software.md
-  - Intro to Integration: 5.0 Integration/intro-to-integration.md
+  - Interfacing with External Software: 5.0 Integration\Interfacing_with_External_Software.md
+  - Intro to Integration: 5.0 Integration\intro-to-integration.md
 - 6.0 Examples:
-  - Placeholder: 6.0 Examples/placeholder.md
+  - Placeholder: 6.0 Examples\placeholder.md
 - 7.0 References:
   - Specs:
-    - Communications: 7.0 References/Specs/Spec-Communicatins.md
-    - Spec:Commercial: 7.0 References/Specs/Spec_Commercial.md
-    - Spec:Dishwasher: 7.0 References/Specs/Spec_Dishwasher.md
-    - Spec:GUI: 7.0 References/Specs/Spec_GUI.md
-    - Spec:Initialization: 7.0 References/Specs/Spec_Initialization.md
-    - Spec:Market: 7.0 References/Specs/Spec_Market.md
-    - Spec:Mesh Fault Current: 7.0 References/Specs/Spec_Mesh_Fault_Current.md
-    - Spec:Microgrids: 7.0 References/Specs/Spec_Microgrids.md
-    - Spec:Multirun mode: 7.0 References/Specs/Spec_Multirun_mode.md
-    - Spec:NEV: 7.0 References/Specs/Spec_NEV.md
-    - Spec:NEVArray: 7.0 References/Specs/Spec_NEVArray.md
-    - Spec:NEVDataFormat: 7.0 References/Specs/Spec_NEVDataFormat.md
-    - Spec:NEVLink: 7.0 References/Specs/Spec_NEVLink.md
-    - Spec:NEVModules: 7.0 References/Specs/Spec_NEVModules.md
-    - Spec:NEVNode: 7.0 References/Specs/Spec_NEVNode.md
-    - Spec:NEVSolver: 7.0 References/Specs/Spec_NEVSolver.md
-    - Spec:Optimize: 7.0 References/Specs/Spec_Optimize.md
-    - Spec:Range: 7.0 References/Specs/Spec_Range.md
-    - Spec:Residential: 7.0 References/Specs/Spec_Residential.md
-    - Spec:Subsecond: 7.0 References/Specs/Spec_Subsecond.md
-    - Spec:Transmission: 7.0 References/Specs/Spec_Transmission.md
-    - Spec:ibr blackboxmodels: 7.0 References/Specs/Spec_ibr_blackboxmodels.md
-    - Spec:ibr grayboxmodels: 7.0 References/Specs/Spec_ibr_grayboxmodels.md
-    - Spec:inverter dyn: 7.0 References/Specs/Spec_inverter_dyn.md
-    - Spec:particle swarm optimizer: 7.0 References/Specs/Spec_particle_swarm_optimizer.md
-    - Spec:sec control: 7.0 References/Specs/Spec_sec_control.md
-    - Spec:switch object: 7.0 References/Specs/Spec_switch_object.md
-    - Spec:sync check: 7.0 References/Specs/Spec_sync_check.md
-    - Spec:sync ctrl: 7.0 References/Specs/Spec_sync_ctrl.md
+    - Communications: 7.0 References\Specs\Spec-Communicatins.md
+    - Spec:Commercial: 7.0 References\Specs\Spec_Commercial.md
+    - Spec:Dishwasher: 7.0 References\Specs\Spec_Dishwasher.md
+    - Spec:GUI: 7.0 References\Specs\Spec_GUI.md
+    - Spec:Initialization: 7.0 References\Specs\Spec_Initialization.md
+    - Spec:Market: 7.0 References\Specs\Spec_Market.md
+    - Spec:Mesh Fault Current: 7.0 References\Specs\Spec_Mesh_Fault_Current.md
+    - Spec:Microgrids: 7.0 References\Specs\Spec_Microgrids.md
+    - Spec:Multirun mode: 7.0 References\Specs\Spec_Multirun_mode.md
+    - Spec:NEV: 7.0 References\Specs\Spec_NEV.md
+    - Spec:NEVArray: 7.0 References\Specs\Spec_NEVArray.md
+    - Spec:NEVDataFormat: 7.0 References\Specs\Spec_NEVDataFormat.md
+    - Spec:NEVLink: 7.0 References\Specs\Spec_NEVLink.md
+    - Spec:NEVModules: 7.0 References\Specs\Spec_NEVModules.md
+    - Spec:NEVNode: 7.0 References\Specs\Spec_NEVNode.md
+    - Spec:NEVSolver: 7.0 References\Specs\Spec_NEVSolver.md
+    - Spec:Optimize: 7.0 References\Specs\Spec_Optimize.md
+    - Spec:Range: 7.0 References\Specs\Spec_Range.md
+    - Spec:Residential: 7.0 References\Specs\Spec_Residential.md
+    - Spec:Subsecond: 7.0 References\Specs\Spec_Subsecond.md
+    - Spec:Transmission: 7.0 References\Specs\Spec_Transmission.md
+    - Spec:ibr blackboxmodels: 7.0 References\Specs\Spec_ibr_blackboxmodels.md
+    - Spec:ibr grayboxmodels: 7.0 References\Specs\Spec_ibr_grayboxmodels.md
+    - Spec:inverter dyn: 7.0 References\Specs\Spec_inverter_dyn.md
+    - Spec:particle swarm optimizer: 7.0 References\Specs\Spec_particle_swarm_optimizer.md
+    - Spec:sec control: 7.0 References\Specs\Spec_sec_control.md
+    - Spec:switch object: 7.0 References\Specs\Spec_switch_object.md
+    - Spec:sync check: 7.0 References\Specs\Spec_sync_check.md
+    - Spec:sync ctrl: 7.0 References\Specs\Spec_sync_ctrl.md
 - GridLAB-D Documentation Outline: outline.md
