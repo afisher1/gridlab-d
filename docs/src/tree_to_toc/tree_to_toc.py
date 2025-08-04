@@ -74,7 +74,7 @@ def generate_nav_list(root_dir):
 
 
 # Path to the `docs/` directory
-docs_directory = "docs"
+docs_directory = "../../docs"
 
 # Generate and print the nav list
 nav_list = generate_nav_list(docs_directory)
