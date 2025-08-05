@@ -23,6 +23,7 @@ jobs:
       - name: Install Dependencies
         run: |
           sudo apt update
+          sudo apt install -yq libboost-dev
 
       - name: Build HELICS Cache
         id: cache-helics
